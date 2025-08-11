@@ -1,0 +1,8 @@
+<svg width="342" height="432" viewBox="0 0 342 432" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="342" height="432" fill="#E5E7EB"/>
+  <circle cx="171" cy="150" r="50" fill="#9CA3AF"/>
+  <rect x="121" y="220" width="100" height="80" rx="8" fill="#9CA3AF"/>
+  <text x="171" y="340" text-anchor="middle" fill="#6B7280" font-family="Arial" font-size="16" font-weight="500">
+    Photo Coming Soon
+  </text>
+</svg>

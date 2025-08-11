@@ -10,10 +10,17 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Logo and description */}
           <div className="md:col-span-2">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold text-red-400 mb-2">CORNELL</h3>
-              <h3 className="text-3xl font-bold text-white mb-2">ELECTRIC VEHICLES</h3>
-              <h4 className="text-xl font-medium text-gray-400">PROJECT TEAM</h4>
+            <div className="mb-6 flex items-center gap-4">
+              <img 
+                src="/logo.png" 
+                alt="Cornell Electric Vehicles Logo"
+                className="h-16 w-auto"
+              />
+              <div>
+                <h3 className="text-2xl font-bold text-red-400 mb-1">CORNELL</h3>
+                <h3 className="text-2xl font-bold text-white mb-1">ELECTRIC VEHICLES</h3>
+                <h4 className="text-lg font-medium text-gray-400">PROJECT TEAM</h4>
+              </div>
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">
               Cornell Electric Vehicles Project Team is the foremost project team at Cornell University 

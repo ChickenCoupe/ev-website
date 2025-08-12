@@ -100,7 +100,7 @@ const autonomyTeam = [
 ]
 
 // Team member card component
-const TeamMemberCard = ({ member }: { member: any }) => (
+const TeamMemberCard = ({ member }: { member: typeof autonomyTeam[0] }) => (
   <motion.div
     whileHover={{ y: -5 }}
     className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
@@ -275,7 +275,7 @@ export default function AutonomyTeam() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {autonomyTeam.map((member, index) => (
+                          {autonomyTeam.map((member, index) => (
               <motion.div
                 key={member.name}
                 initial={{ opacity: 0, y: 30 }}

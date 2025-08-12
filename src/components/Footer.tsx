@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Instagram, Linkedin, Youtube, Mail } from 'lucide-react'
 
 export default function Footer() {
@@ -11,9 +12,11 @@ export default function Footer() {
           {/* Logo and description */}
           <div className="md:col-span-2">
             <div className="mb-6 flex items-center gap-4">
-              <img 
+              <Image 
                 src="/logo.png" 
                 alt="Cornell Electric Vehicles Logo"
+                width={64}
+                height={128}
                 className="h-16 w-auto"
               />
               <div>

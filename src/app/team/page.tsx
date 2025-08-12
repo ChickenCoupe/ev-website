@@ -55,7 +55,7 @@ const subteams = [
   }
 ];
 
-const SubteamCard = ({ subteam }: { subteam: any }) => {
+const SubteamCard = ({ subteam }: { subteam: typeof subteams[0] }) => {
   const IconComponent = subteam.icon;
   
   return (
@@ -170,7 +170,7 @@ export default function TeamPage() {
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {subteams.map((subteam, index) => (
+                        {subteams.map((subteam, index) => (
               <SubteamCard key={index} subteam={subteam} />
             ))}
           </div>

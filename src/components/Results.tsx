@@ -25,7 +25,7 @@ export default function Results() {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             This year, our team achieved impressive results at the Shell Eco-Marathon Americas, 
-            securing multiple awards and solidifying our status as one of the competition's leading teams.
+            securing multiple awards and solidifying our status as one of the competition&apos;s leading teams.
           </p>
         </motion.div>
 

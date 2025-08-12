@@ -144,7 +144,7 @@ export default function Vehicles() {
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Specifications</h3>
                 <div className="space-y-4">
-                  {currentVehicle.specs.map((spec, index) => (
+                  {currentVehicle.specs.map((spec) => (
                     <div key={spec.label} className="flex items-center gap-4">
                       <div className="bg-red-100 p-2 rounded-lg text-red-600">
                         {spec.icon}

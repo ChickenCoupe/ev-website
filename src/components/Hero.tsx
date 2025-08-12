@@ -40,7 +40,7 @@ export default function Hero() {
             <span className="block text-white">FUTURE.</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Cornell's foremost project team dedicated to building autonomous, hyper-efficient electric vehicles. 
+            Cornell&apos;s foremost project team dedicated to building autonomous, hyper-efficient electric vehicles. 
             Operating at the pace of a startup, producing industry-grade vehicles that compete at the highest levels.
           </p>
         </motion.div>

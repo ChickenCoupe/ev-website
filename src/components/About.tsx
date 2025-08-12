@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Zap, Brain, Cog } from 'lucide-react'
+import Image from 'next/image'
 
 export default function About() {
   const features = [
@@ -35,9 +36,11 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-video rounded-2xl shadow-2xl overflow-hidden">
-              <img 
+              <Image 
                 src="/hero-vehicle.jpg" 
                 alt="Cornell Electric Vehicles team and vehicle"
+                width={800}
+                height={450}
                 className="w-full h-full object-cover"
               />
             </div>

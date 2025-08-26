@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { ArrowLeft, Battery, Zap, Gauge, Weight, Users } from 'lucide-react'
 
@@ -71,7 +70,6 @@ export default function Vehicles() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-red-600 to-red-800 text-white">

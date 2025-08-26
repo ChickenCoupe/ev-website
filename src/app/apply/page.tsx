@@ -32,21 +32,6 @@ export default function Apply() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center gap-3 text-gray-900 hover:text-red-600 transition-colors">
-              <ArrowLeft size={20} />
-              <span className="font-semibold">Back to Home</span>
-            </Link>
-            <Link href="/" className="text-2xl font-bold text-red-600">
-              CEV
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
         <div className="text-center mb-16">

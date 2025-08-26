@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-red-900 to-gray-800 text-white overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-red-900 to-gray-800 text-white overflow-hidden pt-20">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gray-900" style={{

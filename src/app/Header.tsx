@@ -10,82 +10,84 @@ export default function Header() {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isDarkBackground, setIsDarkBackground] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Function to detect if background is dark or light
-  const detectBackgroundColor = () => {
-    const navHeader = document.querySelector('.nav-header') as HTMLElement;
+  // Function to detect section type based on class names and known styling
+  const detectSectionType = () => {
+    // Use appropriate selector based on mobile state
+    const navSelector = isMobile ? '.mobile-nav-header' : '.nav-header';
+    const navHeader = document.querySelector(navSelector) as HTMLElement;
     if (!navHeader) return;
 
-    // Get the element behind the nav header
     const navRect = navHeader.getBoundingClientRect();
-    const centerX = navRect.left + navRect.width / 2;
-    const centerY = navRect.top + navRect.height + 10; // Look just below the nav
+    const centerY = navRect.top + navRect.height + 10;
     
-    // Temporarily hide the nav to sample the background
-    navHeader.style.visibility = 'hidden';
-    const elementBehind = document.elementFromPoint(centerX, centerY);
-    navHeader.style.visibility = 'visible';
+    // Get the element below the nav
+    const elementBelow = document.elementFromPoint(window.innerWidth / 2, centerY);
     
-    if (elementBehind) {
-      const computedStyle = window.getComputedStyle(elementBehind);
-      const backgroundColor = computedStyle.backgroundColor;
-      const backgroundImage = computedStyle.backgroundImage;
-      
-      // Check if there's a background image or gradient (likely dark)
-      if (backgroundImage && backgroundImage !== 'none') {
-        // Check for gradients containing dark colors
-        if (backgroundImage.includes('gradient') && 
-            (backgroundImage.includes('gray-900') || 
-             backgroundImage.includes('red-900') || 
-             backgroundImage.includes('gray-800'))) {
+    if (elementBelow) {
+      // Walk up the DOM to find section containers
+      let currentElement = elementBelow;
+      while (currentElement && currentElement !== document.body) {
+        const classes = currentElement.className || '';
+        
+        // Check for known dark background patterns
+        if (classes.includes('bg-gradient-to-br') ||
+            classes.includes('from-gray-900') ||
+            classes.includes('to-gray-800') ||
+            classes.includes('from-red-600') ||
+            classes.includes('to-red-800') ||
+            classes.includes('bg-gray-900') ||
+            classes.includes('bg-red-600') ||
+            classes.includes('bg-red-800') ||
+            classes.includes('text-white') ||
+            currentElement.tagName === 'SECTION' && classes.includes('bg-gradient')) {
           setIsDarkBackground(true);
+          console.log('Detected dark section:', currentElement.className);
           return;
         }
+        
+        // Check for known light background patterns
+        if (classes.includes('bg-white') ||
+            classes.includes('bg-gray-50') ||
+            classes.includes('bg-gray-100') ||
+            classes.includes('min-h-screen bg-white') ||
+            currentElement.tagName === 'SECTION' && classes.includes('bg-white')) {
+          setIsDarkBackground(false);
+          console.log('Detected light section:', currentElement.className);
+          return;
+        }
+        
+        currentElement = currentElement.parentElement as Element;
       }
       
-      // Parse RGB values from background color
-      const rgbMatch = backgroundColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-      if (rgbMatch) {
-        const r = parseInt(rgbMatch[1]);
-        const g = parseInt(rgbMatch[2]);
-        const b = parseInt(rgbMatch[3]);
-        
-        // Calculate luminance using standard formula
-        const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
-        // More sensitive threshold - switch to dark text on lighter backgrounds
-        const isDark = luminance < 180; // Increased from 128 to 180
-        setIsDarkBackground(isDark);
-        
-        // Debug logging
-        console.log('Background detection:', { r, g, b, luminance, isDark, backgroundColor });
+      // Fallback: check page-level indicators
+      const pathname = window.location.pathname;
+      
+      // Default based on page type
+      if (pathname === '/') {
+        // Home page starts with dark hero section
+        setIsDarkBackground(window.scrollY < 400); // Adjust based on your hero section height
       } else {
-        // If no background color is found, check the body or html element
-        const bodyStyle = window.getComputedStyle(document.body);
-        const htmlStyle = window.getComputedStyle(document.documentElement);
-        
-        // More sensitive detection for light backgrounds
-        if (bodyStyle.backgroundColor.includes('255, 255, 255') || 
-            htmlStyle.backgroundColor.includes('255, 255, 255') ||
-            bodyStyle.backgroundColor === 'rgb(255, 255, 255)' ||
-            bodyStyle.backgroundColor.includes('rgb(248') || // Very light grays like rgb(248, 248, 248)
-            bodyStyle.backgroundColor.includes('rgb(250') || // Very light grays like rgb(250, 250, 250)
-            bodyStyle.backgroundColor.includes('rgb(245')) {  // Light grays like rgb(245, 245, 245)
-          setIsDarkBackground(false);
-        } else {
-          setIsDarkBackground(true);
-        }
+        // Other pages typically have light backgrounds
+        setIsDarkBackground(false);
       }
+      
+      console.log('Using fallback detection for:', pathname, 'scrollY:', window.scrollY);
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const navHeader = document.querySelector('.nav-header');
+      // Use appropriate selector based on mobile state
+      const navSelector = isMobile ? '.mobile-nav-header' : '.nav-header';
+      const navHeader = document.querySelector(navSelector);
       
       // Detect background color on scroll
-      detectBackgroundColor();
+      detectSectionType();
       
       if (navHeader) {
         const navRect = navHeader.getBoundingClientRect();
@@ -116,10 +118,26 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     
     // Initial background detection
-    setTimeout(() => detectBackgroundColor(), 100);
+    setTimeout(() => detectSectionType(), 100);
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, showScrollToTop, isFadingOut]);
+  }, [lastScrollY, showScrollToTop, isFadingOut, isMobile]);
+
+  // Mobile detection
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640); // sm breakpoint
+      if (window.innerWidth >= 640) {
+        setIsMobileMenuOpen(false); // Close mobile menu when resizing to desktop
+      }
+    };
+
+    // Initial check
+    handleResize();
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const scrollToTop = () => {
     setIsFadingOut(true);
@@ -157,118 +175,207 @@ export default function Header() {
 
   return (
     <>
-      <header className="nav-header">
-        <div className="w-full flex items-center justify-center">
-          <nav className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6">
-            {/* Left navigation items */}
-            <Link 
-              href="/team"
-              className={`nav-link text-sm sm:text-base md:text-lg font-semibold px-3 sm:px-4 md:px-5 py-2 rounded-full transition-all duration-300`}
-              style={{
-                color: textColor,
-                backgroundColor: isActive('/team') ? activeBg : 'transparent',
-                fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
-              }}
-              onMouseEnter={(e) => {
-                if (!isActive('/team')) {
-                  e.currentTarget.style.backgroundColor = hoverBg;
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive('/team')) {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                }
-              }}
-            >
-              Our Team
-            </Link>
-            <Link 
-              href="/vehicles"
-              className={`nav-link text-sm sm:text-base md:text-lg font-semibold px-3 sm:px-4 md:px-5 py-2 rounded-full transition-all duration-300`}
-              style={{
-                color: textColor,
-                backgroundColor: isActive('/vehicles') ? activeBg : 'transparent',
-                fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
-              }}
-              onMouseEnter={(e) => {
-                if (!isActive('/vehicles')) {
-                  e.currentTarget.style.backgroundColor = hoverBg;
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive('/vehicles')) {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                }
-              }}
-            >
-              Vehicles
-            </Link>
-            
-            {/* Center logo (home) */}
-            <Link 
-              href="/" 
-              className={`nav-link flex items-center justify-center px-3 sm:px-4 md:px-5 py-2 rounded-lg transition-all duration-300 mx-2`}
-              style={{
-                color: textColor,
-                backgroundColor: isActive('/') ? activeBg : 'transparent',
-                fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
-              }}
-              onMouseEnter={(e) => {
-                if (!isActive('/')) {
-                  e.currentTarget.style.backgroundColor = hoverBg;
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive('/')) {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                }
-              }}
-            >
-              <Image 
-                src="/logo.png" 
-                alt="Cornell Electric Vehicles Logo" 
-                width={50} 
-                height={50}
-                className="object-contain"
-                style={{ width: 'auto', height: '40px' }}
-                priority
-              />
-            </Link>
-            
-            {/* Right navigation items */}
-            <Link 
-              href="/alumni"
-              className={`nav-link text-sm sm:text-base md:text-lg font-semibold px-3 sm:px-4 md:px-5 py-2 rounded-full transition-all duration-300`}
-              style={{
-                color: textColor,
-                backgroundColor: isActive('/alumni') ? activeBg : 'transparent',
-                fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
-              }}
-              onMouseEnter={(e) => {
-                if (!isActive('/alumni')) {
-                  e.currentTarget.style.backgroundColor = hoverBg;
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive('/alumni')) {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                }
-              }}
-            >
-              Alumni
-            </Link>
-            <Link 
-              href="/apply"
-              className="nav-link text-sm sm:text-base md:text-lg font-semibold px-3 sm:px-4 md:px-5 py-2 rounded-full transition-all duration-300 bg-red-600/80 hover:bg-red-600 text-white"
-              style={{
-                fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
-              }}
-            >
-              Apply
-            </Link>
-          </nav>
-        </div>
-      </header>
+      {!isMobile ? (
+        // Desktop Navigation
+        <header className="nav-header">
+          <div className="w-full flex items-center justify-center">
+            <nav className="flex items-center justify-center gap-6">
+              <Link 
+                href="/team"
+                className={`nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300`}
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/team') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive('/team')) {
+                    e.currentTarget.style.backgroundColor = hoverBg;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive('/team')) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}
+              >
+                Team
+              </Link>
+              <Link 
+                href="/vehicles"
+                className={`nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300`}
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/vehicles') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive('/vehicles')) {
+                    e.currentTarget.style.backgroundColor = hoverBg;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive('/vehicles')) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}
+              >
+                Vehicles
+              </Link>
+              
+              <Link 
+                href="/" 
+                className={`nav-link flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300 mx-2`}
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive('/')) {
+                    e.currentTarget.style.backgroundColor = hoverBg;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive('/')) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}
+              >
+                <Image 
+                  src="/logo.png" 
+                  alt="Cornell Electric Vehicles Logo" 
+                  width={80} 
+                  height={36}
+                  className="object-contain"
+                  style={{ width: 'auto', height: '32px' }}
+                  priority
+                />
+              </Link>
+              
+              <Link 
+                href="/alumni"
+                className={`nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300`}
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/alumni') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive('/alumni')) {
+                    e.currentTarget.style.backgroundColor = hoverBg;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive('/alumni')) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}
+              >
+                Alumni
+              </Link>
+              <Link 
+                href="/apply"
+                className="nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300 bg-red-600/80 hover:bg-red-600 text-white"
+                style={{
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+              >
+                Apply
+              </Link>
+            </nav>
+          </div>
+        </header>
+      ) : (
+        // Mobile Navigation
+        <>
+          <header className="mobile-nav-header">
+            <div className="flex items-center justify-between w-full">
+              <Link 
+                href="/" 
+                className="flex items-center"
+              >
+                <Image 
+                  src="/logo.png" 
+                  alt="Cornell Electric Vehicles Logo" 
+                  width={80} 
+                  height={36}
+                  className="object-contain"
+                  style={{ width: 'auto', height: '28px' }}
+                  priority
+                />
+              </Link>
+              
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="mobile-menu-button"
+                style={{
+                  color: textColor,
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+              >
+                <div className="hamburger-lines">
+                  <span style={{ backgroundColor: textColor }}></span>
+                  <span style={{ backgroundColor: textColor }}></span>
+                  <span style={{ backgroundColor: textColor }}></span>
+                </div>
+              </button>
+            </div>
+          </header>
+
+          {/* Mobile Menu Dropdown */}
+          {isMobileMenuOpen && (
+            <nav className="mobile-menu">
+              <Link 
+                href="/team"
+                className="mobile-nav-link"
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/team') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Team
+              </Link>
+              <Link 
+                href="/vehicles"
+                className="mobile-nav-link"
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/vehicles') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Vehicles
+              </Link>
+              <Link 
+                href="/alumni"
+                className="mobile-nav-link"
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/alumni') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Alumni
+              </Link>
+              <Link 
+                href="/apply"
+                className="mobile-nav-link bg-red-600/80 hover:bg-red-600 text-white"
+                style={{
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Apply
+              </Link>
+            </nav>
+          )}
+        </>
+      )}
 
       {/* Scroll to Top Button */}
       {showScrollToTop && (

@@ -14,69 +14,109 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Function to detect section type based on class names and known styling
+  // Function to detect section type based on scroll position and section backgrounds
   const detectSectionType = () => {
-    // Use appropriate selector based on mobile state
-    const navSelector = isMobile ? '.mobile-nav-header' : '.nav-header';
-    const navHeader = document.querySelector(navSelector) as HTMLElement;
-    if (!navHeader) return;
-
-    const navRect = navHeader.getBoundingClientRect();
-    const centerY = navRect.top + navRect.height + 10;
+    const currentScrollY = window.scrollY;
+    const pathname = window.location.pathname;
     
-    // Get the element below the nav
-    const elementBelow = document.elementFromPoint(window.innerWidth / 2, centerY);
-    
-    if (elementBelow) {
-      // Walk up the DOM to find section containers
-      let currentElement = elementBelow;
-      while (currentElement && currentElement !== document.body) {
-        const classes = currentElement.className || '';
-        
-        // Check for known dark background patterns
-        if (classes.includes('bg-gradient-to-br') ||
-            classes.includes('from-gray-900') ||
-            classes.includes('to-gray-800') ||
-            classes.includes('from-red-600') ||
-            classes.includes('to-red-800') ||
-            classes.includes('bg-gray-900') ||
-            classes.includes('bg-red-600') ||
-            classes.includes('bg-red-800') ||
-            classes.includes('text-white') ||
-            currentElement.tagName === 'SECTION' && classes.includes('bg-gradient')) {
-          setIsDarkBackground(true);
-          console.log('Detected dark section:', currentElement.className);
-          return;
-        }
-        
-        // Check for known light background patterns
-        if (classes.includes('bg-white') ||
-            classes.includes('bg-gray-50') ||
-            classes.includes('bg-gray-100') ||
-            classes.includes('min-h-screen bg-white') ||
-            currentElement.tagName === 'SECTION' && classes.includes('bg-white')) {
-          setIsDarkBackground(false);
-          console.log('Detected light section:', currentElement.className);
-          return;
-        }
-        
-        currentElement = currentElement.parentElement as Element;
-      }
-      
-      // Fallback: check page-level indicators
-      const pathname = window.location.pathname;
-      
-      // Default based on page type
-      if (pathname === '/') {
-        // Home page starts with dark hero section
-        setIsDarkBackground(window.scrollY < 400); // Adjust based on your hero section height
-      } else {
-        // Other pages typically have light backgrounds
-        setIsDarkBackground(false);
-      }
-      
-      console.log('Using fallback detection for:', pathname, 'scrollY:', window.scrollY);
+    // For non-home pages, default to light background
+    if (pathname !== '/') {
+      setIsDarkBackground(false);
+      return;
     }
+    
+    // First try selector-based detection
+    const sectionSelectors = [
+      // Hero section - dark gradient
+      { 
+        selector: 'section[class*="bg-gradient-to-br"][class*="from-gray-900"]', 
+        isDark: true 
+      },
+      // Results section - gray background
+      { 
+        selector: 'section[class*="bg-gray-50"]', 
+        isDark: false 
+      },
+      // Stats section - red background (CEV by the numbers)
+      { 
+        selector: 'section[class*="bg-red-600"]', 
+        isDark: true 
+      },
+      // About section - white background
+      { 
+        selector: 'section[class*="bg-white"]:not([class*="min-h-screen"]), div[class*="bg-white"]:not([class*="min-h-screen"])', 
+        isDark: false 
+      },
+      // CTA section - dark gradient (Excited to Join Us)
+      { 
+        selector: 'section[class*="bg-gradient-to-r"][class*="from-gray-900"], div[class*="bg-gradient-to-r"][class*="from-gray-900"]', 
+        isDark: true 
+      },
+      // Footer - dark gray
+      { 
+        selector: 'footer[class*="bg-gray-900"], div[class*="bg-gray-900"]:not([class*="gradient"])', 
+        isDark: true 
+      }
+    ];
+    
+    // Try to find which section we're currently in using selectors
+    let currentSection = null;
+    for (const sectionDef of sectionSelectors) {
+      const element = document.querySelector(sectionDef.selector);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const sectionTop = currentScrollY + rect.top;
+        const sectionBottom = sectionTop + rect.height;
+        
+        // Use a smaller offset for mobile to be more responsive to section changes
+        const offset = isMobile ? 50 : 100;
+        
+        // Check if we're in this section (with some offset for the nav height)
+        if (currentScrollY + offset >= sectionTop && currentScrollY + offset < sectionBottom) {
+          currentSection = { element, isDark: sectionDef.isDark };
+          console.log('Detected section via selector:', sectionDef.selector, currentSection.isDark ? 'dark' : 'light', 'at scrollY:', currentScrollY, 'mobile:', isMobile);
+          break;
+        }
+      }
+    }
+    
+    // If selector-based detection worked, use it
+    if (currentSection) {
+      setIsDarkBackground(currentSection.isDark);
+      console.log('Detected section via selector:', currentSection.isDark ? 'dark' : 'light', 'at scrollY:', currentScrollY);
+      return;
+    }
+    
+    // Fallback to Y position-based detection since section heights are static
+    // Use different heights for mobile vs desktop
+    const sectionHeights = isMobile ? [
+      { start: 0, end: 600, isDark: true },        // Hero section (shorter on mobile)
+      { start: 600, end: 1200, isDark: false },    // Results section  
+      { start: 1200, end: 1600, isDark: true },    // Stats section (CEV by numbers)
+      { start: 1600, end: 2200, isDark: false },   // About section
+      { start: 2200, end: 2600, isDark: true },    // CEV different section
+      { start: 2600, end: 4740, isDark: false },  // Footer section
+      { start: 4740, end: 999999, isDark: true }
+    ] : [
+      { start: 0, end: 800, isDark: true },        // Hero section
+      { start: 800, end: 1600, isDark: false },    // Results section  
+      { start: 1600, end: 2100, isDark: true },    // Stats section (CEV by numbers)
+      { start: 2100, end: 2900, isDark: false },   // About section
+      { start: 2900, end: 3400, isDark: true },    // CTA section (Excited to Join Us)
+      { start: 3400, end: 9999999, isDark: true }  // Footer section
+    ];
+    
+    for (const section of sectionHeights) {
+      if (currentScrollY >= section.start && currentScrollY < section.end) {
+        setIsDarkBackground(section.isDark);
+        console.log('Detected section via Y position:', section.isDark ? 'dark' : 'light', 'at scrollY:', currentScrollY, 'mobile:', isMobile);
+        return;
+      }
+    }
+    
+    // Ultimate fallback
+    setIsDarkBackground(currentScrollY < 100);
+    console.log('Using ultimate fallback detection, scrollY:', currentScrollY);
   };
 
   useEffect(() => {
@@ -123,6 +163,12 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY, showScrollToTop, isFadingOut, isMobile]);
 
+  // Update color detection when mobile menu opens/closes
+  useEffect(() => {
+    // Trigger color detection when mobile menu state changes
+    detectSectionType();
+  }, [isMobileMenuOpen]);
+
   // Mobile detection
   useEffect(() => {
     const handleResize = () => {
@@ -164,12 +210,34 @@ export default function Header() {
 
   // Update link colors when background changes
   useEffect(() => {
-    const links = document.querySelectorAll('.nav-link');
-    links.forEach((link) => {
+    // Update desktop navigation links
+    const desktopLinks = document.querySelectorAll('.nav-link');
+    desktopLinks.forEach((link) => {
       const element = link as HTMLElement;
       if (!element.classList.contains('bg-red-600')) { // Don't change Apply button
         element.style.setProperty('color', textColor, 'important');
       }
+    });
+    
+    // Update mobile navigation links
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach((link) => {
+      const element = link as HTMLElement;
+      if (!element.classList.contains('bg-red-600') && !element.classList.contains('text-white')) { // Don't change Apply button
+        element.style.setProperty('color', textColor, 'important');
+      }
+    });
+    
+    // Update mobile menu button and hamburger lines
+    const mobileMenuButton = document.querySelector('.mobile-menu-button') as HTMLElement;
+    if (mobileMenuButton) {
+      mobileMenuButton.style.setProperty('color', textColor, 'important');
+    }
+    
+    const hamburgerLines = document.querySelectorAll('.hamburger-lines span');
+    hamburgerLines.forEach((line) => {
+      const element = line as HTMLElement;
+      element.style.setProperty('background-color', textColor, 'important');
     });
   }, [isDarkBackground, textColor]);
 
@@ -242,15 +310,44 @@ export default function Header() {
                   }
                 }}
               >
-                <Image 
-                  src="/logo.png" 
-                  alt="Cornell Electric Vehicles Logo" 
-                  width={80} 
-                  height={36}
-                  className="object-contain"
-                  style={{ width: 'auto', height: '32px' }}
-                  priority
-                />
+                <div className="relative flex items-center justify-center" style={{ width: '50px', height: '32px' }}>
+                  <Image 
+                    src="/logo.png"
+                    alt="Cornell Electric Vehicles Logo" 
+                    width={80} 
+                    height={36}
+                    className={`object-contain transition-opacity duration-300 ease-in-out ${
+                      isDarkBackground ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    style={{ 
+                      width: 'auto', 
+                      height: '32px',
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)'
+                    }}
+                    priority
+                  />
+                  <Image 
+                    src="/logo-dark.png"
+                    alt="Cornell Electric Vehicles Logo" 
+                    width={80} 
+                    height={36}
+                    className={`object-contain transition-opacity duration-300 ease-in-out ${
+                      isDarkBackground ? 'opacity-0' : 'opacity-100'
+                    }`}
+                    style={{ 
+                      width: 'auto', 
+                      height: '32px',
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)'
+                    }}
+                    priority
+                  />
+                </div>
               </Link>
               
               <Link 
@@ -295,15 +392,30 @@ export default function Header() {
                 href="/" 
                 className="flex items-center"
               >
-                <Image 
-                  src="/logo.png" 
-                  alt="Cornell Electric Vehicles Logo" 
-                  width={80} 
-                  height={36}
-                  className="object-contain"
-                  style={{ width: 'auto', height: '28px' }}
-                  priority
-                />
+                <div className="relative flex items-center" style={{ width: '80px', height: '28px' }}>
+                  <Image 
+                    src="/logo.png"
+                    alt="Cornell Electric Vehicles Logo" 
+                    width={80} 
+                    height={36}
+                    className={`object-contain absolute inset-0 transition-opacity duration-300 ease-in-out ${
+                      isDarkBackground ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    style={{ width: 'auto', height: '28px' }}
+                    priority
+                  />
+                  <Image 
+                    src="/logo-dark.png"
+                    alt="Cornell Electric Vehicles Logo" 
+                    width={80} 
+                    height={36}
+                    className={`object-contain absolute inset-0 transition-opacity duration-300 ease-in-out ${
+                      isDarkBackground ? 'opacity-0' : 'opacity-100'
+                    }`}
+                    style={{ width: 'auto', height: '28px' }}
+                    priority
+                  />
+                </div>
               </Link>
               
               <button

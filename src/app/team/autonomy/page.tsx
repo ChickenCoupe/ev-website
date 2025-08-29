@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Brain, Car, Cpu, Eye } from 'lucide-react';
+import { Brain, Car, Cpu, Eye } from 'lucide-react';
 
 // Autonomy team data
 const autonomyTeam = [
@@ -103,39 +103,29 @@ const autonomyTeam = [
 const TeamMemberCard = ({ member }: { member: typeof autonomyTeam[0] }) => (
   <motion.div
     whileHover={{ y: -5 }}
-    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+    className="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700"
   >
     <div className="aspect-square w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-      <img 
+      <Image 
         src={member.image} 
         alt={member.name}
+        width={128}
+        height={128}
         className="w-full h-full object-cover"
       />
     </div>
-    <h3 className="text-xl font-bold text-gray-900 text-center mb-2">{member.name}</h3>
-    <p className="text-blue-600 font-semibold text-center mb-1">{member.position}</p>
-    <p className="text-gray-600 text-center mb-1">{member.major}</p>
-    <p className="text-gray-500 text-sm text-center">{member.year}</p>
+    <h3 className="text-xl font-bold text-white text-center mb-2">{member.name}</h3>
+    <p className="text-blue-400 font-semibold text-center mb-1">{member.position}</p>
+    <p className="text-gray-300 text-center mb-1">{member.major}</p>
+    <p className="text-gray-400 text-sm text-center">{member.year}</p>
   </motion.div>
 );
 
 export default function AutonomyTeam() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/team" className="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
-              <ChevronLeft className="w-5 h-5 mr-2" />
-              Back to Teams
-            </Link>
-          </div>
-        </div>
-      </div>
-
+    <div className="min-h-screen bg-gray-900">
       {/* Header */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-16 text-white">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-16 pt-24 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -158,31 +148,31 @@ export default function AutonomyTeam() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">13</div>
-              <div className="text-gray-600">Team Members</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">13</div>
+              <div className="text-gray-300">Team Members</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">Level 2</div>
-              <div className="text-gray-600">Autonomy Target</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">Level 2</div>
+              <div className="text-gray-300">Autonomy Target</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">AI/ML</div>
-              <div className="text-gray-600">Core Technologies</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">AI/ML</div>
+              <div className="text-gray-300">Core Technologies</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">Vision</div>
-              <div className="text-gray-600">Primary Sensor</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">Vision</div>
+              <div className="text-gray-300">Primary Sensor</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Focus Areas */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -191,7 +181,7 @@ export default function AutonomyTeam() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               What We Do
             </h2>
           </motion.div>
@@ -204,11 +194,11 @@ export default function AutonomyTeam() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Eye className="w-8 h-8 text-blue-600" />
+              <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Eye className="w-8 h-8 text-blue-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Computer Vision</h3>
-              <p className="text-gray-600">Object detection and recognition for safe navigation</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Computer Vision</h3>
+              <p className="text-gray-300">Object detection and recognition for safe navigation</p>
             </motion.div>
 
             <motion.div
@@ -218,11 +208,11 @@ export default function AutonomyTeam() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Brain className="w-8 h-8 text-blue-600" />
+              <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Brain className="w-8 h-8 text-blue-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Machine Learning</h3>
-              <p className="text-gray-600">AI algorithms for intelligent decision making</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Machine Learning</h3>
+              <p className="text-gray-300">AI algorithms for intelligent decision making</p>
             </motion.div>
 
             <motion.div
@@ -232,11 +222,11 @@ export default function AutonomyTeam() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Car className="w-8 h-8 text-blue-600" />
+              <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Car className="w-8 h-8 text-blue-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Path Planning</h3>
-              <p className="text-gray-600">Optimal route calculation and obstacle avoidance</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Path Planning</h3>
+              <p className="text-gray-300">Optimal route calculation and obstacle avoidance</p>
             </motion.div>
 
             <motion.div
@@ -246,18 +236,18 @@ export default function AutonomyTeam() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Cpu className="w-8 h-8 text-blue-600" />
+              <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Cpu className="w-8 h-8 text-blue-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Real-time Processing</h3>
-              <p className="text-gray-600">High-performance computing for instant responses</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Real-time Processing</h3>
+              <p className="text-gray-300">High-performance computing for instant responses</p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Team Members */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -266,10 +256,10 @@ export default function AutonomyTeam() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Meet Our Team
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-300">
               Leading the future of autonomous vehicle technology
             </p>
           </motion.div>

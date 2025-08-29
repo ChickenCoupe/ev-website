@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Wrench, Settings, Cog, Wind } from 'lucide-react';
+import { Wrench, Settings, Cog, Wind } from 'lucide-react';
 
 // Mechanical team data
 const mechanicalTeam = [
@@ -199,7 +198,7 @@ const TeamMemberCard = ({ member }: { member: typeof mechanicalTeam[0] }) => (
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
-    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
   >
     <div className="aspect-square relative">
       <Image
@@ -210,30 +209,18 @@ const TeamMemberCard = ({ member }: { member: typeof mechanicalTeam[0] }) => (
       />
     </div>
     <div className="p-6">
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
-      <p className="text-green-600 font-medium mb-1">{member.position}</p>
-      <p className="text-gray-600 text-sm">{member.major} {member.year}</p>
+      <h3 className="text-xl font-semibold text-white mb-2">{member.name}</h3>
+      <p className="text-green-400 font-medium mb-1">{member.position}</p>
+      <p className="text-gray-300 text-sm">{member.major} {member.year}</p>
     </div>
   </motion.div>
 );
 
 export default function MechanicalPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/team" className="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
-              <ChevronLeft className="w-5 h-5 mr-2" />
-              Back to Teams
-            </Link>
-          </div>
-        </div>
-      </div>
-
+    <div className="min-h-screen bg-gray-900">
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-500 to-green-600 py-16 text-white">
+      <div className="bg-gradient-to-r from-green-500 to-green-600 py-16 pt-24 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -256,31 +243,31 @@ export default function MechanicalPage() {
       </div>
 
       {/* Stats */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-green-600 mb-2">20</div>
-              <div className="text-gray-600">Team Members</div>
+              <div className="text-3xl font-bold text-green-400 mb-2">20</div>
+              <div className="text-gray-300">Team Members</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600 mb-2">4</div>
-              <div className="text-gray-600">Focus Areas</div>
+              <div className="text-3xl font-bold text-green-400 mb-2">4</div>
+              <div className="text-gray-300">Focus Areas</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600 mb-2">50+</div>
-              <div className="text-gray-600">Parts Designed</div>
+              <div className="text-3xl font-bold text-green-400 mb-2">50+</div>
+              <div className="text-gray-300">Parts Designed</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600 mb-2">95%</div>
-              <div className="text-gray-600">Efficiency Target</div>
+              <div className="text-3xl font-bold text-green-400 mb-2">95%</div>
+              <div className="text-gray-300">Efficiency Target</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Responsibilities */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -288,8 +275,8 @@ export default function MechanicalPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">What We Do</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-4">What We Do</h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               The mechanical team designs and builds the physical structure and systems that optimize vehicle performance.
             </p>
           </motion.div>
@@ -301,11 +288,11 @@ export default function MechanicalPage() {
               transition={{ duration: 0.5 }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Settings className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Settings className="w-8 h-8 text-green-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Chassis Design</h3>
-              <p className="text-gray-600">Design lightweight yet strong vehicle frames and suspension systems.</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Chassis Design</h3>
+              <p className="text-gray-300">Design lightweight yet strong vehicle frames and suspension systems.</p>
             </motion.div>
             
             <motion.div
@@ -314,11 +301,11 @@ export default function MechanicalPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Wind className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Wind className="w-8 h-8 text-green-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Aerodynamics</h3>
-              <p className="text-gray-600">Optimize vehicle body shape for minimal drag and maximum efficiency.</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Aerodynamics</h3>
+              <p className="text-gray-300">Optimize vehicle body shape for minimal drag and maximum efficiency.</p>
             </motion.div>
             
             <motion.div
@@ -327,11 +314,11 @@ export default function MechanicalPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Cog className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Cog className="w-8 h-8 text-green-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Drivetrain</h3>
-              <p className="text-gray-600">Develop transmission and wheel systems for optimal power delivery.</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Drivetrain</h3>
+              <p className="text-gray-300">Develop transmission and wheel systems for optimal power delivery.</p>
             </motion.div>
             
             <motion.div
@@ -340,18 +327,18 @@ export default function MechanicalPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Wrench className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Wrench className="w-8 h-8 text-green-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Manufacturing</h3>
-              <p className="text-gray-600">Build and assemble components using advanced manufacturing techniques.</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Manufacturing</h3>
+              <p className="text-gray-300">Build and assemble components using advanced manufacturing techniques.</p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Team Members */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -359,8 +346,8 @@ export default function MechanicalPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-4">Meet Our Team</h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               Our mechanical engineers design and build the physical systems that make our vehicles competitive and efficient.
             </p>
           </motion.div>

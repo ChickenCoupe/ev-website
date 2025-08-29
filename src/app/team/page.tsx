@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Users, Zap, Wrench, Brain, Database, Settings } from 'lucide-react';
+import { Users, Zap, Wrench, Brain, Database, Settings } from 'lucide-react';
 
 const subteams = [
   {
@@ -67,7 +67,7 @@ const SubteamCard = ({ subteam }: { subteam: typeof subteams[0] }) => {
       className="group"
     >
       <Link href={subteam.href} className="block">
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+        <div className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-700">
           <div className={`h-2 bg-gradient-to-r ${subteam.color}`}></div>
           <div className="p-8">
             <div className="flex items-center mb-4">
@@ -75,16 +75,16 @@ const SubteamCard = ({ subteam }: { subteam: typeof subteams[0] }) => {
                 <IconComponent className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-red-600 transition-colors">
+                <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors">
                   {subteam.name}
                 </h3>
-                <p className="text-sm text-gray-500">{subteam.members} members</p>
+                <p className="text-sm text-gray-400">{subteam.members} members</p>
               </div>
             </div>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <p className="text-gray-300 leading-relaxed mb-4">
               {subteam.description}
             </p>
-            <div className="flex items-center text-red-600 font-medium group-hover:text-red-700 transition-colors">
+            <div className="flex items-center text-red-400 font-medium group-hover:text-red-300 transition-colors">
               View Team
               <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -99,27 +99,15 @@ const SubteamCard = ({ subteam }: { subteam: typeof subteams[0] }) => {
 
 export default function TeamPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
-              <ChevronLeft className="w-5 h-5 mr-2" />
-              Back to Home
-            </Link>
-          </div>
-        </div>
-      </div>
-
+    <div className="min-h-screen bg-gray-900">
       {/* Header */}
-      <div className="bg-white py-16">
+      <div className="bg-gray-900 py-16 pt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
           >
             Our Team
           </motion.h1>
@@ -127,7 +115,7 @@ export default function TeamPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-gray-300 max-w-3xl mx-auto"
           >
             Meet the dedicated students behind Cornell Electric Vehicles, working together across multiple specialized teams to build the future of sustainable transportation.
           </motion.p>
@@ -135,27 +123,27 @@ export default function TeamPage() {
       </div>
 
       {/* Stats */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-red-600 mb-2">62</div>
-              <div className="text-gray-600">Total Members</div>
+              <div className="text-gray-300">Total Members</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-600 mb-2">6</div>
-              <div className="text-gray-600">Specialized Teams</div>
+              <div className="text-gray-300">Specialized Teams</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-600 mb-2">15+</div>
-              <div className="text-gray-600">Academic Majors</div>
+              <div className="text-gray-300">Academic Majors</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Subteams Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -163,8 +151,8 @@ export default function TeamPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Subteams</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-4">Our Subteams</h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               Each team brings unique expertise and skills to create innovative, efficient electric vehicles.
             </p>
           </motion.div>

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
-import { ArrowLeft, Briefcase, GraduationCap, Users, Calendar } from 'lucide-react'
+import { Briefcase, GraduationCap, Users, Calendar } from 'lucide-react'
 
 export default function Alumni() {
   const alumniData = [
@@ -49,16 +49,11 @@ export default function Alumni() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-900">
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-red-600 to-red-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center text-red-200 hover:text-white mb-8 transition-colors">
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to Home
-          </Link>
-          
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -77,7 +72,7 @@ export default function Alumni() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -91,8 +86,8 @@ export default function Alumni() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 text-white rounded-full mb-4">
                   {stat.icon}
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                <div className="text-gray-300">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -100,7 +95,7 @@ export default function Alumni() {
       </section>
 
       {/* Featured Alumni */}
-      <section className="py-16">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -108,8 +103,8 @@ export default function Alumni() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Alumni</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4">Featured Alumni</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Meet some of our outstanding graduates who are making an impact in the industry
             </p>
           </motion.div>
@@ -121,32 +116,32 @@ export default function Alumni() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-shadow"
+                className="bg-gray-800 rounded-xl shadow-lg border border-gray-700 p-6 hover:shadow-xl transition-shadow"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">{alum.name}</h3>
-                    <p className="text-red-600 font-semibold">Class of {alum.year}</p>
-                    <p className="text-gray-600">{alum.degree}</p>
+                    <h3 className="text-xl font-bold text-white">{alum.name}</h3>
+                    <p className="text-red-400 font-semibold">Class of {alum.year}</p>
+                    <p className="text-gray-300">{alum.degree}</p>
                   </div>
-                  <div className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="bg-red-900 text-red-300 px-3 py-1 rounded-full text-sm font-medium">
                     {alum.team}
                   </div>
                 </div>
                 
                 <div className="mb-4">
                   <div className="flex items-center mb-2">
-                    <Briefcase className="w-4 h-4 text-gray-500 mr-2" />
-                    <span className="text-gray-900 font-medium">Current Position</span>
+                    <Briefcase className="w-4 h-4 text-gray-400 mr-2" />
+                    <span className="text-white font-medium">Current Position</span>
                   </div>
-                  <p className="text-gray-700 ml-6">{alum.currentPosition}</p>
+                  <p className="text-gray-300 ml-6">{alum.currentPosition}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Key Achievements</h4>
+                  <h4 className="font-semibold text-white mb-2">Key Achievements</h4>
                   <ul className="space-y-1">
                     {alum.achievements.map((achievement, achIndex) => (
-                      <li key={achIndex} className="text-gray-600 text-sm flex items-start">
+                      <li key={achIndex} className="text-gray-300 text-sm flex items-start">
                         <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 mr-2 flex-shrink-0"></span>
                         {achievement}
                       </li>

@@ -8,60 +8,89 @@ import { Mail, Linkedin } from 'lucide-react';
 const leadershipTeam = [
   {
     name: 'Selena Yao',
-    position: 'Co-Project Manager',
-    major: 'ILR',
-    year: "'25",
-    image: '/team/selena-yao.webp',
-    bio: 'Leading CEV\'s strategic vision and coordinating cross-functional team efforts to deliver industry-grade vehicles.'
+    position: 'Full Team Lead',
+    major: 'MAE',
+    year: "'26",
+    image: '/team/selena-yao.jpg',
   },
   {
-    name: 'Tyler Wisniewski',
-    position: 'Co-Project Manager',
+    name: 'Kelvin Resch',
+    position: 'Full Team Lead',
     major: 'Computer Science',
     year: "'26",
-    image: '/team/tyler-wisniewski.webp',
-    bio: 'Co-leading the team\'s mechanical and engineering efforts for next-generation electric vehicles.'
+    image: '/team/kelvin-resch.jpg',
   },
   {
-    name: 'Daniela Tran',
-    position: 'Secretary',
-    major: 'Economics & Computer Science',
-    year: "'25",
-    image: '/team/daniela-tran.webp',
-    bio: 'Managing team communications and ensuring organizational efficiency across all subteams.'
-  },
-  {
-    name: 'Juan Pelaez',
-    position: 'Treasurer',
-    major: 'Computer Science',
+    name: 'Leonora Phillips',
+    position: 'Full Team Lead',
+    major: 'ORIE',
     year: "'26",
-    image: '/team/juan-pelaez.webp',
-    bio: 'Overseeing financial planning and resource allocation for optimal team performance.'
-  },
-  {
-    name: 'Lauren Kam',
-    position: 'Public Relations Chair',
-    major: 'Communication',
-    year: "'25",
-    image: '/team/lauren-kam.webp',
-    bio: 'Building relationships with sponsors and managing external communications.'
+    image: '/team/leonora-phillips.jpg',
   },
   {
     name: 'Rachel Arena',
-    position: 'Safety Chair',
-    major: 'Applied Engineering Physics',
+    position: 'Electrical Lead',
+    major: 'ECE',
     year: "'26",
-    image: '/team/rachel-arena.webp',
-    bio: 'Ensuring all safety protocols and standards are met across team operations.'
+    image: '/team/rachel-arena.jpg',
+  },
+  {
+    name: 'Edward Lee',
+    position: 'Electrical Lead',
+    major: 'ECE',
+    year: "'26",
+    image: '/team/edward-lee.jpg',
+  },
+  {
+    name: 'Mackemey Munion',
+    position: 'Mechanical Lead',
+    major: 'MAE',
+    year: "'26",
+    image: '/team/mackemey-munion.jpg',
+  },
+  {
+    name: 'Jordan Vogel',
+    position: 'Mechanical Lead',
+    major: 'MAE',
+    year: "'27",
+    image: '/team/jordan-vogel.jpg',
+  },
+  {
+    name: 'Daniel Sorokin',
+    position: 'Data A&A Lead',
+    major: 'CS',
+    year: "'27",
+    image: '/team/daniel-sorokin.jpg',
+  },
+  {
+    name: 'Ruth Taddesse',
+    position: 'Data A&A Lead',
+    major: 'CS',
+    year: "'27",
+    image: '/team/ruth-taddesse.jpg',
   },
   {
     name: 'Serena Duncan',
-    position: 'Marketing Chair',
-    major: 'Communication',
-    year: "'25",
+    position: 'Data A&A Lead',
+    major: 'CS',
+    year: "'26",
     image: '/team/serena-duncan.webp',
-    bio: 'Developing marketing strategies and promoting CEV\'s mission and achievements.'
-  }
+  },
+  {
+    name: 'Tatum McLaughlin',
+    position: 'Operations Lead',
+    major: 'ORIE',
+    year: "'27",
+    image: '/team/tatum-mclaughlin.jpg',
+  },
+  {
+    name: 'Erica Jiang',
+    position: 'Autonomy Lead',
+    major: 'CS',
+    year: "'28",
+    image: '/team/erica-jiang.png',
+  },
+ 
 ];
 
 // Team member card component

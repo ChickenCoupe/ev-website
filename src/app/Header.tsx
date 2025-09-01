@@ -87,7 +87,7 @@ export default function Header() {
             alignItems: 'center',
             justifyContent: 'center',
             padding: '0.5rem 1rem',
-            background: CSS.supports('backdrop-filter', 'blur(20px)') 
+            background: typeof window !== 'undefined' && CSS.supports('backdrop-filter', 'blur(20px)') 
               ? 'rgba(255, 255, 255, 0.15)' 
               : 'rgba(255, 255, 255, 0.85)',
             backdropFilter: 'blur(20px)',
@@ -231,7 +231,7 @@ export default function Header() {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '0.75rem 1.5rem',
-              background: CSS.supports('backdrop-filter', 'blur(20px)') 
+              background: typeof window !== 'undefined' && CSS.supports('backdrop-filter', 'blur(20px)') 
                 ? 'rgba(255, 255, 255, 0.15)' 
                 : 'rgba(255, 255, 255, 0.85)',
               backdropFilter: 'blur(20px)',

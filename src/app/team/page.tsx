@@ -102,12 +102,12 @@ export default function TeamPage() {
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
       <div className="bg-gray-900 py-16 pt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            className="text-5xl md:text-6xl font-bold text-white mb-6"
           >
             Our Team
           </motion.h1>

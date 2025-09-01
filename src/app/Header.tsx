@@ -8,6 +8,7 @@ import Image from "next/image";
 export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [supportsBackdrop, setSupportsBackdrop] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -17,6 +18,9 @@ export default function Header() {
         setIsMobileMenuOpen(false); // Close mobile menu when resizing to desktop
       }
     };
+
+    // Check backdrop filter support
+    setSupportsBackdrop(CSS.supports('backdrop-filter', 'blur(20px)'));
 
     // Initial check
     handleResize();
@@ -87,9 +91,9 @@ export default function Header() {
             alignItems: 'center',
             justifyContent: 'center',
             padding: '0.5rem 1rem',
-            background: typeof window !== 'undefined' && CSS.supports('backdrop-filter', 'blur(20px)') 
-              ? 'rgba(255, 255, 255, 0.15)' 
-              : 'rgba(255, 255, 255, 0.85)',
+            background: supportsBackdrop 
+              ? 'rgba(255, 255, 255, 0.25)' 
+              : 'rgba(255, 255, 255, 0.9)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
             border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -231,9 +235,9 @@ export default function Header() {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '0.75rem 1.5rem',
-              background: typeof window !== 'undefined' && CSS.supports('backdrop-filter', 'blur(20px)') 
-                ? 'rgba(255, 255, 255, 0.15)' 
-                : 'rgba(255, 255, 255, 0.85)',
+              background: supportsBackdrop 
+                ? 'rgba(255, 255, 255, 0.25)' 
+                : 'rgba(255, 255, 255, 0.9)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               border: '1px solid rgba(255, 255, 255, 0.2)',

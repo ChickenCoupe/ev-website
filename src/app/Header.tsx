@@ -74,7 +74,30 @@ export default function Header() {
     <>
       {!isMobile ? (
         // Desktop Navigation
-        <header className="nav-header">
+        <header 
+          style={{
+            position: 'fixed',
+            top: '1rem',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 'fit-content',
+            maxWidth: 'calc(100vw - 1rem)',
+            zIndex: 9998,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '0.5rem 1rem',
+            background: CSS.supports('backdrop-filter', 'blur(20px)') 
+              ? 'rgba(255, 255, 255, 0.15)' 
+              : 'rgba(255, 255, 255, 0.85)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+            borderRadius: '50px',
+            overflow: 'visible'
+          }}
+        >
           <div className="w-full flex items-center justify-center">
             <nav className="flex items-center justify-center gap-6">
               <Link 
@@ -195,7 +218,29 @@ export default function Header() {
       ) : (
         // Mobile Navigation
         <>
-          <header className="mobile-nav-header">
+          <header 
+            style={{
+              position: 'fixed',
+              top: '1rem',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: 'calc(100vw - 2rem)',
+              maxWidth: '400px',
+              zIndex: 9998,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '0.75rem 1.5rem',
+              background: CSS.supports('backdrop-filter', 'blur(20px)') 
+                ? 'rgba(255, 255, 255, 0.15)' 
+                : 'rgba(255, 255, 255, 0.85)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+              borderRadius: '50px'
+            }}
+          >
             <div className="flex items-center justify-between w-full">
               <Link 
                 href="/" 

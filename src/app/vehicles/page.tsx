@@ -2,9 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { ArrowLeft, Battery, Zap, Gauge, Weight, Users } from 'lucide-react'
+import { Battery, Zap, Gauge, Weight, Users } from 'lucide-react'
 
 export default function Vehicles() {
   const currentVehicle = {
@@ -70,17 +69,11 @@ export default function Vehicles() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
+    <div className="min-h-screen bg-gray-900">
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-red-600 to-red-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center text-red-200 hover:text-white mb-8 transition-colors">
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to Home
-          </Link>
-          
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,7 +91,7 @@ export default function Vehicles() {
       </section>
 
       {/* Current Vehicle */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -107,10 +100,10 @@ export default function Vehicles() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {currentVehicle.name}
             </h2>
-            <p className="text-xl text-gray-600">{currentVehicle.year} {currentVehicle.category}</p>
+            <p className="text-xl text-gray-300">{currentVehicle.year} {currentVehicle.category}</p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -136,22 +129,22 @@ export default function Vehicles() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                 {currentVehicle.description}
               </p>
 
               {/* Specifications */}
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Specifications</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">Specifications</h3>
                 <div className="space-y-4">
                   {currentVehicle.specs.map((spec) => (
                     <div key={spec.label} className="flex items-center gap-4">
-                      <div className="bg-red-100 p-2 rounded-lg text-red-600">
+                      <div className="bg-red-900 p-2 rounded-lg text-red-400">
                         {spec.icon}
                       </div>
                       <div>
-                        <span className="font-semibold text-gray-900">{spec.label}:</span>
-                        <span className="text-gray-600 ml-2">{spec.value}</span>
+                        <span className="font-semibold text-white">{spec.label}:</span>
+                        <span className="text-gray-300 ml-2">{spec.value}</span>
                       </div>
                     </div>
                   ))}
@@ -160,12 +153,12 @@ export default function Vehicles() {
 
               {/* Achievements */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">2025 Achievements</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">2025 Achievements</h3>
                 <ul className="space-y-2">
                   {currentVehicle.achievements.map((achievement, index) => (
                     <li key={index} className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                      <span className="text-gray-600">{achievement}</span>
+                      <span className="text-gray-300">{achievement}</span>
                     </li>
                   ))}
                 </ul>
@@ -176,7 +169,7 @@ export default function Vehicles() {
       </section>
 
       {/* Technologies */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -185,10 +178,10 @@ export default function Vehicles() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Cutting-Edge Technologies
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Our vehicles incorporate the latest innovations in electric vehicle technology and autonomous systems.
             </p>
           </motion.div>
@@ -201,10 +194,10 @@ export default function Vehicles() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-gray-900 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-700"
               >
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{tech.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{tech.description}</p>
+                <h3 className="text-2xl font-bold text-white mb-4">{tech.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{tech.description}</p>
               </motion.div>
             ))}
           </div>
@@ -212,7 +205,7 @@ export default function Vehicles() {
       </section>
 
       {/* Previous Vehicles */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -221,10 +214,10 @@ export default function Vehicles() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Our Legacy
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               A timeline of innovation showcasing our journey in electric vehicle development.
             </p>
           </motion.div>
@@ -247,16 +240,16 @@ export default function Vehicles() {
                   </div>
                 </div>
                 <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-2">{vehicle.name}</h3>
-                  <p className="text-red-600 font-semibold mb-4">{vehicle.year} {vehicle.category}</p>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{vehicle.description}</p>
+                  <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
+                  <p className="text-red-400 font-semibold mb-4">{vehicle.year} {vehicle.category}</p>
+                  <p className="text-gray-300 mb-6 leading-relaxed">{vehicle.description}</p>
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Achievements:</h4>
+                    <h4 className="font-bold text-white mb-2">Achievements:</h4>
                     <ul className="space-y-1">
                       {vehicle.achievements.map((achievement, achievementIndex) => (
                         <li key={achievementIndex} className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                          <span className="text-gray-600">{achievement}</span>
+                          <span className="text-gray-300">{achievement}</span>
                         </li>
                       ))}
                     </ul>

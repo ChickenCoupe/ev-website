@@ -4,12 +4,10 @@ import About from '@/components/About'
 import Results from '@/components/Results'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
       <Hero />
       <Results />
       <Stats />

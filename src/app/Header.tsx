@@ -6,52 +6,10 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 export default function Header() {
-  const [showScrollToTop, setShowScrollToTop] = useState(false);
-  const [isFadingOut, setIsFadingOut] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      // Use appropriate selector based on mobile state
-      const navSelector = isMobile ? '.mobile-nav-header' : '.nav-header';
-      const navHeader = document.querySelector(navSelector);
-      
-      if (navHeader) {
-        const navRect = navHeader.getBoundingClientRect();
-        const isNavVisible = navRect.bottom > 0;
-        const isScrollingUp = currentScrollY < lastScrollY;
-        const isScrollingDown = currentScrollY > lastScrollY;
-        
-        // Show scroll to top when scrolling up and nav is not visible
-        const shouldShow = isScrollingUp && !isNavVisible && currentScrollY > 100;
-        
-        if (shouldShow && !showScrollToTop && !isFadingOut) {
-          setShowScrollToTop(true);
-          setIsFadingOut(false);
-        } else if ((!shouldShow || isScrollingDown) && showScrollToTop && !isFadingOut) {
-          // Start fade out when scrolling down or when conditions change
-          setIsFadingOut(true);
-          // Hide after animation completes
-          setTimeout(() => {
-            setShowScrollToTop(false);
-            setIsFadingOut(false);
-          }, 400);
-        }
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, showScrollToTop, isFadingOut, isMobile]);
-
-  // Mobile detection
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 640); // sm breakpoint
@@ -66,17 +24,6 @@ export default function Header() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const scrollToTop = () => {
-    setIsFadingOut(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // Hide after fade-out animation
-    setTimeout(() => {
-      setShowScrollToTop(false);
-      setIsFadingOut(false);
-    }, 400);
-  };
 
   const isActive = (href: string) => {
     if (href === '/') {
@@ -336,38 +283,6 @@ export default function Header() {
             </nav>
           )}
         </>
-      )}
-
-      {/* Scroll to Top Button */}
-      {showScrollToTop && (
-        <button
-          onClick={scrollToTop}
-          className="scroll-to-top-btn"
-          style={{
-            position: 'fixed',
-            bottom: '2rem',
-            left: '50%',
-            zIndex: 9999,
-            padding: '1rem 1.5rem',
-            background: 'rgba(255, 255, 255, 0.25)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            borderRadius: '50px',
-            color: 'var(--foreground)',
-            fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-            fontSize: '1rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.4s ease',
-            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            animation: isFadingOut ? 'fadeOut 0.4s ease-out forwards' : 'fadeInUp 0.4s ease-out',
-            opacity: isFadingOut ? 0 : 1,
-            transform: isFadingOut ? 'translateX(-50%) translateY(20px)' : 'translateX(-50%) translateY(0)'
-          }}
-        >
-          Return to top ↑
-        </button>
       )}
     </>
   );

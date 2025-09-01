@@ -100,10 +100,12 @@ const autonomyTeam = [
 ]
 
 // Team member card component
-const TeamMemberCard = ({ member }: { member: typeof autonomyTeam[0] }) => (
+const TeamMemberCard = ({ member, index }: { member: typeof autonomyTeam[0], index: number }) => (
   <motion.div
-    whileHover={{ y: -5 }}
-    className="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
   >
     <div className="aspect-square w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
       <Image 
@@ -265,16 +267,8 @@ export default function AutonomyTeam() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                          {autonomyTeam.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <TeamMemberCard member={member} />
-              </motion.div>
+            {autonomyTeam.map((member, index) => (
+              <TeamMemberCard key={member.name} member={member} index={index} />
             ))}
           </div>
         </div>

@@ -55,14 +55,14 @@ const subteams = [
   }
 ];
 
-const SubteamCard = ({ subteam }: { subteam: typeof subteams[0] }) => {
+const SubteamCard = ({ subteam, index }: { subteam: typeof subteams[0], index: number }) => {
   const IconComponent = subteam.icon;
   
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
       whileHover={{ y: -5 }}
       className="group"
     >
@@ -147,8 +147,8 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-4">Our Subteams</h2>
@@ -158,8 +158,8 @@ export default function TeamPage() {
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {subteams.map((subteam, index) => (
-              <SubteamCard key={index} subteam={subteam} />
+            {subteams.map((subteam, index) => (
+              <SubteamCard key={index} subteam={subteam} index={index} />
             ))}
           </div>
         </div>

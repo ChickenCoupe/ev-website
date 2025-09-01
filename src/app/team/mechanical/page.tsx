@@ -193,11 +193,11 @@ const mechanicalTeam = [
 ];
 
 // Team member card component
-const TeamMemberCard = ({ member }: { member: typeof mechanicalTeam[0] }) => (
+const TeamMemberCard = ({ member, index }: { member: typeof mechanicalTeam[0], index: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
     className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
   >
     <div className="aspect-square relative">
@@ -353,8 +353,8 @@ export default function MechanicalPage() {
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                          {mechanicalTeam.map((member, index) => (
-              <TeamMemberCard key={index} member={member} />
+            {mechanicalTeam.map((member, index) => (
+              <TeamMemberCard key={index} member={member} index={index} />
             ))}
           </div>
         </div>

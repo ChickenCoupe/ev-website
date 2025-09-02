@@ -31,6 +31,63 @@ export default function Apply() {
     }
   ]
 
+  const timelineEvents = [
+    {
+      title: "Project Teams Fest",
+      date: "9/5 @ 4:00 PM",
+      location: "Duffield Atrium",
+      side: "left"
+    },
+    {
+      title: "Upperclassmen Info Session",
+      date: "9/3 @ 7:00 PM", 
+      location: "Kimball B11",
+      side: "right"
+    },
+    {
+      title: "Upperclassmen Applications Due",
+      date: "9/5 @ 11:59 PM",
+      location: null,
+      side: "left"
+    },
+    {
+      title: "Info Session #1",
+      date: "9/7 @ 5:00 PM",
+      location: "Phillips 219",
+      side: "right"
+    },
+    {
+      title: "Info Session #2",
+      date: "9/15 @ 5:00 PM",
+      location: "Phillips 219", 
+      side: "left"
+    },
+    {
+      title: "Info Session #3",
+      date: "9/25 @ 7:00 PM",
+      location: "Phillips 219",
+      side: "right"
+    },
+    {
+      title: "Info Session #4",
+      date: "10/1 @ 5:00 PM",
+      location: "RPCC 205",
+      side: "left"
+    },
+    {
+      title: "Info Session #5", 
+      date: "10/7 @ 5:00 PM",
+      location: "RPCC 205",
+      side: "right"
+    },
+    {
+      title: "Freshmen/Transfers Applications Due",
+      date: "10/17 @ 11:59 PM",
+      location: null,
+      side: "left"
+    }
+  ]
+
   return (
     <div className="min-h-screen bg-gray-900">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-32">
@@ -86,6 +143,46 @@ export default function Apply() {
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Welcome to CEV</h3>
               <p className="text-gray-300">Join our team and start working on cutting-edge projects</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Timeline */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-white mb-12 text-center">Important Dates</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-gray-600"></div>
+              
+              {/* Timeline items */}
+              <div className="space-y-12">
+                {timelineEvents.map((event, index) => (
+                  <div key={index} className="relative flex items-center">
+                    {event.side === "left" ? (
+                      <>
+                        <div className="flex-1 text-right pr-8">
+                          <h3 className="text-xl font-bold text-white mb-1">{event.title}</h3>
+                          <p className="text-gray-300 mb-1">{event.date}</p>
+                          {event.location && <p className="text-gray-400">{event.location}</p>}
+                        </div>
+                        <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-red-600 rounded-full border-4 border-gray-900"></div>
+                        <div className="flex-1 pl-8"></div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="flex-1 pr-8"></div>
+                        <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-red-600 rounded-full border-4 border-gray-900"></div>
+                        <div className="flex-1 text-left pl-8">
+                          <h3 className="text-xl font-bold text-white mb-1">{event.title}</h3>
+                          <p className="text-gray-300 mb-1">{event.date}</p>
+                          {event.location && <p className="text-gray-400">{event.location}</p>}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

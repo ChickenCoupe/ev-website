@@ -11,7 +11,6 @@ const subteams = [
     icon: Users,
     href: '/team/leadership',
     color: 'from-red-500 to-red-600',
-    members: 7
   },
   {
     name: 'Mechanical',
@@ -19,7 +18,6 @@ const subteams = [
     icon: Wrench,
     href: '/team/mechanical',
     color: 'from-red-500 to-red-600',
-    members: 20
   },
   {
     name: 'Electrical',
@@ -27,7 +25,6 @@ const subteams = [
     icon: Zap,
     href: '/team/electrical',
     color: 'from-red-500 to-red-600',
-    members: 14
   },
   {
     name: 'Data A&A',
@@ -35,7 +32,6 @@ const subteams = [
     icon: Database,
     href: '/team/data-aa',
     color: 'from-red-500 to-red-600',
-    members: 5
   },
   {
     name: 'Autonomy',
@@ -43,7 +39,6 @@ const subteams = [
     icon: Brain,
     href: '/team/autonomy',
     color: 'from-red-500 to-red-600',
-    members: 12
   },
   {
     name: 'Operations',
@@ -51,7 +46,6 @@ const subteams = [
     icon: Settings,
     href: '/team/operations',
     color: 'from-red-500 to-red-600',
-    members: 4
   }
 ];
 
@@ -78,7 +72,6 @@ const SubteamCard = ({ subteam, index }: { subteam: typeof subteams[0], index: n
                 <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors">
                   {subteam.name}
                 </h3>
-                <p className="text-sm text-gray-400">{subteam.members} members</p>
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed mb-4">

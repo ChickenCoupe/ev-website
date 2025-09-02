@@ -1,12 +1,13 @@
 import Link from 'next/link'
-import { ArrowLeft, Users, Code, Wrench, Zap, BarChart } from 'lucide-react'
+import { Users, Code, Wrench, Zap, BarChart } from 'lucide-react'
+import Image from 'next/image';
 
 export default function Apply() {
   const subteams = [
     {
-      icon: <Code className="w-8 h-8" />,
-      name: "Software",
-      description: "Develop autonomous driving systems, telemetry, and vehicle control software"
+      icon: <Wrench className="w-8 h-8" />,
+      name: "Mechanical",
+      description: "Engineer chassis, suspension, aerodynamics, and manufacture the vehicle"
     },
     {
       icon: <Zap className="w-8 h-8" />,
@@ -14,19 +15,19 @@ export default function Apply() {
       description: "Design power systems, motor controllers, and electronic circuits"
     },
     {
-      icon: <Wrench className="w-8 h-8" />,
-      name: "Mechanical",
-      description: "Engineer chassis, suspension, aerodynamics, and manufacturing processes"
+      icon: <Code className="w-8 h-8" />,
+      name: "Data A&A",
+      description: "Develop telemtry visualization and capture software"
     },
     {
       icon: <BarChart className="w-8 h-8" />,
-      name: "Business",
-      description: "Manage partnerships, fundraising, marketing, and team operations"
+      name: "Autonomy",
+      description: "Develop autonomous driving systems and vehicle control software"
     },
     {
       icon: <Users className="w-8 h-8" />,
-      name: "Project Management",
-      description: "Coordinate cross-functional projects and ensure timely delivery"
+      name: "Operations",
+      description: "Manage partnerships, fundraising, marketing, and team operations"
     }
   ]
 
@@ -35,10 +36,11 @@ export default function Apply() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-32">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Join <span className="text-red-600">CEV</span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <div className="flex items-center justify-center space-x-9 py-16">
+            <h1 className="text-white text-8xl font-bold">Join</h1>
+            <img src="/logo.png" alt="Logo" className="h-40" />
+          </div>
+          <p className="text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-bold">
             Ready to build the future of sustainable transportation? Join our interdisciplinary team 
             and work on cutting-edge electric vehicle technology.
           </p>

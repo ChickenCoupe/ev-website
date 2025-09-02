@@ -73,7 +73,7 @@ export default function Vehicles() {
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-red-600 to-red-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

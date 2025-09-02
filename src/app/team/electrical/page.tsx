@@ -5,27 +5,21 @@ import { motion } from 'framer-motion';
 import { Zap, Battery, Cpu, Shield } from 'lucide-react';
 
 // Electrical team data
+//! Need to add current sophomores
 const electricalTeam = [
-  {
-    name: 'Daniela Tran',
-    position: 'Electrical Co-Lead',
-    major: 'ECE',
-    year: '2025',
-    image: '/team/daniela-tran-electrical.jpg'
-  },
   {
     name: 'Rachel Arena',
     position: 'Electrical Co-Lead',
     major: 'ECE',
     year: '2026',
-    image: '/team/rachel-arena-electrical.jpg'
+    image: '/team/rachel-arena.jpg'
   },
   {
-    name: 'Daniel Rodriguez',
-    position: 'Electrical Member',
+    name: 'Edward Lee',
+    position: 'Electrical Co-Lead',
     major: 'ECE',
-    year: '2025',
-    image: '/team/daniel-rodriguez.jpg'
+    year: '2026',
+    image: '/team/edward-lee.jpg'
   },
   {
     name: 'Micah Fisher',
@@ -42,32 +36,11 @@ const electricalTeam = [
     image: '/team/guillaume-ah-hot.jpg'
   },
   {
-    name: 'Dionna Parina',
-    position: 'Electrical Member',
-    major: 'ECE',
-    year: '2025',
-    image: '/team/dionna-parina.jpg'
-  },
-  {
-    name: 'Kelvin Resch',
-    position: 'Electrical Member',
-    major: 'ECE',
-    year: '2026',
-    image: '/team/kelvin-resch.jpg'
-  },
-  {
     name: 'Nimish Goel',
     position: 'Electrical Member',
     major: 'ECE/CS',
     year: '2027',
     image: '/team/nimish-goel.jpg'
-  },
-  {
-    name: 'Edward Lee',
-    position: 'Electrical Member',
-    major: 'ECE',
-    year: '2026',
-    image: '/team/edward-lee.jpg'
   },
   {
     name: 'Arnav Shah',

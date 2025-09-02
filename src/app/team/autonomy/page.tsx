@@ -7,11 +7,11 @@ import { Brain, Car, Cpu, Eye } from 'lucide-react';
 // Autonomy team data
 const autonomyTeam = [
   {
-    name: 'Jason Klein',
+    name: 'Erica Jiang',
     position: 'Autonomy Lead',
-    major: 'CS/Math',
-    year: '2026',
-    image: '/team/jason-klein.jpg'
+    major: 'CS',
+    year: '2028',
+    image: '/team/erica-jiang.png'
   },
   {
     name: 'Sidharth Rao',
@@ -39,7 +39,7 @@ const autonomyTeam = [
     position: 'Autonomy Member',
     major: 'CS/ECE',
     year: '2027',
-    image: '/team/placeholder.jpg'
+    image: '/team/placeholder.svg'
   },
   {
     name: 'Myles Pasetsky',
@@ -67,35 +67,35 @@ const autonomyTeam = [
     position: 'Autonomy Member',
     major: 'CS',
     year: '2028',
-    image: '/team/placeholder.jpg'
+    image: '/team/placeholder.svg'
   },
   {
-    name: 'Erica Jiang',
-    position: 'Autonomy Member',
-    major: 'CS/ECE',
-    year: '2028',
-    image: '/team/placeholder.jpg'
+    name: 'Jason Klein',
+    position: 'Autonomy Member/Advisor',
+    major: 'CS',
+    year: '2026',
+    image: '/team/jason-klein.jpg'
   },
   {
     name: 'Jess Wang',
     position: 'Autonomy Member',
     major: 'CS',
     year: '2028',
-    image: '/team/placeholder.jpg'
+    image: '/team/placeholder.svg'
   },
   {
     name: 'Ibrahim Ahmed',
     position: 'Autonomy Member',
     major: 'ECE/CS',
     year: '2028',
-    image: '/team/placeholder.jpg'
+    image: '/team/placeholder.svg'
   },
   {
     name: 'Cam Mazzacane',
     position: 'Autonomy Member',
     major: 'CS/Math',
     year: '2028',
-    image: '/team/placeholder.jpg'
+    image: '/team/placeholder.svg'
   }
 ]
 
@@ -107,7 +107,7 @@ const TeamMemberCard = ({ member, index }: { member: typeof autonomyTeam[0], ind
     transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
     className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
   >
-    <div className="aspect-square w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+    <div className="aspect-square w-64 h-64 mx-auto mb-4 rounded-2xl overflow-hidden">
       <Image 
         src={member.image} 
         alt={member.name}

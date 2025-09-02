@@ -16,7 +16,7 @@ const leadershipTeam = [
   {
     name: 'Kelvin Resch',
     position: 'Full Team Lead',
-    major: 'Computer Science',
+    major: 'ECE',
     year: "'26",
     image: '/team/kelvin-resch.jpg',
   },
@@ -113,7 +113,6 @@ const TeamMemberCard = ({ member, index }: { member: typeof leadershipTeam[0], i
       <h3 className="text-xl font-semibold text-white mb-2">{member.name}</h3>
       <p className="text-blue-400 font-medium mb-1">{member.position}</p>
       <p className="text-gray-300 text-sm mb-3">{member.major} {member.year}</p>
-      <p className="text-gray-300 text-sm leading-relaxed">{member.bio}</p>
       <div className="flex space-x-3 mt-4">
         <button className="text-gray-400 hover:text-blue-400 transition-colors">
           <Linkedin className="w-5 h-5" />

@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { Users, Code, Wrench, Zap, BarChart } from 'lucide-react'
 import Image from 'next/image';
+import Footer from '@/components/Footer'
+
 
 export default function Apply() {
   const subteams = [
@@ -93,24 +95,26 @@ export default function Apply() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-32">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center space-x-9 py-16">
+            <div className="flex items-center justify-center space-x-9 py-16">
             <h1 className="text-white text-8xl font-bold">Join</h1>
-            <img src="/logo.png" alt="Logo" className="h-40" />
-          </div>
+            <Image src="/logo.png" alt="Logo" width={90} height={90} />
+            </div>
           <p className="text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-bold">
             Ready to build the future of sustainable transportation? Join our interdisciplinary team 
             and work on cutting-edge electric vehicle technology.
           </p>
         </div>
 
-        <div className="mb-16">
+        <div className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8">
           <h2 className="text-3xl font-bold text-white mb-6 text-center"><u>Fall 2025 Applications</u></h2>
           <p className="text-lg text-gray-300 mb-8 text-center">CEV is excited to welcome a new class of team members this semester!</p>
           <p className="text-lg text-gray-300 mb-8 text-center">Please note that recruitment is <b>only open to first-year and transfer students this fall.</b></p>
           <Link 
             href="https://docs.google.com/forms/d/e/1FAIpQLSeRy1lEO_K8oHmt2BG_V4IBAjcQi5rWzJmT4U_rdNMHVpxbzA/viewform?pli=1"
           >
-            <p className="text-2xl text-red-500 hover:text-red-400 transition-colors mb-8 text-center font-bold">Freshmen+Transfers Application Form</p>
+            <p className="text-2xl text-red-500 hover:text-red-400 transition-colors mb-8 text-center underline font-bold">
+              Fall Application Form
+            </p>
           </Link>
           <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our <b>Coffee Chat Information</b> and fill out our&nbsp;
             <Link 
@@ -210,7 +214,7 @@ export default function Apply() {
         </div>
 
         {/* CTA */}
-        <div className="text-center">
+        <div className="text-center bg-gray-800 rounded-2xl mb-16 p-8 border-gray-700">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Apply?</h2>
           <p className="text-lg text-gray-300 mb-8">Applications open at the beginning of each semester.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -229,6 +233,7 @@ export default function Apply() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

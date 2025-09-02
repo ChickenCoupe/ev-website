@@ -16,7 +16,7 @@ export default function CTA() {
           className="mb-12"
         >
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Excited To Join Us?
+            Excited To <span className="text-red-600"> Join Us?</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Be part of the next generation of automotive innovation. Join Cornell Electric Vehicles 

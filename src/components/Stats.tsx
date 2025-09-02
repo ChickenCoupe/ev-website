@@ -8,7 +8,6 @@ export default function Stats() {
     { number: '85', label: 'members' },
     { number: '5', label: 'subteams' },
     { number: '50%', label: 'women' },
-    { number: '20+', label: 'projects' }
   ]
 
   return (
@@ -29,7 +28,7 @@ export default function Stats() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="flex flex-wrap justify-center gap-50 mb-2">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}

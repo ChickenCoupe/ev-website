@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Code, Database, Icon, Server, Terminal, Timer} from 'lucide-react';
+import { Icon, Server, Terminal, Timer} from 'lucide-react';
 import { motorRacingHelmet } from '@lucide/lab';
 
 const dataTeam= [
@@ -81,7 +81,7 @@ export default function DataTeam() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-xl text-blue-100 max-w-3xl mx-auto"
                     >
-                        The Data Apps and Analytics (Data A&A) subteam uses web, mobile, and IoT technology to collect, analyze, and display data from vehicle testing. We're responsible for the high-frequency data collection, storage, and efficiency analysis required for data-driven engineering. 
+                        The Data Apps and Analytics (Data A&A) subteam uses web, mobile, and IoT technology to collect, analyze, and display data from vehicle testing. We&apos;re responsible for the high-frequency data collection, storage, and efficiency analysis required for data-driven engineering. 
                     </motion.p>
                 </div>
             </section>

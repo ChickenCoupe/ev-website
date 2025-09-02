@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Icon, Server, Terminal, Timer} from 'lucide-react';
 import { motorRacingHelmet } from '@lucide/lab';
+import Footer from '@/components/Footer'
 
 const dataTeam= [
     {
@@ -53,7 +54,7 @@ const TeamMemberCard = ({ member, index }: {member: typeof dataTeam[0], index: n
         </div>
         <div className="p-6">
             <h3 className="text-xl font-bold text-white text-center mb-2">{member.name}</h3>
-            <p className="text-blue-400 font-semibold text-center mb-1">{member.position}</p>
+            <p className="text-red-400 font-semibold text-center mb-1">{member.position}</p>
             <p className="text-gray-300 text-center mb-1">{member.major}</p>
             <p className="text-gray-400 text-center mb-1">{member.year}</p>
         </div>
@@ -64,7 +65,7 @@ export default function DataTeam() {
     return (
         <div className="min-h-screen bg-gray-900">
         {/* Header */}
-            <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-16 pt-24 text-white">
+            <section className="bg-gradient-to-r from-red-600 to-red-700 py-16 pt-24 text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <motion.div
                         initial={{ opacity: 0, y:20 }}
@@ -79,7 +80,7 @@ export default function DataTeam() {
                         initial={{ opacity:0, y:20 }}
                         animate={{ opacity:1, y:0}}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-xl text-blue-100 max-w-3xl mx-auto"
+                        className="text-xl text-red-100 max-w-3xl mx-auto"
                     >
                         The Data Apps and Analytics (Data A&A) subteam uses web, mobile, and IoT technology to collect, analyze, and display data from vehicle testing. We&apos;re responsible for the high-frequency data collection, storage, and efficiency analysis required for data-driven engineering. 
                     </motion.p>
@@ -109,8 +110,8 @@ export default function DataTeam() {
                             viewport={{ once: true }}
                             className="text-center"
                         >
-                            <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                               <Icon iconNode={motorRacingHelmet} className="w-8 h-8 text-blue-400" /> 
+                            <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                               <Icon iconNode={motorRacingHelmet} className="w-8 h-8 text-red-400" /> 
                             </div>
                             <h3 className="text-xl font-semibold text-white mb-2">Driver Dashboard</h3>
                             <p className="text-gray-300">A mobile app that is both a driver dashboard and a data tunnel, forwarding electrical DAQ data to the Live Timing Dashboard.</p>
@@ -123,8 +124,8 @@ export default function DataTeam() {
                             viewport={{ once: true }}
                             className="text-center"
                         >
-                            <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Timer className="w-8 h-8 text-blue-400" /> 
+                            <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <Timer className="w-8 h-8 text-red-400" /> 
                             </div>
                             <h3 className="text-xl font-semibold text-white mb-2">Live Timing Dashboard</h3>
                             <p className="text-gray-300">A web-based dashboard useful for competition preparation that displays stats such as speed and battery level in real-time.</p>
@@ -137,8 +138,8 @@ export default function DataTeam() {
                             viewport={{ once: true }}
                             className="text-center"
                         >
-                            <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Terminal className="w-8 h-8 text-blue-400" />
+                            <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <Terminal className="w-8 h-8 text-red-400" />
                             </div>
                             <h3 className="text-xl font-semibold text-white mb-2">AR Windshield</h3>
                             <p className="text-gray-300">A forward-looking project aiming to display Driver Dashboard contents directly on the competition vehicle windshield.</p>
@@ -172,7 +173,7 @@ export default function DataTeam() {
                     </div>
                 </div>
             </section>
-
+            <Footer/>
         </div>
     )
 }

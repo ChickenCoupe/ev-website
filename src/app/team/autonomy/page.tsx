@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Brain, Car, Cpu, Eye } from 'lucide-react';
+import Footer from '@/components/Footer'
 
 // Autonomy team data
 const autonomyTeam = [
@@ -117,7 +118,7 @@ const TeamMemberCard = ({ member, index }: { member: typeof autonomyTeam[0], ind
       />
     </div>
     <h3 className="text-xl font-bold text-white text-center mb-2">{member.name}</h3>
-    <p className="text-blue-400 font-semibold text-center mb-1">{member.position}</p>
+    <p className="text-red-400 font-semibold text-center mb-1">{member.position}</p>
     <p className="text-gray-300 text-center mb-1">{member.major}</p>
     <p className="text-gray-400 text-sm text-center">{member.year}</p>
   </motion.div>
@@ -127,7 +128,7 @@ export default function AutonomyTeam() {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-16 pt-24 text-white">
+      <section className="bg-gradient-to-r from-red-600 to-red-700 py-16 pt-24 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -142,7 +143,7 @@ export default function AutonomyTeam() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-blue-100 max-w-3xl mx-auto"
+            className="text-xl text-red-100 max-w-3xl mx-auto"
           >
             We develop autonomous driving systems, computer vision, and AI algorithms that enable our vehicles to navigate intelligently.
           </motion.p>
@@ -154,19 +155,19 @@ export default function AutonomyTeam() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-400 mb-2">13</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">13</div>
               <div className="text-gray-300">Team Members</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-400 mb-2">Level 2</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">Level 2</div>
               <div className="text-gray-300">Autonomy Target</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-400 mb-2">AI/ML</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">AI/ML</div>
               <div className="text-gray-300">Core Technologies</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-400 mb-2">Vision</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">Vision</div>
               <div className="text-gray-300">Primary Sensor</div>
             </div>
           </div>
@@ -196,8 +197,8 @@ export default function AutonomyTeam() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Eye className="w-8 h-8 text-blue-400" />
+              <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Eye className="w-8 h-8 text-red-400" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Computer Vision</h3>
               <p className="text-gray-300">Object detection and recognition for safe navigation</p>
@@ -210,8 +211,8 @@ export default function AutonomyTeam() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Brain className="w-8 h-8 text-blue-400" />
+              <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Brain className="w-8 h-8 text-red-400" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Machine Learning</h3>
               <p className="text-gray-300">AI algorithms for intelligent decision making</p>
@@ -224,8 +225,8 @@ export default function AutonomyTeam() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Car className="w-8 h-8 text-blue-400" />
+              <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Car className="w-8 h-8 text-red-400" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Path Planning</h3>
               <p className="text-gray-300">Optimal route calculation and obstacle avoidance</p>
@@ -238,8 +239,8 @@ export default function AutonomyTeam() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Cpu className="w-8 h-8 text-blue-400" />
+              <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Cpu className="w-8 h-8 text-red-400" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Real-time Processing</h3>
               <p className="text-gray-300">High-performance computing for instant responses</p>
@@ -273,6 +274,7 @@ export default function AutonomyTeam() {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   )
 }

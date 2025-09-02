@@ -14,14 +14,6 @@ const subteams = [
     members: 7
   },
   {
-    name: 'Electrical',
-    description: 'Design and implement power systems, motor controllers, and electronic components for our vehicles.',
-    icon: Zap,
-    href: '/team/electrical',
-    color: 'from-red-500 to-red-600',
-    members: 14
-  },
-  {
     name: 'Mechanical',
     description: 'Engineer the chassis, aerodynamics, and mechanical systems that make our vehicles efficient.',
     icon: Wrench,
@@ -30,12 +22,12 @@ const subteams = [
     members: 20
   },
   {
-    name: 'Autonomy',
-    description: 'Develop autonomous driving capabilities and intelligent navigation systems.',
-    icon: Brain,
-    href: '/team/autonomy',
+    name: 'Electrical',
+    description: 'Design and implement power systems, motor controllers, and electronic components for our vehicles.',
+    icon: Zap,
+    href: '/team/electrical',
     color: 'from-red-500 to-red-600',
-    members: 12
+    members: 14
   },
   {
     name: 'Data A&A',
@@ -44,6 +36,14 @@ const subteams = [
     href: '/team/data-aa',
     color: 'from-red-500 to-red-600',
     members: 5
+  },
+  {
+    name: 'Autonomy',
+    description: 'Develop autonomous driving capabilities and intelligent navigation systems.',
+    icon: Brain,
+    href: '/team/autonomy',
+    color: 'from-red-500 to-red-600',
+    members: 12
   },
   {
     name: 'Operations',

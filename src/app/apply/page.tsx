@@ -17,7 +17,7 @@ export default function Apply() {
     {
       icon: <Code className="w-8 h-8" />,
       name: "Data A&A",
-      description: "Develop telemtry visualization and capture software"
+      description: "Develop telemetry visualization and capture software"
     },
     {
       icon: <BarChart className="w-8 h-8" />,
@@ -90,7 +90,7 @@ export default function Apply() {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-32">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-32">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center space-x-9 py-16">
@@ -103,20 +103,26 @@ export default function Apply() {
           </p>
         </div>
 
-        {/* Subteams */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">Choose Your Subteam</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {subteams.map((subteam) => (
-              <div key={subteam.name} className="bg-gray-800 rounded-xl p-6 hover:shadow-xl transition-shadow border border-gray-700">
-                <div className="text-red-400 mb-4">
-                  {subteam.icon}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">{subteam.name}</h3>
-                <p className="text-gray-300">{subteam.description}</p>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-3xl font-bold text-white mb-6 text-center"><u>Fall 2025 Applications</u></h2>
+          <p className="text-lg text-gray-300 mb-8 text-center">CEV is excited to welcome a new class of team members this semester!</p>
+          <p className="text-lg text-gray-300 mb-8 text-center">Please note that recruitment is <b>only open to first-year and transfer students this fall.</b></p>
+          <Link 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeRy1lEO_K8oHmt2BG_V4IBAjcQi5rWzJmT4U_rdNMHVpxbzA/viewform?pli=1"
+          >
+            <p className="text-2xl text-red-500 hover:text-red-400 transition-colors mb-8 text-center font-bold">Freshmen+Transfers Application Form</p>
+          </Link>
+          <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our <b>Coffee Chat Information</b> and fill out our&nbsp;
+            <Link 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeTDgkBkoyXQS9YPAmIlsOSRW8ZHlHpMccRRt7n-RoQeb180A/viewform?usp=dialog"
+              className="text-gray-150 hover:text-white transition-colors font-bold underline"
+            >
+            Interest Form
+            </Link>
+          !</p>
+          <p className="text-lg text-gray-300 mb-8 text-center">Thank you for your interest in joining our team! We've been thrilled to engage with so many passionate individuals keen on pushing the limits of autonomous and electric vehicle innovation.</p>
+          <p className="text-lg text-gray-300 mb-8 text-center">CEV thrives thanks to a dedicate team of electrical, mechanical, and software engineers working alongside project managers, financial advisors, and graphic designers. We're hoping to see you among us in the current application cycle! </p>
+          <p className="text-lg text-gray-300 mb-8 text-center">For any questions about our team or updates on our endeavors and timelines, reach out to us at cornellev@cornell.edu.</p>
         </div>
 
         {/* Application Process */}
@@ -127,23 +133,39 @@ export default function Apply() {
               <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
                 1
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Submit Application</h3>
-              <p className="text-gray-300">Complete our online application form with your background and interests</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Choose Subteam</h3>
+              <p className="text-gray-300">Choose which subteam that you want to apply to.</p>
             </div>
             <div className="text-center">
               <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
                 2
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Technical Interview</h3>
-              <p className="text-gray-300">Showcase your technical skills and passion for electric vehicles</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Submit Application</h3>
+              <p className="text-gray-300">Complete the online application with your background and interests.</p>
             </div>
             <div className="text-center">
               <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
                 3
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Welcome to CEV</h3>
-              <p className="text-gray-300">Join our team and start working on cutting-edge projects</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Technical Interview</h3>
+              <p className="text-gray-300">Showcase your technical skills, and tell us about you!</p>
             </div>
+          </div>
+        </div>
+
+        {/* Subteams */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">Our Subteams</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {subteams.map((subteam) => (
+              <div key={subteam.name} className="bg-gray-800 rounded-xl p-6 hover:shadow-xl transition-shadow border border-gray-700">
+                <div className="text-red-400 mb-4">
+                  {subteam.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">{subteam.name}</h3>
+                <p className="text-gray-300">{subteam.description}</p>
+              </div>
+            ))}
           </div>
         </div>
 

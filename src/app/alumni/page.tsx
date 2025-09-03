@@ -255,7 +255,7 @@ export default function Alumni() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Interactive Map Coming Soon</h3>
-                <p className="text-gray-300">We're building an interactive map to showcase our global alumni network</p>
+                <p className="text-gray-300">We&pos;re building an interactive map to showcase our global alumni network</p>
               </div>
             </div>
           </motion.div>

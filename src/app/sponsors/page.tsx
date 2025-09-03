@@ -2,45 +2,106 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ExternalLink, Heart, Handshake } from 'lucide-react';
+import { Heart, Handshake } from 'lucide-react';
 import Footer from '@/components/Footer';
+import Link from 'next/link'
 
 const sponsors = [
   {
-    name: "Cornell Engineering",
-    tier: "Title Sponsor",
-    logo: "/logo.png", // Replace with actual sponsor logo
-    website: "https://www.engineering.cornell.edu",
-    description: "Supporting innovation and excellence in engineering education."
+    name: "NVIDIA",
+    logo: "/sponsors/nvidia-logo.png", // Replace with actual sponsor logo
+    website: "https://nvidia.com",
   },
   {
-    name: "Shell",
-    tier: "Platinum Sponsor",
-    logo: "/logo.png", // Replace with actual sponsor logo
+    name: "Second Order Effects",
+    logo: "/sponsors/soe-logo.webp", // Replace with actual sponsor logo
     website: "https://www.shell.com",
-    description: "Global energy company committed to sustainable mobility solutions."
   },
   {
-    name: "Tesla",
-    tier: "Gold Sponsor",
-    logo: "/logo.png", // Replace with actual sponsor logo
+    name: "Lutron",
+    logo: "/sponsors/lutron-logo.png", // Replace with actual sponsor logo
     website: "https://www.tesla.com",
-    description: "Leading electric vehicle and clean energy technology company."
+  },
+  {
+    name: "Altium",
+    logo: "/sponsors/altium-logo.avif", // Replace with actual sponsor logo
+    website: "https://www.ansys.com",
+  },
+  {
+    name: "Penske",
+    logo: "/sponsors/penske-logo.png",
+    website: "https://www.solidworks.com",
+  },
+  {
+    name: "Elegoo",
+    logo: "/sponsors/elegoo-logo.avif",
+    website: "https://google.com"
+  },
+  {
+    name: "Rock West Composites",
+    logo: "/sponsors/rockwest-logo.avif",
+    website: "https://google.com"
+  },
+  {
+    name: "Easy Composites",
+    logo: "/sponsors/easycomp-logo.png",
+    website: "https://google.com"
+  },
+  {
+    name: "Rivian",
+    logo: "/sponsors/rivian-logo.avif",
+    website: "https://google.com"
+  },
+  {
+    name: "Altair",
+    logo: "/sponsors/altair-logo.avif",
+    website: "https://google.com"
+  },
+  {
+    name: "Dragon Plate",
+    logo: "/sponsors/dragonplate-logo.avif",
+    website: "https://google.com"
+  },
+  {
+    name: "FixPosition",
+    logo: "/sponsors/fixposition-logo.avif",
+    website: "https://google.com"
+  },
+  {
+    name: "Hakko",
+    logo: "/sponsors/hakko-logo.avif",
+    website: "https://google.com"
+  },
+  {
+    name: "Celsius",
+    logo: "/sponsors/celsius-logo.avif",
+    website: "https://google.com"
   },
   {
     name: "ANSYS",
-    tier: "Silver Sponsor",
-    logo: "/logo.png", // Replace with actual sponsor logo
-    website: "https://www.ansys.com",
-    description: "Engineering simulation software for product design and optimization."
+    logo: "/sponsors/ansys-logo.svg",
+    website: "https://google.com"
   },
   {
-    name: "SolidWorks",
-    tier: "Bronze Sponsor",
-    logo: "/logo.png", // Replace with actual sponsor logo
-    website: "https://www.solidworks.com",
-    description: "3D CAD design software and engineering solutions."
-  }
+    name: "OSH Park",
+    logo: "/sponsors/oshpark-logo.avif",
+    website: "https://google.com"
+  },
+  {
+    name: "JBC",
+    logo: "/sponsors/jbc-logo.jpg",
+    website: "https://google.com"
+  },
+  {
+    name: "Aircat",
+    logo: "/sponsors/aircat-logo.avif",
+    website: "https://google.com"
+  },
+  {
+    name: "Kurtz Ersa",
+    logo: "/sponsors/kurtz-logo.avif",
+    website: "https://google.com"
+  },
 ];
 
 const sponsorshipTiers = [
@@ -92,32 +153,18 @@ const SponsorCard = ({ sponsor, index }: { sponsor: typeof sponsors[0], index: n
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
     viewport={{ once: true }}
-    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-700 group"
+    className="flex items-center justify-center p-6"
   >
-    <div className="aspect-video bg-white flex items-center justify-center p-6">
+    <Link href={sponsor.website}>    
       <Image
         src={sponsor.logo}
         alt={`${sponsor.name} logo`}
         width={200}
         height={100}
-        className="max-w-full max-h-full object-contain"
+        className="max-w-full max-h-full object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
       />
-    </div>
-    <div className="p-6">
-      <div className="flex items-center justify-between mb-2">
-        <h3 className="text-xl font-bold text-white">{sponsor.name}</h3>
-        <a
-          href={sponsor.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-red-400 hover:text-red-300 transition-colors"
-        >
-          <ExternalLink className="w-5 h-5" />
-        </a>
-      </div>
-      <p className="text-red-400 font-semibold mb-3">{sponsor.tier}</p>
-      <p className="text-gray-300 text-sm">{sponsor.description}</p>
-    </div>
+    </Link>
+
   </motion.div>
 );
 

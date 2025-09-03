@@ -172,7 +172,7 @@ const TeamMemberCard = ({ member, index }: { member: typeof mechanicalLeadership
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
+    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 w-72"
   >
     <div className="aspect-square relative">
       <Image

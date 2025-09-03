@@ -85,7 +85,7 @@ const TeamMemberCard = ({ member, index }: {member: typeof dataTeam[0], index: n
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 + index * 0.1}}
-        className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
+        className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 w-72"
     >
         <div className="aspect-square relative">
             <Image
@@ -96,10 +96,9 @@ const TeamMemberCard = ({ member, index }: {member: typeof dataTeam[0], index: n
             />
         </div>
         <div className="p-6">
-            <h3 className="text-xl font-bold text-white text-center mb-2">{member.name}</h3>
-            <p className="text-red-400 font-semibold text-center mb-1">{member.position}</p>
-            <p className="text-gray-300 text-center mb-1">{member.major}</p>
-            <p className="text-gray-400 text-center mb-1">{member.year}</p>
+            <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
+            <p className="text-red-400 font-semibold">{member.position}</p>
+            <p className="text-gray-300">{member.major} {member.year}</p>
         </div>
     </motion.div>
 )
@@ -209,7 +208,7 @@ export default function DataTeam() {
                         </p>
                     </motion.div>
 
-                    <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto mb-16">
+                    <div className="flex flex-wrap justify-center gap-8 mb-16">
                         {dataTeam.map((member,index) => (
                             <TeamMemberCard key={member.name} member={member} index={index} />
                         ))}

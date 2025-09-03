@@ -41,7 +41,7 @@ const TeamMemberCard = ({ member, index }: {member: typeof operationsTeam[0], in
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 + index * 0.1}}
-        className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
+        className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 w-72"
     >
         <div className="aspect-square relative">
             <Image
@@ -52,10 +52,9 @@ const TeamMemberCard = ({ member, index }: {member: typeof operationsTeam[0], in
             />
         </div>
         <div className="p-6">
-            <h3 className="text-xl font-bold text-white text-center mb-2">{member.name}</h3>
-            <p className="text-red-400 font-semibold text-center mb-1">{member.position}</p>
-            <p className="text-gray-300 text-center mb-1">{member.major}</p>
-            <p className="text-gray-400 text-center mb-1">{member.year}</p>
+            <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
+            <p className="text-red-400 font-semibold mb-1">{member.position}</p>
+            <p className="text-gray-300" >{member.major} {member.year}</p>
         </div>
     </motion.div>
 )

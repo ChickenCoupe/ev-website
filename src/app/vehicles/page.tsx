@@ -37,7 +37,7 @@ export default function Vehicles() {
       { icon: <Weight className="w-6 h-6" />, label: "Weight", value: "75 kg" },
       { icon: <Car className="w-6 h-6" />, label: "Chassis", value: "Carbon Fiber Monocoque" },
       { icon: <Battery className="w-6 h-6" />, label: "Battery", value: "20000 mAH 6S" },
-      { icon: <Zap className="w-6 h-6" />, label: "Motor", value: "24V BLDC" },
+      { icon: <Zap className="w-6 h-6" />, label: "Motor", value: "48V BLDC" },
     ],
     achievements: [
       "5th Place - Shell Eco-Marathon Americas 2025",

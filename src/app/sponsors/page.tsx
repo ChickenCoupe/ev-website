@@ -10,97 +10,97 @@ const sponsors = [
   {
     name: "NVIDIA",
     logo: "/sponsors/nvidia-logo.png", // Replace with actual sponsor logo
-    website: "https://nvidia.com",
+    website: "https://www.nvidia.com/en-us/",
   },
   {
     name: "Second Order Effects",
     logo: "/sponsors/soe-logo.webp", // Replace with actual sponsor logo
-    website: "https://www.shell.com",
+    website: "https://soeffects.com/",
   },
   {
     name: "Lutron",
     logo: "/sponsors/lutron-logo.png", // Replace with actual sponsor logo
-    website: "https://www.tesla.com",
+    website: "https://www.lutron.com/us/en",
   },
   {
     name: "Altium",
     logo: "/sponsors/altium-logo.avif", // Replace with actual sponsor logo
-    website: "https://www.ansys.com",
+    website: "https://www.altium.com/",
   },
   {
     name: "Penske",
-    logo: "/sponsors/penske-logo.png",
-    website: "https://www.solidworks.com",
+    logo: "/sponsors/penske-logo.svg",
+    website: "https://www.gopenske.com/",
   },
   {
     name: "Elegoo",
     logo: "/sponsors/elegoo-logo.avif",
-    website: "https://google.com"
+    website: "https://us.elegoo.com/"
   },
   {
     name: "Rock West Composites",
     logo: "/sponsors/rockwest-logo.avif",
-    website: "https://google.com"
+    website: "https://www.rockwestcomposites.com/",
   },
   {
     name: "Easy Composites",
     logo: "/sponsors/easycomp-logo.png",
-    website: "https://google.com"
+    website: "https://www.easycomposites.co.uk/"
   },
   {
     name: "Rivian",
     logo: "/sponsors/rivian-logo.avif",
-    website: "https://google.com"
+    website: "https://rivian.com/"
   },
   {
     name: "Altair",
     logo: "/sponsors/altair-logo.avif",
-    website: "https://google.com"
+    website: "https://altair.com/"
   },
   {
     name: "Dragon Plate",
-    logo: "/sponsors/dragonplate-logo.avif",
-    website: "https://google.com"
+    logo: "/sponsors/dragonplate-logo.webp",
+    website: "https://dragonplate.com/"
   },
   {
     name: "FixPosition",
     logo: "/sponsors/fixposition-logo.avif",
-    website: "https://google.com"
+    website: "https://www.fixposition.com/"
   },
   {
     name: "Hakko",
     logo: "/sponsors/hakko-logo.avif",
-    website: "https://google.com"
+    website: "https://hakkousa.com/"
   },
   {
     name: "Celsius",
     logo: "/sponsors/celsius-logo.avif",
-    website: "https://google.com"
+    website: "https://www.celsius.com/"
   },
   {
     name: "ANSYS",
     logo: "/sponsors/ansys-logo.svg",
-    website: "https://google.com"
+    website: "https://www.ansys.com/"
   },
   {
     name: "OSH Park",
     logo: "/sponsors/oshpark-logo.avif",
-    website: "https://google.com"
+    website: "https://oshpark.com/"
   },
   {
     name: "JBC",
-    logo: "/sponsors/jbc-logo.jpg",
-    website: "https://google.com"
+    logo: "/sponsors/jbc-logo.svg",
+    website: "https://jbctools.com"
   },
   {
     name: "Aircat",
-    logo: "/sponsors/aircat-logo.avif",
-    website: "https://google.com"
+    logo: "/sponsors/aircat-logo.svg",
+    website: "https://aircat.com"
   },
   {
     name: "Kurtz Ersa",
     logo: "/sponsors/kurtz-logo.avif",
-    website: "https://google.com"
+    website: "https://kurtzersa.com"
   },
 ];
 
@@ -155,13 +155,13 @@ const SponsorCard = ({ sponsor, index }: { sponsor: typeof sponsors[0], index: n
     viewport={{ once: true }}
     className="flex items-center justify-center p-6"
   >
-    <Link href={sponsor.website}>    
+    <Link href={sponsor.website} className="bg-gray-300 rounded-lg p-4 hover:bg-gray-200 transition-colors duration-300 w-64 h-64 flex items-center justify-center">    
       <Image
         src={sponsor.logo}
         alt={`${sponsor.name} logo`}
         width={200}
         height={100}
-        className="max-w-full max-h-full object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
+        className="max-w-full max-h-full object-contain"
       />
     </Link>
 
@@ -173,7 +173,7 @@ export default function Sponsors() {
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
       <section className="bg-gradient-to-r from-red-600 to-red-700 py-16 pt-24 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -181,7 +181,7 @@ export default function Sponsors() {
             className="flex items-center justify-center mb-6"
           >
             <Handshake className="w-12 h-12 mr-4" />
-            <h1 className="text-4xl md:text-5xl font-bold">Our Sponsors</h1>
+            <h1 className="text-5xl font-bold">Our Sponsors</h1>
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -198,9 +198,9 @@ export default function Sponsors() {
       <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -212,7 +212,7 @@ export default function Sponsors() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap gap-8 mb-16 justify-center">
             {sponsors.map((sponsor, index) => (
               <SponsorCard key={sponsor.name} sponsor={sponsor} index={index} />
             ))}
@@ -221,7 +221,7 @@ export default function Sponsors() {
       </section>
 
       {/* Sponsorship Tiers */}
-      <section className="py-16 bg-gray-800">
+      {/* <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -265,7 +265,7 @@ export default function Sponsors() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-gray-900 to-red-900">
@@ -284,11 +284,19 @@ export default function Sponsors() {
               Join our mission to advance electric vehicle technology and support the next generation of engineers.
             </p>
             <a
+              href="https://drive.google.com/file/d/1sOx76vTJu_u-nbNxcC6NlEa43vC49LW7/view"
+              className="border-white border-3 hover:bg-gray-700 text-white px-8 py-4 rounded-lg text-xl font-semibold transition-all transform hover:scale-105 shadow-lg inline-block mb-8"
+            >
+             View our Sponsorship Packet 
+            </a>
+            <br/>
+            <a
               href="mailto:cornellev@cornell.edu?subject=Sponsorship Inquiry"
               className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-semibold transition-all transform hover:scale-105 shadow-lg inline-block"
             >
-              Contact Us About Sponsorship
+              Contact Us
             </a>
+
           </motion.div>
         </div>
       </section>

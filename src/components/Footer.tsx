@@ -91,6 +91,13 @@ export default function Footer() {
               >
                 Alumni
               </Link>
+              <Link
+                href="/sponsors"
+                className="block text-gray-400 hover:text-white transition-colors" 
+              >
+               Sponsors 
+              </Link>
+
               {/* <Link
                 href="https://www.shellecomarathon.com/"
                 target="_blank"

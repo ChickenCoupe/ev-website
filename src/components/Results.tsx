@@ -35,11 +35,11 @@ export default function Results() {
             transition={{ delay: 0.1 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-yellow-500"
+            className="bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-red-500"
           >
             <div className="flex items-center mb-6">
-              <div className="bg-yellow-900 p-3 rounded-full mr-4">
-                <Trophy className="w-8 h-8 text-yellow-400" />
+              <div className="bg-red-900 p-3 rounded-full mr-4">
+                <Trophy className="w-8 h-8 text-red-400" />
               </div>
               <h3 className="text-2xl font-bold text-white">5th Place</h3>
             </div>
@@ -55,11 +55,11 @@ export default function Results() {
             transition={{ delay: 0.2 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-500"
+            className="bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-red-500"
           >
             <div className="flex items-center mb-6">
-              <div className="bg-blue-900 p-3 rounded-full mr-4">
-                <Database className="w-8 h-8 text-blue-400" />
+              <div className="bg-red-900 p-3 rounded-full mr-4">
+                <Database className="w-8 h-8 text-red-400" />
               </div>
               <h3 className="text-2xl font-bold text-white">2nd Place</h3>
             </div>

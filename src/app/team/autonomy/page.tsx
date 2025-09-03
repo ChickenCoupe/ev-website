@@ -10,7 +10,7 @@ const autonomyTeam = [
   {
     name: 'Erica Jiang',
     position: 'Autonomy Lead',
-    major: 'CS',
+    major: 'ECE',
     year: '2028',
     image: '/team/erica-jiang.png'
   },
@@ -40,7 +40,7 @@ const autonomyTeam = [
     position: 'Autonomy Member',
     major: 'CS/ECE',
     year: '2027',
-    image: '/team/placeholder.svg'
+    image: '/team/sophia-tsang.jpg'
   },
   {
     name: 'Myles Pasetsky',
@@ -68,7 +68,7 @@ const autonomyTeam = [
     position: 'Autonomy Member',
     major: 'CS',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/sameer-mehta.jpg'
   },
   {
     name: 'Jason Klein',
@@ -82,21 +82,21 @@ const autonomyTeam = [
     position: 'Autonomy Member',
     major: 'CS',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/jess-wang.jpg'
   },
   {
     name: 'Ibrahim Ahmed',
     position: 'Autonomy Member',
     major: 'ECE/CS',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/ibrahim-ahmed.jpg'
   },
   {
     name: 'Cam Mazzacane',
     position: 'Autonomy Member',
     major: 'CS/Math',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/cam-mazzacane.jpg'
   }
 ]
 
@@ -106,21 +106,21 @@ const TeamMemberCard = ({ member, index }: { member: typeof autonomyTeam[0], ind
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
+    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 w-72"
   >
-    <div className="aspect-square w-64 h-64 mx-auto mb-4 rounded-2xl overflow-hidden">
+    <div className="aspect-square relative">
       <Image 
         src={member.image} 
         alt={member.name}
-        width={128}
-        height={128}
-        className="w-full h-full object-cover"
+        fill
+        className="object-cover"
       />
     </div>
-    <h3 className="text-xl font-bold text-white text-center mb-2">{member.name}</h3>
-    <p className="text-red-400 font-semibold text-center mb-1">{member.position}</p>
-    <p className="text-gray-300 text-center mb-1">{member.major}</p>
-    <p className="text-gray-400 text-sm text-center">{member.year}</p>
+    <div className="p-6">
+      <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
+      <p className="text-red-400 font-semibold mb-1">{member.position}</p>
+      <p className="text-gray-300">{member.major} {member.year}</p>
+  </div>
   </motion.div>
 );
 
@@ -267,7 +267,7 @@ export default function AutonomyTeam() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             {autonomyTeam.map((member, index) => (
               <TeamMemberCard key={member.name} member={member} index={index} />
             ))}

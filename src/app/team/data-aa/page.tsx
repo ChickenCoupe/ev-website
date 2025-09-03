@@ -34,7 +34,50 @@ const dataTeam= [
         major: 'CS',
         year: '2026',
         image: '/team/mehdi-heydari.jpg'
+    },
+    {
+        name: 'Amelia Zheng',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2027',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Rhea Agrawal',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2028',
+        image: '/team/rhea-agrawal.jpg'
+    },
+    {
+        name: 'Ajay Parthibha',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2028',
+        image: '/team/ajay-parthibha.jpg'
+    },
+    {
+        name: 'Julia Lau',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2028',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Jerry Ji',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2028',
+        image: '/team/jerry-ji.jpg'
+    },
+    {
+        name: 'Katie Xiao',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2028',
+        image: '/team/katie-xiao.jpg'
     }
+
 ]
 
 const TeamMemberCard = ({ member, index }: {member: typeof dataTeam[0], index: number }) => (
@@ -42,7 +85,7 @@ const TeamMemberCard = ({ member, index }: {member: typeof dataTeam[0], index: n
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 + index * 0.1}}
-        className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
+        className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 w-72"
     >
         <div className="aspect-square relative">
             <Image
@@ -53,10 +96,9 @@ const TeamMemberCard = ({ member, index }: {member: typeof dataTeam[0], index: n
             />
         </div>
         <div className="p-6">
-            <h3 className="text-xl font-bold text-white text-center mb-2">{member.name}</h3>
-            <p className="text-red-400 font-semibold text-center mb-1">{member.position}</p>
-            <p className="text-gray-300 text-center mb-1">{member.major}</p>
-            <p className="text-gray-400 text-center mb-1">{member.year}</p>
+            <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
+            <p className="text-red-400 font-semibold">{member.position}</p>
+            <p className="text-gray-300">{member.major} {member.year}</p>
         </div>
     </motion.div>
 )
@@ -166,7 +208,7 @@ export default function DataTeam() {
                         </p>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div className="flex flex-wrap justify-center gap-8 mb-16">
                         {dataTeam.map((member,index) => (
                             <TeamMemberCard key={member.name} member={member} index={index} />
                         ))}

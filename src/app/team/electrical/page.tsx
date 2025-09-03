@@ -6,7 +6,6 @@ import { Zap, Battery, Cpu, Shield } from 'lucide-react';
 import Footer from '@/components/Footer'
 
 // Electrical team data
-//! Need to add current sophomores
 const electricalTeam = [
   {
     name: 'Rachel Arena',
@@ -56,7 +55,42 @@ const electricalTeam = [
     major: 'ECE/CS',
     year: '2027',
     image: '/team/jenny-lee.jpg'
-  }
+  },
+  {
+    name: 'Yoon Kang',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2026',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Elaine Cao',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2028',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Aariv Mody',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2028',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Sophia Chen',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2028',
+    image: '/team/sophia-chen.jpg'
+  },
+  {
+    name: 'Michael Robbins',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2028',
+    image: '/team/michael-robbins.jpg'
+  },
 ]
 
 // Team member card component

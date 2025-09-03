@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin } from 'lucide-react';
+import Footer from '@/components/Footer'
 
 // Leadership team data
 const leadershipTeam = [
@@ -70,13 +71,6 @@ const leadershipTeam = [
     image: '/team/ruth-taddesse.jpg',
   },
   {
-    name: 'Serena Duncan',
-    position: 'Data A&A Lead',
-    major: 'CS',
-    year: "'26",
-    image: '/team/serena-duncan.webp',
-  },
-  {
     name: 'Tatum McLaughlin',
     position: 'Operations Lead',
     major: 'ORIE',
@@ -84,9 +78,16 @@ const leadershipTeam = [
     image: '/team/tatum-mclaughlin.jpg',
   },
   {
-    name: 'Erica Jiang',
+    name: 'Sidharth Rao',
     position: 'Autonomy Lead',
     major: 'CS',
+    year: "'27",
+    image: '/team/sidharth-rao.jpg',
+  },
+  {
+    name: 'Erica Jiang',
+    position: 'Autonomy Lead',
+    major: 'ECE',
     year: "'28",
     image: '/team/erica-jiang.png',
   },
@@ -194,7 +195,7 @@ export default function LeadershipPage() {
       </section>
 
       {/* Leadership Philosophy */}
-      <section className="py-16 bg-gray-800">
+      {/* <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -234,7 +235,8 @@ export default function LeadershipPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      <Footer/>
     </div>
   );
 }

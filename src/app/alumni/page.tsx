@@ -6,39 +6,143 @@ import Footer from '@/components/Footer'
 import { Briefcase, GraduationCap, Users, Calendar } from 'lucide-react'
 
 export default function Alumni() {
-  const alumniData = [
+  const alumniLocations = [
     {
-      name: "Sarah Chen",
-      year: "2023",
-      degree: "Mechanical Engineering",
-      currentPosition: "Tesla - Powertrain Engineer",
-      team: "Mechanical",
-      achievements: ["Led chassis design for CEV-23", "Shell Eco-Marathon Innovation Award"]
+      city: "San Francisco, CA",
+      name: "Logan Horowitz",
+      company: "University of California, Berkeley"
     },
     {
-      name: "Michael Rodriguez",
-      year: "2022",
-      degree: "Electrical Engineering", 
-      currentPosition: "Rivian - Battery Systems Engineer",
-      team: "Electrical",
-      achievements: ["Developed motor control systems", "Improved efficiency by 15%"]
+      city: "San Francisco, CA", 
+      name: "Jocelyn Sun",
+      company: "Ford"
     },
     {
-      name: "Emily Johnson",
-      year: "2024",
-      degree: "Computer Science",
-      currentPosition: "Waymo - Autonomous Systems Engineer",
-      team: "Software",
-      achievements: ["Implemented autonomous navigation", "Machine learning optimization"]
+      city: "San Francisco, CA",
+      name: "Kunal Gupta", 
+      company: "Wayve"
     },
     {
-      name: "David Park",
-      year: "2023",
-      degree: "Mechanical Engineering",
-      currentPosition: "Ford - EV Development Team",
-      team: "Mechanical",
-      achievements: ["Aerodynamics optimization", "Weight reduction innovations"]
+      city: "San Jose, CA",
+      name: "Nicholas Christians",
+      company: "Google"
+    },
+    {
+      city: "San Jose, CA",
+      name: "Avan Agarwal",
+      company: "Amazon"
+    },
+    {
+      city: "Gravesboro, CA",
+      name: "Nitya Sharma",
+      company: "Lightship"
+    },
+    {
+      city: "Los Angeles, CA",
+      name: "Evelyn Hu",
+      company: "Harbinger"
+    },
+    {
+      city: "Seattle, WA",
+      name: "Vivian Dai",
+      company: "Google"
+    },
+    {
+      city: "Coles Corner, WA",
+      name: "Raphel Fortuna",
+      company: "Microsoft"
+    },
+    {
+      city: "TX",
+      name: "Andrew Cai",
+      company: "Apple"
+    },
+    {
+      city: "Kansas City, MS",
+      name: "Alberto Gutierrez",
+      company: "Collins Aerospace"
+    },
+    {
+      city: "IL",
+      name: "Alexandra Kung",
+      company: "Tableau"
+    },
+    {
+      city: "Chicago, IL",
+      name: "Kate Sawin",
+      company: "United Airlines"
+    },
+    {
+      city: "Milwaukee, WI",
+      name: "Sarah Behringer",
+      company: "Eaton"
+    },
+    {
+      city: "Ann Arbor, MI",
+      name: "Rachel Mead",
+      company: "University of Michigan" 
+    },
+    {
+      city: "Detroit, MI",
+      name: "Jamie Cashman",
+      company: "General Motors"
+    },
+    {
+      city: "OH",
+      name: "Vivek Ivaturi",
+      company: "Proctor and Gamble"
+    },
+    {
+      city: "Pittsburgh, PA",
+      name: "Charlie Ruan",
+      company: "Carnegie Mellon University"
+    },
+    {
+      city: "PA",
+      name: "Aaron Peng",
+      company: "Aurora"
+    },
+    {
+      city: "Washington DC",
+      name: "Steven Kiekel",
+      company: "Dwellwell Analytics, Inc."
+    },
+    {
+      city: "Baltimore, MD",
+      name: "Hanna Yen",
+      company: "Johns Hopkins University"
+    },
+    {
+      city: "FL",
+      name: "Bhadra Bejoy",
+      company: "Ford Motor Company"  
+    },
+    {
+      city: "Princeton, NJ",
+      name: "Emma Farkash",
+      company: "Princeton University"
+    },
+    {
+      city: "New York, NY",
+      name: "Ashley Miller",
+      company: "Columbia University"
+    },
+    {
+      city: "Waterbury, CT",
+      name: "Felipe Santamaria",
+      company: "ASML"
+    },
+    {
+      city: "Boston, MA",
+      name: "Adi Carmel",
+      company: "Harvard University",
+    },
+    {
+      city: "Boston, MA",
+      name: "David Moy",
+      company: "Lexington Medical"
     }
+
   ]
 
   const stats = [
@@ -72,7 +176,7 @@ export default function Alumni() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gray-800">
+      {/* <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -92,9 +196,9 @@ export default function Alumni() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Featured Alumni */}
+      {/* Alumni World Map */}
       <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -103,54 +207,58 @@ export default function Alumni() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">Featured Alumni</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Our Alumni Network</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Meet some of our outstanding graduates who are making an impact in the industry
+              CEV graduates are making an impact at leading companies across the country and around the world
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {alumniData.map((alum, index) => (
+          {/* Alumni by City Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {alumniLocations.map((location, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gray-800 rounded-xl shadow-lg border border-gray-700 p-6 hover:shadow-xl transition-shadow"
+                className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-red-500 transition-colors duration-300"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-white">{alum.name}</h3>
-                    <p className="text-red-400 font-semibold">Class of {alum.year}</p>
-                    <p className="text-gray-300">{alum.degree}</p>
+                <div className="flex items-start gap-4">
+                  <div className="w-3 h-3 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-white mb-1">{location.city}</h3>
+                    <div className="space-y-2">
+                      <div>
+                        <p className="text-white font-medium">{location.name}</p>
+                        <p className="text-gray-300 text-sm">{location.company}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="bg-red-900 text-red-300 px-3 py-1 rounded-full text-sm font-medium">
-                    {alum.team}
-                  </div>
-                </div>
-                
-                <div className="mb-4">
-                  <div className="flex items-center mb-2">
-                    <Briefcase className="w-4 h-4 text-gray-400 mr-2" />
-                    <span className="text-white font-medium">Current Position</span>
-                  </div>
-                  <p className="text-gray-300 ml-6">{alum.currentPosition}</p>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-white mb-2">Key Achievements</h4>
-                  <ul className="space-y-1">
-                    {alum.achievements.map((achievement, achIndex) => (
-                      <li key={achIndex} className="text-gray-300 text-sm flex items-start">
-                        <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 mr-2 flex-shrink-0"></span>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Map Coming Soon Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-16 bg-gray-800 rounded-xl p-8 border border-gray-700 text-center"
+          >
+            <div className="bg-gray-700 rounded-lg h-64 flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Interactive Map Coming Soon</h3>
+                <p className="text-gray-300">We're building an interactive map to showcase our global alumni network</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

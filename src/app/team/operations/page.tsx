@@ -18,21 +18,21 @@ const operationsTeam = [
         position: 'Operations Member',
         major: 'ORIE',
         year: '2028',
-        image: '/team/placeholder.svg'
+        image: '/team/lena-schapiro.jpg'
     },
     {
         name: 'Bator Diop',
         position: 'Operations Member',
         major: 'ORIE',
         year: '2028',
-        image: '/team/placeholder.svg'
+        image: '/team/bator-diop.jpg'
     },
     {
         name: 'Eunice Son',
         position: 'Operations Member',
         major: 'ORIE',
         year: '2027',
-        image: '/team/placeholder.svg'
+        image: '/team/eunice-son.jpg'
     }
 ]
 
@@ -53,7 +53,7 @@ const TeamMemberCard = ({ member, index }: {member: typeof operationsTeam[0], in
         </div>
         <div className="p-6">
             <h3 className="text-xl font-bold text-white text-center mb-2">{member.name}</h3>
-            <p className="text-purple-400 font-semibold text-center mb-1">{member.position}</p>
+            <p className="text-red-400 font-semibold text-center mb-1">{member.position}</p>
             <p className="text-gray-300 text-center mb-1">{member.major}</p>
             <p className="text-gray-400 text-center mb-1">{member.year}</p>
         </div>
@@ -64,7 +64,7 @@ export default function OperationsTeam() {
     return (
         <div className="min-h-screen bg-gray-900">
         {/* Header */}
-            <section className="bg-gradient-to-r from-purple-600 to-purple-700 py-16 pt-24 text-white">
+            <section className="bg-gradient-to-r from-red-600 to-red-700 py-16 pt-24 text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <motion.div
                         initial={{ opacity: 0, y:20 }}
@@ -79,7 +79,7 @@ export default function OperationsTeam() {
                         initial={{ opacity:0, y:20 }}
                         animate={{ opacity:1, y:0}}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-xl text-purple-100 max-w-3xl mx-auto"
+                        className="text-xl text-red-100 max-w-3xl mx-auto"
                     >
                         The Operations team manages partnerships, fundraising, marketing, and team coordination to ensure smooth project execution and sustainable growth. We&apos;re the backbone that enables our technical teams to focus on innovation and excellence.
                     </motion.p>
@@ -109,8 +109,8 @@ export default function OperationsTeam() {
                             viewport={{ once: true }}
                             className="text-center"
                         >
-                            <div className="bg-purple-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                               <DollarSign className="w-8 h-8 text-purple-400" /> 
+                            <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                               <DollarSign className="w-8 h-8 text-red-400" /> 
                             </div>
                             <h3 className="text-xl font-semibold text-white mb-2">Fundraising & Sponsorships</h3>
                             <p className="text-gray-300">Secure funding and build partnerships with industry leaders to support our team&apos;s operations and competition participation.</p>
@@ -123,8 +123,8 @@ export default function OperationsTeam() {
                             viewport={{ once: true }}
                             className="text-center"
                         >
-                            <div className="bg-purple-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Megaphone className="w-8 h-8 text-purple-400" /> 
+                            <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <Megaphone className="w-8 h-8 text-red-400" /> 
                             </div>
                             <h3 className="text-xl font-semibold text-white mb-2">Marketing & Outreach</h3>
                             <p className="text-gray-300">Promote our team&apos;s achievements and initiatives through social media, events, and community engagement to build our brand and attract new members.</p>
@@ -137,8 +137,8 @@ export default function OperationsTeam() {
                             viewport={{ once: true }}
                             className="text-center"
                         >
-                            <div className="bg-purple-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Calendar className="w-8 h-8 text-purple-400" />
+                            <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <Calendar className="w-8 h-8 text-red-400" />
                             </div>
                             <h3 className="text-xl font-semibold text-white mb-2">Event Coordination</h3>
                             <p className="text-gray-300">Plan and execute team events, competition logistics, and cross-functional meetings to maintain team cohesion and operational efficiency.</p>
@@ -165,7 +165,7 @@ export default function OperationsTeam() {
                         </p>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
                         {operationsTeam.map((member,index) => (
                             <TeamMemberCard key={member.name} member={member} index={index} />
                         ))}

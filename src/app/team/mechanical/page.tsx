@@ -44,28 +44,28 @@ const chassisTeam = [
     position: 'Chassis Member',
     major: 'MAE',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/serkan-yurday.jpg'
   },
   {
     name: 'Yohanne Lin',
     position: 'Chassis Member',
     major: 'MAE',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/yohanne-lin.jpg'
   },
   {
     name: 'Ei Thiri Kyaw',
     position: 'Chassis Member',
     major: 'MAE',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/ei-thiri-kyaw.jpg'
   },
   {
     name: 'Ana Mahuad',
     position: 'Chassis Member',
     major: 'MAE',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/ana-mahuad.jpg'
   },
 ];
 
@@ -99,25 +99,25 @@ const drivetrainTeam = [
     image: '/team/alexis-barrow.jpg'
   },
   {
-    name: 'Emely Benevides',
+    name: 'Emely Benavides',
     position: 'Drivetrain Member',
     major: 'MAE',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/emely-benavides.jpg'
   },
   {
     name: 'Nora Kingwell',
     position: 'Drivetrain Member',
     major: 'MAE',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/nora-kingwell.jpg'
   },
   {
     name: 'Jonathan Wan',
     position: 'Drivetrain Member',
     major: 'MAE',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/jonathan-wan.jpg'
   },
 ];
 
@@ -137,11 +137,11 @@ const steeringTeam = [
     image: '/team/tadg-manna.jpg'
   },
   {
-    name: "Shashank Chalmasetty",
+    name: "Shashank Chalamsetty",
     position: "Steering Member",
     major: "MAE",
     year: "2026",
-    image: "/team/placeholder.svg"
+    image: "/team/shashank-chalamalasetty.jpg"
   },
   {
     name: 'Aahil Ali',
@@ -155,14 +155,14 @@ const steeringTeam = [
     position: "Steering Member",
     major: "MAE",
     year: "2028",
-    image: "/team/placeholder.svg"
+    image: "/team/lydia-woodall.jpg"
   },
   {
     name: "Albert Zheng",
     position: "Steering Member",
     major: "MAE",
     year: "2028",
-    image: "/team/placeholder.svg"
+    image: "/team/albert-zheng.jpg"
   },
 ];
 

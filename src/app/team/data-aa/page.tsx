@@ -34,7 +34,50 @@ const dataTeam= [
         major: 'CS',
         year: '2026',
         image: '/team/mehdi-heydari.jpg'
+    },
+    {
+        name: 'Amelia Zheng',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2027',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Rhea Agrawal',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2028',
+        image: '/team/rhea-agrawal.jpg'
+    },
+    {
+        name: 'Ajay Parthibha',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2028',
+        image: '/team/ajay-parthibha.jpg'
+    },
+    {
+        name: 'Julia Lau',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2028',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Jerry Ji',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2028',
+        image: '/team/jerry-ji.jpg'
+    },
+    {
+        name: 'Katie Xiao',
+        position: 'Data A&A Member',
+        major: 'CS',
+        year: '2028',
+        image: '/team/katie-xiao.jpg'
     }
+
 ]
 
 const TeamMemberCard = ({ member, index }: {member: typeof dataTeam[0], index: number }) => (
@@ -166,7 +209,7 @@ export default function DataTeam() {
                         </p>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto mb-16">
                         {dataTeam.map((member,index) => (
                             <TeamMemberCard key={member.name} member={member} index={index} />
                         ))}

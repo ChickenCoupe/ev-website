@@ -40,7 +40,7 @@ const autonomyTeam = [
     position: 'Autonomy Member',
     major: 'CS/ECE',
     year: '2027',
-    image: '/team/placeholder.svg'
+    image: '/team/sophia-tsang.jpg'
   },
   {
     name: 'Myles Pasetsky',
@@ -68,7 +68,7 @@ const autonomyTeam = [
     position: 'Autonomy Member',
     major: 'CS',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/sameer-mehta.jpg'
   },
   {
     name: 'Jason Klein',
@@ -82,21 +82,21 @@ const autonomyTeam = [
     position: 'Autonomy Member',
     major: 'CS',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/jess-wang.jpg'
   },
   {
     name: 'Ibrahim Ahmed',
     position: 'Autonomy Member',
     major: 'ECE/CS',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/ibrahim-ahmed.jpg'
   },
   {
     name: 'Cam Mazzacane',
     position: 'Autonomy Member',
     major: 'CS/Math',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/cam-mazzacane.jpg'
   }
 ]
 
@@ -267,7 +267,7 @@ export default function AutonomyTeam() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             {autonomyTeam.map((member, index) => (
               <TeamMemberCard key={member.name} member={member} index={index} />
             ))}

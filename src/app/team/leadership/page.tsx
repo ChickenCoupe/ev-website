@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin } from 'lucide-react';
+import Footer from '@/components/Footer'
 
 // Leadership team data
 const leadershipTeam = [
@@ -86,7 +87,7 @@ const leadershipTeam = [
   {
     name: 'Erica Jiang',
     position: 'Autonomy Lead',
-    major: 'CS',
+    major: 'ECE',
     year: "'28",
     image: '/team/erica-jiang.png',
   },
@@ -194,7 +195,7 @@ export default function LeadershipPage() {
       </section>
 
       {/* Leadership Philosophy */}
-      <section className="py-16 bg-gray-800">
+      {/* <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -234,7 +235,8 @@ export default function LeadershipPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      <Footer/>
     </div>
   );
 }

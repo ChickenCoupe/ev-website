@@ -10,7 +10,7 @@ const autonomyTeam = [
   {
     name: 'Erica Jiang',
     position: 'Autonomy Lead',
-    major: 'CS',
+    major: 'ECE',
     year: '2028',
     image: '/team/erica-jiang.png'
   },

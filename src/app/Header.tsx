@@ -208,6 +208,27 @@ export default function Header() {
                 Alumni
               </Link>
               <Link 
+                href="/sponsors"
+                className={`nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300`}
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/sponsors') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive('/sponsors')) {
+                    e.currentTarget.style.backgroundColor = hoverBg;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive('/sponsors')) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}
+              >
+                Sponsors
+              </Link>
+              <Link 
                 href="/apply"
                 className="nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300 bg-red-600/80 hover:bg-red-600 text-white"
                 style={{
@@ -318,6 +339,18 @@ export default function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Alumni
+              </Link>
+              <Link 
+                href="/sponsors"
+                className="mobile-nav-link"
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/sponsors') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Sponsors
               </Link>
               <Link 
                 href="/apply"

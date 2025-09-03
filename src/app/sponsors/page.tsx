@@ -69,7 +69,7 @@ const sponsors = [
   },
   {
     name: "Hakko",
-    logo: "/sponsors/hakko-logo.avif",
+    logo: "/sponsors/hakko-logo.png",
     website: "https://hakkousa.com/"
   },
   {

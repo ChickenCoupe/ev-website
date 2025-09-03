@@ -36,57 +36,51 @@ export default function Apply() {
   const timelineEvents = [
     {
       title: "Project Teams Fest",
-      date: "9/5 @ 4:00 PM",
+      date: "9/4 @ 4:00 PM - 6:00 PM",
       location: "Duffield Atrium",
       side: "left"
     },
     {
-      title: "Upperclassmen Info Session",
-      date: "9/3 @ 7:00 PM", 
-      location: "Kimball B11",
-      side: "right"
-    },
-    {
-      title: "Upperclassmen Applications Due",
-      date: "9/5 @ 11:59 PM",
-      location: null,
-      side: "left"
-    },
-    {
       title: "Info Session #1",
-      date: "9/7 @ 5:00 PM",
-      location: "Phillips 219",
+      date: "9/11 @ 5:00 PM", 
+      location: "TBD",
       side: "right"
     },
     {
       title: "Info Session #2",
-      date: "9/15 @ 5:00 PM",
-      location: "Phillips 219", 
+      date: "9/16 @ 7:00 PM",
+      location: "TBD",
       side: "left"
     },
     {
       title: "Info Session #3",
-      date: "9/25 @ 7:00 PM",
-      location: "Phillips 219",
+      date: "9/22 @ 5:00 PM",
+      location: "TBD",
       side: "right"
     },
     {
       title: "Info Session #4",
-      date: "10/1 @ 5:00 PM",
-      location: "RPCC 205",
+      date: "9/29 @ 7:30 PM",
+      location: "TBD", 
       side: "left"
     },
     {
-      title: "Info Session #5", 
-      date: "10/7 @ 5:00 PM",
-      location: "RPCC 205",
+      title: "Info Session #5",
+      date: "10/6 @ 7:30 PM",
+      location: "TBD",
       side: "right"
     },
     {
-      title: "Freshmen/Transfers Applications Due",
-      date: "10/17 @ 11:59 PM",
-      location: null,
+      title: "Open House",
+      date: "10/13-10/15 @ 4:00 PM - 7:00 PM",
+      location: "Upson B60",
       side: "left"
+    },
+    {
+      title: "Freshmen/Transfers Applications Due",
+      date: "10/16 @ 11:59 PM",
+      location: null,
+      side: "right"
     }
   ]
 

@@ -71,18 +71,18 @@ const leadershipTeam = [
     image: '/team/ruth-taddesse.jpg',
   },
   {
-    name: 'Serena Duncan',
-    position: 'Data A&A Lead',
-    major: 'CS',
-    year: "'26",
-    image: '/team/serena-duncan.webp',
-  },
-  {
     name: 'Tatum McLaughlin',
     position: 'Operations Lead',
     major: 'ORIE',
     year: "'27",
     image: '/team/tatum-mclaughlin.jpg',
+  },
+  {
+    name: 'Sidharth Rao',
+    position: 'Autonomy Lead',
+    major: 'CS',
+    year: "'27",
+    image: '/team/sidharth-rao.jpg',
   },
   {
     name: 'Erica Jiang',

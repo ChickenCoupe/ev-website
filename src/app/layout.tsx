@@ -14,8 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cornell Electric Vehicles - Building the Future",
+  title: "Cornell Electric Vehicles",
   description: "Cornell's foremost project team dedicated to building autonomous, hyper-efficient electric vehicles. Operating at the pace of a startup, producing industry-grade vehicles that compete at the highest levels.",
+  icons: {
+    icon: '/cev-favicon.ico',
+    shortcut: '/cev-favicon.ico',
+    apple: '/cev-logo.png',
+  },
 };
 
 export default function RootLayout({
@@ -25,6 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/x-icon" href="/cev-favicon.ico" />
+        <link rel="shortcut icon" href="/cev-favicon.ico" />
+        <link rel="apple-touch-icon" href="/cev-logo.png" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

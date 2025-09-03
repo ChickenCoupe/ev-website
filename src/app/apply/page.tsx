@@ -124,8 +124,8 @@ export default function Apply() {
             Interest Form
             </Link>
           !</p>
-          <p className="text-lg text-gray-300 mb-8 text-center">Thank you for your interest in joining our team! We've been thrilled to engage with so many passionate individuals keen on pushing the limits of autonomous and electric vehicle innovation.</p>
-          <p className="text-lg text-gray-300 mb-8 text-center">CEV thrives thanks to a dedicate team of electrical, mechanical, and software engineers working alongside project managers, financial advisors, and graphic designers. We're hoping to see you among us in the current application cycle! </p>
+          <p className="text-lg text-gray-300 mb-8 text-center">Thank you for your interest in joining our team! We&apos;ve been thrilled to engage with so many passionate individuals keen on pushing the limits of autonomous and electric vehicle innovation.</p>
+          <p className="text-lg text-gray-300 mb-8 text-center">CEV thrives thanks to a dedicate team of electrical, mechanical, and software engineers working alongside project managers, financial advisors, and graphic designers. We&apos;re hoping to see you among us in the current application cycle! </p>
           <p className="text-lg text-gray-300 mb-8 text-center">For any questions about our team or updates on our endeavors and timelines, reach out to us at cornellev@cornell.edu.</p>
         </div>
 

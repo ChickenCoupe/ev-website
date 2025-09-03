@@ -3,20 +3,41 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
-import { Battery, Zap, Gauge, Weight, Users } from 'lucide-react'
+import { Battery, Car, Zap, Gauge, Weight, Users, ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
+import { useState } from 'react'
 
 export default function Vehicles() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  
+  const vehicleImages = [
+    {
+      src: '/vehicles/uc25_1.png',
+      alt: 'Chicken Coupe - Front View',
+    },
+    {
+      src: '/vehicles/uc25_2.avif', // Replace with actual side view image path
+      alt: 'Chicken Coupe - Side View',
+    },
+  ]
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % vehicleImages.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + vehicleImages.length) % vehicleImages.length)
+  }
+
   const currentVehicle = {
-    name: "CEV-25",
-    year: "2025",
+    name: "Chicken Coupe",
+    year: "2023",
     category: "Urban Concept",
-    description: "Our latest electric vehicle designed for maximum efficiency and urban mobility. Features cutting-edge autonomous capabilities and record-breaking energy efficiency.",
     specs: [
-      { icon: <Battery className="w-6 h-6" />, label: "Battery", value: "48V Lithium-ion" },
-      { icon: <Zap className="w-6 h-6" />, label: "Motor", value: "10kW BLDC" },
-      { icon: <Weight className="w-6 h-6" />, label: "Weight", value: "350 kg" },
-      { icon: <Gauge className="w-6 h-6" />, label: "Top Speed", value: "65 km/h" },
-      { icon: <Users className="w-6 h-6" />, label: "Capacity", value: "1 Driver" },
+      { icon: <Weight className="w-6 h-6" />, label: "Weight", value: "75 kg" },
+      { icon: <Car className="w-6 h-6" />, label: "Chassis", value: "Carbon Fiber Monocoque" },
+      { icon: <Battery className="w-6 h-6" />, label: "Battery", value: "20000 mAH 6S" },
+      { icon: <Zap className="w-6 h-6" />, label: "Motor", value: "24V BLDC" },
     ],
     achievements: [
       "5th Place - Shell Eco-Marathon Americas 2025",
@@ -27,44 +48,25 @@ export default function Vehicles() {
 
   const previousVehicles = [
     {
-      name: "CEV-24",
-      year: "2024",
-      category: "Urban Concept",
-      description: "Previous generation vehicle that established our reputation for innovation and efficiency.",
-      achievements: ["Top 10 Finish - Shell Eco-Marathon Americas 2024"]
-    },
-    {
-      name: "CEV-23",
-      year: "2023",
-      category: "Prototype",
-      description: "Our breakthrough prototype that introduced autonomous features to our vehicle lineup.",
-      achievements: ["Innovation Award - Shell Eco-Marathon Americas 2023"]
-    },
-    {
-      name: "CEV-22",
+      name: "Cuckoo Caravan",
       year: "2022",
-      category: "Urban Concept",
-      description: "The vehicle that marked our entry into competitive electric vehicle racing.",
-      achievements: ["Rookie Team Excellence Award"]
-    }
-  ]
-
-  const technologies = [
-    {
-      title: "Autonomous Navigation",
-      description: "Level 2 autonomy with advanced sensor fusion and machine learning algorithms for safe urban navigation."
+      category: "Prototype",
+      image: "/vehicles/pt22_1.avif", // Replace with actual CEV-24 image path
+      alt: "Cuckoo Caravan - 2022 Prototype Vehicle"
     },
     {
-      title: "Energy Management",
-      description: "Sophisticated battery management system with regenerative braking and optimal power distribution."
+      name: "Kiwi Cruiser",
+      year: "2019",
+      category: "Prototype",
+      image: "/vehicles/pt_21.avif", // Replace with actual CEV-23 image path
+      alt: "Kiwi Cruiser - 2019 Prototype Vehicle"
     },
     {
-      title: "Aerodynamic Design",
-      description: "CFD-optimized body design achieving minimal drag coefficient for maximum efficiency."
-    },
-    {
-      title: "Lightweight Materials",
-      description: "Carbon fiber and aluminum construction reducing weight while maintaining structural integrity."
+      name: "CRR18",
+      year: "2018",
+      category: "Prototype",
+      image: "/vehicles/crr18.avif", // Replace with actual CEV-22 image path
+      alt: "CRR18 - 2018 Prototype Vehicle"
     }
   ]
 
@@ -73,7 +75,7 @@ export default function Vehicles() {
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-red-600 to-red-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -115,9 +117,47 @@ export default function Vehicles() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl shadow-2xl">
-                <div className="w-full h-full flex items-center justify-center text-gray-500 font-semibold text-lg">
-                  CEV-25 Vehicle Image
+              {/* Image Carousel */}
+              <div className="relative aspect-video rounded-2xl shadow-2xl overflow-hidden bg-[#191717]">
+                <Image
+                  src={vehicleImages[currentImageIndex].src}
+                  alt={vehicleImages[currentImageIndex].alt}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                
+                {/* Navigation Buttons */}
+                <button
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                
+                <button
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+                
+                {/* Dots Indicator */}
+                <div className="absolute bottom-4 right-4 flex gap-2">
+                  {vehicleImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === currentImageIndex 
+                          ? 'bg-white' 
+                          : 'bg-white/50 hover:bg-white/70'
+                      }`}
+                      aria-label={`Go to image ${index + 1}`}
+                    />
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -129,10 +169,6 @@ export default function Vehicles() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                {currentVehicle.description}
-              </p>
-
               {/* Specifications */}
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-white mb-6">Specifications</h3>
@@ -168,41 +204,6 @@ export default function Vehicles() {
         </div>
       </section>
 
-      {/* Technologies */}
-      <section className="py-20 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Cutting-Edge Technologies
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Our vehicles incorporate the latest innovations in electric vehicle technology and autonomous systems.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={tech.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                className="bg-gray-900 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-700"
-              >
-                <h3 className="text-2xl font-bold text-white mb-4">{tech.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{tech.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Previous Vehicles */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -232,27 +233,18 @@ export default function Vehicles() {
                 className="grid lg:grid-cols-2 gap-8 items-center"
               >
                 <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl shadow-lg">
-                    <div className="w-full h-full flex items-center justify-center text-gray-500 font-semibold">
-                      {vehicle.name} Image
-                    </div>
+                  <div className="relative aspect-video rounded-2xl shadow-lg overflow-hidden bg-gray-800 flex items-center justify-center">
+                    <Image
+                      src={vehicle.image}
+                      alt={vehicle.alt}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
                 </div>
                 <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
-                  <p className="text-red-400 font-semibold mb-4">{vehicle.year} {vehicle.category}</p>
-                  <p className="text-gray-300 mb-6 leading-relaxed">{vehicle.description}</p>
-                  <div>
-                    <h4 className="font-bold text-white mb-2">Achievements:</h4>
-                    <ul className="space-y-1">
-                      {vehicle.achievements.map((achievement, achievementIndex) => (
-                        <li key={achievementIndex} className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                          <span className="text-gray-300">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <p className="text-red-400 font-semibold mb-4">{vehicle.year}</p>
                 </div>
               </motion.div>
             ))}

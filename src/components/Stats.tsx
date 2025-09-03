@@ -8,11 +8,10 @@ export default function Stats() {
     { number: '85', label: 'members' },
     { number: '5', label: 'subteams' },
     { number: '50%', label: 'women' },
-    { number: '20+', label: 'projects' }
   ]
 
   return (
-    <section className="py-20 bg-red-600">
+    <section className="py-20 bg-gradient-to-br from-gray-900 via-red-900 to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -29,7 +28,7 @@ export default function Stats() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="flex flex-wrap justify-center gap-50 mb-2">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}

@@ -86,13 +86,19 @@ export default function Footer() {
                 Apply
               </Link>
               <Link
+                href="/alumni"
+                className="block text-gray-400 hover:text-white transition-colors" 
+              >
+                Alumni
+              </Link>
+              {/* <Link
                 href="https://www.shellecomarathon.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-gray-400 hover:text-white transition-colors"
               >
                 Shell Eco-Marathon
-              </Link>
+              </Link> */}
             </div>
           </div>
 

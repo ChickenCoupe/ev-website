@@ -6,52 +6,11 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 export default function Header() {
-  const [showScrollToTop, setShowScrollToTop] = useState(false);
-  const [isFadingOut, setIsFadingOut] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [supportsBackdrop, setSupportsBackdrop] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      // Use appropriate selector based on mobile state
-      const navSelector = isMobile ? '.mobile-nav-header' : '.nav-header';
-      const navHeader = document.querySelector(navSelector);
-      
-      if (navHeader) {
-        const navRect = navHeader.getBoundingClientRect();
-        const isNavVisible = navRect.bottom > 0;
-        const isScrollingUp = currentScrollY < lastScrollY;
-        const isScrollingDown = currentScrollY > lastScrollY;
-        
-        // Show scroll to top when scrolling up and nav is not visible
-        const shouldShow = isScrollingUp && !isNavVisible && currentScrollY > 100;
-        
-        if (shouldShow && !showScrollToTop && !isFadingOut) {
-          setShowScrollToTop(true);
-          setIsFadingOut(false);
-        } else if ((!shouldShow || isScrollingDown) && showScrollToTop && !isFadingOut) {
-          // Start fade out when scrolling down or when conditions change
-          setIsFadingOut(true);
-          // Hide after animation completes
-          setTimeout(() => {
-            setShowScrollToTop(false);
-            setIsFadingOut(false);
-          }, 400);
-        }
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, showScrollToTop, isFadingOut, isMobile]);
-
-  // Mobile detection
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 640); // sm breakpoint
@@ -60,23 +19,15 @@ export default function Header() {
       }
     };
 
+    // Check backdrop filter support
+    setSupportsBackdrop(CSS.supports('backdrop-filter', 'blur(20px)'));
+
     // Initial check
     handleResize();
     
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const scrollToTop = () => {
-    setIsFadingOut(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // Hide after fade-out animation
-    setTimeout(() => {
-      setShowScrollToTop(false);
-      setIsFadingOut(false);
-    }, 400);
-  };
 
   const isActive = (href: string) => {
     if (href === '/') {
@@ -127,7 +78,30 @@ export default function Header() {
     <>
       {!isMobile ? (
         // Desktop Navigation
-        <header className="nav-header">
+        <header 
+          style={{
+            position: 'fixed',
+            top: '1rem',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 'fit-content',
+            maxWidth: 'calc(100vw - 1rem)',
+            zIndex: 9998,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '0.5rem 1rem',
+            background: supportsBackdrop 
+              ? 'rgba(255, 255, 255, 0.25)' 
+              : 'rgba(255, 255, 255, 0.9)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+            borderRadius: '50px',
+            overflow: 'visible'
+          }}
+        >
           <div className="w-full flex items-center justify-center">
             <nav className="flex items-center justify-center gap-6">
               <Link 
@@ -234,6 +208,27 @@ export default function Header() {
                 Alumni
               </Link>
               <Link 
+                href="/sponsors"
+                className={`nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300`}
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/sponsors') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive('/sponsors')) {
+                    e.currentTarget.style.backgroundColor = hoverBg;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive('/sponsors')) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}
+              >
+                Sponsors
+              </Link>
+              <Link 
                 href="/apply"
                 className="nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300 bg-red-600/80 hover:bg-red-600 text-white"
                 style={{
@@ -248,7 +243,29 @@ export default function Header() {
       ) : (
         // Mobile Navigation
         <>
-          <header className="mobile-nav-header">
+          <header 
+            style={{
+              position: 'fixed',
+              top: '1rem',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: 'calc(100vw - 2rem)',
+              maxWidth: '400px',
+              zIndex: 9998,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '0.75rem 1.5rem',
+              background: supportsBackdrop 
+                ? 'rgba(255, 255, 255, 0.25)' 
+                : 'rgba(255, 255, 255, 0.9)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+              borderRadius: '50px'
+            }}
+          >
             <div className="flex items-center justify-between w-full">
               <Link 
                 href="/" 
@@ -324,6 +341,18 @@ export default function Header() {
                 Alumni
               </Link>
               <Link 
+                href="/sponsors"
+                className="mobile-nav-link"
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/sponsors') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Sponsors
+              </Link>
+              <Link 
                 href="/apply"
                 className="mobile-nav-link bg-red-600/80 hover:bg-red-600 text-white"
                 style={{
@@ -336,38 +365,6 @@ export default function Header() {
             </nav>
           )}
         </>
-      )}
-
-      {/* Scroll to Top Button */}
-      {showScrollToTop && (
-        <button
-          onClick={scrollToTop}
-          className="scroll-to-top-btn"
-          style={{
-            position: 'fixed',
-            bottom: '2rem',
-            left: '50%',
-            zIndex: 9999,
-            padding: '1rem 1.5rem',
-            background: 'rgba(255, 255, 255, 0.25)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            borderRadius: '50px',
-            color: 'var(--foreground)',
-            fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-            fontSize: '1rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.4s ease',
-            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            animation: isFadingOut ? 'fadeOut 0.4s ease-out forwards' : 'fadeInUp 0.4s ease-out',
-            opacity: isFadingOut ? 0 : 1,
-            transform: isFadingOut ? 'translateX(-50%) translateY(20px)' : 'translateX(-50%) translateY(0)'
-          }}
-        >
-          Return to top ↑
-        </button>
       )}
     </>
   );

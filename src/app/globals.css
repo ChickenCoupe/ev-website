@@ -62,7 +62,7 @@ body::-webkit-scrollbar {
   transform: translateX(-50%);
   width: fit-content;
   max-width: calc(100vw - 1rem);
-  z-index: 50;
+  z-index: 9998;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +81,7 @@ body::-webkit-scrollbar {
 /* Apply backdrop-filter with feature detection */
 @supports (backdrop-filter: blur(20px)) {
   .nav-header {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
@@ -108,7 +108,7 @@ body::-webkit-scrollbar {
   transform: translateX(-50%);
   width: calc(100vw - 2rem);
   max-width: 400px;
-  z-index: 50;
+  z-index: 9998;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,7 +126,7 @@ body::-webkit-scrollbar {
 /* Apply backdrop-filter with feature detection */
 @supports (backdrop-filter: blur(20px)) {
   .mobile-nav-header {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }

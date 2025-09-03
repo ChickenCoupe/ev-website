@@ -10,40 +10,35 @@ const subteams = [
     description: 'Our executive board provides guidance, organization, and leadership across all aspects of our team.',
     icon: Users,
     href: '/team/leadership',
-    color: 'from-blue-500 to-blue-600',
-    members: 7
-  },
-  {
-    name: 'Electrical',
-    description: 'Design and implement power systems, motor controllers, and electronic components for our vehicles.',
-    icon: Zap,
-    href: '/team/electrical',
-    color: 'from-yellow-500 to-yellow-600',
-    members: 14
+    color: 'from-red-500 to-red-600',
   },
   {
     name: 'Mechanical',
     description: 'Engineer the chassis, aerodynamics, and mechanical systems that make our vehicles efficient.',
     icon: Wrench,
     href: '/team/mechanical',
-    color: 'from-green-500 to-green-600',
-    members: 20
+    color: 'from-red-500 to-red-600',
   },
   {
-    name: 'Autonomy',
-    description: 'Develop autonomous driving capabilities and intelligent navigation systems.',
-    icon: Brain,
-    href: '/team/autonomy',
-    color: 'from-purple-500 to-purple-600',
-    members: 12
+    name: 'Electrical',
+    description: 'Design and implement power systems, motor controllers, and electronic components for our vehicles.',
+    icon: Zap,
+    href: '/team/electrical',
+    color: 'from-red-500 to-red-600',
   },
   {
     name: 'Data A&A',
     description: 'Analyze performance data and develop algorithms for optimization and insights.',
     icon: Database,
     href: '/team/data-aa',
-    color: 'from-indigo-500 to-indigo-600',
-    members: 5
+    color: 'from-red-500 to-red-600',
+  },
+  {
+    name: 'Autonomy',
+    description: 'Develop autonomous driving capabilities and intelligent navigation systems.',
+    icon: Brain,
+    href: '/team/autonomy',
+    color: 'from-red-500 to-red-600',
   },
   {
     name: 'Operations',
@@ -51,7 +46,6 @@ const subteams = [
     icon: Settings,
     href: '/team/operations',
     color: 'from-red-500 to-red-600',
-    members: 4
   }
 ];
 
@@ -78,14 +72,13 @@ const SubteamCard = ({ subteam, index }: { subteam: typeof subteams[0], index: n
                 <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors">
                   {subteam.name}
                 </h3>
-                <p className="text-sm text-gray-400">{subteam.members} members</p>
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed mb-4">
               {subteam.description}
             </p>
             <div className="flex items-center text-red-400 font-medium group-hover:text-red-300 transition-colors">
-              View Team
+              Learn More 
               <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -101,8 +94,8 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
-      <div className="bg-gray-900 py-16 pt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16">
+      <div className="bg-gradient-to-br from-red-600 to-red-800 py-16 pt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-6">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

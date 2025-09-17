@@ -43,44 +43,38 @@ export default function Apply() {
     {
       title: "Info Session #1",
       date: "9/11 @ 5:00 PM", 
-      location: "TBD",
+      location: "Upson 225",
       side: "right"
     },
     {
       title: "Info Session #2",
-      date: "9/16 @ 7:00 PM",
-      location: "TBD",
+      date: "9/22 @ 4:30 PM",
+      location: "Tang 203",
       side: "left"
     },
     {
       title: "Info Session #3",
-      date: "9/22 @ 5:00 PM",
-      location: "TBD",
+      date: "10/1 @ 7:00 PM",
+      location: "RPCC 205",
       side: "right"
     },
     {
       title: "Info Session #4",
-      date: "9/29 @ 7:30 PM",
-      location: "TBD", 
+      date: "10/7 @ 7:15 PM",
+      location: "Upson 206", 
       side: "left"
-    },
-    {
-      title: "Info Session #5",
-      date: "10/6 @ 7:30 PM",
-      location: "TBD",
-      side: "right"
     },
     {
       title: "Open House",
-      date: "10/13-10/15 @ 4:00 PM - 7:00 PM",
+      date: "10/8-10/10 @ 4:00 PM - 7:00 PM",
       location: "Upson B60",
-      side: "left"
+      side: "right"
     },
     {
       title: "Freshmen/Transfers Applications Due",
       date: "10/16 @ 11:59 PM",
       location: null,
-      side: "right"
+      side: "left"
     }
   ]
 

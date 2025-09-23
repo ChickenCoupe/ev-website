@@ -230,10 +230,13 @@ export default function Header() {
               </Link>
               <Link 
                 href="/apply"
-                className="nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300 bg-red-600/80 hover:bg-red-600 text-white"
+                className="nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300 text-white"
                 style={{
+                  backgroundColor: '#b31b1b',
                   fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
                 }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#a11717'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#b31b1b'}
               >
                 Apply
               </Link>
@@ -354,10 +357,13 @@ export default function Header() {
               </Link>
               <Link 
                 href="/apply"
-                className="mobile-nav-link bg-red-600/80 hover:bg-red-600 text-white"
+                className="mobile-nav-link text-white"
                 style={{
+                  backgroundColor: '#b31b1b',
                   fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
                 }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#a11717'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#b31b1b'}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Apply

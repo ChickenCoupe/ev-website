@@ -52,7 +52,10 @@ export default function Hero() {
         >
           <Link
             href="/apply"
-            className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+            className="text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+            style={{ backgroundColor: '#b31b1b'}}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#a11717'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#b31b1b'}
           >
             Apply to CEV
           </Link>

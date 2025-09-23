@@ -33,7 +33,10 @@ export default function CTA() {
         >
           <Link
             href="/apply"
-            className="group bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-semibold transition-all transform hover:scale-105 shadow-lg flex items-center gap-3"
+            className="group text-white px-8 py-4 rounded-lg text-xl font-semibold transition-all transform hover:scale-105 shadow-lg flex items-center gap-3"
+            style={{ backgroundColor: '#b31b1b' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#a11717'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#b31b1b'}
           >
             Apply Now
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

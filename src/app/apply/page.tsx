@@ -42,7 +42,7 @@ export default function Apply() {
     },
     {
       title: "Info Session #1",
-      date: "9/11 @ 5:00 PM", 
+      date: "9/11 @ 5:00 PM",
       location: "Upson 225",
       side: "right"
     },
@@ -61,7 +61,7 @@ export default function Apply() {
     {
       title: "Info Session #4",
       date: "10/7 @ 7:15 PM",
-      location: "Upson 206", 
+      location: "Upson 206",
       side: "left"
     },
     {
@@ -83,12 +83,12 @@ export default function Apply() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-32">
         {/* Header */}
         <div className="text-center mb-16">
-            <div className="flex items-center justify-center space-x-9 py-16">
+          <div className="flex items-center justify-center space-x-9 py-16">
             <h1 className="text-white text-8xl font-bold">Join</h1>
             <Image src="/logo.png" alt="Logo" width={90} height={90} />
-            </div>
+          </div>
           <p className="text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-bold">
-            Ready to build the future of sustainable transportation? Join our interdisciplinary team 
+            Ready to build the future of sustainable transportation? Join our interdisciplinary team
             and work on cutting-edge electric vehicle technology.
           </p>
         </div>
@@ -97,21 +97,21 @@ export default function Apply() {
           <h2 className="text-3xl font-bold text-white mb-6 text-center"><u>Fall 2025 Applications</u></h2>
           <p className="text-lg text-gray-300 mb-8 text-center">CEV is excited to welcome a new class of team members this semester!</p>
           <p className="text-lg text-gray-300 mb-8 text-center">Please note that recruitment is <b>only open to first-year and transfer students this fall.</b></p>
-          <Link 
+          <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLSeRy1lEO_K8oHmt2BG_V4IBAjcQi5rWzJmT4U_rdNMHVpxbzA/viewform?pli=1"
           >
             <p className="text-2xl text-red-500 hover:text-red-400 transition-colors mb-8 text-center underline font-bold">
               Fall Application Form
             </p>
           </Link>
-          <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our <b>Coffee Chat Information</b> and fill out our&nbsp;
-            <Link 
+          <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our <a href="https://docs.google.com/spreadsheets/d/1xRi3kiw8y6D5583K1GDtnGMFYcFLgEJdAhKS9BXGwlI/edit?gid=0#gid=0" className="font-bold italic text-red-500 hover:text-red-400">Coffee Chat Information</a> and fill out our&nbsp;
+            <Link
               href="https://docs.google.com/forms/d/e/1FAIpQLSeTDgkBkoyXQS9YPAmIlsOSRW8ZHlHpMccRRt7n-RoQeb180A/viewform?usp=dialog"
               className="text-gray-150 hover:text-white transition-colors font-bold underline"
             >
-            Interest Form
+              Interest Form
             </Link>
-          !</p>
+            !</p>
           <p className="text-lg text-gray-300 mb-8 text-center">Thank you for your interest in joining our team! We&apos;ve been thrilled to engage with so many passionate individuals keen on pushing the limits of autonomous and electric vehicle innovation.</p>
           <p className="text-lg text-gray-300 mb-8 text-center">CEV thrives thanks to a dedicate team of electrical, mechanical, and software engineers working alongside project managers, financial advisors, and graphic designers. We&apos;re hoping to see you among us in the current application cycle! </p>
           <p className="text-lg text-gray-300 mb-8 text-center">For any questions about our team or updates on our endeavors and timelines, reach out to us at cornellev@cornell.edu.</p>
@@ -168,7 +168,7 @@ export default function Apply() {
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-gray-600"></div>
-              
+
               {/* Timeline items */}
               <div className="space-y-12">
                 {timelineEvents.map((event, index) => (
@@ -221,7 +221,7 @@ export default function Apply() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

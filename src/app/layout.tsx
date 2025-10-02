@@ -30,11 +30,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" type="image/x-icon" href="/cev-favicon.ico" />
-        <link rel="shortcut icon" href="/cev-favicon.ico" />
-        <link rel="apple-touch-icon" href="/cev-logo.png" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

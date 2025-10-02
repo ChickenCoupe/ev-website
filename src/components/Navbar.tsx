@@ -15,7 +15,7 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image 
-                src="/logo-dark.png" 
+                src="/cev-logo.png" 
                 alt="Cornell Electric Vehicles Logo"
                 width={40}
                 height={80}

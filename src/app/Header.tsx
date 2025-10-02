@@ -168,7 +168,7 @@ export default function Header() {
               >
                 <div className="relative flex items-center justify-center" style={{ width: '50px', height: '32px' }}>
                   <Image 
-                    src="/logo.png"
+                    src="/cev-logo.png"
                     alt="Cornell Electric Vehicles Logo" 
                     width={80} 
                     height={36}
@@ -276,7 +276,7 @@ export default function Header() {
               >
                 <div className="relative flex items-center" style={{ width: '80px', height: '28px' }}>
                   <Image 
-                    src="/logo.png"
+                    src="/cev-logo.png"
                     alt="Cornell Electric Vehicles Logo" 
                     width={80} 
                     height={36}

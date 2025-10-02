@@ -54,20 +54,26 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
         >
           <Link
             href="/apply"
-            className="text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
-            style={{ backgroundColor: '#b31b1b'}}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#a11717'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#b31b1b'}
+            className="w-full sm:w-auto text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-center min-w-[200px] border-2"
+            style={{ backgroundColor: '#b31b1b', borderColor: '#b31b1b'}}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#a11717'
+              e.currentTarget.style.borderColor = '#a11717'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#b31b1b'
+              e.currentTarget.style.borderColor = '#b31b1b'
+            }}
           >
             Apply to CEV
           </Link>
           <Link
             href="/team"
-            className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105"
+            className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 text-center min-w-[200px]"
           >
             Meet Our Team
           </Link>

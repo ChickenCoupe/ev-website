@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
@@ -19,20 +20,25 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-8"
+          className="mb-4"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
-            <span className="block text-red-400">CORNELL</span>
-            <span className="block text-white">ELECTRIC VEHICLES</span>
-            <span className="block text-gray-300 text-3xl md:text-4xl mt-2">PROJECT TEAM</span>
-          </h1>
+          <div className="pt-8 mb-8">
+            <Image 
+              src="/fulllight.png"
+              alt="Cornell Electric Vehicles Project Team"
+              width={800}
+              height={300}
+              className="mx-auto w-full max-w-4xl h-auto"
+              priority
+            />
+          </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-12"
+          className="mb-12 -mt-15"
         >
           <h2 className="text-6xl md:text-8xl font-bold mb-8">
             <span className="block text-red-400">BUILD THE</span>

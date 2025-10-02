@@ -59,43 +59,17 @@ export default function CTA() {
         >
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              Check out this edit of CEV at Shell Eco Marathon 2023!
+              Check out this edit of CEV at Shell Eco Marathon 2025!
             </h3>
             <div className="relative aspect-video rounded-2xl shadow-2xl overflow-hidden bg-gray-800">
-              {/* YouTube embed placeholder - replace VIDEO_ID with actual ID */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center text-gray-400">
-                  <div className="text-6xl mb-4">🎥</div>
-                  <div className="text-xl font-semibold mb-2">CEV at Shell Eco Marathon 2023</div>
-                  <div className="text-sm opacity-75 mb-4">
-                    Visit our{' '}
-                    <a 
-                      href="https://www.youtube.com/channel/UCIfPZHm8n76n-ruNO9-Xkag" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-red-400 hover:text-red-300 underline"
-                    >
-                      YouTube channel
-                    </a>
-                    {' '}to watch our latest videos
-                  </div>
-                  <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                    Watch on YouTube
-                  </button>
-                </div>
-              </div>
-              
-              {/* Uncomment and replace VIDEO_ID when you have the actual YouTube video ID */}
-              {/* 
               <iframe 
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/VIDEO_ID" 
+                src="https://www.youtube.com/embed/2di7Gq69jUw"
                 title="CEV at Shell Eco Marathon 2023"
                 frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowFullScreen
               ></iframe>
-              */}
             </div>
           </div>
         </motion.div>

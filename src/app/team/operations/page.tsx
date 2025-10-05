@@ -14,6 +14,13 @@ const operationsTeam = [
         image: '/team/tatum-mclaughlin.jpg'
     },
     {
+        name: 'Cate Defa',
+        position: 'Operations Member',
+        major: 'ORIE',
+        year: '2027',
+        image: '/team/cate-defa.jpg'
+    },
+    {
         name: 'Lena Schapiro',
         position: 'Operations Member',
         major: 'ORIE',

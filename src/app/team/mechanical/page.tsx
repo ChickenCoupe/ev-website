@@ -6,7 +6,6 @@ import { Wrench, Settings, Cog, Wind } from 'lucide-react';
 import Footer from '@/components/Footer'
 
 // Mechanical team data organized by subteams
-//! Add current sophomores
 const mechanicalLeadership = [
   {
     name: 'Mackemey Munion',
@@ -38,6 +37,13 @@ const chassisTeam = [
     major: 'MAE',
     year: '2027',
     image:'/team/zach-feldman.jpg'
+  },
+  {
+    name: 'Joe Dalton',
+    position: 'Chassis Member',
+    major: 'MAE',
+    year: '2027',
+    image:'/team/placeholder.svg'
   },
   {
     name: 'Serkan Yurday',

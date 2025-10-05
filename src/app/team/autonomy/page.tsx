@@ -22,18 +22,11 @@ const autonomyTeam = [
     image: '/team/sidharth-rao.jpg'
   },
   {
-    name: 'Eric Marchetti',
+    name: 'Lucas Libshutz',
     position: 'Autonomy Member',
-    major: 'CS',
-    year: '2026',
-    image: '/team/eric-marchetti.jpg'
-  },
-  {
-    name: 'Zachary Chosed',
-    position: 'Autonomy Member',
-    major: 'CS',
-    year: '2025',
-    image: '/team/zachary-chosed.jpg'
+    major: 'MAE',
+    year: '2027',
+    image: '/team/lucas-libshutz.jpg'
   },
   {
     name: 'Sophia Tsang',
@@ -43,13 +36,6 @@ const autonomyTeam = [
     image: '/team/sophia-tsang.jpg'
   },
   {
-    name: 'Myles Pasetsky',
-    position: 'Autonomy Member',
-    major: 'ECE',
-    year: '2027',
-    image: '/team/myles-pasetsky.jpg'
-  },
-  {
     name: 'Utku Melemetci',
     position: 'Autonomy Member',
     major: 'CS',
@@ -57,32 +43,11 @@ const autonomyTeam = [
     image: '/team/utku-melemetci.jpg'
   },
   {
-    name: 'Zephan Sanghani',
+    name: 'Cam Mazzacane',
     position: 'Autonomy Member',
-    major: 'CS',
-    year: '2027',
-    image: '/team/zephan-sanghani.jpg'
-  },
-  {
-    name: 'Sameer Mehta',
-    position: 'Autonomy Member',
-    major: 'CS',
+    major: 'CS/Math',
     year: '2028',
-    image: '/team/sameer-mehta.jpg'
-  },
-  {
-    name: 'Jason Klein',
-    position: 'Autonomy Member/Advisor',
-    major: 'CS',
-    year: '2026',
-    image: '/team/jason-klein.jpg'
-  },
-  {
-    name: 'Jess Wang',
-    position: 'Autonomy Member',
-    major: 'CS',
-    year: '2028',
-    image: '/team/jess-wang.jpg'
+    image: '/team/cam-mazzacane.jpg'
   },
   {
     name: 'Ibrahim Ahmed',
@@ -92,12 +57,20 @@ const autonomyTeam = [
     image: '/team/ibrahim-ahmed.jpg'
   },
   {
-    name: 'Cam Mazzacane',
+    name: 'Jess Wang',
     position: 'Autonomy Member',
-    major: 'CS/Math',
+    major: 'CS',
     year: '2028',
-    image: '/team/cam-mazzacane.jpg'
-  }
+    image: '/team/jess-wang.jpg'
+  },
+  {
+    name: 'Sameer Mehta',
+    position: 'Autonomy Member',
+    major: 'CS',
+    year: '2028',
+    image: '/team/sameer-mehta.jpg'
+  },
+  
 ]
 
 // Team member card component
@@ -267,7 +240,7 @@ export default function AutonomyTeam() {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 mb-16">
             {autonomyTeam.map((member, index) => (
               <TeamMemberCard key={member.name} member={member} index={index} />
             ))}

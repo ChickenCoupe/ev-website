@@ -22,13 +22,6 @@ const dataTeam= [
         image: '/team/ruth-taddesse.jpg'
     },
     {
-        name: "Serena Duncan",
-        position: 'Data A&A Lead',
-        major: 'CS',
-        year: '2026',
-        image: '/team/serena-duncan.webp'
-    },
-    {
         name: 'Mehdi Heydari',
         position: 'Data A&A Member',
         major: 'CS',

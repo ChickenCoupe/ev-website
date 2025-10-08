@@ -8,6 +8,11 @@ import Link from 'next/link'
 
 const sponsors = [
   {
+    name: 'TDK',
+    logo: '/sponsors/TDK_LOGO.png',
+    website: 'https://www.tdk.com/en/index.html'
+  },
+  {
     name: "NVIDIA",
     logo: "/sponsors/nvidia-logo.png", // Replace with actual sponsor logo
     website: "https://www.nvidia.com/en-us/",
@@ -102,6 +107,11 @@ const sponsors = [
     logo: "/sponsors/kurtz-logo.avif",
     website: "https://kurtzersa.com"
   },
+  {
+    name: "Korad",
+    logo: '/sponsors/korad_logo.png',
+    website: "https://www.koradtechnology.com/"
+  }
 ];
 
 const sponsorshipTiers = [
@@ -284,7 +294,7 @@ export default function Sponsors() {
               Join our mission to advance electric vehicle technology and support the next generation of engineers.
             </p>
             <a
-              href="https://drive.google.com/file/d/1sOx76vTJu_u-nbNxcC6NlEa43vC49LW7/view"
+              href="https://drive.google.com/file/d/1Q_YE834QOpAB5jCGuT5cxrJBnuHpwlFX/view?usp=drive_link"
               className="border-white border-3 hover:bg-gray-700 text-white px-8 py-4 rounded-lg text-xl font-semibold transition-all transform hover:scale-105 shadow-lg inline-block mb-8"
             >
              View our Sponsorship Packet 

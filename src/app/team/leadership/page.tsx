@@ -13,6 +13,8 @@ const leadershipTeam = [
     major: 'MAE',
     year: "'26",
     image: '/team/selena-yao.jpg',
+    email: 'ssy37@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/selena-yao', // Replace with actual LinkedIn
   },
   {
     name: 'Kelvin Resch',
@@ -20,6 +22,8 @@ const leadershipTeam = [
     major: 'ECE',
     year: "'26",
     image: '/team/kelvin-resch.jpg',
+    email: 'kr562@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/kelvin-resch', // Replace with actual LinkedIn
   },
   {
     name: 'Leonora Phillips',
@@ -27,6 +31,8 @@ const leadershipTeam = [
     major: 'ORIE',
     year: "'26",
     image: '/team/leonora-phillips.jpg',
+    email: 'lkp42@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/leonora-phillips-86b84a250/'
   },
   {
     name: 'Rachel Arena',
@@ -34,6 +40,8 @@ const leadershipTeam = [
     major: 'ECE',
     year: "'26",
     image: '/team/rachel-arena.jpg',
+    email: 'rga47@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/rachelarena', // Replace with actual LinkedIn
   },
   {
     name: 'Edward Lee',
@@ -41,6 +49,8 @@ const leadershipTeam = [
     major: 'ECE',
     year: "'26",
     image: '/team/edward-lee.jpg',
+    email: 'ehl54@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/edwardhyungjunlee', // Replace with actual LinkedIn
   },
   {
     name: 'Mackemey Munion',
@@ -48,6 +58,8 @@ const leadershipTeam = [
     major: 'MAE',
     year: "'26",
     image: '/team/mackemey-munion.jpg',
+    email: 'mcm239@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/mackemey-munion-b23878211/', // Replace with actual LinkedIn
   },
   {
     name: 'Jordan Vogel',
@@ -55,6 +67,8 @@ const leadershipTeam = [
     major: 'MAE',
     year: "'27",
     image: '/team/jordan-vogel.jpg',
+    email: 'jv457@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/jordan-vogel-301927241/', // Replace with actual LinkedIn
   },
   {
     name: 'Daniel Sorokin',
@@ -62,6 +76,8 @@ const leadershipTeam = [
     major: 'CS',
     year: "'27",
     image: '/team/daniel-sorokin.jpg',
+    email: 'dhs263@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/daniel-sorokin-6a391328b/', // Replace with actual LinkedIn
   },
   {
     name: 'Ruth Taddesse',
@@ -69,6 +85,8 @@ const leadershipTeam = [
     major: 'CS',
     year: "'27",
     image: '/team/ruth-taddesse.jpg',
+    email: 'ryt5@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/ruth-taddesse', // Replace with actual LinkedIn
   },
   {
     name: 'Tatum McLaughlin',
@@ -76,6 +94,8 @@ const leadershipTeam = [
     major: 'ORIE',
     year: "'27",
     image: '/team/tatum-mclaughlin.jpg',
+    email: 'tmm266@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/tatum-mclaughlin', // Replace with actual LinkedIn
   },
   {
     name: 'Sidharth Rao',
@@ -83,6 +103,8 @@ const leadershipTeam = [
     major: 'CS',
     year: "'27",
     image: '/team/sidharth-rao.jpg',
+    email: 'smr353@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/sidharthmrao', // Replace with actual LinkedIn
   },
   {
     name: 'Erica Jiang',
@@ -90,6 +112,8 @@ const leadershipTeam = [
     major: 'ECE',
     year: "'28",
     image: '/team/erica-jiang.png',
+    email: 'ej289@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/erica-jiang-321322287/', // Replace with actual LinkedIn
   },
  
 ];
@@ -115,12 +139,26 @@ const TeamMemberCard = ({ member, index }: { member: typeof leadershipTeam[0], i
       <p className="text-red-400 font-medium mb-1">{member.position}</p>
       <p className="text-gray-300 text-sm mb-3">{member.major} {member.year}</p>
       <div className="flex space-x-3 mt-4">
-        <button className="text-gray-400 hover:text-red-400 transition-colors">
-          <Linkedin className="w-5 h-5" />
-        </button>
-        <button className="text-gray-400 hover:text-gray-300 transition-colors">
-          <Mail className="w-5 h-5" />
-        </button>
+        {member.linkedin && (
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-red-400 transition-colors"
+            aria-label={`${member.name}'s LinkedIn profile`}
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+        )}
+        {member.email && (
+          <a
+            href={`mailto:${member.email}`}
+            className="text-gray-400 hover:text-gray-300 transition-colors"
+            aria-label={`Email ${member.name}`}
+          >
+            <Mail className="w-5 h-5" />
+          </a>
+        )}
       </div>
     </div>
   </motion.div>

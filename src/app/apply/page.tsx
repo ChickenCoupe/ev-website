@@ -96,25 +96,25 @@ export default function Apply() {
         <div className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8">
           <h2 className="text-3xl font-bold text-white mb-6 text-center"><u>Fall 2025 Applications</u></h2>
           <p className="text-lg text-gray-300 mb-8 text-center">CEV is excited to welcome a new class of team members this semester!</p>
-          <p className="text-lg text-gray-300 mb-8 text-center">Please note that recruitment is <b>only open to first-year and transfer students this fall.</b></p>
-          <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeRy1lEO_K8oHmt2BG_V4IBAjcQi5rWzJmT4U_rdNMHVpxbzA/viewform?pli=1"
-          >
-            <p className="text-2xl text-red-500 hover:text-red-400 transition-colors mb-8 text-center underline font-bold">
-              Fall Application Form
-            </p>
-          </Link>
-          <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our <a href="https://docs.google.com/spreadsheets/d/1xRi3kiw8y6D5583K1GDtnGMFYcFLgEJdAhKS9BXGwlI/edit?gid=0#gid=0" className="font-bold italic text-red-500 hover:text-red-400">Coffee Chat Information</a> and fill out our&nbsp;
-            <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeTDgkBkoyXQS9YPAmIlsOSRW8ZHlHpMccRRt7n-RoQeb180A/viewform?usp=dialog"
-              className="text-gray-150 hover:text-white transition-colors font-bold underline"
-            >
-              Interest Form
-            </Link>
-            !</p>
-          <p className="text-lg text-gray-300 mb-8 text-center">Thank you for your interest in joining our team! We&apos;ve been thrilled to engage with so many passionate individuals keen on pushing the limits of autonomous and electric vehicle innovation.</p>
+          <p className="text-lg text-gray-300 mb-8 text-center">Please note that <b>applications are now <u>closed</u>.</b> We look forward to seeing you apply in the future!</p>
+          {/* <Link */}
+          {/*   href="https://docs.google.com/forms/d/e/1FAIpQLSeRy1lEO_K8oHmt2BG_V4IBAjcQi5rWzJmT4U_rdNMHVpxbzA/viewform?pli=1" */}
+          {/* > */}
+          {/*   <p className="text-2xl text-red-500 hover:text-red-400 transition-colors mb-8 text-center underline font-bold"> */}
+          {/*     Fall Application Form */}
+          {/*   </p> */}
+          {/* </Link> */}
+          {/* <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our <a href="https://docs.google.com/spreadsheets/d/1xRi3kiw8y6D5583K1GDtnGMFYcFLgEJdAhKS9BXGwlI/edit?gid=0#gid=0" className="font-bold italic text-red-500 hover:text-red-400">Coffee Chat Information</a> and fill out our&nbsp; */}
+          {/*   <Link */}
+          {/*     href="https://docs.google.com/forms/d/e/1FAIpQLSeTDgkBkoyXQS9YPAmIlsOSRW8ZHlHpMccRRt7n-RoQeb180A/viewform?usp=dialog" */}
+          {/*     className="text-gray-150 hover:text-white transition-colors font-bold underline" */}
+          {/*   > */}
+          {/*     Interest Form */}
+          {/*   </Link> */}
+          {/*   !</p> */}
+          {/* <p className="text-lg text-gray-300 mb-8 text-center">Thank you for your interest in joining our team! We&apos;ve been thrilled to engage with so many passionate individuals keen on pushing the limits of autonomous and electric vehicle innovation.</p> */}
           <p className="text-lg text-gray-300 mb-8 text-center">CEV thrives thanks to a dedicate team of electrical, mechanical, and software engineers working alongside project managers, financial advisors, and graphic designers. We&apos;re hoping to see you among us in the current application cycle! </p>
-          <p className="text-lg text-gray-300 mb-8 text-center">For any questions about our team or updates on our endeavors and timelines, reach out to us at cornellev@cornell.edu.</p>
+          <p className="text-lg text-gray-300 mb-8 text-center">For any questions about our team or updates on our endeavors and timelines, reach out to us at <a href="mailto:cornellev@cornell.edu" className="font-bold text-red-500">cornellev@cornell.edu</a>.</p>
         </div>
 
         {/* Application Process */}

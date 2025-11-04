@@ -157,6 +157,13 @@ const steeringTeam = [
     image: '/team/aahil-ali.jpg'
   },
   {
+    name: 'Olivia Mei',
+    position: 'Steering Member',
+    major: 'MAE',
+    year: '2028',
+    image:'/team/placeholder.svg'
+  },
+  {
     name: "Lydia Woodall",
     position: "Steering Member",
     major: "MAE",

@@ -33,7 +33,7 @@ const chassisTeam = [
   },
   {
     name: 'Zach Feldman',
-    position: 'Chassis Member',
+    position: 'Chassis Subteam Lead',
     major: 'MAE',
     year: '2027',
     image:'/team/zach-feldman.jpg'

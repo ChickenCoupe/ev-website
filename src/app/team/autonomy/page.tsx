@@ -8,25 +8,18 @@ import Footer from '@/components/Footer'
 // Autonomy team data
 const autonomyTeam = [
   {
-    name: 'Erica Jiang',
-    position: 'Autonomy Lead',
-    major: 'ECE',
-    year: '2028',
-    image: '/team/erica-jiang.png'
-  },
-  {
-    name: 'Sidharth Rao',
-    position: 'Autonomy Lead',
-    major: 'CS/ECE',
-    year: '2027',
-    image: '/team/sidharth-rao.jpg'
-  },
-  {
     name: 'Lucas Libshutz',
-    position: 'Autonomy Member',
+    position: 'Autonomy Lead',
     major: 'MAE',
     year: '2027',
     image: '/team/lucas-libshutz.jpg'
+  },
+  {
+    name: 'Cam Mazzacane',
+    position: 'Autonomy Lead',
+    major: 'CS/Math',
+    year: '2028',
+    image: '/team/cam-mazzacane.jpg'
   },
   {
     name: 'Sophia Tsang',
@@ -43,11 +36,11 @@ const autonomyTeam = [
     image: '/team/utku-melemetci.jpg'
   },
   {
-    name: 'Cam Mazzacane',
+    name: 'Sameer Mehta',
     position: 'Autonomy Member',
-    major: 'CS/Math',
+    major: 'CS',
     year: '2028',
-    image: '/team/cam-mazzacane.jpg'
+    image: '/team/sameer-mehta.jpg'
   },
   {
     name: 'Ibrahim Ahmed',
@@ -57,20 +50,61 @@ const autonomyTeam = [
     image: '/team/ibrahim-ahmed.jpg'
   },
   {
-    name: 'Jess Wang',
+    name: 'Ethan Berkowitz',
     position: 'Autonomy Member',
-    major: 'CS',
-    year: '2028',
-    image: '/team/jess-wang.jpg'
+    major: 'ECE/CS',
+    year: '2029',
+    image: '/team/placeholder.svg'
   },
   {
-    name: 'Sameer Mehta',
+    name: 'Ishaan Parikh',
+    position: 'Autonomy Member',
+    major: 'ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Jaiden Grimminck',
     position: 'Autonomy Member',
     major: 'CS',
-    year: '2028',
-    image: '/team/sameer-mehta.jpg'
+    year: '2029',
+    image: '/team/placeholder.svg'
   },
-  
+  {
+    name: 'Joyce Lin',
+    position: 'Autonomy Member',
+    major: 'CS/ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Smriti Kumar',
+    position: 'Autonomy Member',
+    major: 'CS/ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Surya Chandaskaran',
+    position: 'Autonomy Member',
+    major: 'CS/ORIE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Thomas Xin',
+    position: 'Autonomy Member',
+    major: 'CS/ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Sidharth Rao',
+    position: 'Autonomy Advisor',
+    major: 'CS/ECE',
+    year: '2027',
+    image: '/team/sidharth-rao.jpg'
+  },
 ]
 
 // Team member card component
@@ -136,12 +170,12 @@ export default function AutonomyTeam() {
               <div className="text-gray-300">Autonomy Target</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">AI/ML</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">Localization, Planning, Control, Perception</div>
               <div className="text-gray-300">Core Technologies</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">Vision</div>
-              <div className="text-gray-300">Primary Sensor</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">LiDAR, IMU, Stereo Camera</div>
+              <div className="text-gray-300">Primary Sensors</div>
             </div>
           </div>
         </div>
@@ -240,7 +274,7 @@ export default function AutonomyTeam() {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-8 mb-16">
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             {autonomyTeam.map((member, index) => (
               <TeamMemberCard key={member.name} member={member} index={index} />
             ))}

@@ -8,114 +8,113 @@ import Footer from '@/components/Footer'
 // Leadership team data
 const leadershipTeam = [
   {
-    name: 'Selena Yao',
-    position: 'Full Team Lead',
-    major: 'MAE',
-    year: "'26",
-    image: '/team/selena-yao.jpg',
-    email: 'ssy37@cornell.edu', // Replace with actual email
-    linkedin: 'https://linkedin.com/in/selena-yao', // Replace with actual LinkedIn
-  },
-  {
-    name: 'Kelvin Resch',
-    position: 'Full Team Lead',
-    major: 'ECE',
-    year: "'26",
-    image: '/team/kelvin-resch.jpg',
-    email: 'kr562@cornell.edu', // Replace with actual email
-    linkedin: 'https://linkedin.com/in/kelvin-resch', // Replace with actual LinkedIn
-  },
-  {
-    name: 'Leonora Phillips',
-    position: 'Full Team Lead',
-    major: 'ORIE',
-    year: "'26",
-    image: '/team/leonora-phillips.jpg',
-    email: 'lkp42@cornell.edu', // Replace with actual email
-    linkedin: 'https://www.linkedin.com/in/leonora-phillips-86b84a250/'
-  },
-  {
-    name: 'Rachel Arena',
-    position: 'Electrical Lead',
-    major: 'ECE',
-    year: "'26",
-    image: '/team/rachel-arena.jpg',
-    email: 'rga47@cornell.edu', // Replace with actual email
-    linkedin: 'https://linkedin.com/in/rachelarena', // Replace with actual LinkedIn
-  },
-  {
-    name: 'Edward Lee',
-    position: 'Electrical Lead',
-    major: 'ECE',
-    year: "'26",
-    image: '/team/edward-lee.jpg',
-    email: 'ehl54@cornell.edu', // Replace with actual email
-    linkedin: 'https://linkedin.com/in/edwardhyungjunlee', // Replace with actual LinkedIn
-  },
-  {
-    name: 'Mackemey Munion',
-    position: 'Mechanical Lead',
-    major: 'MAE',
-    year: "'26",
-    image: '/team/mackemey-munion.jpg',
-    email: 'mcm239@cornell.edu', // Replace with actual email
-    linkedin: 'https://www.linkedin.com/in/mackemey-munion-b23878211/', // Replace with actual LinkedIn
-  },
-  {
-    name: 'Jordan Vogel',
-    position: 'Mechanical Lead',
-    major: 'MAE',
-    year: "'27",
-    image: '/team/jordan-vogel.jpg',
-    email: 'jv457@cornell.edu', // Replace with actual email
-    linkedin: 'https://www.linkedin.com/in/jordan-vogel-301927241/', // Replace with actual LinkedIn
-  },
-  {
     name: 'Daniel Sorokin',
-    position: 'Data A&A Lead',
+    position: 'Full Team Lead',
     major: 'CS',
     year: "'27",
     image: '/team/daniel-sorokin.jpg',
-    email: 'dhs263@cornell.edu', // Replace with actual email
-    linkedin: 'https://www.linkedin.com/in/daniel-sorokin-6a391328b/', // Replace with actual LinkedIn
+    email: 'dhs263@cornell.edu', 
+    linkedin: 'https://www.linkedin.com/in/daniel-sorokin-6a391328b/', 
+  },
+  {
+    name: 'Zach Feldman',
+    position: 'Full Team Lead',
+    major: 'MAE',
+    year: "'27",
+    image: '/team/zach-feldman.jpg',
+    email: 'zlf3@cornell.edu',
+    linkedin: 'https://www.linkedin.com/in/zlf3/'
   },
   {
     name: 'Ruth Taddesse',
-    position: 'Data A&A Lead',
+    position: 'Full Team Lead',
     major: 'CS',
     year: "'27",
     image: '/team/ruth-taddesse.jpg',
-    email: 'ryt5@cornell.edu', // Replace with actual email
-    linkedin: 'https://linkedin.com/in/ruth-taddesse', // Replace with actual LinkedIn
+    email: 'ryt5@cornell.edu',
+    linkedin: 'https://linkedin.com/in/ruth-taddesse', 
   },
   {
-    name: 'Tatum McLaughlin',
-    position: 'Operations Lead',
-    major: 'ORIE',
-    year: "'27",
-    image: '/team/tatum-mclaughlin.jpg',
-    email: 'tmm266@cornell.edu', // Replace with actual email
-    linkedin: 'https://linkedin.com/in/tatum-mclaughlin', // Replace with actual LinkedIn
-  },
-  {
-    name: 'Sidharth Rao',
+    name: 'Lucas Libshutz',
     position: 'Autonomy Lead',
-    major: 'CS',
+    major: 'MAE',
     year: "'27",
-    image: '/team/sidharth-rao.jpg',
-    email: 'smr353@cornell.edu', // Replace with actual email
-    linkedin: 'https://linkedin.com/in/sidharthmrao', // Replace with actual LinkedIn
+    image: '/team/lucas-libshutz.jpg',
+    email: 'lsl94@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/lucaslibshutz', // Replace with actual LinkedIn
+  },
+  {
+    name: 'Cam Mazzacanne',
+    position: 'Autonomy Lead',
+    major: 'CS/Math',
+    year: "'28",
+    image: '/team/cam-mazzacane.jpg',
+    email: 'clm357@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/cam-mazzcanne', 
   },
   {
     name: 'Erica Jiang',
-    position: 'Autonomy Lead',
+    position: 'Electrical Lead',
     major: 'ECE',
     year: "'28",
     image: '/team/erica-jiang.png',
     email: 'ej289@cornell.edu', // Replace with actual email
     linkedin: 'https://www.linkedin.com/in/erica-jiang-321322287/', // Replace with actual LinkedIn
   },
- 
+  {
+    name: 'Kellen Yu',
+    position: 'Electrical Lead',
+    major: 'ECE',
+    year: "'29",
+    image: '/team/placeholder.svg',
+    email: 'kcy24@cornell.edu', 
+    linkedin: 'https://www.linkedin.com/in/kellen-yu-ab2728318/', 
+  },
+  {
+    name: 'Serkan Yurday',
+    position: 'Mechanical Lead',
+    major: 'MAE',
+    year: "'28",
+    image: '/team/serkan-yurday.jpg',
+    email: 'sy794@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/serkanyurday/', // Replace with actual LinkedIn
+  },
+  {
+    name: 'Albert Zheng',
+    position: 'Mechanical Lead',
+    major: 'MAE',
+    year: "'28",
+    image: '/team/albert-zheng.jpg',
+    email: 'az487@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/al-zheng/', // Replace with actual LinkedIn
+  },
+  {
+    name: 'Katie Xiao',
+    position: 'Data A&A Member',
+    major: 'CS',
+    year: '2028',
+    image: '/team/katie-xiao.jpg',
+    email: 'jx385@cornell.edu',
+    linkedin: 'https://www.linkedin.com/in/kayt9673/'
+  },
+  {
+    name: 'Rhea Agrawal',
+    position: 'Data A&A Member',
+    major: 'CS',
+    year: '2028',
+    image: '/team/rhea-agrawal.jpg',
+    email: 'ra677@cornell.edu',
+    linkedin: 'https://www.linkedin.com/in/rhea-agrawal-aab7b3328/'
+  },
+  {
+    name: 'Lena Schapiro',
+    position: 'Operations Lead',
+    major: 'ORIE',
+    year: "'28",
+    image: '/team/lena-schapiro.jpg',
+    email: 'lms458@cornell.edu',
+    linkedin: 'https://www.linkedin.com/in/lena-schapiro/', // Replace with actual LinkedIn
+  },
 ];
 
 // Team member card component

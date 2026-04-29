@@ -105,6 +105,45 @@ export default function Header() {
           <div className="w-full flex items-center justify-center">
             <nav className="flex items-center justify-center gap-6">
               <Link 
+                href="/" 
+                className={`ml-3 nav-link flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300`}
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive('/')) {
+                    e.currentTarget.style.backgroundColor = hoverBg;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive('/')) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}
+              >
+                <div className="relative flex items-center justify-center" style={{ width: '32px', height: '32px' }}>
+                  <Image 
+                    src="/cev-logo.png"
+                    alt="Cornell Electric Vehicles Logo" 
+                    width={80} 
+                    height={36}
+                    className="object-contain"
+                    style={{ 
+                      width: 'auto', 
+                      height: '32px',
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)'
+                    }}
+                    priority
+                  />
+                </div>
+              </Link>
+
+              <Link 
                 href="/team"
                 className={`nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300`}
                 style={{
@@ -145,45 +184,6 @@ export default function Header() {
                 }}
               >
                 Vehicles
-              </Link>
-              
-              <Link 
-                href="/" 
-                className={`nav-link flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300 mx-2`}
-                style={{
-                  color: textColor,
-                  backgroundColor: isActive('/') ? activeBg : 'transparent',
-                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive('/')) {
-                    e.currentTarget.style.backgroundColor = hoverBg;
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive('/')) {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }
-                }}
-              >
-                <div className="relative flex items-center justify-center" style={{ width: '50px', height: '32px' }}>
-                  <Image 
-                    src="/cev-logo.png"
-                    alt="Cornell Electric Vehicles Logo" 
-                    width={80} 
-                    height={36}
-                    className="object-contain"
-                    style={{ 
-                      width: 'auto', 
-                      height: '32px',
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)'
-                    }}
-                    priority
-                  />
-                </div>
               </Link>
               
               <Link 

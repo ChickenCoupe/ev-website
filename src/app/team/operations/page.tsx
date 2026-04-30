@@ -7,39 +7,39 @@ import Footer from '@/components/Footer'
 
 const operationsTeam = [
     {
-        name: 'Tatum McLaughlin',
-        position: 'Operations Lead',
-        major: 'ORIE',
-        year: '2027',
-        image: '/team/tatum-mclaughlin.jpg'
-    },
-    {
-        name: 'Cate Defa',
-        position: 'Operations Member',
-        major: 'ORIE',
-        year: '2027',
-        image: '/team/cate-defa.jpg'
-    },
-    {
         name: 'Lena Schapiro',
-        position: 'Operations Member',
+        position: 'Operations Lead',
         major: 'ORIE',
         year: '2028',
         image: '/team/lena-schapiro.jpg'
     },
     {
-        name: 'Bator Diop',
+        name: 'Jessie Shi',
         position: 'Operations Member',
         major: 'ORIE',
-        year: '2028',
-        image: '/team/bator-diop.jpg'
+        year: '2029',
+        image: '/team/placeholder.svg'
     },
     {
-        name: 'Eunice Son',
+        name: 'Kayra Tosun',
+        position: 'Operations Member',
+        major: 'ORIE',
+        year: '2029',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Lauren Stanley',
+        position: 'Operations Member',
+        major: 'ORIE',
+        year: '2029',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Mino Furtado',
         position: 'Operations Member',
         major: 'ORIE',
         year: '2027',
-        image: '/team/eunice-son.jpg'
+        image: '/team/placeholder.svg'
     }
 ]
 

@@ -2,77 +2,149 @@ import Link from 'next/link'
 import { Users, Code, Wrench, Zap, BarChart } from 'lucide-react'
 import Image from 'next/image';
 import Footer from '@/components/Footer'
+import CountdownTimer from '@/components/CountdownTimer'
 
+function ApplicationPhase({ phase, year }: { phase: number, year?: number }) {
+    return (
+        <div className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">Fall {year} Applications</h2>
+          { phase === 1 && (
+            <>
+            <p className="text-lg text-gray-300 mb-8 text-center">CEV is excited to welcome a new class of team members this semester!</p>
+            <p className="text-lg text-gray-300 mb-8 text-center">Please note that <b>applications are now <u>closed</u>.</b> We look forward to seeing you apply in the future!</p>
+            <p className="text-lg text-gray-300 mb-8 text-center">CEV thrives thanks to a dedicate team of electrical, mechanical, and software engineers working alongside project managers, financial advisors, and graphic designers. We&apos;re hoping to see you among us in the current application cycle! </p>
+            <p className="text-lg text-gray-300 mb-8 text-center">For any questions about our team or updates on our endeavors and timelines, reach out to us at <a href="mailto:cornellev@cornell.edu" className="font-bold text-red-500">cornellev@cornell.edu</a>.</p>
+            </>
+          )}
+          {
+            phase === 2 && (
+                <>
+                 <Link
+                   href="https://docs.google.com/forms/d/e/1FAIpQLSeRy1lEO_K8oHmt2BG_V4IBAjcQi5rWzJmT4U_rdNMHVpxbzA/viewform?pli=1"
+                 > 
+                   <p className="text-2xl text-red-500 hover:text-red-400 transition-colors mb-8 text-center underline font-bold"> 
+                     Fall Application Form 
+                   </p> 
+                 </Link> 
+                 <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our <a href="https://docs.google.com/spreadsheets/d/1xRi3kiw8y6D5583K1GDtnGMFYcFLgEJdAhKS9BXGwlI/edit?gid=0#gid=0" className="font-bold italic text-red-500 hover:text-red-400">Coffee Chat Information</a> and fill out our&nbsp; 
+                   <Link 
+                     href="https://docs.google.com/forms/d/e/1FAIpQLSeTDgkBkoyXQS9YPAmIlsOSRW8ZHlHpMccRRt7n-RoQeb180A/viewform?usp=dialog" 
+                     className="text-gray-150 hover:text-white transition-colors font-bold underline" 
+                   > 
+                     Interest Form 
+                   </Link> 
+                   !</p> 
+                <p className="text-lg text-gray-300 mb-8 text-center">Thank you for your interest in joining our team! We&apos;ve been thrilled to engage with so many passionate individuals keen on pushing the limits of autonomous and electric vehicle innovation.</p> 
+                </>
+            )
+          }
+          {
+            phase === 3 && (
+                <>
+                    {/** Date when apps open: Monday, Aug. 17 */}
+                    <CountdownTimer target="2026-08-17T00:00:00" subtitle='We look forward to reviewing your applications!'/>
+                </>
+            )
+          }
+        </div>
+    )
+}
+
+function Subteam({ icon, name, description }: { icon: React.ReactNode, name: string, description: string }) {
+    return (
+        <div className="bg-gray-800 rounded-xl p-6 hover:shadow-xl transition-shadow border border-gray-700">
+            <div className="text-red-400 mb-4">
+                {icon}
+            </div>
+            <h3 className="text-xl font-semibold text-white mb-2">{name}</h3>
+            <p className="text-gray-300">{description}</p>
+        </div>
+    )
+}
+
+function SubteamView() {
+    return (
+        <div className="mb-16">
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">Our Subteams</h2>
+            <div className="flex flex-col gap-6">
+                <div className='flex flex-col md:flex-row gap-6'>
+                    <Subteam
+                        icon={<Wrench className="w-8 h-8" />}
+                        name="Mechanical"
+                        description="Engineer chassis, suspension, aerodynamics, and manufacture the vehicle"
+                    />
+                    <Subteam
+                        icon={<Zap className="w-8 h-8" />}
+                        name="Electrical"
+                        description="Design power systems, motor controllers, and electronic circuits"
+                    />
+                    <Subteam
+                        icon={<Code className="w-8 h-8" />}
+                        name="Data A&A"
+                        description="Develop telemetry visualization and capture software"
+                    />
+                </div>
+                <div className="flex flex-col md:flex-row gap-6">
+                    <Subteam
+                        icon={<BarChart className="w-8 h-8" />}
+                        name="Autonomy"
+                        description="Develop autonomous driving systems and vehicle control software"
+                    />
+                    <Subteam
+                        icon={<Users className="w-8 h-8" />}
+                        name="Operations"
+                        description="Manage partnerships, fundraising, marketing, and team operations"
+                    />
+                </div>
+            </div>
+        </div>
+        
+    )
+}
 
 export default function Apply() {
-  const subteams = [
-    {
-      icon: <Wrench className="w-8 h-8" />,
-      name: "Mechanical",
-      description: "Engineer chassis, suspension, aerodynamics, and manufacture the vehicle"
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      name: "Electrical",
-      description: "Design power systems, motor controllers, and electronic circuits"
-    },
-    {
-      icon: <Code className="w-8 h-8" />,
-      name: "Data A&A",
-      description: "Develop telemetry visualization and capture software"
-    },
-    {
-      icon: <BarChart className="w-8 h-8" />,
-      name: "Autonomy",
-      description: "Develop autonomous driving systems and vehicle control software"
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      name: "Operations",
-      description: "Manage partnerships, fundraising, marketing, and team operations"
-    }
-  ]
+  
 
   const timelineEvents = [
     {
       title: "Project Teams Fest",
-      date: "9/4 @ 4:00 PM - 6:00 PM",
+      date: "9/3 @ 4:00 PM - 6:00 PM",
       location: "Duffield Atrium",
       side: "left"
     },
     {
       title: "Info Session #1",
-      date: "9/11 @ 5:00 PM",
-      location: "Upson 225",
+      date: "TBA",
+      location: "TBA",
       side: "right"
     },
     {
       title: "Info Session #2",
-      date: "9/22 @ 4:30 PM",
-      location: "Tang 203",
+      date: "TBA",
+      location: "TBA",
       side: "left"
     },
     {
       title: "Info Session #3",
-      date: "10/1 @ 7:00 PM",
-      location: "RPCC 205",
+      date: "TBA",
+      location: "TBA",
       side: "right"
     },
     {
       title: "Info Session #4",
-      date: "10/7 @ 7:15 PM",
-      location: "Upson 206",
+      date: "TBA",
+      location: "TBA",
       side: "left"
     },
     {
       title: "Open House",
-      date: "10/8-10/10 @ 4:00 PM - 7:00 PM",
+      date: "TBA",
       location: "Upson B60",
       side: "right"
     },
     {
       title: "Freshmen/Transfers Applications Due",
-      date: "10/16 @ 11:59 PM",
+      date: "10/15 @ 11:59 PM",
       location: null,
       side: "left"
     }
@@ -84,6 +156,7 @@ export default function Apply() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center space-x-9 py-16">
+            {/* i'll fix this eventually -jaiden */}
             <h1 className="text-white text-8xl font-bold">Join</h1>
             <Image src="/logo.png" alt="Logo" width={90} height={90} />
           </div>
@@ -93,29 +166,8 @@ export default function Apply() {
           </p>
         </div>
 
-        <div className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8">
-          <h2 className="text-3xl font-bold text-white mb-6 text-center"><u>Fall 2025 Applications</u></h2>
-          <p className="text-lg text-gray-300 mb-8 text-center">CEV is excited to welcome a new class of team members this semester!</p>
-          <p className="text-lg text-gray-300 mb-8 text-center">Please note that <b>applications are now <u>closed</u>.</b> We look forward to seeing you apply in the future!</p>
-          {/* <Link */}
-          {/*   href="https://docs.google.com/forms/d/e/1FAIpQLSeRy1lEO_K8oHmt2BG_V4IBAjcQi5rWzJmT4U_rdNMHVpxbzA/viewform?pli=1" */}
-          {/* > */}
-          {/*   <p className="text-2xl text-red-500 hover:text-red-400 transition-colors mb-8 text-center underline font-bold"> */}
-          {/*     Fall Application Form */}
-          {/*   </p> */}
-          {/* </Link> */}
-          {/* <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our <a href="https://docs.google.com/spreadsheets/d/1xRi3kiw8y6D5583K1GDtnGMFYcFLgEJdAhKS9BXGwlI/edit?gid=0#gid=0" className="font-bold italic text-red-500 hover:text-red-400">Coffee Chat Information</a> and fill out our&nbsp; */}
-          {/*   <Link */}
-          {/*     href="https://docs.google.com/forms/d/e/1FAIpQLSeTDgkBkoyXQS9YPAmIlsOSRW8ZHlHpMccRRt7n-RoQeb180A/viewform?usp=dialog" */}
-          {/*     className="text-gray-150 hover:text-white transition-colors font-bold underline" */}
-          {/*   > */}
-          {/*     Interest Form */}
-          {/*   </Link> */}
-          {/*   !</p> */}
-          {/* <p className="text-lg text-gray-300 mb-8 text-center">Thank you for your interest in joining our team! We&apos;ve been thrilled to engage with so many passionate individuals keen on pushing the limits of autonomous and electric vehicle innovation.</p> */}
-          <p className="text-lg text-gray-300 mb-8 text-center">CEV thrives thanks to a dedicate team of electrical, mechanical, and software engineers working alongside project managers, financial advisors, and graphic designers. We&apos;re hoping to see you among us in the current application cycle! </p>
-          <p className="text-lg text-gray-300 mb-8 text-center">For any questions about our team or updates on our endeavors and timelines, reach out to us at <a href="mailto:cornellev@cornell.edu" className="font-bold text-red-500">cornellev@cornell.edu</a>.</p>
-        </div>
+        {/* Applications */}
+        <ApplicationPhase phase={3} year={2026} />
 
         {/* Application Process */}
         <div className="bg-gray-800 rounded-2xl p-8 mb-16 border border-gray-700">
@@ -125,41 +177,29 @@ export default function Apply() {
               <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
                 1
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Choose Subteam</h3>
-              <p className="text-gray-300">Choose which subteam that you want to apply to.</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Project Team Form</h3>
+              <p className="text-gray-300">Fill out <Link className='text-blue-500 hover:text-blue-400' href={"https://www.duffield.cornell.edu/student-project-teams/join-a-project-team/"}>Cornell's Project Team Form</Link> - <b>we cannot accept your applications without it.</b></p>
             </div>
             <div className="text-center">
               <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
                 2
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Submit Application</h3>
-              <p className="text-gray-300">Complete the online application with your background and interests.</p>
+              <p className="text-gray-300">Complete our application form with your background and interests!</p>
             </div>
             <div className="text-center">
               <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
                 3
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Technical Interview</h3>
-              <p className="text-gray-300">Showcase your technical skills, and tell us about you!</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Interview</h3>
+              {/* should be fine for now? */}
+              <p className="text-gray-300">After reviewing applications, we'll contact you to schedule an interview.</p>
             </div>
           </div>
         </div>
 
         {/* Subteams */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">Our Subteams</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {subteams.map((subteam) => (
-              <div key={subteam.name} className="bg-gray-800 rounded-xl p-6 hover:shadow-xl transition-shadow border border-gray-700">
-                <div className="text-red-400 mb-4">
-                  {subteam.icon}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">{subteam.name}</h3>
-                <p className="text-gray-300">{subteam.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <SubteamView />
 
         {/* Timeline */}
         <div className="mb-16">

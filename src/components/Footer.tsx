@@ -130,7 +130,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            ©2025 by Cornell Electric Vehicles (CEV) Project Team. All rights reserved.
+            ©{new Date().getFullYear()} by Cornell Electric Vehicles (CEV) Project Team. All rights reserved.
           </div>
           <div className="text-gray-400 text-sm">
             Registered Student Organization of Cornell University

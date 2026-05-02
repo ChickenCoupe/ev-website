@@ -1,57 +1,69 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Users, Zap, Wrench, Brain, Database, Settings } from 'lucide-react';
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Users, Zap, Wrench, Brain, Database, Settings } from "lucide-react";
 
 const subteams = [
   {
-    name: 'Leadership',
-    description: 'Our executive board provides guidance, organization, and leadership across all aspects of our team.',
+    name: "Leadership",
+    description:
+      "Our executive board provides guidance, organization, and leadership across all aspects of our team.",
     icon: Users,
-    href: '/team/leadership',
-    color: 'from-red-500 to-red-600',
+    href: "/team/leadership",
+    color: "from-red-500 to-red-600",
   },
   {
-    name: 'Mechanical',
-    description: 'Engineer the chassis, aerodynamics, and mechanical systems that make our vehicles efficient.',
+    name: "Mechanical",
+    description:
+      "Engineer the chassis, aerodynamics, and mechanical systems that make our vehicles efficient.",
     icon: Wrench,
-    href: '/team/mechanical',
-    color: 'from-red-500 to-red-600',
+    href: "/team/mechanical",
+    color: "from-red-500 to-red-600",
   },
   {
-    name: 'Electrical',
-    description: 'Design and implement power systems, motor controllers, and electronic components for our vehicles.',
+    name: "Electrical",
+    description:
+      "Design and implement power systems, motor controllers, and electronic components for our vehicles.",
     icon: Zap,
-    href: '/team/electrical',
-    color: 'from-red-500 to-red-600',
+    href: "/team/electrical",
+    color: "from-red-500 to-red-600",
   },
   {
-    name: 'Data A&A',
-    description: 'Analyze performance data and develop algorithms for optimization and insights.',
+    name: "Telemetry",
+    description:
+      "Analyze performance data and develop algorithms for optimization and insights.",
     icon: Database,
-    href: '/team/data-aa',
-    color: 'from-red-500 to-red-600',
+    href: "/team/telemetry",
+    color: "from-red-500 to-red-600",
   },
   {
-    name: 'Autonomy',
-    description: 'Develop autonomous driving capabilities and intelligent navigation systems.',
+    name: "Autonomy",
+    description:
+      "Develop autonomous driving capabilities and intelligent navigation systems.",
     icon: Brain,
-    href: '/team/autonomy',
-    color: 'from-red-500 to-red-600',
+    href: "/team/autonomy",
+    color: "from-red-500 to-red-600",
   },
   {
-    name: 'Operations',
-    description: 'Manage logistics, outreach, and day-to-day operations of the team.',
+    name: "Operations",
+    description:
+      "Manage logistics, outreach, and day-to-day operations of the team.",
     icon: Settings,
-    href: '/team/operations',
-    color: 'from-red-500 to-red-600',
-  }
+    href: "/team/operations",
+    color: "from-red-500 to-red-600",
+  },
 ];
 
-const SubteamCard = ({ subteam, index }: { subteam: typeof subteams[0], index: number }) => {
+const SubteamCard = ({
+  subteam,
+  index,
+}: {
+  subteam: (typeof subteams)[0];
+  index: number;
+}) => {
   const IconComponent = subteam.icon;
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -65,7 +77,9 @@ const SubteamCard = ({ subteam, index }: { subteam: typeof subteams[0], index: n
           <div className={`h-2 bg-gradient-to-r ${subteam.color}`}></div>
           <div className="p-8">
             <div className="flex items-center mb-4">
-              <div className={`p-3 rounded-lg bg-gradient-to-r ${subteam.color} mr-4`}>
+              <div
+                className={`p-3 rounded-lg bg-gradient-to-r ${subteam.color} mr-4`}
+              >
                 <IconComponent className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -78,9 +92,19 @@ const SubteamCard = ({ subteam, index }: { subteam: typeof subteams[0], index: n
               {subteam.description}
             </p>
             <div className="flex items-center text-red-400 font-medium group-hover:text-red-300 transition-colors">
-              Learn More 
-              <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              Learn More
+              <svg
+                className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </div>
           </div>
@@ -110,7 +134,9 @@ export default function TeamPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-gray-300 max-w-3xl mx-auto"
           >
-            Meet the dedicated students behind Cornell Electric Vehicles, working together across multiple specialized teams to build the future of sustainable transportation.
+            Meet the dedicated students behind Cornell Electric Vehicles,
+            working together across multiple specialized teams to build the
+            future of sustainable transportation.
           </motion.p>
         </div>
       </div>
@@ -146,10 +172,11 @@ export default function TeamPage() {
           >
             <h2 className="text-3xl font-bold text-white mb-4">Our Subteams</h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Each team brings unique expertise and skills to create innovative, efficient electric vehicles.
+              Each team brings unique expertise and skills to create innovative,
+              efficient electric vehicles.
             </p>
           </motion.div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {subteams.map((subteam, index) => (
               <SubteamCard key={index} subteam={subteam} index={index} />

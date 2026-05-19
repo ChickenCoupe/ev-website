@@ -111,6 +111,11 @@ const sponsors = [
     name: "Korad",
     logo: '/sponsors/korad_logo.png',
     website: "https://www.koradtechnology.com/"
+  },
+  {
+    name: "Tex Technology",
+    logo: '/sponsors/tex-logo.jpg',
+    website: "https://www.textech.co.jp/en/"
   }
 ];
 

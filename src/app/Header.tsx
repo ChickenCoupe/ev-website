@@ -229,6 +229,27 @@ export default function Header() {
                 Sponsors
               </Link>
               <Link 
+                href="/blog"
+                className={`nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300`}
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/blog') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive('/blog')) {
+                    e.currentTarget.style.backgroundColor = hoverBg;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive('/blog')) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}
+              >
+                Blog
+              </Link>
+              <Link 
                 href="/apply"
                 className="nav-link text-sm font-semibold px-4 py-2 rounded-full transition-all duration-300 text-white"
                 style={{
@@ -354,6 +375,18 @@ export default function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Sponsors
+              </Link>
+              <Link 
+                href="/blog"
+                className="mobile-nav-link"
+                style={{
+                  color: textColor,
+                  backgroundColor: isActive('/blog') ? activeBg : 'transparent',
+                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+                }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Blog
               </Link>
               <Link 
                 href="/apply"

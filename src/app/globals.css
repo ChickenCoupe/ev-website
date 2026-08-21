@@ -49,6 +49,1514 @@ body::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
 }
 
+/* Homepage concept lab */
+.concept-lab {
+  --concept-accent: #b31b1b;
+  --concept-ink: #111111;
+  --concept-surface: #f3f1ea;
+  min-height: 100dvh;
+  background: var(--concept-surface);
+  color: var(--concept-ink);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.concept-lab__stage {
+  animation: concept-stage-enter 420ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.concept-lab__stage--instant {
+  animation: none;
+}
+
+.concept-lab__meta {
+  position: fixed;
+  right: 1rem;
+  top: 7rem;
+  z-index: 70;
+  width: min(18rem, calc(100vw - 2rem));
+  color: var(--concept-ink);
+  pointer-events: none;
+}
+
+.concept-lab__meta span,
+.concept-switcher__header span,
+.concept-switcher__header strong,
+.concept-kicker {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.concept-lab__meta p {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.concept-switcher {
+  position: fixed;
+  left: 1rem;
+  top: 7rem;
+  z-index: 80;
+  width: min(17rem, calc(100vw - 2rem));
+  color: var(--concept-ink);
+}
+
+.concept-switcher__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--concept-ink), transparent 78%);
+}
+
+.concept-switcher__tabs {
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 0.7rem;
+}
+
+.concept-switcher__tab {
+  display: grid;
+  gap: 0.2rem;
+  width: 100%;
+  padding: 0.78rem 0.85rem;
+  border: 1px solid color-mix(in oklch, var(--concept-ink), transparent 86%);
+  border-radius: 0;
+  background: color-mix(in oklch, var(--concept-surface), white 8%);
+  color: var(--concept-ink);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+    color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.concept-switcher__tab:hover,
+.concept-switcher__tab:focus-visible {
+  border-color: color-mix(in oklch, var(--concept-ink), transparent 50%);
+}
+
+.concept-switcher__tab:active {
+  transform: scale(0.97);
+}
+
+.concept-switcher__tab[aria-selected="true"] {
+  background: var(--concept-ink);
+  color: var(--concept-surface);
+}
+
+.concept-switcher__tab span {
+  font-size: 0.95rem;
+  font-weight: 750;
+}
+
+.concept-switcher__tab small {
+  font-size: 0.76rem;
+  line-height: 1.35;
+  opacity: 0.74;
+}
+
+.concept-panel {
+  min-height: 100dvh;
+  padding-left: clamp(1rem, 19rem, 24vw);
+}
+
+.concept-kicker {
+  margin-bottom: 1.1rem;
+  color: var(--concept-accent);
+}
+
+.concept-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
+.concept-actions a,
+.race-line__finish a,
+.systems-map__readout a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.8rem;
+  padding: 0 1rem;
+  border: 1px solid currentColor;
+  background: var(--concept-accent);
+  color: white;
+  font-size: 0.92rem;
+  font-weight: 760;
+  text-decoration: none;
+  transition:
+    background-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.concept-actions a + a {
+  background: transparent;
+  color: inherit;
+}
+
+.concept-actions a:active,
+.race-line__finish a:active,
+.systems-map__readout a:active {
+  transform: scale(0.97);
+}
+
+.wind-tunnel {
+  min-height: 430dvh;
+  background: #f3f1ea;
+  color: #111111;
+}
+
+.wind-tunnel__hero {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: minmax(20rem, 0.7fr) minmax(26rem, 1.3fr);
+  align-items: center;
+  min-height: 100dvh;
+  padding: 7rem clamp(2rem, 5vw, 5rem) 4rem 0;
+  overflow: hidden;
+}
+
+.wind-tunnel__copy h1,
+.pit-crew__title h1,
+.race-line__mast h1,
+.systems-map__intro h1,
+.first-lap__intro h1,
+.night-shift__title h1,
+.open-seat__intro h1 {
+  max-width: 11ch;
+  font-size: 5.6rem;
+  line-height: 0.95;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.wind-tunnel__copy p,
+.pit-crew__title p,
+.race-line__mast p,
+.systems-map__intro p,
+.first-lap__intro p,
+.night-shift__title p,
+.open-seat__intro p {
+  max-width: 32rem;
+  margin-top: 1.2rem;
+  font-size: 1.16rem;
+  line-height: 1.55;
+}
+
+.wind-tunnel__specimen {
+  position: relative;
+  min-height: min(44rem, 74dvh);
+  border-top: 1px solid color-mix(in oklch, #111111, transparent 82%);
+  border-bottom: 1px solid color-mix(in oklch, #111111, transparent 82%);
+}
+
+.vehicle-specimen-canvas,
+.wind-tunnel__canvas-loading {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wind-tunnel__canvas-loading {
+  background:
+    linear-gradient(90deg, transparent 0 35%, rgb(255 255 255 / 0.42) 48%, transparent 62%),
+    #e5e1d7;
+  background-size: 260% 100%, 100% 100%;
+  animation: concept-shimmer 1.2s linear infinite;
+}
+
+.wind-tunnel__readout {
+  position: absolute;
+  right: 0;
+  bottom: 1.2rem;
+  width: min(20rem, 60%);
+  padding: 1rem;
+  border: 1px solid color-mix(in oklch, #111111, transparent 78%);
+  background: #f3f1ea;
+}
+
+.wind-tunnel__readout span,
+.wind-tunnel__stage span,
+.pit-crew__focus span,
+.race-line__finish span,
+.systems-map__readout span {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 760;
+  color: var(--concept-accent);
+}
+
+.wind-tunnel__readout strong {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.wind-tunnel__sequence {
+  position: relative;
+  z-index: 2;
+  margin-top: -100dvh;
+  padding: 102dvh clamp(2rem, 5vw, 5rem) 18dvh 0;
+}
+
+.wind-tunnel__stage {
+  display: flex;
+  min-height: 72dvh;
+  max-width: 34rem;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: max(0rem, 4vw);
+  border-top: 1px solid color-mix(in oklch, #111111, transparent 72%);
+}
+
+.wind-tunnel__stage h2 {
+  max-width: 11ch;
+  font-size: 4.6rem;
+  line-height: 0.97;
+  letter-spacing: 0;
+}
+
+.wind-tunnel__stage p {
+  max-width: 27rem;
+  margin-top: 1.2rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.pit-crew {
+  min-height: 100dvh;
+  padding-right: clamp(1rem, 4vw, 4rem);
+  background: #16130f;
+  color: #f7f0e3;
+}
+
+.pit-crew__hero {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.74fr) minmax(32rem, 1.26fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  min-height: 100dvh;
+  padding-top: 7rem;
+}
+
+.pit-crew__title h1 {
+  max-width: 12ch;
+}
+
+.pit-crew__wall {
+  position: relative;
+  min-height: min(43rem, 72dvh);
+}
+
+.pit-crew__photo,
+.pit-crew__vehicle {
+  position: absolute;
+  overflow: hidden;
+  background: #2a241d;
+}
+
+.pit-crew__photo img,
+.pit-crew__vehicle img {
+  filter: saturate(0.92) contrast(1.08);
+}
+
+.pit-crew__photo--1 {
+  inset: 4% 53% 45% 1%;
+  clip-path: polygon(0 0, 100% 4%, 92% 100%, 0 88%);
+}
+
+.pit-crew__photo--2 {
+  inset: 0 27% 54% 49%;
+  clip-path: polygon(5% 0, 100% 0, 100% 92%, 0 100%);
+}
+
+.pit-crew__photo--3 {
+  inset: 45% 64% 3% 6%;
+  clip-path: polygon(0 10%, 100% 0, 86% 100%, 5% 92%);
+}
+
+.pit-crew__photo--4 {
+  inset: 53% 34% 0 34%;
+  clip-path: polygon(0 0, 100% 13%, 100% 100%, 8% 88%);
+}
+
+.pit-crew__photo--5 {
+  inset: 9% 2% 48% 72%;
+  clip-path: polygon(0 5%, 96% 0, 100% 100%, 12% 88%);
+}
+
+.pit-crew__photo--6 {
+  inset: 54% 0 8% 70%;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 95%);
+}
+
+.pit-crew__photo--7 {
+  inset: 30% 20% 25% 18%;
+  clip-path: polygon(3% 0, 100% 6%, 93% 100%, 0 92%);
+}
+
+.pit-crew__vehicle {
+  inset: 31% 14% 22% 29%;
+  background: #0d0b08;
+}
+
+.pit-crew__bench {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.7fr) minmax(20rem, 1.1fr) minmax(12rem, 0.6fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: 0 0 6rem;
+}
+
+.pit-crew__selector {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+}
+
+.pit-crew__selector button {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.9rem 0;
+  border: 0;
+  border-bottom: 1px solid rgb(247 240 227 / 0.22);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.pit-crew__selector button:active {
+  transform: scale(0.97);
+}
+
+.pit-crew__selector button[aria-selected="true"] {
+  color: #ff4a32;
+}
+
+.pit-crew__selector span {
+  font-weight: 760;
+}
+
+.pit-crew__selector small {
+  color: rgb(247 240 227 / 0.58);
+}
+
+.pit-crew__focus {
+  display: grid;
+  grid-template-columns: 1fr minmax(10rem, 0.44fr);
+  gap: 1rem;
+  align-items: stretch;
+  border-top: 1px solid rgb(247 240 227 / 0.26);
+  padding-top: 1.2rem;
+}
+
+.pit-crew__focus h2 {
+  max-width: 15ch;
+  font-size: 3.8rem;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.pit-crew__focus p {
+  max-width: 28rem;
+  margin-top: 1rem;
+  color: rgb(247 240 227 / 0.72);
+  line-height: 1.65;
+}
+
+.pit-crew__focus figure {
+  position: relative;
+  min-height: 18rem;
+  overflow: hidden;
+  clip-path: polygon(0 4%, 100% 0, 96% 100%, 8% 92%);
+}
+
+.pit-crew__proof {
+  display: grid;
+  align-content: end;
+  gap: 0.7rem;
+}
+
+.pit-crew__proof p {
+  margin: 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgb(247 240 227 / 0.24);
+  font-size: 1rem;
+  font-weight: 760;
+}
+
+.race-line {
+  min-height: 100dvh;
+  padding-right: 0;
+  background: #b31b1b;
+  color: #f5f5f0;
+}
+
+.race-line__mast {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.9fr) minmax(16rem, 0.6fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: end;
+  min-height: 54dvh;
+  padding: 7rem clamp(1rem, 4vw, 4rem) 2rem 0;
+}
+
+.race-line__mast h1 {
+  max-width: 12ch;
+}
+
+.race-line__track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 clamp(1rem, 4vw, 4rem) 1.5rem 0;
+}
+
+.race-line__scene {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  flex: 0 0 min(74rem, 82vw);
+  min-height: 68dvh;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #160c0c;
+  border: 1px solid rgb(245 245 240 / 0.18);
+}
+
+.race-line__scene figure {
+  position: relative;
+  min-height: 38dvh;
+}
+
+.race-line__year {
+  position: absolute;
+  left: 1rem;
+  top: 0.3rem;
+  font-size: 9rem;
+  font-weight: 850;
+  line-height: 0.9;
+  color: rgb(245 245 240 / 0.12);
+}
+
+.race-line__story {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.55fr) minmax(16rem, 0.75fr);
+  gap: 1rem;
+  align-items: end;
+  padding: 1.4rem;
+  border-top: 1px solid rgb(245 245 240 / 0.18);
+}
+
+.race-line__story h2 {
+  font-size: 3.6rem;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.race-line__story p {
+  margin: 0;
+  color: rgb(245 245 240 / 0.7);
+  line-height: 1.55;
+}
+
+.race-line__finish {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.8fr) minmax(14rem, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+  padding: 2rem clamp(1rem, 4vw, 4rem) 6rem 0;
+}
+
+.race-line__finish h2 {
+  max-width: 10ch;
+  font-size: 3.6rem;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.race-line__proof {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.race-line__proof p {
+  margin: 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgb(245 245 240 / 0.24);
+}
+
+.race-line__finish a {
+  background: #f5f5f0;
+  color: #160c0c;
+}
+
+.systems-map {
+  min-height: 100dvh;
+  padding-right: clamp(1rem, 4vw, 4rem);
+  background: #e9eef6;
+  color: #0d1728;
+}
+
+.systems-map__intro {
+  display: grid;
+  max-width: 64rem;
+  min-height: 42dvh;
+  align-content: end;
+  padding: 7rem 0 2rem;
+}
+
+.systems-map__intro h1 {
+  max-width: 12ch;
+}
+
+.systems-map__stage {
+  position: relative;
+  min-height: 64dvh;
+  border-top: 1px solid rgb(13 23 40 / 0.2);
+  border-bottom: 1px solid rgb(13 23 40 / 0.2);
+}
+
+.systems-map__vehicle {
+  position: absolute;
+  inset: 9% 20% 12% 10%;
+}
+
+.systems-map__node {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 0.8rem;
+  border: 1px solid rgb(13 23 40 / 0.18);
+  background: #e9eef6;
+  color: #0d1728;
+  font-weight: 760;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition:
+    background-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.systems-map__node:active {
+  transform: translate(-50%, -50%) scale(0.97);
+}
+
+.systems-map__node[aria-pressed="true"] {
+  border-color: #b31b1b;
+  background: #b31b1b;
+  color: white;
+}
+
+.systems-map__readout {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  width: min(28rem, 42%);
+  gap: 0.8rem;
+  padding: 1.1rem;
+  border-left: 1px solid rgb(13 23 40 / 0.2);
+  background: #e9eef6;
+}
+
+.systems-map__readout-icon {
+  display: inline-flex;
+  width: 2.8rem;
+  height: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  background: #0d1728;
+  color: white;
+}
+
+.systems-map__readout h2 {
+  max-width: 13ch;
+  font-size: 3.4rem;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.systems-map__readout p {
+  margin: 0;
+  max-width: 26rem;
+  line-height: 1.55;
+}
+
+.systems-map__preview {
+  position: relative;
+  min-height: 9rem;
+  overflow: hidden;
+}
+
+.systems-map__readout a {
+  width: max-content;
+}
+
+.first-lap {
+  min-height: 100dvh;
+  padding-right: clamp(1rem, 4vw, 4rem);
+  background: #f6f2ec;
+  color: #1a1512;
+}
+
+.first-lap__intro {
+  display: grid;
+  max-width: 62rem;
+  align-content: end;
+  min-height: 44dvh;
+  padding: 7rem 0 2.4rem;
+}
+
+.first-lap__intro h1 {
+  max-width: 14ch;
+}
+
+.first-lap__rail {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgb(26 21 18 / 0.24);
+}
+
+.first-lap__progress {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  overflow: hidden;
+}
+
+.first-lap__progress span {
+  display: block;
+  height: 100%;
+  background: var(--concept-accent);
+  transform-origin: left center;
+  transition: transform 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.first-lap__rail button {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+  padding: 1rem 1rem 1.2rem 0;
+  border: 0;
+  border-right: 1px solid rgb(26 21 18 / 0.14);
+  background: transparent;
+  color: rgb(26 21 18 / 0.55);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.first-lap__rail button:last-child {
+  border-right: 0;
+}
+
+.first-lap__rail button:hover,
+.first-lap__rail button:focus-visible {
+  color: #1a1512;
+}
+
+.first-lap__rail button:active {
+  transform: scale(0.97);
+}
+
+.first-lap__rail button[aria-selected='true'] {
+  color: #1a1512;
+}
+
+.first-lap__rail small,
+.first-lap__week-label {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--concept-accent);
+}
+
+.first-lap__rail span {
+  font-size: 0.95rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.first-lap__stage {
+  border-top: 1px solid rgb(26 21 18 / 0.24);
+}
+
+.first-lap__panel {
+  display: grid;
+  grid-template-columns: minmax(20rem, 1fr) minmax(22rem, 0.92fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  min-height: 56dvh;
+  padding: 2.6rem 0;
+  animation: first-lap-panel-enter 260ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.first-lap__week-label {
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.first-lap__copy h2 {
+  max-width: 13ch;
+  font-size: 4.2rem;
+  line-height: 0.97;
+  letter-spacing: 0;
+}
+
+.first-lap__copy p {
+  max-width: 30rem;
+  margin-top: 1.1rem;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.first-lap__artifact {
+  padding-top: 1rem;
+  border-top: 1px solid rgb(26 21 18 / 0.2);
+  font-weight: 700;
+}
+
+.first-lap__figure {
+  position: relative;
+  min-height: min(30rem, 52dvh);
+  overflow: hidden;
+  background: #e4ddd1;
+}
+
+.first-lap__finish {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1fr) auto;
+  gap: 1.5rem;
+  align-items: end;
+  padding: 2.4rem 0 6rem;
+  border-top: 1px solid rgb(26 21 18 / 0.24);
+}
+
+.first-lap__finish h2 {
+  max-width: 14ch;
+  font-size: 3.4rem;
+  line-height: 0.97;
+  letter-spacing: 0;
+}
+
+.first-lap__finish .concept-actions {
+  margin-top: 0;
+}
+
+.night-shift {
+  min-height: 100dvh;
+  padding-right: clamp(1rem, 4vw, 4rem);
+  background: #101314;
+  color: #e9e4da;
+}
+
+.night-shift__mast {
+  display: grid;
+  grid-template-columns: minmax(20rem, 1fr) auto;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: end;
+  min-height: 48dvh;
+  padding: 7rem 0 2.4rem;
+}
+
+.night-shift__title h1 {
+  max-width: 12ch;
+}
+
+.night-shift__title p {
+  color: rgb(233 228 218 / 0.72);
+}
+
+.night-shift__status {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgb(233 228 218 / 0.2);
+}
+
+.night-shift__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--concept-accent);
+  animation: night-shift-pulse 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.night-shift__status small {
+  display: block;
+  font-size: 0.74rem;
+  color: rgb(233 228 218 / 0.6);
+}
+
+.night-shift__status strong {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.night-shift__log {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgb(233 228 218 / 0.24);
+}
+
+.night-shift__entry {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.28fr) minmax(20rem, 1fr) minmax(0, 0.42fr);
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+  padding: 1.6rem 0;
+  border-bottom: 1px solid rgb(233 228 218 / 0.14);
+  opacity: 0;
+  transform: translateY(8px);
+  animation: night-shift-entry 300ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation-delay: calc(var(--entry-index, 0) * 60ms);
+}
+
+.night-shift__meta strong {
+  display: block;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.night-shift__meta span {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 750;
+  color: var(--concept-accent);
+}
+
+.night-shift__body p {
+  max-width: 36rem;
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.6;
+  color: rgb(233 228 218 / 0.86);
+}
+
+.night-shift__metric {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-top: 0.9rem !important;
+}
+
+.night-shift__metric small {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgb(233 228 218 / 0.52);
+}
+
+.night-shift__metric span {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  color: #e9e4da;
+}
+
+.night-shift__figure {
+  position: relative;
+  min-height: 9.5rem;
+  overflow: hidden;
+  background: #1b2022;
+}
+
+.night-shift__figure img {
+  filter: saturate(0.9) contrast(1.06);
+}
+
+.night-shift__finish {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1fr) auto;
+  gap: 1.5rem;
+  align-items: end;
+  padding: 2.6rem 0 6rem;
+}
+
+.night-shift__finish span {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  color: rgb(233 228 218 / 0.62);
+}
+
+.night-shift__finish h2 {
+  max-width: 12ch;
+  font-size: 3.6rem;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.night-shift__finish .concept-actions {
+  margin-top: 0;
+}
+
+.open-seat {
+  min-height: 100dvh;
+  padding-right: clamp(1rem, 4vw, 4rem);
+  background: #efe9df;
+  color: #14100d;
+}
+
+.open-seat__intro {
+  display: grid;
+  max-width: 64rem;
+  align-content: end;
+  min-height: 42dvh;
+  padding: 7rem 0 2.4rem;
+}
+
+.open-seat__intro h1 {
+  max-width: 15ch;
+}
+
+.open-seat__form {
+  display: grid;
+  grid-template-columns: minmax(20rem, 1.15fr) minmax(16rem, 0.85fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: 2.2rem 0;
+  border-top: 1px solid rgb(20 16 13 / 0.24);
+}
+
+.open-seat__question {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.open-seat__question legend {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-bottom: 1.1rem;
+  padding: 0;
+  font-size: 1.3rem;
+  font-weight: 750;
+}
+
+.open-seat__question legend small {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--concept-accent);
+}
+
+.open-seat__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.open-seat__options button {
+  min-height: 2.7rem;
+  padding: 0 1rem;
+  border: 1px solid rgb(20 16 13 / 0.32);
+  background: transparent;
+  color: #14100d;
+  font-size: 0.94rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.open-seat__options button:hover,
+.open-seat__options button:focus-visible {
+  border-color: #14100d;
+}
+
+.open-seat__options button:active {
+  transform: scale(0.97);
+}
+
+.open-seat__options button[aria-pressed='true'] {
+  border-color: #14100d;
+  background: #14100d;
+  color: #efe9df;
+}
+
+.open-seat__result {
+  min-height: 20rem;
+  padding: 0 0 6rem;
+  border-top: 1px solid rgb(20 16 13 / 0.24);
+}
+
+.open-seat__placeholder {
+  max-width: 34rem;
+  padding-top: 2.2rem;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: rgb(20 16 13 / 0.6);
+}
+
+.open-seat__match {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.4fr) minmax(22rem, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding-top: 2.2rem;
+  animation: first-lap-panel-enter 260ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.open-seat__portrait {
+  position: relative;
+  min-height: 22rem;
+  overflow: hidden;
+  background: #ddd4c5;
+}
+
+.open-seat__match-copy span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 760;
+  color: var(--concept-accent);
+}
+
+.open-seat__match-copy h2 {
+  font-size: 4.2rem;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.open-seat__discipline {
+  margin-top: 0.4rem;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.86rem;
+  color: rgb(20 16 13 / 0.62);
+}
+
+.open-seat__match-copy > p {
+  max-width: 30rem;
+  margin-top: 1rem;
+  font-size: 1.06rem;
+  line-height: 1.6;
+}
+
+.open-seat__first-build {
+  padding-top: 1rem;
+  border-top: 1px solid rgb(20 16 13 / 0.2);
+  font-weight: 700;
+}
+
+.open-seat__reset {
+  margin-top: 1.2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgb(20 16 13 / 0.62);
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+  transition: color 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.open-seat__reset:hover,
+.open-seat__reset:focus-visible {
+  color: #14100d;
+}
+
+@keyframes first-lap-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes night-shift-entry {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes night-shift-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes concept-stage-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes concept-shimmer {
+  from {
+    background-position: 120% 0, 0 0;
+  }
+  to {
+    background-position: -120% 0, 0 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  .concept-lab__meta {
+    display: none;
+  }
+
+  .concept-switcher {
+    top: auto;
+    right: 1rem;
+    bottom: 1rem;
+    width: auto;
+  }
+
+  .concept-switcher__header {
+    display: none;
+  }
+
+  .concept-switcher__tabs {
+    display: flex;
+    max-width: calc(100vw - 2rem);
+    overflow-x: auto;
+    padding: 0.45rem;
+    border: 1px solid color-mix(in oklch, var(--concept-ink), transparent 84%);
+    background: var(--concept-surface);
+  }
+
+  .concept-switcher__tab {
+    min-width: 9rem;
+  }
+
+  .concept-switcher__tab small {
+    display: none;
+  }
+
+  .concept-panel {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .wind-tunnel__hero,
+  .pit-crew__hero,
+  .race-line__mast,
+  .pit-crew__bench,
+  .race-line__finish {
+    grid-template-columns: 1fr;
+  }
+
+  .wind-tunnel__hero {
+    position: relative;
+    min-height: auto;
+    padding: 7rem 0 2rem;
+  }
+
+  .wind-tunnel__specimen {
+    min-height: 28rem;
+  }
+
+  .wind-tunnel__sequence {
+    margin-top: 0;
+    padding: 0 0 5rem;
+  }
+
+  .wind-tunnel__stage {
+    min-height: 52dvh;
+    margin-left: 0;
+  }
+
+  .pit-crew__wall {
+    min-height: 34rem;
+  }
+
+  .pit-crew__bench {
+    padding-bottom: 2rem;
+  }
+
+  .pit-crew__focus {
+    grid-template-columns: 1fr;
+  }
+
+  .race-line__scene {
+    flex-basis: 88vw;
+  }
+
+  .race-line__story {
+    grid-template-columns: 1fr;
+  }
+
+  .systems-map__stage {
+    display: grid;
+    gap: 1rem;
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
+  .systems-map__vehicle,
+  .systems-map__readout,
+  .systems-map__node {
+    position: relative;
+    inset: auto;
+    left: auto !important;
+    top: auto !important;
+    width: auto;
+    transform: none;
+  }
+
+  .systems-map__vehicle {
+    min-height: 18rem;
+  }
+
+  .systems-map__node {
+    justify-content: center;
+  }
+
+  .systems-map__node:active {
+    transform: scale(0.97);
+  }
+
+  .systems-map__readout {
+    border-left: 0;
+    border-top: 1px solid rgb(13 23 40 / 0.2);
+  }
+
+  .wind-tunnel__copy h1,
+  .pit-crew__title h1,
+  .race-line__mast h1,
+  .systems-map__intro h1,
+  .first-lap__intro h1,
+  .night-shift__title h1,
+  .open-seat__intro h1 {
+    font-size: 4.25rem;
+  }
+
+  .wind-tunnel__stage h2,
+  .pit-crew__focus h2,
+  .race-line__story h2,
+  .race-line__finish h2,
+  .systems-map__readout h2,
+  .first-lap__copy h2,
+  .first-lap__finish h2,
+  .night-shift__finish h2,
+  .open-seat__match-copy h2 {
+    font-size: 3rem;
+  }
+
+  .race-line__year {
+    font-size: 6.5rem;
+  }
+
+  .first-lap__intro,
+  .night-shift__mast,
+  .open-seat__intro {
+    min-height: auto;
+    padding-top: 7rem;
+  }
+
+  .first-lap__rail {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+  }
+
+  .first-lap__rail button {
+    flex: 0 0 11rem;
+    padding-right: 1rem;
+  }
+
+  .first-lap__panel,
+  .first-lap__finish,
+  .night-shift__mast,
+  .night-shift__finish,
+  .open-seat__form,
+  .open-seat__match {
+    grid-template-columns: 1fr;
+  }
+
+  .first-lap__figure {
+    min-height: 20rem;
+  }
+
+  .night-shift__status {
+    width: max-content;
+  }
+
+  .night-shift__entry {
+    grid-template-columns: minmax(6rem, 0.3fr) 1fr;
+  }
+
+  .night-shift__figure {
+    grid-column: 2;
+    min-height: 12rem;
+  }
+
+  .open-seat__portrait {
+    max-width: 20rem;
+    min-height: 18rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .wind-tunnel__copy h1,
+  .pit-crew__title h1,
+  .race-line__mast h1,
+  .systems-map__intro h1,
+  .first-lap__intro h1,
+  .night-shift__title h1,
+  .open-seat__intro h1 {
+    font-size: 3.25rem;
+  }
+
+  .night-shift__entry {
+    grid-template-columns: 1fr;
+  }
+
+  .night-shift__figure {
+    grid-column: 1;
+  }
+
+  .pit-crew__photo--1,
+  .pit-crew__photo--2,
+  .pit-crew__photo--3,
+  .pit-crew__photo--4,
+  .pit-crew__photo--5,
+  .pit-crew__photo--6,
+  .pit-crew__photo--7,
+  .pit-crew__vehicle {
+    clip-path: none;
+  }
+
+  .race-line__track {
+    flex-direction: column;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  .race-line__scene {
+    flex-basis: auto;
+    min-height: 34rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .concept-lab__stage,
+  .wind-tunnel__canvas-loading {
+    animation: none;
+  }
+
+  .wind-tunnel {
+    min-height: auto;
+  }
+
+  .wind-tunnel__hero {
+    position: relative;
+    min-height: auto;
+  }
+
+  .wind-tunnel__sequence {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .wind-tunnel__stage {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .race-line__track {
+    flex-direction: column;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  .race-line__scene {
+    flex-basis: auto;
+    min-height: 36rem;
+    scroll-snap-align: none;
+  }
+
+  .concept-switcher__tab,
+  .concept-actions a,
+  .race-line__finish a,
+  .systems-map__readout a,
+  .pit-crew__selector button,
+  .systems-map__node,
+  .first-lap__rail button,
+  .first-lap__progress span,
+  .open-seat__options button,
+  .open-seat__reset {
+    transition-duration: 0ms;
+  }
+
+  .first-lap__panel,
+  .open-seat__match {
+    animation: none;
+  }
+
+  .night-shift__entry {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .night-shift__dot {
+    animation: none;
+  }
+}
+
 /* Focus styles */
 *:focus {
   outline: 2px solid #dc2626;

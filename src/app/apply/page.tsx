@@ -178,7 +178,7 @@ export default function Apply() {
                 1
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Project Team Form</h3>
-              <p className="text-gray-300">Fill out <Link className='text-blue-500 hover:text-blue-400' href={"https://www.duffield.cornell.edu/student-project-teams/join-a-project-team/"}>Cornell's Project Team Form</Link> - <b>we cannot accept your applications without it.</b></p>
+              <p className="text-gray-300">Fill out <Link className='text-blue-500 hover:text-blue-400' href={"https://www.duffield.cornell.edu/student-project-teams/join-a-project-team/"}>Cornell&apos;s Project Team Form</Link> - <b>we cannot accept your applications without it.</b></p>
             </div>
             <div className="text-center">
               <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
@@ -193,7 +193,7 @@ export default function Apply() {
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Interview</h3>
               {/* should be fine for now? */}
-              <p className="text-gray-300">After reviewing applications, we'll contact you to schedule an interview.</p>
+              <p className="text-gray-300">After reviewing applications, we&apos;ll contact you to schedule an interview.</p>
             </div>
           </div>
         </div>

@@ -12,10 +12,12 @@ export default function RaceLineConcept() {
     >
       <div className="race-line__mast">
         <div>
-          <p className="concept-kicker">Competition narrative</p>
-          <h1>Make the page feel like a run.</h1>
+          <h1>Four generations of CEV vehicles.</h1>
         </div>
-        <p>Vehicle lineage, race pressure, and results move as one story.</p>
+        <p>
+          Each platform changed how the team approaches packaging, power,
+          fabrication, and race-day data.
+        </p>
       </div>
 
       <div className="race-line__track" aria-label="Vehicle timeline">
@@ -35,8 +37,7 @@ export default function RaceLineConcept() {
 
       <div className="race-line__finish">
         <div>
-          <span>Finish line proof</span>
-          <h2>Results after the build story.</h2>
+          <h2>2025 Shell Eco-Marathon results.</h2>
         </div>
         <div className="race-line__proof">
           {proofPoints.map((point) => (

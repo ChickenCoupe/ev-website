@@ -44,5 +44,7 @@ next-env.d.ts
 # agents
 /.agents
 /.claude
-/.cursor
+/.cursor/*
+!/.cursor/skills/
+!/.cursor/skills/**
 /.impeccable

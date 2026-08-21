@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Cornell Electric Vehicles",
-  description: "Cornell's foremost project team dedicated to building autonomous, hyper-efficient electric vehicles. Operating at the pace of a startup, producing industry-grade vehicles that compete at the highest levels.",
+  description: "Cornell students design, manufacture, test, and race autonomous, efficient electric vehicles for Shell Eco-Marathon.",
   icons: {
     icon: '/cev-favicon.ico',
     shortcut: '/cev-favicon.ico',
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased rl-page`}
       >
         <Header />
         {children}

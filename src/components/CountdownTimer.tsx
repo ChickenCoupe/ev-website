@@ -5,7 +5,6 @@ import { useEffect, useMemo, useState } from 'react'
 type CountdownTimerProps = {
   target: Date | string
   title?: string
-  subtitle?: string
 }
 
 function pad2(value: number): string {
@@ -52,13 +51,11 @@ function useNow(tickMs: number) {
 export default function CountdownTimer({
   target,
   title = 'Applications open in',
-  subtitle,
 }: CountdownTimerProps) {
   const [hasMounted, setHasMounted] = useState(false)
 
   const targetDate = useMemo(() => {
-    const d = target instanceof Date ? target : new Date(target)
-    return d
+    return target instanceof Date ? target : new Date(target)
   }, [target])
 
   useEffect(() => {
@@ -82,79 +79,58 @@ export default function CountdownTimer({
 
   if (targetLabel == null) {
     return (
-      <div className="bg-gray-800 border border-gray-700 rounded-2xl p-6 text-center">
-        <p className="text-lg font-semibold text-white">Countdown unavailable</p>
-        <p className="text-gray-300">Invalid target date.</p>
+      <div className="rl-countdown">
+        <h3 className="rl-title" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
+          Countdown unavailable
+        </h3>
+        <p className="rl-copy">Invalid target date.</p>
       </div>
     )
   }
 
   return (
-    <section
-      className="bg-gray-800 border border-gray-700 rounded-2xl p-6 sm:p-8"
-      aria-label="Countdown timer"
-    >
-      <div className="text-center">
-        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-[30px]">{title}</h3>
-      </div>
+    <section className="rl-countdown" aria-label="Countdown timer">
+      <h3 className="rl-title" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
+        {title}
+      </h3>
 
-      <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4" aria-live="polite">
+      <div className="rl-countdown__grid" aria-live="polite">
         <TimeBlock
           label="Days"
           value={hasMounted ? String(parts.days) : '--'}
-          emphasize={hasMounted && parts.days > 0}
         />
         <TimeBlock
           label="Hours"
           value={hasMounted ? pad2(parts.hours) : '--'}
-          emphasize={hasMounted && (parts.days > 0 || parts.hours > 0)}
         />
         <TimeBlock
           label="Minutes"
           value={hasMounted ? pad2(parts.minutes) : '--'}
-          emphasize={hasMounted && (parts.days > 0 || parts.hours > 0 || parts.minutes > 0)}
         />
         <TimeBlock
           label="Seconds"
           value={hasMounted ? pad2(parts.seconds) : '--'}
-          emphasize={hasMounted && !isComplete}
         />
       </div>
 
-      <div className="mt-6 text-center">
+      <div style={{ marginTop: '1.1rem' }}>
         {hasMounted && isComplete ? (
-          <p className="text-lg font-semibold text-white">Applications are now open.</p>
-        ) : (
-          <p className="text-gray-300">
-            { subtitle }
+          <p className="rl-copy" style={{ color: 'var(--cev-ink)' }}>
+            Applications are now open.
           </p>
+        ) : (
+          <p className="rl-copy">Applications open {targetLabel}.</p>
         )}
       </div>
     </section>
   )
 }
 
-function TimeBlock({
-  label,
-  value,
-  emphasize,
-}: {
-  label: string
-  value: string
-  emphasize?: boolean
-}) {
+function TimeBlock({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-gray-700 bg-gray-900/40 p-4 text-center">
-      <div
-        className={
-          emphasize
-            ? 'text-4xl font-bold text-white tabular-nums'
-            : 'text-4xl font-bold text-gray-200 tabular-nums'
-        }
-      >
-        {value}
-      </div>
-      <div className="mt-1 text-sm uppercase tracking-wider text-gray-400">{label}</div>
+    <div className="rl-countdown__block">
+      <span className="rl-countdown__value">{value}</span>
+      <span className="rl-countdown__label">{label}</span>
     </div>
   )
 }

@@ -1,283 +1,146 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import Footer from '@/components/Footer'
-import { Battery, Car, Zap, Gauge, Weight, Users, ChevronLeft, ChevronRight } from 'lucide-react'
-import Image from 'next/image'
 import { useState } from 'react'
+import Image from 'next/image'
+import PageMast from '@/components/site/PageMast'
+import TrackSection from '@/components/site/TrackSection'
+import ActionLink from '@/components/site/ActionLink'
+import Footer from '@/components/Footer'
+import { proofPoints, vehicleTimeline } from '@/data/site'
+
+const vehicleImages = [
+  {
+    src: '/vehicles/uc25_1.png',
+    alt: 'Chicken Coupe - Front View',
+  },
+  {
+    src: '/vehicles/uc25_2.avif',
+    alt: 'Chicken Coupe - Side View',
+  },
+]
+
+const specs = [
+  { label: 'Weight', value: '75 kg' },
+  { label: 'Chassis', value: 'Carbon Fiber Monocoque' },
+  { label: 'Battery', value: '20000 mAH 6S' },
+  { label: 'Motor', value: '48V BLDC' },
+]
 
 export default function Vehicles() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  
-  const vehicleImages = [
-    {
-      src: '/vehicles/uc25_1.png',
-      alt: 'Chicken Coupe - Front View',
-    },
-    {
-      src: '/vehicles/uc25_2.avif', // Replace with actual side view image path
-      alt: 'Chicken Coupe - Side View',
-    },
-  ]
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % vehicleImages.length)
   }
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + vehicleImages.length) % vehicleImages.length)
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + vehicleImages.length) % vehicleImages.length
+    )
   }
-
-  const currentVehicle = {
-    name: "Chicken Coupe",
-    year: "2023",
-    category: "Urban Concept",
-    specs: [
-      { icon: <Weight className="w-6 h-6" />, label: "Weight", value: "75 kg" },
-      { icon: <Car className="w-6 h-6" />, label: "Chassis", value: "Carbon Fiber Monocoque" },
-      { icon: <Battery className="w-6 h-6" />, label: "Battery", value: "20000 mAH 6S" },
-      { icon: <Zap className="w-6 h-6" />, label: "Motor", value: "48V BLDC" },
-    ],
-    achievements: [
-      "5th Place - Shell Eco-Marathon Americas 2025",
-      "1st Place - Communications Award",
-      "2nd Place - Data & Telemetry Award"
-    ]
-  }
-
-  const previousVehicles = [
-    {
-      name: "Cuckoo Caravan",
-      year: "2022",
-      category: "Prototype",
-      image: "/vehicles/pt22_1.avif", // Replace with actual CEV-24 image path
-      alt: "Cuckoo Caravan - 2022 Prototype Vehicle"
-    },
-    {
-      name: "Kiwi Cruiser",
-      year: "2019",
-      category: "Prototype",
-      image: "/vehicles/pt_21.avif", // Replace with actual CEV-23 image path
-      alt: "Kiwi Cruiser - 2019 Prototype Vehicle"
-    },
-    {
-      name: "CRR18",
-      year: "2018",
-      category: "Prototype",
-      image: "/vehicles/crr18.avif", // Replace with actual CEV-22 image path
-      alt: "CRR18 - 2018 Prototype Vehicle"
-    }
-  ]
 
   return (
-    <div className="min-h-screen bg-gray-900">
-      
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-red-600 to-red-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Our Vehicles
-            </h1>
-            <p className="text-xl md:text-2xl text-red-100 max-w-3xl mx-auto">
-              Explore our award-winning electric vehicles designed for maximum efficiency, innovation, and performance.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <main>
+      <PageMast
+        title="Our vehicles"
+        body="Explore Chicken Coupe and the prototypes that taught the team how packaging, power, and data change race-day behavior."
+        tone="red"
+      />
 
-      {/* Current Vehicle */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {currentVehicle.name}
-            </h2>
-            <p className="text-xl text-gray-300">{currentVehicle.year} {currentVehicle.category}</p>
-          </motion.div>
+      <section className="rl-band">
+        <div className="rl-container rl-split rl-split--top">
+          <div>
+            <h2 className="rl-title">Chicken Coupe</h2>
+            <p className="rl-copy">2025 Urban Concept</p>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Vehicle Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              {/* Image Carousel */}
-              <div className="relative aspect-video rounded-2xl shadow-2xl overflow-hidden bg-[#191717]">
+            <div className="rl-carousel" style={{ marginTop: '1.5rem' }}>
+              <div className="rl-carousel__frame">
                 <Image
                   src={vehicleImages[currentImageIndex].src}
                   alt={vehicleImages[currentImageIndex].alt}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   priority
+                  sizes="(min-width: 1024px) 45vw, 90vw"
                 />
-                
-                {/* Navigation Buttons */}
+              </div>
+              <div className="rl-carousel__controls">
                 <button
+                  type="button"
+                  className="rl-carousel__btn"
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
                   aria-label="Previous image"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  Prev
                 </button>
-                
                 <button
+                  type="button"
+                  className="rl-carousel__btn"
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
                   aria-label="Next image"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  Next
                 </button>
-                
-                {/* Dots Indicator */}
-                <div className="absolute bottom-4 right-4 flex gap-2">
-                  {vehicleImages.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        index === currentImageIndex 
-                          ? 'bg-white' 
-                          : 'bg-white/50 hover:bg-white/70'
-                      }`}
-                      aria-label={`Go to image ${index + 1}`}
-                    />
-                  ))}
-                </div>
+                {vehicleImages.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    className="rl-carousel__dot"
+                    data-active={index === currentImageIndex}
+                    onClick={() => setCurrentImageIndex(index)}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
               </div>
-            </motion.div>
+            </div>
+          </div>
 
-            {/* Vehicle Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              {/* Specifications */}
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-white mb-6">Specifications</h3>
-                <div className="space-y-4">
-                  {currentVehicle.specs.map((spec) => (
-                    <div key={spec.label} className="flex items-center gap-4">
-                      <div className="bg-red-900 p-2 rounded-lg text-red-400">
-                        {spec.icon}
-                      </div>
-                      <div>
-                        <span className="font-semibold text-white">{spec.label}:</span>
-                        <span className="text-gray-300 ml-2">{spec.value}</span>
-                      </div>
-                    </div>
-                  ))}
+          <div>
+            <h3 className="rl-subtitle">Specifications</h3>
+            <dl className="rl-spec-grid">
+              {specs.map((spec) => (
+                <div key={spec.label} className="rl-spec">
+                  <dt>{spec.label}</dt>
+                  <dd>{spec.value}</dd>
                 </div>
-              </div>
+              ))}
+            </dl>
 
-              {/* Achievements */}
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-4">2025 Achievements</h3>
-                <ul className="space-y-2">
-                  {currentVehicle.achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                      <span className="text-gray-300">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
+            <h3 className="rl-subtitle" style={{ marginTop: '2rem' }}>
+              2025 achievements
+            </h3>
+            <div className="rl-proof">
+              {proofPoints.map((point) => (
+                <p key={point}>{point}</p>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Previous Vehicles */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Our Legacy
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A timeline of innovation showcasing our journey in electric vehicle development.
-            </p>
-          </motion.div>
-
-          <div className="space-y-8">
-            {previousVehicles.map((vehicle, index) => (
-              <motion.div
-                key={vehicle.name}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="grid lg:grid-cols-2 gap-8 items-center"
-              >
-                <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div className="relative aspect-video rounded-2xl shadow-lg overflow-hidden bg-gray-800 flex items-center justify-center">
-                    <Image
-                      src={vehicle.image}
-                      alt={vehicle.alt}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                </div>
-                <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
-                  <p className="text-red-400 font-semibold mb-4">{vehicle.year}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      <section className="rl-band rl-band--raised">
+        <div className="rl-container">
+          <h2 className="rl-title">Previous vehicles</h2>
+          <TrackSection vehicles={vehicleTimeline} />
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 to-red-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Build the Next Vehicle
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Join our team and help design and build the next generation of award-winning electric vehicles.
-            </p>
-            <Link
-              href="/apply"
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-semibold transition-all transform hover:scale-105 shadow-lg inline-block"
-            >
-              Join Our Team
-            </Link>
-          </motion.div>
+      <section className="rl-finish">
+        <div className="rl-container rl-finish__grid">
+          <div>
+            <h2>Build the next vehicle.</h2>
+          </div>
+          <div className="rl-proof">
+            <p>Mechanical, electrical, autonomy, data, and operations all ship to the car.</p>
+            <p>Applications open each fall cycle on the Apply page.</p>
+          </div>
+          <ActionLink href="/apply" variant="invert">
+            Join our team
+          </ActionLink>
         </div>
       </section>
 
       <Footer />
-    </div>
+    </main>
   )
 }

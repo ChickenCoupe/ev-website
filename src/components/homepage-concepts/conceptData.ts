@@ -174,42 +174,7 @@ export const subteams: Subteam[] = [
   },
 ]
 
-export const proofPoints = [
-  '5th place Urban Concept',
-  '1st place Communications',
-  '2nd place Data and Telemetry',
-]
-
-export const vehicleTimeline = [
-  {
-    name: 'CRR18',
-    year: '2018',
-    image: '/vehicles/crr18.avif',
-    alt: 'CRR18 prototype vehicle',
-    story: "An early prototype that made the team's efficiency work tangible.",
-  },
-  {
-    name: 'Kiwi Cruiser',
-    year: '2019',
-    image: '/vehicles/pt_21.avif',
-    alt: 'Kiwi Cruiser prototype vehicle',
-    story: 'A lighter platform for learning how packaging choices change race-day behavior.',
-  },
-  {
-    name: 'Cuckoo Caravan',
-    year: '2022',
-    image: '/vehicles/pt22_1.avif',
-    alt: 'Cuckoo Caravan prototype vehicle',
-    story: 'A prototype that pushed the team toward cleaner fabrication and tighter systems work.',
-  },
-  {
-    name: 'Chicken Coupe',
-    year: '2025',
-    image: '/vehicles/uc25_1.png',
-    alt: 'Chicken Coupe urban concept vehicle',
-    story: 'The current urban concept platform, built for inspection, data, and repeatable runs.',
-  },
-]
+export { proofPoints, vehicleTimeline } from '@/data/site'
 
 export const teamImages = [
   '/team-photo.jpg',

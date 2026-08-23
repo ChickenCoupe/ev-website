@@ -23,28 +23,28 @@ const autonomyTeam = [
   },
   {
     name: 'Sophia Tsang',
-    position: 'Perception Subteam Lead',
+    position: 'Autonomy Member',
     major: 'CS/ECE',
     year: '2027',
     image: '/team/sophia-tsang.jpg'
   },
   {
     name: 'Ethan Berkowitz',
-    position: 'Controls Subteam Lead',
+    position: 'Autonomy Member',
     major: 'ECE/CS',
     year: '2029',
     image: '/team/placeholder.svg'
   },
   {
     name: 'Jaiden Grimminck',
-    position: 'Simulation Subteam Lead',
+    position: 'Autonomy Member',
     major: 'CS',
     year: '2029',
     image: '/team/placeholder.svg'
   },
   {
     name: 'Smriti Kumar',
-    position: 'Planning Subteam Lead',
+    position: 'Autonomy Member',
     major: 'CS/ECE',
     year: '2029',
     image: '/team/placeholder.svg'

@@ -9,63 +9,63 @@ import Footer from '@/components/Footer'
 const dataTeam= [
     {
         name: 'Daniel Sorokin',
-        position: 'Data A&A Lead',
+        position: 'Telemetry Lead',
         major: 'CS',
         year: '2027',
         image: '/team/daniel-sorokin.jpg'
     },
     {
         name: 'Ruth Taddesse',
-        position: 'Data A&A Lead',
+        position: 'Telemetry Lead',
         major: 'CS',
         year: '2027',
         image: '/team/ruth-taddesse.jpg'
     },
     {
         name: 'Mehdi Heydari',
-        position: 'Data A&A Member',
+        position: 'Telemetry Member',
         major: 'CS',
         year: '2026',
         image: '/team/mehdi-heydari.jpg'
     },
     {
         name: 'Amelia Zheng',
-        position: 'Data A&A Member',
+        position: 'Telemetry Member',
         major: 'CS',
         year: '2027',
         image: '/team/placeholder.svg'
     },
     {
         name: 'Rhea Agrawal',
-        position: 'Data A&A Member',
+        position: 'Telemetry Member',
         major: 'CS',
         year: '2028',
         image: '/team/rhea-agrawal.jpg'
     },
     {
         name: 'Ajay Parthibha',
-        position: 'Data A&A Member',
+        position: 'Telemetry Member',
         major: 'CS',
         year: '2028',
         image: '/team/ajay-parthibha.jpg'
     },
     {
         name: 'Julia Lau',
-        position: 'Data A&A Member',
+        position: 'Telemetry Member',
         major: 'CS',
         year: '2028',
         image: '/team/placeholder.svg'
     },
     {
         name: 'Jerry Ji',
-        position: 'Data A&A Member',
+        position: 'Telemetry Member',
         major: 'CS',
         year: '2028',
         image: '/team/jerry-ji.jpg'
     },
     {
         name: 'Katie Xiao',
-        position: 'Data A&A Member',
+        position: 'Telemetry Member',
         major: 'CS',
         year: '2028',
         image: '/team/katie-xiao.jpg'
@@ -109,7 +109,7 @@ export default function DataTeam() {
                         className="flex items-center justify-center mb-6"
                     >
                         <Server className="w-12 h-12 mr-4" />
-                        <h1 className="text-4xl md:text-5xl font-bold">Data A&A Team</h1>
+                        <h1 className="text-4xl md:text-5xl font-bold">Telemetry Team</h1>
                     </motion.div>
                     <motion.p
                         initial={{ opacity:0, y:20 }}
@@ -117,7 +117,7 @@ export default function DataTeam() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-xl text-red-100 max-w-3xl mx-auto"
                     >
-                        The Data Apps and Analytics (Data A&A) subteam uses web, mobile, and IoT technology to collect, analyze, and display data from vehicle testing. We&apos;re responsible for the high-frequency data collection, storage, and efficiency analysis required for data-driven engineering. 
+                        The Telemetry subteam uses web, mobile, and IoT technology to collect, analyze, and display data from vehicle testing. We&apos;re responsible for the high-frequency data collection, storage, and efficiency analysis required for data-driven engineering. 
                     </motion.p>
                 </div>
             </section>

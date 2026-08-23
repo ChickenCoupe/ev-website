@@ -90,7 +90,7 @@ const leadershipTeam = [
   },
   {
     name: 'Katie Xiao',
-    position: 'Data A&A Member',
+    position: 'Telemetry Member',
     major: 'CS',
     year: '2028',
     image: '/team/katie-xiao.jpg',
@@ -99,7 +99,7 @@ const leadershipTeam = [
   },
   {
     name: 'Rhea Agrawal',
-    position: 'Data A&A Member',
+    position: 'Telemetry Member',
     major: 'CS',
     year: '2028',
     image: '/team/rhea-agrawal.jpg',

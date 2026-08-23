@@ -27,7 +27,7 @@ const subteams = [
     color: 'from-red-500 to-red-600',
   },
   {
-    name: 'Data A&A',
+    name: 'Telemetry',
     description: 'Analyze performance data and develop algorithms for optimization and insights.',
     icon: Database,
     href: '/team/data-aa',

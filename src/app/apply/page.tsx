@@ -1,34 +1,44 @@
+import fs from 'fs'
+import path from 'path'
 import Link from 'next/link'
 import { Users, Code, Wrench, Zap, BarChart } from 'lucide-react'
 import Image from 'next/image';
 import Footer from '@/components/Footer'
+import { parseCsv } from '@/lib/csv'
 
 
 export default function Apply() {
+  const coffeeChats = parseCsv(fs.readFileSync(path.join(process.cwd(), 'src/data/coffee-chats.csv'), 'utf8'))
+
   const subteams = [
     {
       icon: <Wrench className="w-8 h-8" />,
       name: "Mechanical",
+      href: "/team/mechanical",
       description: "Engineer chassis, suspension, aerodynamics, and manufacture the vehicle"
     },
     {
       icon: <Zap className="w-8 h-8" />,
       name: "Electrical",
+      href: "/team/electrical",
       description: "Design power systems, motor controllers, and electronic circuits"
     },
     {
       icon: <Code className="w-8 h-8" />,
-      name: "Data A&A",
+      name: "Telemetry",
+      href: "/team/data-aa",
       description: "Develop telemetry visualization and capture software"
     },
     {
       icon: <BarChart className="w-8 h-8" />,
       name: "Autonomy",
+      href: "/team/autonomy",
       description: "Develop autonomous driving systems and vehicle control software"
     },
     {
       icon: <Users className="w-8 h-8" />,
       name: "Operations",
+      href: "/team/operations",
       description: "Manage partnerships, fundraising, marketing, and team operations"
     }
   ]
@@ -118,6 +128,48 @@ export default function Apply() {
           <p className="text-lg text-gray-300 mb-8 text-center">For any questions about our team or updates on our endeavors and timelines, reach out to us at <a href="mailto:cornellev@cornell.edu" className="font-bold text-red-500">cornellev@cornell.edu</a>.</p>
         </div>
 
+        {/* Coffee Chats */}
+        <div className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">Coffee Chats</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="text-gray-400 text-sm border-b border-gray-700">
+                  <th className="py-3 pr-4 font-medium">Name</th>
+                  <th className="py-3 pr-4 font-medium">Subteam</th>
+                  <th className="py-3 pr-4 font-medium">Role</th>
+                  <th className="py-3 pr-4 font-medium">Schedule</th>
+                  <th className="py-3 font-medium">Bio</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700">
+                {coffeeChats.map((chat) => (
+                  <tr key={chat.Name} className="align-top">
+                    <td className="py-4 pr-4 text-white font-semibold whitespace-nowrap">{chat.Name}</td>
+                    <td className="py-4 pr-4 text-gray-300 whitespace-nowrap">{chat.Subteam}</td>
+                    <td className="py-4 pr-4 text-gray-300">{chat.Role}</td>
+                    <td className="py-4 pr-4 whitespace-nowrap">
+                      {chat['Google Calendar Link'] ? (
+                        <a
+                          href={chat['Google Calendar Link']}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-red-500 hover:text-red-400 font-semibold"
+                        >
+                          Book ↗
+                        </a>
+                      ) : (
+                        <span className="text-gray-500">—</span>
+                      )}
+                    </td>
+                    <td className="py-4 text-sm text-gray-400 leading-relaxed min-w-[24rem]">{chat.Bio}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         {/* Application Process */}
         <div className="bg-gray-800 rounded-2xl p-8 mb-16 border border-gray-700">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Application Process</h2>
@@ -151,13 +203,13 @@ export default function Apply() {
           <h2 className="text-3xl font-bold text-white mb-8 text-center">Our Subteams</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {subteams.map((subteam) => (
-              <div key={subteam.name} className="bg-gray-800 rounded-xl p-6 hover:shadow-xl transition-shadow border border-gray-700">
+              <Link key={subteam.name} href={subteam.href} className="bg-gray-800 rounded-xl p-6 hover:shadow-xl transition-shadow border border-gray-700">
                 <div className="text-red-400 mb-4">
                   {subteam.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{subteam.name}</h3>
                 <p className="text-gray-300">{subteam.description}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

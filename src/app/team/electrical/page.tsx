@@ -8,26 +8,20 @@ import Footer from '@/components/Footer'
 // Electrical team data
 const electricalTeam = [
   {
-    name: 'Rachel Arena',
-    position: 'Electrical Co-Lead',
+    name: 'Erica Jiang',
+    position: 'Electrical Subteam Lead',
     major: 'ECE',
-    year: '2026',
-    image: '/team/rachel-arena.jpg'
+    year: '2028',
+    image: '/team/erica-jiang.png'
   },
   {
-    name: 'Edward Lee',
-    position: 'Electrical Co-Lead',
+    name: 'Kellen Yu',
+    position: 'Electrical Subteam Lead',
     major: 'ECE',
-    year: '2026',
-    image: '/team/edward-lee.jpg'
+    year: '2029',
+    image: '/team/placeholder.svg'
   },
-  {
-    name: 'Micah Fisher',
-    position: 'Electrical Member',
-    major: 'ECE',
-    year: '2026',
-    image: '/team/micah-fisher.jpg'
-  },
+
   {
     name: 'Guillaume Ah-Hot',
     position: 'Electrical Member',

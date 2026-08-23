@@ -8,49 +8,35 @@ import Footer from '@/components/Footer'
 // Mechanical team data organized by subteams
 const mechanicalLeadership = [
   {
-    name: 'Mackemey Munion',
+    name: 'Serkan Yurday',
     position: 'Mechanical Lead',
     major: 'MAE',
-    year: '2026',
-    image: '/team/mackemey-munion.jpg'
+    year: '2028',
+    image: '/team/serkan-yurday.jpg'
   },
   {
-    name: 'Jordan Vogel',
+    name: 'Albert Zheng',
     position: 'Mechanical Lead',
     major: 'MAE',
-    year: '2027',
-    image: '/team/jordan-vogel.jpg'
+    year: '2028',
+    image: '/team/albert-zheng.jpg'
   }
 ];
 
 const chassisTeam = [
   {
-    name: 'Lucas Libshutz',
-    position: 'Chassis Subteam Lead',
-    major: 'MAE',
-    year: '2027',
-    image: '/team/lucas-libshutz.jpg'
-  },
-  {
-    name: 'Zach Feldman',
-    position: 'Chassis Subteam Lead',
-    major: 'MAE',
-    year: '2027',
-    image:'/team/zach-feldman.jpg'
-  },
-  {
     name: 'Joe Dalton',
-    position: 'Chassis Member',
+    position: 'Chassis Subteam Lead',
     major: 'MAE',
     year: '2027',
     image:'/team/placeholder.svg'
   },
   {
-    name: 'Serkan Yurday',
-    position: 'Chassis Member',
+    name: 'Jackson Skagen',
+    position: 'Chassis Subteam Lead',
     major: 'MAE',
     year: '2028',
-    image: '/team/serkan-yurday.jpg'
+    image: '/team/placeholder.svg'
   },
   {
     name: 'Yohanne Lin',
@@ -77,25 +63,18 @@ const chassisTeam = [
 
 const drivetrainTeam = [
   {
-    name: 'Christina Ge',
+    name: 'Emely Benavides',
     position: 'Drivetrain Subteam Lead',
     major: 'MAE',
-    year: '2027',
-    image: '/team/christina-ge.jpg'
+    year: '2028',
+    image: '/team/emely-benavides.jpg'
   },
   {
-    name: 'Ava Ianuale',
-    position: 'Drivetrain Member',
+    name: 'Jonathan Wan',
+    position: 'Drivetrain Subteam Lead',
     major: 'MAE',
-    year: '2026',
-    image: '/team/ava-ianuale.jpg'
-  },
-  {
-    name: 'Nathan Varghese',
-    position: 'Drivetrain Member',
-    major: 'MAE',
-    year: '2027',
-    image: '/team/nathan-varghese.jpg'
+    year: '2028',
+    image: '/team/jonathan-wan.jpg'
   },
   {
     name: 'Alexis Barrow',
@@ -105,50 +84,23 @@ const drivetrainTeam = [
     image: '/team/alexis-barrow.jpg'
   },
   {
-    name: 'Emely Benavides',
-    position: 'Drivetrain Member',
-    major: 'MAE',
-    year: '2028',
-    image: '/team/emely-benavides.jpg'
-  },
-  {
     name: 'Nora Kingwell',
     position: 'Drivetrain Member',
     major: 'MAE',
     year: '2028',
     image: '/team/nora-kingwell.jpg'
   },
-  {
-    name: 'Jonathan Wan',
-    position: 'Drivetrain Member',
-    major: 'MAE',
-    year: '2028',
-    image: '/team/jonathan-wan.jpg'
-  },
-];
+  ];
 
 const steeringTeam = [
   {
-    name: 'Cion Kim',
-    position: 'Steering Subteam Lead',
-    major: 'MAE',
-    year: '2027',
-    image: '/team/cion-kim.jpg'
-  },
-  {
-    name: 'Tadg Manna',
-    position: 'Steering Member',
-    major: 'MAE',
-    year: '2026',
-    image: '/team/tadg-manna.jpg'
-  },
-  {
-    name: "Shashank Chalamsetty",
-    position: "Steering Member",
+    name: "Lydia Woodall",
+    position: "Steering Subteam Lead",
     major: "MAE",
-    year: "2026",
-    image: "/team/shashank-chalamalasetty.jpg"
+    year: "2028",
+    image: "/team/lydia-woodall.jpg"
   },
+
   {
     name: 'Aahil Ali',
     position: 'Steering Member',
@@ -162,20 +114,6 @@ const steeringTeam = [
     major: 'MAE',
     year: '2028',
     image:'/team/placeholder.svg'
-  },
-  {
-    name: "Lydia Woodall",
-    position: "Steering Member",
-    major: "MAE",
-    year: "2028",
-    image: "/team/lydia-woodall.jpg"
-  },
-  {
-    name: "Albert Zheng",
-    position: "Steering Member",
-    major: "MAE",
-    year: "2028",
-    image: "/team/albert-zheng.jpg"
   },
 ];
 

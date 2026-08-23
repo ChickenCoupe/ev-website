@@ -23,10 +23,31 @@ const autonomyTeam = [
   },
   {
     name: 'Sophia Tsang',
-    position: 'Autonomy Member',
+    position: 'Perception Subteam Lead',
     major: 'CS/ECE',
     year: '2027',
     image: '/team/sophia-tsang.jpg'
+  },
+  {
+    name: 'Ethan Berkowitz',
+    position: 'Controls Subteam Lead',
+    major: 'ECE/CS',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Jaiden Grimminck',
+    position: 'Simulation Subteam Lead',
+    major: 'CS',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Smriti Kumar',
+    position: 'Planning Subteam Lead',
+    major: 'CS/ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
   },
   {
     name: 'Utku Melemetci',
@@ -36,27 +57,6 @@ const autonomyTeam = [
     image: '/team/utku-melemetci.jpg'
   },
   {
-    name: 'Sameer Mehta',
-    position: 'Autonomy Member',
-    major: 'CS',
-    year: '2028',
-    image: '/team/sameer-mehta.jpg'
-  },
-  {
-    name: 'Ibrahim Ahmed',
-    position: 'Autonomy Member',
-    major: 'ECE/CS',
-    year: '2028',
-    image: '/team/ibrahim-ahmed.jpg'
-  },
-  {
-    name: 'Ethan Berkowitz',
-    position: 'Autonomy Member',
-    major: 'ECE/CS',
-    year: '2029',
-    image: '/team/placeholder.svg'
-  },
-  {
     name: 'Ishaan Parikh',
     position: 'Autonomy Member',
     major: 'ECE',
@@ -64,21 +64,7 @@ const autonomyTeam = [
     image: '/team/placeholder.svg'
   },
   {
-    name: 'Jaiden Grimminck',
-    position: 'Autonomy Member',
-    major: 'CS',
-    year: '2029',
-    image: '/team/placeholder.svg'
-  },
-  {
     name: 'Joyce Lin',
-    position: 'Autonomy Member',
-    major: 'CS/ECE',
-    year: '2029',
-    image: '/team/placeholder.svg'
-  },
-  {
-    name: 'Smriti Kumar',
     position: 'Autonomy Member',
     major: 'CS/ECE',
     year: '2029',

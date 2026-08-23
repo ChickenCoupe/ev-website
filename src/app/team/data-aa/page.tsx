@@ -8,25 +8,18 @@ import Footer from '@/components/Footer'
 
 const dataTeam= [
     {
-        name: 'Daniel Sorokin',
-        position: 'Telemetry Lead',
-        major: 'CS',
-        year: '2027',
-        image: '/team/daniel-sorokin.jpg'
+      name: 'Rhea Agrawal',
+      position: 'Telemetry Subteam Lead',
+      major: 'CS',
+      year: '2028',
+      image: '/team/rhea-agrawal.jpg'
     },
     {
-        name: 'Ruth Taddesse',
-        position: 'Telemetry Lead',
-        major: 'CS',
-        year: '2027',
-        image: '/team/ruth-taddesse.jpg'
-    },
-    {
-        name: 'Mehdi Heydari',
-        position: 'Telemetry Member',
-        major: 'CS',
-        year: '2026',
-        image: '/team/mehdi-heydari.jpg'
+      name: 'Katie Xiao',
+      position: 'Telemetry Subteam Lead',
+      major: 'CS',
+      year: '2028',
+      image: '/team/katie-xiao.jpg'
     },
     {
         name: 'Amelia Zheng',
@@ -34,13 +27,6 @@ const dataTeam= [
         major: 'CS',
         year: '2027',
         image: '/team/placeholder.svg'
-    },
-    {
-        name: 'Rhea Agrawal',
-        position: 'Telemetry Member',
-        major: 'CS',
-        year: '2028',
-        image: '/team/rhea-agrawal.jpg'
     },
     {
         name: 'Ajay Parthibha',
@@ -56,21 +42,6 @@ const dataTeam= [
         year: '2028',
         image: '/team/placeholder.svg'
     },
-    {
-        name: 'Jerry Ji',
-        position: 'Telemetry Member',
-        major: 'CS',
-        year: '2028',
-        image: '/team/jerry-ji.jpg'
-    },
-    {
-        name: 'Katie Xiao',
-        position: 'Telemetry Member',
-        major: 'CS',
-        year: '2028',
-        image: '/team/katie-xiao.jpg'
-    }
-
 ]
 
 const TeamMemberCard = ({ member, index }: {member: typeof dataTeam[0], index: number }) => (

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Trophy, Database, MessageCircle } from 'lucide-react'
+import { Trophy, Car, CloudLightning } from 'lucide-react'
 
 export default function Results() {
   const fadeInUp = {
@@ -21,7 +21,7 @@ export default function Results() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            2025 Shell Eco-Marathon Results
+            2026 Shell Eco-Marathon Results
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             This year, our team achieved impressive results at the Shell Eco-Marathon Americas, 
@@ -39,9 +39,9 @@ export default function Results() {
           >
             <div className="flex items-center mb-6">
               <div className="bg-red-900 p-3 rounded-full mr-4">
-                <Trophy className="w-8 h-8 text-red-400" />
+                <Car className="w-8 h-8 text-red-400" />
               </div>
-              <h3 className="text-2xl font-bold text-white">5th Place</h3>
+              <h3 className="text-2xl font-bold text-white">6th Place</h3>
             </div>
             <h4 className="text-xl font-semibold text-gray-200 mb-3">Urban Concept</h4>
             <p className="text-gray-300 leading-relaxed">
@@ -59,14 +59,13 @@ export default function Results() {
           >
             <div className="flex items-center mb-6">
               <div className="bg-red-900 p-3 rounded-full mr-4">
-                <Database className="w-8 h-8 text-red-400" />
+                <Trophy className="w-8 h-8 text-red-400" />
               </div>
-              <h3 className="text-2xl font-bold text-white">2nd Place</h3>
+              <h3 className="text-2xl font-bold text-white">1st Place</h3>
             </div>
             <h4 className="text-xl font-semibold text-gray-200 mb-3">Data & Telemetry</h4>
             <p className="text-gray-300 leading-relaxed">
-              Recognizes excellence in vehicle data collection, analysis, and implementation 
-              to optimize performance and efficiency.
+             Recognized for our innovative data collection and optimization strategy. 
             </p>
           </motion.div>
 
@@ -79,14 +78,13 @@ export default function Results() {
           >
             <div className="flex items-center mb-6">
               <div className="bg-red-900 p-3 rounded-full mr-4">
-                <MessageCircle className="w-8 h-8 text-red-400" />
+                <CloudLightning className="w-8 h-8 text-red-400" />
               </div>
-              <h3 className="text-2xl font-bold text-white">1st Place</h3>
+              <h3 className="text-2xl font-bold text-white">1.8x</h3>
             </div>
-            <h4 className="text-xl font-semibold text-gray-200 mb-3">Communications</h4>
+            <h4 className="text-xl font-semibold text-gray-200 mb-3">Efficiency Increase</h4>
             <p className="text-gray-300 leading-relaxed">
-              Honors exceptional outreach, branding, and public engagement strategies 
-              promoting sustainable energy innovation.
+              The team increased the urban concept&#39;s efficiency to <b>36.98 mi/kWh</b>, almost doubling the previous year&#39;s efficiency.
             </p>
           </motion.div>
         </div>

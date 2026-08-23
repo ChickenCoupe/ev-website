@@ -108,14 +108,13 @@ export default function Apply() {
           <p className="text-lg text-gray-300 mb-8 text-center">CEV is excited to welcome a new class of team members this semester!</p>
           {/* <p className="text-lg text-gray-300 mb-8 text-center">Please note that <b>applications are now <u>closed</u>.</b> We look forward to seeing you apply in the future!</p> */}
           <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeRy1lEO_K8oHmt2BG_V4IBAjcQi5rWzJmT4U_rdNMHVpxbzA/viewform?pli=1"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSccbMhOsd8ubA3QOC4H1Q3ZRBalmmk0lNqcNneyT-N650SZDg/viewform?usp=sharing&ouid=102160163982044776728"
           >
-            {/* TODO: add the right link for the application form. Also need to separate between upperclassmen and freshmen. */}
             <p className="text-2xl text-red-500 hover:text-red-400 transition-colors mb-8 text-center underline font-bold">
-              Fall Application Form
+              FA26 Application Form
             </p>
           </Link>
-          <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our <a href="https://docs.google.com/spreadsheets/d/1xRi3kiw8y6D5583K1GDtnGMFYcFLgEJdAhKS9BXGwlI/edit?gid=0#gid=0" className="font-bold italic text-red-500 hover:text-red-400">Coffee Chat Information</a> and fill out our&nbsp;
+          <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our coffee chat information below and fill out our&nbsp;
             <Link
               href="https://docs.google.com/forms/d/e/1FAIpQLSeTDgkBkoyXQS9YPAmIlsOSRW8ZHlHpMccRRt7n-RoQeb180A/viewform?usp=dialog"
               className="text-gray-150 hover:text-white transition-colors font-bold underline"

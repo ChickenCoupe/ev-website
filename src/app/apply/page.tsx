@@ -26,7 +26,7 @@ export default function Apply() {
     {
       icon: <Code className="w-8 h-8" />,
       name: "Telemetry",
-      href: "/team/data-aa",
+      href: "/team/telemetry",
       description: "Develop telemetry visualization and capture software"
     },
     {

@@ -17,9 +17,16 @@ const dataTeam= [
     {
       name: 'Katie Xiao',
       position: 'Telemetry Subteam Lead',
-      major: 'CS',
+      major: 'CS/Stats',
       year: '2028',
       image: '/team/katie-xiao.jpg'
+    },
+    {
+        name: 'Ajay Parthibha',
+        position: 'Telemetry Member',
+        major: 'CS',
+        year: '2027',
+        image: '/team/ajay-parthibha.jpg'
     },
     {
         name: 'Amelia Zheng',
@@ -29,17 +36,45 @@ const dataTeam= [
         image: '/team/placeholder.svg'
     },
     {
-        name: 'Ajay Parthibha',
-        position: 'Telemetry Member',
-        major: 'CS',
-        year: '2028',
-        image: '/team/ajay-parthibha.jpg'
-    },
-    {
         name: 'Julia Lau',
         position: 'Telemetry Member',
         major: 'CS',
         year: '2028',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Eric Shen',
+        position: 'Telemetry Member',
+        major: 'CS/Math',
+        year: '2029',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Donte Truong',
+        position: 'Telemetry Member',
+        major: 'CS/ECE',
+        year: '2029',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Adi Murgescu',
+        position: 'Telemetry Member',
+        major: 'CS/Math',
+        year: '2029',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Meira Chenicheri',
+        position: 'Telemetry Member',
+        major: 'CS',
+        year: '2029',
+        image: '/team/placeholder.svg'
+    },
+    {
+        name: 'Shreyaa Sanjay',
+        position: 'Telemetry Member',
+        major: 'CS/ECE',
+        year: '2029',
         image: '/team/placeholder.svg'
     },
 ]
@@ -119,8 +154,8 @@ export default function DataTeam() {
                             <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                                <Icon iconNode={motorRacingHelmet} className="w-8 h-8 text-red-400" /> 
                             </div>
-                            <h3 className="text-xl font-semibold text-white mb-2">Driver Dashboard</h3>
-                            <p className="text-gray-300">A mobile app that is both a driver dashboard and a data tunnel, forwarding electrical DAQ data to the Live Timing Dashboard.</p>
+                            <h3 className="text-xl font-semibold text-white mb-2">Modular Data Acquisition System</h3>
+                            <p className="text-gray-300">A distributed telemetry architecture using modular sensor nodes and a central DAQ computer to collect, synchronize, and transmit vehicle data in real time.</p>
                         </motion.div>
 
                         <motion.div
@@ -133,8 +168,8 @@ export default function DataTeam() {
                             <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <Timer className="w-8 h-8 text-red-400" /> 
                             </div>
-                            <h3 className="text-xl font-semibold text-white mb-2">Live Timing Dashboard</h3>
-                            <p className="text-gray-300">A web-based dashboard useful for competition preparation that displays stats such as speed and battery level in real-time.</p>
+                            <h3 className="text-xl font-semibold text-white mb-2">Race Engineer Dashboard</h3>
+                            <p className="text-gray-300">A real-time dashboard for monitoring vehicle performance, with RaceGPT providing AI-powered analysis and insights from live telemetry.</p>
                         </motion.div>
 
                         <motion.div
@@ -147,8 +182,8 @@ export default function DataTeam() {
                             <div className="bg-red-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <Terminal className="w-8 h-8 text-red-400" />
                             </div>
-                            <h3 className="text-xl font-semibold text-white mb-2">AR Windshield</h3>
-                            <p className="text-gray-300">A forward-looking project aiming to display Driver Dashboard contents directly on the competition vehicle windshield.</p>
+                            <h3 className="text-xl font-semibold text-white mb-2">Cross-Analysis Toolbox</h3>
+                            <p className="text-gray-300">A post-race analysis platform for exploring and comparing telemetry across runs, helping engineers identify performance trends, diagnose issues, and guide future vehicle improvements.</p>
                         </motion.div>
                     </div>
                 </div>

@@ -102,31 +102,31 @@ const subteams = [
     href: '/team/mechanical',
     icon: Wrench,
     name: 'Mechanical',
-    description: 'Engineer chassis, suspension, aerodynamics, and manufacture the vehicle',
+    description: '',
   },
   {
     href: '/team/electrical',
     icon: Zap,
     name: 'Electrical',
-    description: 'Design power systems, motor controllers, and electronic circuits',
+    description: '',
   },
   {
     href: '/team/data-aa',
     icon: Code,
     name: 'Telemetry',
-    description: 'Develop telemetry visualization and capture software',
+    description: '',
   },
   {
     href: '/team/autonomy',
     icon: BarChart,
     name: 'Autonomy',
-    description: 'Develop autonomous driving systems and vehicle control software',
+    description: '',
   },
   {
     href: '/team/operations',
     icon: Users,
     name: 'Operations',
-    description: 'Manage partnerships, fundraising, marketing, and team operations',
+    description: '',
   },
 ]
 
@@ -246,7 +246,6 @@ export default function Apply() {
                 >
                   <Icon className="w-8 h-8" aria-hidden="true" />
                   <h3>{subteam.name}</h3>
-                  <p>{subteam.description}</p>
                 </Link>
               )
             })}

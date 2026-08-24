@@ -116,7 +116,7 @@ export default function Apply() {
           </Link>
           <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our coffee chat information below and fill out our&nbsp;
             <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeTDgkBkoyXQS9YPAmIlsOSRW8ZHlHpMccRRt7n-RoQeb180A/viewform?usp=dialog"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeOiA6IviGpDakDMj3sVqL3S5kQ7EKaokoGURqYLDLo29L5cA/viewform?usp=dialog"
               className="text-gray-150 hover:text-white transition-colors font-bold underline"
             >
               Interest Form

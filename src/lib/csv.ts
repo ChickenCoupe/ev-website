@@ -22,3 +22,4 @@ export function parseCsv(text: string): Record<string, string>[] {
   const [header, ...body] = rows
   return body.map((r) => Object.fromEntries(header.map((h, i) => [h, r[i] ?? ''])))
 }
+

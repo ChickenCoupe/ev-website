@@ -1,115 +1,65 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { Zap, Brain, Cog } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { subteamSummaries } from '@/data/site'
 
 export default function About() {
-  const features = [
-    {
-      icon: <Zap className="w-12 h-12 text-red-600" />,
-      title: "Industry-Aligned Innovation",
-      description: "Aligned with the electrification and autonomy efforts of the modern automotive industry, our members gain essential experience building imminent greener, smarter mobility solutions."
-    },
-    {
-      icon: <Brain className="w-12 h-12 text-red-600" />,
-      title: "Cutting-Edge R&D",
-      description: "With R&D-oriented projects leveraging emergent technologies from AR to ML and heterogeneous compute, our members are given flexibility and resources to explore several exciting upcoming domains."
-    },
-    {
-      icon: <Cog className="w-12 h-12 text-red-600" />,
-      title: "End-to-End Development",
-      description: "Between extensive onboarding, extensive in-house manufacturing, and end-to-end development, our members exercise skills associated with every step of the modern design cycle."
-    }
-  ]
-
   return (
-    <section className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left side - Vehicle Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="aspect-video rounded-2xl shadow-2xl overflow-hidden">
-              <Image 
-                src="/hero-vehicle.jpg" 
-                alt="Cornell Electric Vehicles team and vehicle"
-                width={800}
-                height={450}
-                className="w-full h-full object-cover"
+    <section className="rl-band">
+      <div className="rl-container">
+        <div className="rl-split rl-split--top">
+          <div>
+            <h2 className="rl-title">Six subteams build one vehicle.</h2>
+            <p className="rl-copy">
+              Students work across mechanical, electrical, autonomy, data,
+              operations, and leadership. Their parts, boards, software, and
+              test plans meet on the same car.
+            </p>
+            <div className="rl-media rl-media--wide" style={{ marginTop: '1.75rem' }}>
+              <Image
+                src="/hero-vehicle.jpg"
+                alt="Cornell Electric Vehicles team with the vehicle"
+                fill
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                className="object-cover"
               />
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right side - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-              Why CEV is Different
-            </h2>
-            <p className="text-xl text-gray-300 mb-12 leading-relaxed">
-              Cornell Electric Vehicles Project Team is the foremost project team at Cornell University 
-              dedicated to building autonomous, hyper-efficient electric cars. Our deeply knowledgeable 
-              interdisciplinary organization operates at the pace of a startup and has repeatedly produced 
-              industry-grade vehicles.
-            </p>
-
-            <div className="space-y-8">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex gap-6"
-                >
-                  <div className="flex-shrink-0">
-                    <div className="bg-gray-800 p-3 rounded-lg">
-                      {feature.icon}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <div className="rl-lane">
+            {subteamSummaries.map((subteam) => (
+              <Link
+                key={subteam.id}
+                href={subteam.href}
+                className="rl-lane__row"
+              >
+                <div>
+                  <h3 className="rl-lane__title">{subteam.name}</h3>
+                  <p className="rl-lane__meta">{subteam.role}</p>
+                </div>
+                <span className="rl-lane__cta">Open</span>
+              </Link>
+            ))}
+          </div>
         </div>
 
-        {/* Founded section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mt-20 py-16 bg-gray-800 rounded-3xl"
+        <div
+          className="rl-split"
+          style={{ marginTop: '3.5rem', alignItems: 'center' }}
         >
-          <div className="text-6xl md:text-8xl font-bold text-red-600 mb-4">
-            2014
+          <div>
+            <span className="rl-marker" aria-hidden="true">
+              2014
+            </span>
+            <h3 className="rl-title" style={{ maxWidth: '10ch' }}>
+              Building since 2014.
+            </h3>
           </div>
-          <div className="text-3xl md:text-4xl font-bold text-white">
-            FOUNDED
-          </div>
-          <p className="text-xl text-gray-300 mt-6 max-w-2xl mx-auto">
-            Over a decade of innovation, excellence, and pushing the boundaries of sustainable transportation
+          <p className="rl-copy">
+            Over a decade of fabrication, telemetry, and competition weeks.
+            End-to-end development means members own work from CAD and boards
+            through test days and race inspections.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

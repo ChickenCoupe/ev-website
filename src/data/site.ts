@@ -17,26 +17,26 @@ export type SubteamSummary = {
 }
 
 export const proofPoints = [
-  '5th place Urban Concept',
-  '1st place Communications',
-  '2nd place Data and Telemetry',
+  '6th place Urban Concept',
+  '1st place Data and Telemetry',
+  '1.8x efficiency increase to 36.98 mi/kWh',
 ] as const
 
 export const proofDetails = [
   {
-    place: '5th',
+    place: '6th',
     title: 'Urban Concept',
-    body: 'Efficient city vehicle design powered by battery electric technology. Passed all inspections and completed 3 successful runs.',
+    body: 'Efficient city vehicle design powered by battery electric technology.',
   },
   {
     place: '1st',
-    title: 'Communications',
-    body: 'Exceptional outreach, branding, and public engagement promoting sustainable energy innovation.',
+    title: 'Data & Telemetry',
+    body: 'Recognized for our innovative data collection and optimization strategy.',
   },
   {
-    place: '2nd',
-    title: 'Data & Telemetry',
-    body: 'Excellence in vehicle data collection, analysis, and implementation to optimize performance.',
+    place: '1.8x',
+    title: 'Efficiency Increase',
+    body: "The team increased the urban concept's efficiency to 36.98 mi/kWh, almost doubling the previous year's efficiency.",
   },
 ] as const
 
@@ -95,7 +95,7 @@ export const subteamSummaries: SubteamSummary[] = [
     id: 'leadership',
     name: 'Leadership',
     discipline: 'guidance and coordination',
-    role: 'Sets direction across the build, keeps every bay aligned, and owns the race-week decisions.',
+    role: 'Our amazing leadership that helps us organize, create, build, and race our vehicles.',
     href: '/team/leadership',
     portrait: '/team/sameer-mehta.jpg',
   },
@@ -103,7 +103,7 @@ export const subteamSummaries: SubteamSummary[] = [
     id: 'mechanical',
     name: 'Mechanical',
     discipline: 'chassis, aero, manufacturing',
-    role: 'Shapes the vehicle around low drag, low mass, and repairable race-day geometry.',
+    role: 'Shapes the vehicle and its systems, from the carbon fiber monocoque to the aerodynamic bodywork.',
     href: '/team/mechanical',
     portrait: '/team/serkan-yurday.jpg',
   },
@@ -111,23 +111,23 @@ export const subteamSummaries: SubteamSummary[] = [
     id: 'electrical',
     name: 'Electrical',
     discipline: 'battery, controls, harnessing',
-    role: 'Turns power into predictable motion and keeps every sensor, board, and actuator talking.',
+    role: 'Designs and builds the vehicle’s electrical systems, from the battery pack to the motor controller and everything in between.',
     href: '/team/electrical',
     portrait: '/team/erica-jiang.png',
   },
   {
     id: 'data-aa',
-    name: 'Data A&A',
+    name: 'Telemetry',
     discipline: 'telemetry and race analysis',
-    role: 'Finds the losses hiding in test runs and turns messy track data into engineering decisions.',
+    role: 'Analyzes vehicle data to improve performance and reliability, and builds the telemetry systems that let the team see what the car is doing in real time.',
     href: '/team/data-aa',
-    portrait: '/team/daniel-sorokin.jpg',
+    portrait: '/team/katie-xiao.jpg',
   },
   {
     id: 'autonomy',
     name: 'Autonomy',
     discipline: 'perception and planning',
-    role: 'Builds the stack that lets the car read a course and choose a path without hand holding.',
+    role: 'Makes the vehicle drive itself, from the sensors that perceive the world to the algorithms that plan a safe path through it.',
     href: '/team/autonomy',
     portrait: '/team/lucas-libshutz.jpg',
   },
@@ -135,9 +135,9 @@ export const subteamSummaries: SubteamSummary[] = [
     id: 'operations',
     name: 'Operations',
     discipline: 'sponsors, logistics, media',
-    role: 'Keeps the team supplied, visible, funded, and ready when competition week gets loud.',
+    role: 'Helps the team run smoothly, from managing sponsors and finances to organizing events and more!',
     href: '/team/operations',
-    portrait: '/team/ana-mahuad.jpg',
+    portrait: '/team/lena-schapiro.jpg',
   },
 ]
 
@@ -154,9 +154,11 @@ export const navLinks = [
  * "link coming soon" popup. Paste a URL to send people there instead.
  */
 export const recruitingLinks = {
-  applyForm: '',
+  applyForm:
+    'https://docs.google.com/forms/d/e/1FAIpQLSccbMhOsd8ubA3QOC4H1Q3ZRBalmmk0lNqcNneyT-N650SZDg/viewform?usp=sharing&ouid=102160163982044776728',
   coffeeChat: '',
-  interestForm: '',
+  interestForm:
+    'https://docs.google.com/forms/d/e/1FAIpQLSeTDgkBkoyXQS9YPAmIlsOSRW8ZHlHpMccRRt7n-RoQeb180A/viewform?usp=dialog',
 }
 
 export const socialLinks = [

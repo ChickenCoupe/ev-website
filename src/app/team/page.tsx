@@ -16,7 +16,6 @@ export default function TeamPage() {
         <div className="rl-container">
           <h2 className="rl-title">Subteams</h2>
           <p className="rl-copy" style={{ marginBottom: '1.75rem' }}>
-            Explore each subteam&apos;s responsibilities and current roster.
           </p>
           <div className="rl-lane">
             {subteamSummaries.map((subteam) => (

@@ -37,7 +37,7 @@ export default function RaceLineConcept() {
 
       <div className="race-line__finish">
         <div>
-          <h2>2025 Shell Eco-Marathon results.</h2>
+          <h2>2026 Shell Eco-Marathon results.</h2>
         </div>
         <div className="race-line__proof">
           {proofPoints.map((point) => (

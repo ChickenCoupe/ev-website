@@ -12,7 +12,7 @@ export default function VehicleLineage() {
           </div>
           <div>
             <p className="rl-copy">
-              From early prototypes to Chicken Coupe, each platform taught the
+              From early prototypes to Dodo Drifter, each platform taught the
               team how packaging, power, and data change race-day behavior.
             </p>
             <div className="rl-actions" style={{ marginTop: '0.75rem' }}>

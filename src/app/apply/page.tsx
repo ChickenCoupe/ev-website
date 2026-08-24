@@ -1,3 +1,5 @@
+import fs from 'fs'
+import path from 'path'
 import Link from 'next/link'
 import Image from 'next/image'
 import { BarChart, Code, Users, Wrench, Zap } from 'lucide-react'
@@ -8,6 +10,7 @@ import RecruitingLink, {
 import Footer from '@/components/Footer'
 import CountdownTimer from '@/components/CountdownTimer'
 import { recruitingLinks } from '@/data/site'
+import { parseCsv } from '@/lib/csv'
 
 const PROJECT_TEAM_FORM =
   'https://www.duffield.cornell.edu/student-project-teams/join-a-project-team/'
@@ -40,24 +43,23 @@ function ApplicationPhase({ phase, year }: { phase: number; year?: number }) {
               <div className="rl-apply-open">
                 <div className="rl-actions">
                   <RecruitingLink href={recruitingLinks.applyForm} variant="solid">
-                    Fall application form
+                    FA26 application form
                   </RecruitingLink>
                 </div>
                 <p>
-                  In the meantime, check the{' '}
-                  <RecruitingLink href={recruitingLinks.coffeeChat}>
-                    coffee chat information
-                  </RecruitingLink>{' '}
-                  and fill out our{' '}
+                  In the meantime, check the coffee chat information below and
+                  fill out our{' '}
                   <RecruitingLink href={recruitingLinks.interestForm}>
                     interest form
                   </RecruitingLink>
                   .
                 </p>
                 <p>
-                  Thank you for your interest in joining. We have been glad to
-                  meet so many people who want to work on autonomous and electric
-                  vehicles.
+                  For questions about the team or timelines, reach out to{' '}
+                  <a href="mailto:cornellev@cornell.edu">
+                    cornellev@cornell.edu
+                  </a>
+                  .
                 </p>
               </div>
             </RecruitingNoticeProvider>
@@ -111,7 +113,7 @@ const subteams = [
   {
     href: '/team/data-aa',
     icon: Code,
-    name: 'Data A&A',
+    name: 'Telemetry',
     description: 'Develop telemetry visualization and capture software',
   },
   {
@@ -128,52 +130,21 @@ const subteams = [
   },
 ]
 
-const timelineEvents = [
-  {
-    title: 'Project Teams Fest',
-    date: '9/3 @ 4:00 PM - 6:00 PM',
-    location: 'Duffield Atrium',
-    side: 'left',
-  },
-  {
-    title: 'Info Session #1',
-    date: 'TBA',
-    location: 'TBA',
-    side: 'right',
-  },
-  {
-    title: 'Info Session #2',
-    date: 'TBA',
-    location: 'TBA',
-    side: 'left',
-  },
-  {
-    title: 'Info Session #3',
-    date: 'TBA',
-    location: 'TBA',
-    side: 'right',
-  },
-  {
-    title: 'Info Session #4',
-    date: 'TBA',
-    location: 'TBA',
-    side: 'left',
-  },
-  {
-    title: 'Open House',
-    date: 'TBA',
-    location: 'Upson B60',
-    side: 'right',
-  },
-  {
-    title: 'Freshmen/Transfers Applications Due',
-    date: '10/15 @ 11:59 PM',
-    location: null,
-    side: 'left',
-  },
-] as const
+type CoffeeChat = {
+  Name: string
+  Subteam: string
+  Role: string
+  'Google Calendar Link': string
+  Bio: string
+}
 
 export default function Apply() {
+  const coffeeChats = (
+    parseCsv(
+      fs.readFileSync(path.join(process.cwd(), 'src/data/coffee-chats.csv'), 'utf8'),
+    ) as CoffeeChat[]
+  ).filter((chat) => chat.Name?.trim())
+
   return (
     <main className="rl-apply">
       <header className="rl-mast">
@@ -190,13 +161,59 @@ export default function Apply() {
             />
           </div>
           <p>
-            Work on the mechanical, electrical, autonomy, data, or operations
-            systems that put the vehicle on track.
+            Work on the mechanical, electrical, autonomy, telemetry, or
+            operations systems that put the vehicle on track.
           </p>
         </div>
       </header>
 
       <ApplicationPhase phase={2} year={2026} />
+
+      <section className="rl-band">
+        <div className="rl-container">
+          <div className="rl-apply-panel">
+            <h2 className="rl-title">Coffee chats</h2>
+            <p className="rl-apply-coffee__intro">
+              Book time with a current lead or member to learn how the team
+              works before you apply.
+            </p>
+            <div className="rl-apply-coffee">
+              {coffeeChats.map((chat) => {
+                const calendarLink = chat['Google Calendar Link']?.trim() ?? ''
+                const bio = chat.Bio?.trim() ?? ''
+
+                return (
+                  <article key={chat.Name} className="rl-apply-coffee__row">
+                    <div className="rl-apply-coffee__identity">
+                      <h3>{chat.Name}</h3>
+                      <p>
+                        <strong>{chat.Role}</strong>
+                        {chat.Subteam ? ` · ${chat.Subteam}` : ''}
+                      </p>
+                      {calendarLink ? (
+                        <a
+                          href={calendarLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Book a chat
+                        </a>
+                      ) : (
+                        <span className="rl-apply-coffee__unavailable">
+                          Booking link unavailable
+                        </span>
+                      )}
+                    </div>
+                    <p className="rl-apply-coffee__bio">
+                      {bio || 'Bio coming soon.'}
+                    </p>
+                  </article>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="rl-band">
         <div className="rl-container">
@@ -233,28 +250,6 @@ export default function Apply() {
                 </Link>
               )
             })}
-          </div>
-        </div>
-      </section>
-
-      <section className="rl-band">
-        <div className="rl-container">
-          <h2 className="rl-title rl-apply-heading">Important dates</h2>
-          <div className="rl-apply-dates">
-            {timelineEvents.map((event) => (
-              <article
-                key={event.title}
-                className="rl-apply-event"
-                data-side={event.side}
-              >
-                <div className="rl-apply-event__copy">
-                  <h3>{event.title}</h3>
-                  <p>{event.date}</p>
-                  {event.location ? <p>{event.location}</p> : null}
-                </div>
-                <span className="rl-apply-event__dot" aria-hidden="true" />
-              </article>
-            ))}
           </div>
         </div>
       </section>

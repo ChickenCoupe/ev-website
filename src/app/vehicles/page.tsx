@@ -1,6 +1,3 @@
-'use client'
-
-import { useState } from 'react'
 import Image from 'next/image'
 import PageMast from '@/components/site/PageMast'
 import TrackSection from '@/components/site/TrackSection'
@@ -8,6 +5,7 @@ import ActionLink from '@/components/site/ActionLink'
 import Footer from '@/components/Footer'
 import { proofPoints, vehicleTimeline } from '@/data/site'
 
+/*
 const vehicleImages = [
   {
     src: '/vehicles/uc25_1.png',
@@ -18,6 +16,7 @@ const vehicleImages = [
     alt: 'Chicken Coupe - Side View',
   },
 ]
+*/
 
 const specs = [
   { label: 'Weight', value: '75 kg' },
@@ -27,6 +26,7 @@ const specs = [
 ]
 
 export default function Vehicles() {
+  /*
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const nextImage = () => {
@@ -38,32 +38,34 @@ export default function Vehicles() {
       (prev) => (prev - 1 + vehicleImages.length) % vehicleImages.length
     )
   }
+  */
 
   return (
     <main>
       <PageMast
         title="Our vehicles"
-        body="Explore Chicken Coupe and the prototypes that taught the team how packaging, power, and data change race-day behavior."
+        body="Explore our vehicles, past and present."
         tone="red"
       />
 
       <section className="rl-band">
         <div className="rl-container rl-split rl-split--top">
           <div>
-            <h2 className="rl-title">Chicken Coupe</h2>
-            <p className="rl-copy">2025 Urban Concept</p>
+            <h2 className="rl-title">Dodo Drifter</h2>
+            <p className="rl-copy">2026 Urban Concept</p>
 
             <div className="rl-carousel" style={{ marginTop: '1.5rem' }}>
               <div className="rl-carousel__frame">
                 <Image
-                  src={vehicleImages[currentImageIndex].src}
-                  alt={vehicleImages[currentImageIndex].alt}
+                  src="/vehicles/uc26_1.png"
+                  alt="Dodo Drifter, Cornell Electric Vehicles' 2026 Urban Concept vehicle"
                   fill
                   className="object-contain"
                   priority
                   sizes="(min-width: 1024px) 45vw, 90vw"
                 />
               </div>
+              {/*
               <div className="rl-carousel__controls">
                 <button
                   type="button"
@@ -92,6 +94,7 @@ export default function Vehicles() {
                   />
                 ))}
               </div>
+              */}
             </div>
           </div>
 
@@ -107,7 +110,7 @@ export default function Vehicles() {
             </dl>
 
             <h3 className="rl-subtitle" style={{ marginTop: '2rem' }}>
-              2025 achievements
+              2026 achievements
             </h3>
             <div className="rl-proof">
               {proofPoints.map((point) => (

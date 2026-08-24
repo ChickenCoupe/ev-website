@@ -111,6 +111,11 @@ const sponsors = [
     logo: '/sponsors/korad_logo.png',
     website: 'https://www.koradtechnology.com/',
   },
+  {
+    name: 'TexTech',
+    logo: '/sponsors/tex-logo.png',
+    website: 'https://www.textech.co.jp/en/',
+  },
 ]
 
 export default function Sponsors() {
@@ -118,7 +123,7 @@ export default function Sponsors() {
     <main>
       <PageMast
         title="Our sponsors"
-        body="Sponsors make fabrication, travel, and competition possible. Their logos sit on the car and in the shop."
+        body="Thank you to our sponsors for supporting the team and helping us build the next vehicle!"
         tone="red"
       />
 
@@ -152,7 +157,7 @@ export default function Sponsors() {
       <section className="rl-band rl-band--raised">
         <div className="rl-container rl-split">
           <div>
-            <h2 className="rl-title">2025 competition results</h2>
+            <h2 className="rl-title">2026 competition results</h2>
           </div>
           <div className="rl-proof">
             {proofPoints.map((point) => (

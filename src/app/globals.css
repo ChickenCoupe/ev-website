@@ -11,6 +11,8 @@
   --cev-surface-raised: #1f1212;
   --cev-border: rgb(245 245 240 / 0.18);
   --cev-border-strong: rgb(245 245 240 / 0.28);
+  --cev-radius-sm: 4px;
+  --cev-radius-md: 6px;
   --cev-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --cev-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --background: var(--cev-surface);
@@ -205,6 +207,7 @@ body::-webkit-scrollbar {
   min-height: 2.85rem;
   padding: 0.75rem 1.2rem;
   border: 1px solid transparent;
+  border-radius: var(--cev-radius-sm);
   font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -282,6 +285,7 @@ body::-webkit-scrollbar {
   scroll-snap-align: start;
   background: var(--cev-surface-deep);
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
 }
 
 .rl-scene__year {
@@ -485,6 +489,7 @@ body::-webkit-scrollbar {
   overflow: hidden;
   background: var(--cev-surface-raised);
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
 }
 
 .rl-member__name {
@@ -531,6 +536,8 @@ body::-webkit-scrollbar {
   gap: 1px;
   background: var(--cev-border);
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
+  overflow: hidden;
 }
 
 .rl-partner {
@@ -593,6 +600,7 @@ body::-webkit-scrollbar {
   overflow: hidden;
   background: var(--cev-surface-deep);
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
 }
 
 .rl-media--wide {
@@ -668,6 +676,7 @@ body::-webkit-scrollbar {
 
 .rl-countdown {
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
   background: var(--cev-surface-raised);
   padding: 1.5rem;
 }
@@ -682,6 +691,7 @@ body::-webkit-scrollbar {
 .rl-countdown__block {
   padding: 1rem 0.5rem;
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-sm);
   text-align: center;
 }
 
@@ -746,6 +756,7 @@ body::-webkit-scrollbar {
   padding: clamp(1.5rem, 4vw, 2.75rem);
   background: #ffffff;
   border: 1px solid rgb(22 12 12 / 0.1);
+  border-radius: var(--cev-radius-md);
 }
 
 .rl-alumni-stage__figure--wide {
@@ -877,6 +888,7 @@ body::-webkit-scrollbar {
   min-width: 0;
   padding: 2rem 1.5rem;
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
   background: var(--cev-surface-raised);
   overflow-wrap: break-word;
 }
@@ -942,13 +954,73 @@ button.rl-action {
   margin-bottom: 1.25rem;
 }
 
+.rl-apply-coffee__intro {
+  margin: 1rem auto 1.5rem;
+  max-width: 48ch;
+  color: var(--cev-ink-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.rl-apply-coffee {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--cev-border);
+}
+
+.rl-apply-coffee__row {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.9fr) minmax(0, 1.6fr);
+  gap: 1.25rem 1.75rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--cev-border);
+}
+
+.rl-apply-coffee__identity h3 {
+  margin: 0;
+  color: var(--cev-ink);
+  font-size: 1.12rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.rl-apply-coffee__identity p {
+  margin: 0.35rem 0 0.7rem;
+  color: var(--cev-ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.rl-apply-coffee__identity a {
+  color: var(--cev-red);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.rl-apply-coffee__unavailable {
+  color: var(--cev-ink-muted);
+  font-size: 0.92rem;
+}
+
+.rl-apply-coffee__bio {
+  margin: 0;
+  color: var(--cev-ink-muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
 .rl-coming-soon {
   width: min(26rem, calc(100% - 2rem));
   margin: auto;
   padding: 0;
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
   background: transparent;
   color: var(--cev-ink);
+  overflow: hidden;
 }
 
 .rl-coming-soon::backdrop {
@@ -1026,6 +1098,7 @@ button.rl-action {
   width: 2.75rem;
   height: 2.75rem;
   margin: 0 auto 1rem;
+  border-radius: var(--cev-radius-sm);
   background: var(--cev-red);
   color: var(--cev-ink);
   font-family: var(--font-geist-mono), ui-monospace, monospace;
@@ -1066,6 +1139,7 @@ button.rl-action {
   gap: 0.7rem;
   padding: 1.35rem 1.2rem;
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
   background: var(--cev-surface-raised);
   color: inherit;
   text-decoration: none;
@@ -1211,6 +1285,7 @@ button.rl-action {
   padding: 0.45rem 0.55rem 0.45rem 0.75rem;
   background: rgb(22 12 12 / 0.72);
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
   box-shadow:
     0 10px 30px rgb(0 0 0 / 0.28),
     inset 0 1px 0 rgb(245 245 240 / 0.08);
@@ -1230,6 +1305,7 @@ button.rl-action {
   justify-content: center;
   min-height: 2.35rem;
   padding: 0.45rem 0.85rem;
+  border-radius: var(--cev-radius-sm);
   color: var(--cev-ink);
   font-size: 0.84rem;
   font-weight: 650;
@@ -1278,6 +1354,7 @@ button.rl-action {
   height: 2.5rem;
   margin-left: auto;
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-sm);
   background: transparent;
   color: var(--cev-ink);
   cursor: pointer;
@@ -1377,6 +1454,7 @@ button.rl-action {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
   background: var(--cev-surface-deep);
 }
 
@@ -1395,6 +1473,7 @@ button.rl-action {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border: 1px solid var(--cev-border);
+  border-radius: var(--cev-radius-md);
   background: var(--cev-surface-deep);
 }
 
@@ -1418,6 +1497,7 @@ button.rl-action {
 
 .rl-carousel__btn {
   padding: 0 0.95rem;
+  border-radius: var(--cev-radius-sm);
   font-size: 0.82rem;
   font-weight: 700;
 }
@@ -1486,6 +1566,11 @@ button.rl-action {
   .rl-apply-process {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
+  }
+
+  .rl-apply-coffee__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
   }
 
   .rl-apply-subteams {
@@ -1562,6 +1647,7 @@ button.rl-action {
     padding: 0.55rem;
     background: rgb(22 12 12 / 0.92);
     border: 1px solid var(--cev-border);
+    border-radius: var(--cev-radius-md);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }

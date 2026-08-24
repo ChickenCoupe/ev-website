@@ -4,7 +4,7 @@ import { proofPoints } from '@/data/site'
 export default function Results() {
   return (
     <ProofBand
-      title="2025 Shell Eco-Marathon results."
+      title="2026 Shell Eco-Marathon results."
       points={proofPoints}
       href="/vehicles"
       cta="View vehicles"

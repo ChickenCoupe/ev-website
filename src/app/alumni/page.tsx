@@ -17,9 +17,7 @@ export default function Alumni() {
           <div className="rl-alumni-stage__copy">
             <h2 className="rl-title">Where alumni build</h2>
             <p className="rl-copy">
-              From Google and SpaceX to Rivian, Wayve, and Lockheed Martin, CEV
-              graduates ship hardware and software at the companies shaping
-              mobility and defense.
+              Our alumni work across the hardware and software of many different companies.
             </p>
           </div>
           <figure className="rl-alumni-stage__figure">
@@ -38,12 +36,10 @@ export default function Alumni() {
 
       <section className="rl-band rl-band--ink rl-alumni-stage rl-alumni-stage--academia">
         <div className="rl-container rl-alumni-stage__grid rl-alumni-stage__grid--wide">
-          <div className="rl-alumni-stage__copy">
+          <div className="rl-alumni-stage__copy pt-[30px]">
             <h2 className="rl-title">Where alumni continue learning</h2>
             <p className="rl-copy">
-              Others keep building through graduate programs and labs at Harvard,
-              Princeton, Carnegie Mellon, Berkeley, Michigan, and more, extending
-              the same systems instincts past Cornell.
+              Others keep building through graduate programs and labs at universities across the country.
             </p>
           </div>
           <figure className="rl-alumni-stage__figure rl-alumni-stage__figure--wide">

@@ -95,6 +95,7 @@ const steeringTeam = [
     year: '2028',
     image: '/team/lydia-woodall.jpg',
   },
+
   {
     name: 'Aahil Ali',
     position: 'Steering Member',

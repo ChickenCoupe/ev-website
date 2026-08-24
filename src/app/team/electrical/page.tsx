@@ -16,6 +16,7 @@ const electricalTeam = [
     year: '2029',
     image: '/team/placeholder.svg',
   },
+
   {
     name: 'Guillaume Ah-Hot',
     position: 'Electrical Member',

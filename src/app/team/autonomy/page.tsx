@@ -102,29 +102,6 @@ const autonomyTeam = [
   },
 ]
 
-const focusAreas = [
-  {
-    label: '01',
-    title: 'Computer Vision',
-    body: 'Object detection and recognition for safe navigation',
-  },
-  {
-    label: '02',
-    title: 'Machine Learning',
-    body: 'AI algorithms for intelligent decision making',
-  },
-  {
-    label: '03',
-    title: 'Path Planning',
-    body: 'Optimal route calculation and obstacle avoidance',
-  },
-  {
-    label: '04',
-    title: 'Real-time Processing',
-    body: 'High-performance computing for instant responses',
-  },
-]
-
 export default function AutonomyTeam() {
   return (
     <TeamSubpageShell
@@ -132,19 +109,6 @@ export default function AutonomyTeam() {
       body="We develop autonomous driving systems, computer vision, and AI algorithms that enable our vehicles to navigate intelligently."
     >
       <section className="rl-band">
-        <div className="rl-container">
-          <h2 className="rl-title">Autonomy systems</h2>
-          {focusAreas.map((area) => (
-            <div key={area.label} className="rl-phase">
-              <p className="rl-phase__label">{area.label}</p>
-              <h3>{area.title}</h3>
-              <p>{area.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="rl-band rl-band--raised">
         <div className="rl-container">
           <h2 className="rl-title">Autonomy roster</h2>
           <MemberRoster members={autonomyTeam} />

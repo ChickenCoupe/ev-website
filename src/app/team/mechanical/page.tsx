@@ -174,36 +174,6 @@ const steeringTeam = [
   },
 ]
 
-const focusAreas = [
-  {
-    label: '01',
-    title: 'Chassis Design',
-    body: 'Design lightweight yet strong vehicle frames and suspension systems.',
-  },
-  {
-    label: '02',
-    title: 'Aerodynamics',
-    body: 'Optimize vehicle body shape for minimal drag and maximum efficiency.',
-  },
-  {
-    label: '03',
-    title: 'Drivetrain',
-    body: 'Develop transmission and wheel systems for optimal power delivery.',
-  },
-  {
-    label: '04',
-    title: 'Manufacturing',
-    body: 'Build and assemble components using advanced manufacturing techniques.',
-  },
-]
-
-const tools = [
-  { title: 'SolidWorks', meta: 'CAD Design' },
-  { title: 'ANSYS', meta: 'FEA Analysis' },
-  { title: '3D Printing', meta: 'Rapid Prototyping' },
-  { title: 'CNC Machining', meta: 'Manufacturing' },
-]
-
 export default function MechanicalPage() {
   return (
     <TeamSubpageShell
@@ -212,44 +182,7 @@ export default function MechanicalPage() {
     >
       <section className="rl-band">
         <div className="rl-container">
-          <h2 className="rl-title">Mechanical systems</h2>
-          <p className="rl-copy" style={{ marginBottom: '1.5rem' }}>
-            The mechanical team designs and builds the physical structure and
-            systems that optimize vehicle performance.
-          </p>
-          {focusAreas.map((area) => (
-            <div key={area.label} className="rl-phase">
-              <p className="rl-phase__label">{area.label}</p>
-              <h3>{area.title}</h3>
-              <p>{area.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="rl-band rl-band--raised">
-        <div className="rl-container">
-          <h2 className="rl-title">Tools and manufacturing</h2>
-          <div className="rl-lane" style={{ marginTop: '1.5rem' }}>
-            {tools.map((tool) => (
-              <div key={tool.title} className="rl-lane__row">
-                <div>
-                  <h3 className="rl-lane__title">{tool.title}</h3>
-                  <p className="rl-lane__meta">{tool.meta}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="rl-band">
-        <div className="rl-container">
           <h2 className="rl-title">Mechanical leadership</h2>
-          <p className="rl-copy" style={{ marginBottom: '1.75rem' }}>
-            Our mechanical team leaders coordinate across all subteams to ensure
-            cohesive design and manufacturing.
-          </p>
           <MemberRoster members={mechanicalLeadership} />
         </div>
       </section>
@@ -257,10 +190,6 @@ export default function MechanicalPage() {
       <section className="rl-band rl-band--raised">
         <div className="rl-container">
           <h2 className="rl-title">Chassis</h2>
-          <p className="rl-copy" style={{ marginBottom: '1.75rem' }}>
-            Designs and builds the vehicle frame, body structure, and ensures
-            structural integrity.
-          </p>
           <MemberRoster members={chassisTeam} />
         </div>
       </section>
@@ -268,10 +197,6 @@ export default function MechanicalPage() {
       <section className="rl-band">
         <div className="rl-container">
           <h2 className="rl-title">Drivetrain</h2>
-          <p className="rl-copy" style={{ marginBottom: '1.75rem' }}>
-            Develops transmission systems, wheel assemblies, and power delivery
-            mechanisms.
-          </p>
           <MemberRoster members={drivetrainTeam} />
         </div>
       </section>
@@ -279,10 +204,6 @@ export default function MechanicalPage() {
       <section className="rl-band rl-band--raised">
         <div className="rl-container">
           <h2 className="rl-title">Steering</h2>
-          <p className="rl-copy" style={{ marginBottom: '1.75rem' }}>
-            Creates precise steering systems and suspension components for
-            optimal vehicle control.
-          </p>
           <MemberRoster members={steeringTeam} />
         </div>
       </section>

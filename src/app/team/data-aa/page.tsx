@@ -67,24 +67,6 @@ const dataTeam = [
   },
 ]
 
-const products = [
-  {
-    label: '01',
-    title: 'Driver Dashboard',
-    body: 'A mobile app that is both a driver dashboard and a data tunnel, forwarding electrical DAQ data to the Live Timing Dashboard.',
-  },
-  {
-    label: '02',
-    title: 'Live Timing Dashboard',
-    body: 'A web-based dashboard useful for competition preparation that displays stats such as speed and battery level in real-time.',
-  },
-  {
-    label: '03',
-    title: 'AR Windshield',
-    body: 'A forward-looking project aiming to display Driver Dashboard contents directly on the competition vehicle windshield.',
-  },
-]
-
 export default function DataTeam() {
   return (
     <TeamSubpageShell
@@ -93,20 +75,7 @@ export default function DataTeam() {
     >
       <section className="rl-band">
         <div className="rl-container">
-          <h2 className="rl-title">Data products</h2>
-          {products.map((product) => (
-            <div key={product.label} className="rl-phase">
-              <p className="rl-phase__label">{product.label}</p>
-              <h3>{product.title}</h3>
-              <p>{product.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="rl-band rl-band--raised">
-        <div className="rl-container">
-          <h2 className="rl-title">{'Data A&A roster'}</h2>
+          <h2 className="rl-title">Data A&A roster</h2>
           <MemberRoster members={dataTeam} />
         </div>
       </section>

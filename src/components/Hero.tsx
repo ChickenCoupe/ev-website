@@ -3,8 +3,8 @@ import ActionLink from '@/components/site/ActionLink'
 
 export default function Hero() {
   return (
-    <section className="rl-mast rl-mast--red">
-      <div className="rl-container rl-mast__grid">
+    <section className="rl-mast rl-mast--red rl-mast--hero">
+      <div className="rl-container rl-mast__grid rl-mast__grid--hero">
         <div className="rl-mast__copy">
           <h1>Cornell students build efficient electric vehicles.</h1>
           <div className="rl-actions">
@@ -16,22 +16,18 @@ export default function Hero() {
             </ActionLink>
           </div>
         </div>
-        <div className="rl-mast__aside">
-          <p>
-            We design, manufacture, test, and race vehicles for Shell
-            Eco-Marathon.
-          </p>
-          <div className="rl-media rl-media--wide" style={{ marginTop: '1.5rem' }}>
-            <Image
-              src="/vehicles/uc25_1.png"
-              alt="Chicken Coupe urban concept vehicle"
-              fill
-              priority
-              sizes="(min-width: 1024px) 40vw, 90vw"
-              className="object-contain"
-            />
-          </div>
-        </div>
+      </div>
+      <div className="rl-mast__vehicle">
+        <Image
+          src="/vehicles/car-mask.webp"
+          alt="Chicken Coupe urban concept vehicle, carbon fiber body with Shell Eco-Marathon markings"
+          width={2400}
+          height={1457}
+          priority
+          unoptimized
+          sizes="(min-width: 1024px) 82vw, 110vw"
+          className="rl-mast__vehicle-img"
+        />
       </div>
     </section>
   )

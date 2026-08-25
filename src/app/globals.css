@@ -114,6 +114,50 @@ body::-webkit-scrollbar {
   align-items: end;
 }
 
+.rl-mast--hero {
+  position: relative;
+  overflow: hidden;
+  min-height: min(76dvh, 44rem);
+  padding: 7.5rem 0 5rem;
+}
+
+.rl-mast__grid--hero {
+  position: relative;
+  z-index: 2;
+  grid-template-columns: minmax(18rem, 1fr);
+  max-width: none;
+  pointer-events: none;
+}
+
+.rl-mast__grid--hero .rl-mast__copy {
+  position: relative;
+  z-index: 2;
+  width: min(40rem, 50%);
+  text-align: left;
+}
+
+.rl-mast__grid--hero .rl-actions {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.rl-mast__vehicle {
+  position: absolute;
+  right: -12%;
+  bottom: -10%;
+  z-index: 1;
+  width: min(96vw, 84rem);
+  pointer-events: none;
+  user-select: none;
+}
+
+.rl-mast__vehicle-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .rl-mast h1 {
   margin: 0;
   max-width: 14ch;
@@ -1529,6 +1573,32 @@ button.rl-action {
     grid-template-columns: 1fr;
   }
 
+  .rl-mast--hero {
+    min-height: auto;
+    padding: 7rem 0 0;
+  }
+
+  .rl-mast__grid--hero {
+    max-width: none;
+    padding-bottom: 0.75rem;
+  }
+
+  .rl-mast__grid--hero .rl-mast__copy {
+    width: 100%;
+  }
+
+  .rl-mast__vehicle {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    z-index: 1;
+    width: min(120vw, 52rem);
+    margin-top: -4.5rem;
+    margin-left: auto;
+    margin-right: -14%;
+    margin-bottom: -10%;
+  }
+
   .rl-alumni-stage__copy .rl-title,
   .rl-alumni-bridge__grid .rl-title {
     max-width: 14ch;
@@ -1618,6 +1688,17 @@ button.rl-action {
 }
 
 @media (max-width: 639px) {
+  .rl-mast--hero {
+    padding-top: 6.25rem;
+  }
+
+  .rl-mast__vehicle {
+    width: min(130vw, 38rem);
+    margin-top: -3.25rem;
+    margin-right: -18%;
+    margin-bottom: -12%;
+  }
+
   .rl-alumni-stage__figure,
   .rl-alumni-stage__figure--wide {
     padding: 1rem 0.85rem;

@@ -67,7 +67,7 @@ export const vehicleTimeline: VehicleTimelineItem[] = [
   },
   {
     name: 'Chicken Coupe',
-    year: '2025',
+    year: '2024',
     image: '/vehicles/uc25_1.png',
     alt: 'Chicken Coupe urban concept vehicle',
     story: '',

@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin } from 'lucide-react';
 import Footer from '@/components/Footer'
 
 // Leadership team data
@@ -11,7 +10,7 @@ const leadershipTeam = [
     name: 'Daniel Sorokin',
     position: 'Full Team Lead',
     major: 'CS',
-    year: "'27",
+    year: '2027',
     image: '/team/daniel-sorokin.jpg',
     email: 'dhs263@cornell.edu', 
     linkedin: 'https://www.linkedin.com/in/daniel-sorokin-6a391328b/', 
@@ -20,7 +19,7 @@ const leadershipTeam = [
     name: 'Zach Feldman',
     position: 'Full Team Lead',
     major: 'MAE',
-    year: "'27",
+    year: '2027',
     image: '/team/zach-feldman.jpg',
     email: 'zlf3@cornell.edu',
     linkedin: 'https://www.linkedin.com/in/zlf3/'
@@ -29,7 +28,7 @@ const leadershipTeam = [
     name: 'Ruth Taddesse',
     position: 'Full Team Lead',
     major: 'CS',
-    year: "'27",
+    year: '2027',
     image: '/team/ruth-taddesse.jpg',
     email: 'ryt5@cornell.edu',
     linkedin: 'https://linkedin.com/in/ruth-taddesse', 
@@ -38,7 +37,7 @@ const leadershipTeam = [
     name: 'Lucas Libshutz',
     position: 'Autonomy Lead',
     major: 'MAE',
-    year: "'27",
+    year: '2027',
     image: '/team/lucas-libshutz.jpg',
     email: 'lsl94@cornell.edu', // Replace with actual email
     linkedin: 'https://linkedin.com/in/lucaslibshutz', // Replace with actual LinkedIn
@@ -47,7 +46,7 @@ const leadershipTeam = [
     name: 'Cam Mazzacanne',
     position: 'Autonomy Lead',
     major: 'CS/Math',
-    year: "'28",
+    year: '2028',
     image: '/team/cam-mazzacane.jpg',
     email: 'clm357@cornell.edu', // Replace with actual email
     linkedin: 'https://linkedin.com/in/cam-mazzcanne', 
@@ -56,7 +55,7 @@ const leadershipTeam = [
     name: 'Erica Jiang',
     position: 'Electrical Lead',
     major: 'ECE',
-    year: "'28",
+    year: '2028',
     image: '/team/erica-jiang.png',
     email: 'ej289@cornell.edu', // Replace with actual email
     linkedin: 'https://www.linkedin.com/in/erica-jiang-321322287/', // Replace with actual LinkedIn
@@ -65,7 +64,7 @@ const leadershipTeam = [
     name: 'Kellen Yu',
     position: 'Electrical Lead',
     major: 'ECE',
-    year: "'29",
+    year: '2029',
     image: '/team/placeholder.svg',
     email: 'kcy24@cornell.edu', 
     linkedin: 'https://www.linkedin.com/in/kellen-yu-ab2728318/', 
@@ -74,7 +73,7 @@ const leadershipTeam = [
     name: 'Serkan Yurday',
     position: 'Mechanical Lead',
     major: 'MAE',
-    year: "'28",
+    year: '2028',
     image: '/team/serkan-yurday.jpg',
     email: 'sy794@cornell.edu', // Replace with actual email
     linkedin: 'https://www.linkedin.com/in/serkanyurday/', // Replace with actual LinkedIn
@@ -83,15 +82,15 @@ const leadershipTeam = [
     name: 'Albert Zheng',
     position: 'Mechanical Lead',
     major: 'MAE',
-    year: "'28",
+    year: '2028',
     image: '/team/albert-zheng.jpg',
     email: 'az487@cornell.edu', // Replace with actual email
     linkedin: 'https://www.linkedin.com/in/al-zheng/', // Replace with actual LinkedIn
   },
   {
     name: 'Katie Xiao',
-    position: 'Telemetry Member',
-    major: 'CS',
+    position: 'Telemetry Lead',
+    major: 'CS/Stats',
     year: '2028',
     image: '/team/katie-xiao.jpg',
     email: 'jx385@cornell.edu',
@@ -99,7 +98,7 @@ const leadershipTeam = [
   },
   {
     name: 'Rhea Agrawal',
-    position: 'Telemetry Member',
+    position: 'Telemetry Lead',
     major: 'CS',
     year: '2028',
     image: '/team/rhea-agrawal.jpg',
@@ -110,7 +109,7 @@ const leadershipTeam = [
     name: 'Lena Schapiro',
     position: 'Operations Lead',
     major: 'ORIE',
-    year: "'28",
+    year: '2028',
     image: '/team/lena-schapiro.jpg',
     email: 'lms458@cornell.edu',
     linkedin: 'https://www.linkedin.com/in/lena-schapiro/', // Replace with actual LinkedIn
@@ -123,7 +122,7 @@ const TeamMemberCard = ({ member, index }: { member: typeof leadershipTeam[0], i
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
+    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 w-72"
   >
     <div className="aspect-square relative">
       <Image
@@ -134,31 +133,9 @@ const TeamMemberCard = ({ member, index }: { member: typeof leadershipTeam[0], i
       />
     </div>
     <div className="p-6">
-      <h3 className="text-xl font-semibold text-white mb-2">{member.name}</h3>
-      <p className="text-red-400 font-medium mb-1">{member.position}</p>
-      <p className="text-gray-300 text-sm mb-3">{member.major} {member.year}</p>
-      <div className="flex space-x-3 mt-4">
-        {member.linkedin && (
-          <a
-            href={member.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-red-400 transition-colors"
-            aria-label={`${member.name}'s LinkedIn profile`}
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
-        )}
-        {member.email && (
-          <a
-            href={`mailto:${member.email}`}
-            className="text-gray-400 hover:text-gray-300 transition-colors"
-            aria-label={`Email ${member.name}`}
-          >
-            <Mail className="w-5 h-5" />
-          </a>
-        )}
-      </div>
+      <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
+      <p className="text-red-400 font-semibold mb-1">{member.position}</p>
+      <p className="text-gray-300">{member.major} {member.year}</p>
     </div>
   </motion.div>
 );
@@ -223,7 +200,7 @@ export default function LeadershipPage() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {leadershipTeam.map((member, index) => (
               <TeamMemberCard key={index} member={member} index={index} />
             ))}

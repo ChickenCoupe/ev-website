@@ -116,6 +116,27 @@ const leadershipTeam = [
   },
 ];
 
+const sortTeamMembers = <T extends { name: string; year: string }>(members: T[]) =>
+  [...members].sort((a, b) => {
+    const yearComparison = Number(a.year) - Number(b.year);
+    if (yearComparison !== 0) return yearComparison;
+
+    const aLastName = a.name.split(' ').at(-1) ?? a.name;
+    const bLastName = b.name.split(' ').at(-1) ?? b.name;
+    return aLastName.localeCompare(bLastName);
+  });
+
+const fullTeamLeads = sortTeamMembers(leadershipTeam.filter((member) => member.position === 'Full Team Lead'));
+const subteamOrder = ['Mechanical', 'Electrical', 'Telemetry', 'Autonomy', 'Operations'];
+const subteamLeads = leadershipTeam
+  .filter((member) => member.position !== 'Full Team Lead')
+  .sort((a, b) => {
+    const subteamComparison = subteamOrder.findIndex((team) => a.position.includes(team)) - subteamOrder.findIndex((team) => b.position.includes(team));
+    if (subteamComparison !== 0) return subteamComparison;
+
+    return sortTeamMembers([a, b])[0] === a ? -1 : 1;
+  });
+
 // Team member card component
 const TeamMemberCard = ({ member, index }: { member: typeof leadershipTeam[0], index: number }) => (
   <motion.div
@@ -194,15 +215,28 @@ export default function LeadershipPage() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-white mb-4">Meet Our Leaders</h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Our leadership team guides strategic direction and ensures our continued success in building innovative electric vehicles.
-            </p>
+            <h2 className="text-3xl font-bold text-white mb-4">Full Team Leads</h2>
           </motion.div>
           
+          <div className="flex flex-wrap justify-center gap-8 mb-16">
+            {fullTeamLeads.map((member, index) => (
+              <TeamMemberCard key={member.name} member={member} index={index} />
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8"
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-2">Subteam Leads</h3>
+          </motion.div>
+
           <div className="flex flex-wrap justify-center gap-8">
-            {leadershipTeam.map((member, index) => (
-              <TeamMemberCard key={index} member={member} index={index} />
+            {subteamLeads.map((member, index) => (
+              <TeamMemberCard key={member.name} member={member} index={index + fullTeamLeads.length} />
             ))}
           </div>
         </div>

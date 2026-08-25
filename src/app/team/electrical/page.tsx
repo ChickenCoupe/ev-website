@@ -23,45 +23,52 @@ const electricalTeam = [
   },
 
   {
-    name: 'Guillaume Ah-Hot',
-    position: 'Electrical Member',
-    major: 'ECE',
-    year: '2027',
-    image: '/team/guillaume-ah-hot.jpg'
-  },
-  {
-    name: 'Nimish Goel',
-    position: 'Electrical Member',
-    major: 'ECE/CS',
-    year: '2027',
-    image: '/team/nimish-goel.jpg'
-  },
-  {
-    name: 'Arnav Shah',
-    position: 'Electrical Member',
-    major: 'ECE',
-    year: '2026',
-    image: '/team/arnav-shah.jpg'
-  },
-  {
-    name: 'Jenny Lee',
-    position: 'Electrical Member',
-    major: 'ECE/CS',
-    year: '2027',
-    image: '/team/jenny-lee.jpg'
-  },
-  {
-    name: 'Yoon Kang',
-    position: 'Electrical Member',
-    major: 'ECE',
-    year: '2026',
-    image: '/team/placeholder.svg'
-  },
-  {
-    name: 'Elaine Cao',
+    name: 'Sophia Chen',
     position: 'Electrical Member',
     major: 'ECE',
     year: '2028',
+    image: '/team/sophia-chen.jpg'
+  },
+  {
+    name: 'Micah Lai',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Aleena Xiao',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Michael Robbins',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2028',
+    image: '/team/michael-robbins.jpg'
+  },
+  {
+    name: 'Audrey Cheng',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Joyce Lin',
+    position: 'Electrical Member',
+    major: 'CS/ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Thomas Xin',
+    position: 'Electrical Member',
+    major: 'CS/ECE',
+    year: '2029',
     image: '/team/placeholder.svg'
   },
   {
@@ -72,20 +79,54 @@ const electricalTeam = [
     image: '/team/placeholder.svg'
   },
   {
-    name: 'Sophia Chen',
+    name: 'Kaan Akan',
     position: 'Electrical Member',
     major: 'ECE',
-    year: '2028',
-    image: '/team/sophia-chen.jpg'
+    year: '2029',
+    image: '/team/placeholder.svg'
   },
   {
-    name: 'Michael Robbins',
+    name: 'Elaine Cao',
     position: 'Electrical Member',
     major: 'ECE',
     year: '2028',
-    image: '/team/michael-robbins.jpg'
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Lucia Liu',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Nora Kingwell',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2028',
+    image: '/team/nora-kingwell.jpg'
+  },
+  {
+    name: 'Gabe Gil',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
   },
 ]
+
+const sortTeamMembers = <T extends { name: string; year: string }>(members: T[]) =>
+  [...members].sort((a, b) => {
+    const yearComparison = Number(a.year) - Number(b.year);
+    if (yearComparison !== 0) return yearComparison;
+
+    const aLastName = a.name.split(' ').at(-1) ?? a.name;
+    const bLastName = b.name.split(' ').at(-1) ?? b.name;
+    return aLastName.localeCompare(bLastName);
+  });
+
+const electricalLeads = sortTeamMembers(electricalTeam.filter((member) => member.position.includes('Lead')));
+const electricalMembers = sortTeamMembers(electricalTeam.filter((member) => !member.position.includes('Lead')));
 
 // Team member card component
 const TeamMemberCard = ({ member, index }: { member: typeof electricalTeam[0], index: number }) => (
@@ -93,7 +134,7 @@ const TeamMemberCard = ({ member, index }: { member: typeof electricalTeam[0], i
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
+    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 w-72"
     viewport={{ once: true }}
   >
     <div className="aspect-square relative">
@@ -281,15 +322,28 @@ export default function ElectricalPage() {
             className="text-center mb-12"
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-white mb-4">Meet Our Team</h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Our electrical engineers design and implement the power systems, motor controllers, and electronic components.
-            </p>
+            <h2 className="text-3xl font-bold text-white mb-4">Electrical Leads</h2>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {electricalTeam.map((member, index) => (
-              <TeamMemberCard key={index} member={member} index={index} />
+          <div className="flex flex-wrap justify-center gap-8 mb-16">
+            {electricalLeads.map((member, index) => (
+              <TeamMemberCard key={member.name} member={member} index={index} />
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8"
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-2">Members</h3>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+            {electricalMembers.map((member, index) => (
+              <TeamMemberCard key={member.name} member={member} index={index + electricalLeads.length} />
             ))}
           </div>
         </div>

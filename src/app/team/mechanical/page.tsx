@@ -91,13 +91,6 @@ const drivetrainTeam = [
     image: '/team/alexis-barrow.jpg'
   },
   {
-    name: 'Nora Kingwell',
-    position: 'Drivetrain Member',
-    major: 'MAE',
-    year: '2028',
-    image: '/team/nora-kingwell.jpg'
-  },
-  {
     name: 'Anna Shub',
     position: 'Drivetrain Member',
     major: 'MAE',
@@ -179,6 +172,21 @@ const steeringTeam = [
     image: '/team/placeholder.svg'
   },
 ];
+
+const sortTeamMembers = <T extends { name: string; year: string }>(members: T[]) =>
+  [...members].sort((a, b) => {
+    const yearComparison = Number(a.year) - Number(b.year);
+    if (yearComparison !== 0) return yearComparison;
+
+    const aLastName = a.name.split(' ').at(-1) ?? a.name;
+    const bLastName = b.name.split(' ').at(-1) ?? b.name;
+    return aLastName.localeCompare(bLastName);
+  });
+
+const sortedMechanicalLeadership = sortTeamMembers(mechanicalLeadership);
+const sortedChassisTeam = sortTeamMembers(chassisTeam);
+const sortedDrivetrainTeam = sortTeamMembers(drivetrainTeam);
+const sortedSteeringTeam = sortTeamMembers(steeringTeam);
 
 // Team member card component
 const TeamMemberCard = ({ member, index }: { member: typeof mechanicalLeadership[0], index: number }) => (
@@ -351,14 +359,11 @@ export default function MechanicalPage() {
             className="text-center mb-12"
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-white mb-4">Leadership</h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-              Our mechanical team leaders coordinate across all subteams to ensure cohesive design and manufacturing.
-            </p>
+            <h2 className="text-3xl font-bold text-white mb-4">Mechanical Leads</h2>
           </motion.div>
           
           <div className="flex flex-wrap justify-center gap-8 mb-16">
-            {mechanicalLeadership.map((member, index) => (
+            {sortedMechanicalLeadership.map((member, index) => (
               <div key={index} className="w-full sm:w-80">
                 <TeamMemberCard member={member} index={index} />
               </div>
@@ -380,7 +385,7 @@ export default function MechanicalPage() {
           </motion.div>
           
           <div className="flex flex-wrap justify-center gap-8 mb-16">
-            {chassisTeam.map((member, index) => (
+            {sortedChassisTeam.map((member, index) => (
               <div key={index} className="w-full sm:w-80">
                 <TeamMemberCard member={member} index={index} />
               </div>
@@ -402,7 +407,7 @@ export default function MechanicalPage() {
           </motion.div>
           
           <div className="flex flex-wrap justify-center gap-8 mb-16">
-            {drivetrainTeam.map((member, index) => (
+            {sortedDrivetrainTeam.map((member, index) => (
               <div key={index} className="w-full sm:w-80">
                 <TeamMemberCard member={member} index={index} />
               </div>
@@ -424,7 +429,7 @@ export default function MechanicalPage() {
           </motion.div>
           
           <div className="flex flex-wrap justify-center gap-8">
-            {steeringTeam.map((member, index) => (
+            {sortedSteeringTeam.map((member, index) => (
               <div key={index} className="w-full sm:w-80">
                 <TeamMemberCard member={member} index={index} />
               </div>

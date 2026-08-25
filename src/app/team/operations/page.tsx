@@ -43,6 +43,19 @@ const operationsTeam = [
     }
 ]
 
+const sortTeamMembers = <T extends { name: string; year: string }>(members: T[]) =>
+    [...members].sort((a, b) => {
+        const yearComparison = Number(a.year) - Number(b.year);
+        if (yearComparison !== 0) return yearComparison;
+
+        const aLastName = a.name.split(' ').at(-1) ?? a.name;
+        const bLastName = b.name.split(' ').at(-1) ?? b.name;
+        return aLastName.localeCompare(bLastName);
+    });
+
+const operationsLeads = sortTeamMembers(operationsTeam.filter((member) => member.position.includes('Lead')));
+const operationsMembers = sortTeamMembers(operationsTeam.filter((member) => !member.position.includes('Lead')));
+
 const TeamMemberCard = ({ member, index }: {member: typeof operationsTeam[0], index: number }) => (
     <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -164,16 +177,29 @@ export default function OperationsTeam() {
                         className="text-center mb-12"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                            Meet Our Team
+                            Operations Lead
                         </h2>
-                        <p className="text-gray-300 text-lg">
-                            Our operations team brings together diverse skills in business, marketing, and project management to create a sustainable foundation for our technical innovation and competitive success.
-                        </p>
                     </motion.div>
 
-                    <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-                        {operationsTeam.map((member,index) => (
+                    <div className="flex flex-wrap justify-center gap-8 mb-16">
+                        {operationsLeads.map((member,index) => (
                             <TeamMemberCard key={member.name} member={member} index={index} />
+                        ))}
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-8"
+                    >
+                        <h3 className="text-2xl font-bold text-white mb-2">Members</h3>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                        {operationsMembers.map((member,index) => (
+                            <TeamMemberCard key={member.name} member={member} index={index + operationsLeads.length} />
                         ))}
                     </div>
                 </div>

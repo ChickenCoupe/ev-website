@@ -64,23 +64,9 @@ const autonomyTeam = [
     image: '/team/placeholder.svg'
   },
   {
-    name: 'Joyce Lin',
-    position: 'Autonomy Member',
-    major: 'CS/ECE',
-    year: '2029',
-    image: '/team/placeholder.svg'
-  },
-  {
     name: 'Surya Chandaskaran',
     position: 'Autonomy Member',
     major: 'CS/ORIE',
-    year: '2029',
-    image: '/team/placeholder.svg'
-  },
-  {
-    name: 'Thomas Xin',
-    position: 'Autonomy Member',
-    major: 'CS/ECE',
     year: '2029',
     image: '/team/placeholder.svg'
   },
@@ -92,6 +78,21 @@ const autonomyTeam = [
     image: '/team/sidharth-rao.jpg'
   },
 ]
+
+const sortTeamMembers = <T extends { name: string; year: string }>(members: T[]) =>
+  [...members].sort((a, b) => {
+    const yearComparison = Number(a.year) - Number(b.year);
+    if (yearComparison !== 0) return yearComparison;
+
+    const aLastName = a.name.split(' ').at(-1) ?? a.name;
+    const bLastName = b.name.split(' ').at(-1) ?? b.name;
+    return aLastName.localeCompare(bLastName);
+  });
+
+const autonomyLeads = sortTeamMembers(autonomyTeam.filter((member) => member.position.includes('Lead')));
+const autonomyRegularMembers = autonomyTeam.filter((member) => !member.position.includes('Lead') && !member.position.includes('Advisor'));
+const autonomyAdvisors = autonomyTeam.filter((member) => member.position.includes('Advisor'));
+const autonomyMembers = [...sortTeamMembers(autonomyRegularMembers), ...sortTeamMembers(autonomyAdvisors)];
 
 // Team member card component
 const TeamMemberCard = ({ member, index }: { member: typeof autonomyTeam[0], index: number }) => (
@@ -253,16 +254,29 @@ export default function AutonomyTeam() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Meet Our Team
+              Autonomy Leads
             </h2>
-            <p className="text-xl text-gray-300">
-              Leading the future of autonomous vehicle technology
-            </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-            {autonomyTeam.map((member, index) => (
+          <div className="flex flex-wrap justify-center gap-8 mb-16">
+            {autonomyLeads.map((member, index) => (
               <TeamMemberCard key={member.name} member={member} index={index} />
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h3 className="text-2xl font-bold text-white mb-2">Members</h3>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+            {autonomyMembers.map((member, index) => (
+              <TeamMemberCard key={member.name} member={member} index={index + autonomyLeads.length} />
             ))}
           </div>
         </div>

@@ -54,6 +54,13 @@ const chassisTeam = [
     year: '2028',
     image: '/team/ana-mahuad.jpg',
   },
+  {
+    name: 'Isabella Rodriguez',
+    position: 'Chassis Member',
+    major: 'MAE',
+    year: '2029',
+    image: '/team/placeholder.svg',
+  },
 ]
 
 const drivetrainTeam = [
@@ -79,11 +86,25 @@ const drivetrainTeam = [
     image: '/team/alexis-barrow.jpg',
   },
   {
-    name: 'Nora Kingwell',
+    name: 'Anna Shub',
     position: 'Drivetrain Member',
     major: 'MAE',
-    year: '2028',
-    image: '/team/nora-kingwell.jpg',
+    year: '2029',
+    image: '/team/placeholder.svg',
+  },
+  {
+    name: 'Ian Olenich',
+    position: 'Drivetrain Member',
+    major: 'MAE',
+    year: '2029',
+    image: '/team/placeholder.svg',
+  },
+  {
+    name: 'Zachary Davidson',
+    position: 'Drivetrain Member',
+    major: 'MAE',
+    year: '2029',
+    image: '/team/placeholder.svg',
   },
 ]
 
@@ -107,6 +128,41 @@ const steeringTeam = [
     position: 'Steering Member',
     major: 'MAE',
     year: '2028',
+    image: '/team/placeholder.svg',
+  },
+  {
+    name: 'Ashley Johnny',
+    position: 'Steering Member',
+    major: 'ECE',
+    year: '2029',
+    image: '/team/placeholder.svg',
+  },
+  {
+    name: 'Hamza Waseem',
+    position: 'Steering Member',
+    major: 'MAE',
+    year: '2029',
+    image: '/team/placeholder.svg',
+  },
+  {
+    name: 'Magnus Simmons',
+    position: 'Steering Member',
+    major: 'ECE',
+    year: '2029',
+    image: '/team/placeholder.svg',
+  },
+  {
+    name: 'Neha Chigurupati',
+    position: 'Steering Member',
+    major: 'MAE',
+    year: '2029',
+    image: '/team/placeholder.svg',
+  },
+  {
+    name: 'Samiksha Emmaneni',
+    position: 'Steering Member',
+    major: 'MAE',
+    year: '2029',
     image: '/team/placeholder.svg',
   },
 ]

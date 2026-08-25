@@ -116,11 +116,11 @@ export const subteamSummaries: SubteamSummary[] = [
     portrait: '/team/erica-jiang.png',
   },
   {
-    id: 'data-aa',
+    id: 'telemetry',
     name: 'Telemetry',
     discipline: 'telemetry and race analysis',
     role: 'Analyzes vehicle data to improve performance and reliability, and builds the telemetry systems that let the team see what the car is doing in real time.',
-    href: '/team/data-aa',
+    href: '/team/telemetry',
     portrait: '/team/katie-xiao.jpg',
   },
   {

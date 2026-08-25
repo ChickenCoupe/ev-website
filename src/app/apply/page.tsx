@@ -111,7 +111,7 @@ const subteams = [
     description: '',
   },
   {
-    href: '/team/data-aa',
+    href: '/team/telemetry',
     icon: Code,
     name: 'Telemetry',
     description: '',

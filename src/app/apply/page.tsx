@@ -15,6 +15,53 @@ import { parseCsv } from '@/lib/csv'
 const PROJECT_TEAM_FORM =
   'https://www.duffield.cornell.edu/student-project-teams/join-a-project-team/'
 
+const photoPath = (name: string) => {
+  const photoOverrides: Record<string, string> = {
+    'Zachary Feldman': '/team/zach-feldman.jpg',
+    'Cam Mazzacane': '/team/cam-mezzacane.jpg',
+  }
+
+  return (
+    photoOverrides[name] ??
+    `/team/${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg`
+  )
+}
+
+const coffeeChatSubteam = (name: string, subteam: string) => {
+  const subteamOverrides: Record<string, string> = {
+    'Zachary Feldman': 'Mechanical',
+    'Daniel Sorokin': 'Telemetry',
+    'Ruth Taddesse': 'Telemetry',
+  }
+
+  return subteamOverrides[name] ?? subteam
+}
+
+function CoffeeChatSubteamIcon({
+  name,
+  subteam,
+}: {
+  name: string
+  subteam: string
+}) {
+  const assignedSubteam = coffeeChatSubteam(name, subteam)
+  const icons = {
+    Mechanical: Wrench,
+    Electrical: Zap,
+    Telemetry: Code,
+    Autonomy: BarChart,
+    Operations: Users,
+  }
+  const Icon = icons[assignedSubteam as keyof typeof icons] ?? Users
+
+  return (
+    <Icon
+      className="rl-apply-coffee__icon"
+      aria-label={`${assignedSubteam} subteam`}
+    />
+  )
+}
+
 function ApplicationPhase({ phase, year }: { phase: number; year?: number }) {
   return (
     <section className="rl-band">
@@ -139,15 +186,51 @@ type CoffeeChat = {
 }
 
 export default function Apply() {
+  const subteamOrder: Record<string, number> = {
+    'Full Team': 0,
+    Mechanical: 1,
+    Electrical: 2,
+    Telemetry: 3,
+    Autonomy: 4,
+    Operations: 5,
+  }
   const coffeeChats = (
     parseCsv(
       fs.readFileSync(path.join(process.cwd(), 'src/data/coffee-chats.csv'), 'utf8'),
     ) as CoffeeChat[]
-  ).filter((chat) => chat.Name?.trim())
+  )
+    .filter((chat) => chat.Name?.trim())
+    .sort((a, b) => {
+      const subteamDifference =
+        (subteamOrder[a.Subteam] ?? 99) - (subteamOrder[b.Subteam] ?? 99)
+      if (subteamDifference !== 0) return subteamDifference
+
+      const isPrimaryLead = (chat: CoffeeChat) => {
+        const role = chat.Role.toLowerCase().trim()
+        const subteam = chat.Subteam.toLowerCase().trim()
+        return role.includes('full team lead') || role === `${subteam} lead`
+      }
+      const leadDifference =
+        Number(!isPrimaryLead(a)) - Number(!isPrimaryLead(b))
+      if (leadDifference !== 0) return leadDifference
+
+      const aLastName = a.Name.trim().split(/\s+/).at(-1) ?? ''
+      const bLastName = b.Name.trim().split(/\s+/).at(-1) ?? ''
+      return aLastName.localeCompare(bLastName)
+    })
 
   return (
     <main className="rl-apply">
-      <header className="rl-mast">
+      <header className="rl-mast rl-apply-mast">
+        <Image
+          src="/comp-tech-inspection-group-pic.JPG"
+          alt="Cornell Electric Vehicles team at technical inspection"
+          fill
+          priority
+          sizes="100vw"
+          className="rl-apply-mast__image"
+        />
+        <div className="rl-apply-mast__overlay" aria-hidden="true" />
         <div className="rl-container rl-apply-hero">
           <div className="rl-apply-hero__mark">
             <h1>Join</h1>
@@ -184,29 +267,49 @@ export default function Apply() {
 
                 return (
                   <article key={chat.Name} className="rl-apply-coffee__row">
-                    <div className="rl-apply-coffee__identity">
-                      <h3>{chat.Name}</h3>
-                      <p>
-                        <strong>{chat.Role}</strong>
-                        {chat.Subteam ? ` · ${chat.Subteam}` : ''}
-                      </p>
-                      {calendarLink ? (
-                        <a
-                          href={calendarLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Book a chat
-                        </a>
-                      ) : (
-                        <span className="rl-apply-coffee__unavailable">
-                          Booking link unavailable
-                        </span>
-                      )}
+                    <div className="rl-apply-coffee__photo">
+                      <Image
+                        src={photoPath(chat.Name)}
+                        alt={`Portrait of ${chat.Name}`}
+                        fill
+                        sizes="(min-width: 768px) 144px, 96px"
+                        className="object-cover"
+                      />
                     </div>
-                    <p className="rl-apply-coffee__bio">
-                      {bio || 'Bio coming soon.'}
-                    </p>
+                    <div className="rl-apply-coffee__body">
+                      <div className="rl-apply-coffee__identity">
+                        <div className="rl-apply-coffee__heading">
+                          <CoffeeChatSubteamIcon
+                            name={chat.Name}
+                            subteam={chat.Subteam}
+                          />
+                          <div>
+                            <h3>{chat.Name}</h3>
+                            <p>
+                              <strong>{chat.Role}</strong>
+                              {chat.Subteam ? ` · ${chat.Subteam}` : ''}
+                            </p>
+                          </div>
+                        </div>
+                        {calendarLink ? (
+                          <a
+                            href={calendarLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rl-apply-coffee__booking"
+                          >
+                            Book a chat
+                          </a>
+                        ) : (
+                          <span className="rl-apply-coffee__unavailable">
+                            Booking link unavailable
+                          </span>
+                        )}
+                      </div>
+                      <p className="rl-apply-coffee__bio">
+                        {bio || 'Bio coming soon.'}
+                      </p>
+                    </div>
                   </article>
                 )
               })}

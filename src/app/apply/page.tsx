@@ -6,9 +6,42 @@ import Image from 'next/image';
 import Footer from '@/components/Footer'
 import { parseCsv } from '@/lib/csv'
 
+const photoPath = (name: string) => {
+  const photos: Record<string, string> = {
+    'Zachary Feldman': '/team/zach-feldman.jpg',
+    'Cam Mazzacane': '/team/cam-mezzacane.jpg',
+  }
+  return photos[name] ?? `/team/${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg`
+}
+
 
 export default function Apply() {
+  const subteamOrder: Record<string, number> = {
+    'Full Team': 0,
+    Mechanical: 1,
+    Electrical: 2,
+    Telemetry: 3,
+    Autonomy: 4,
+    Operations: 5,
+  }
   const coffeeChats = parseCsv(fs.readFileSync(path.join(process.cwd(), 'src/data/coffee-chats.csv'), 'utf8'))
+    .sort((a, b) => {
+      const subteamDifference = (subteamOrder[a.Subteam] ?? 99) - (subteamOrder[b.Subteam] ?? 99)
+      if (subteamDifference !== 0) return subteamDifference
+
+      const isPrimaryLead = (chat: Record<string, string>) => {
+        const role = chat.Role.toLowerCase().trim()
+        const subteam = chat.Subteam.toLowerCase().trim()
+        return role.includes('full team lead') || role === `${subteam} lead`
+      }
+      const aIsLead = isPrimaryLead(a) ? 0 : 1
+      const bIsLead = isPrimaryLead(b) ? 0 : 1
+      if (aIsLead !== bIsLead) return aIsLead - bIsLead
+
+      const aLastName = a.Name.trim().split(/\s+/).pop() ?? ''
+      const bLastName = b.Name.trim().split(/\s+/).pop() ?? ''
+      return aLastName.localeCompare(bLastName)
+    })
 
   const subteams = [
     {
@@ -90,47 +123,81 @@ export default function Apply() {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-32">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center space-x-9 py-16">
-            <h1 className="text-white text-8xl font-bold">Join</h1>
-            <Image src="/logo.png" alt="Logo" width={90} height={90} />
-          </div>
-          <p className="text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-bold">
-            Ready to build the future of sustainable transportation? Join our interdisciplinary team
-            and work on cutting-edge electric vehicle technology.
+      <section className="relative flex min-h-[420px] items-center overflow-hidden py-20 pt-28 text-white">
+        <Image
+          src="/comp-tech-inspection-group-pic.JPG"
+          alt="Cornell Electric Vehicles team at technical inspection"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <h1 className="mb-6 text-4xl font-bold md:text-5xl">Join CEV Today!</h1>
+          <p className="mx-auto max-w-4xl text-xl text-gray-100 md:text-2xl">
+            Ready to build the future of sustainable transportation? Work on the mechanical, electrical, autonomy, telemetry, or operations systems that put the vehicle on track.
           </p>
         </div>
+      </section>
 
-        <div className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8">
-          <h2 className="text-3xl font-bold text-white mb-6 text-center"><u>Fall 2026 Applications</u></h2>
-          <p className="text-lg text-gray-300 mb-8 text-center">CEV is excited to welcome a new class of team members this semester!</p>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-32">
+        <div className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-8">Fall 2026 Upperclassmen Applications Now Open!</h2>
           {/* <p className="text-lg text-gray-300 mb-8 text-center">Please note that <b>applications are now <u>closed</u>.</b> We look forward to seeing you apply in the future!</p> */}
           <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLSccbMhOsd8ubA3QOC4H1Q3ZRBalmmk0lNqcNneyT-N650SZDg/viewform?usp=sharing&ouid=102160163982044776728"
+            className="inline-block rounded-lg bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-red-500 mb-8"
           >
-            <p className="text-2xl text-red-500 hover:text-red-400 transition-colors mb-8 text-center underline font-bold">
-              FA26 Application Form
-            </p>
+            Application Form Link
           </Link>
-          <p className="text-lg text-gray-300 mb-8 text-center">In the meantime, feel free to check out our coffee chat information below and fill out our&nbsp;
+          <p className="text-lg text-gray-300">Have any questions about our team or our current endeavors? Check out our{' '}
+            <Link href="/team" className="font-semibold text-red-400 underline hover:text-red-300">different subteams</Link>,{' '}
+            <Link href="/vehicles" className="font-semibold text-red-400 underline hover:text-red-300">vehicles</Link>, or{' '}
             <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeOiA6IviGpDakDMj3sVqL3S5kQ7EKaokoGURqYLDLo29L5cA/viewform?usp=dialog"
-              className="text-gray-150 hover:text-white transition-colors font-bold underline"
+              href="#coffee-chats"
+              className="font-semibold text-red-400 underline hover:text-red-300"
             >
-              Interest Form
+              coffee chat
             </Link>
-            !</p>
-          {/* <p className="text-lg text-gray-300 mb-8 text-center">Thank you for your interest in joining our team! We&apos;ve been thrilled to engage with so many passionate individuals keen on pushing the limits of autonomous and electric vehicle innovation.</p> */}
-          {/* <p className="text-lg text-gray-300 mb-8 text-center">CEV thrives thanks to a dedicate team of electrical, mechanical, and software engineers working alongside project managers, financial advisors, and graphic designers. We&apos;re hoping to see you among us in the next application cycle! </p> */}
-          <p className="text-lg text-gray-300 mb-8 text-center">For any questions about our team or updates on our endeavors and timelines, reach out to us at <a href="mailto:cornellev@cornell.edu" className="font-bold text-red-500">cornellev@cornell.edu</a>.</p>
+            {' '}with one of our team members!
+          </p>
+        </div>
+
+        {/* Application Process */}
+        <div className="bg-gray-800 rounded-2xl p-8 mb-16 border border-gray-700">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">Application Process</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div><h3 className="text-xl font-semibold text-white mb-2">Choose Subteam(s)</h3><p className="text-gray-300">Choose which subteam(s) that you want to apply to.</p></div>
+            <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div><h3 className="text-xl font-semibold text-white mb-2">Submit Application</h3><p className="text-gray-300">Complete the online application with your background and interests.</p></div>
+            <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div><h3 className="text-xl font-semibold text-white mb-2">Technical Interview</h3><p className="text-gray-300">Showcase your technical skills, and tell us about you!</p></div>
+          </div>
         </div>
 
         {/* Coffee Chats */}
-        <div className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8">
+        <div id="coffee-chats" className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8 scroll-mt-24">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Coffee Chats</h2>
-          <div className="overflow-x-auto">
+          <div className="space-y-6">
+            {coffeeChats.map((chat) => (
+              <div key={`profile-${chat.Name}`} className="flex flex-col gap-6 rounded-xl border border-gray-700 bg-gray-900 p-6 sm:flex-row">
+                <Image src={photoPath(chat.Name)} alt={chat.Name} width={144} height={144} className="h-36 w-36 shrink-0 rounded-lg object-cover" />
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white">{chat.Name}</h3>
+                      <p className="text-red-400">{chat.Role}</p>
+                    </div>
+                    {chat['Google Calendar Link'] && (
+                      <a href={chat['Google Calendar Link']} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 rounded-lg bg-red-600 px-5 py-2 font-semibold text-white hover:bg-red-500">
+                        Book
+                      </a>
+                    )}
+                  </div>
+                  <p className="mt-4 text-gray-300">{chat.Bio}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="hidden">
             <table className="w-full text-left">
               <thead>
                 <tr className="text-gray-400 text-sm border-b border-gray-700">
@@ -170,7 +237,7 @@ export default function Apply() {
         </div>
 
         {/* Application Process */}
-        <div className="bg-gray-800 rounded-2xl p-8 mb-16 border border-gray-700">
+        <div className="hidden bg-gray-800 rounded-2xl p-8 mb-16 border border-gray-700">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Application Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
@@ -198,7 +265,7 @@ export default function Apply() {
         </div>
 
         {/* Subteams */}
-        <div className="mb-16">
+        <div className="hidden mb-16">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">Our Subteams</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {subteams.map((subteam) => (
@@ -255,7 +322,7 @@ export default function Apply() {
         {/* </div> */}
 
         {/* CTA */}
-        <div className="text-center bg-gray-800 rounded-2xl mb-16 p-8 border-gray-700">
+        <div className="hidden text-center bg-gray-800 rounded-2xl mb-16 p-8 border-gray-700">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Apply?</h2>
           <p className="text-lg text-gray-300 mb-8">Applications open at the beginning of each semester.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -83,7 +83,10 @@ export default function AutonomyTeam() {
       <section className="rl-band">
         <div className="rl-container">
           <h2 className="rl-title">Autonomy roster</h2>
-          <MemberRoster members={autonomyTeam} />
+          <MemberRoster
+            members={autonomyTeam}
+            leadPositions={['Autonomy Lead']}
+          />
         </div>
       </section>
     </TeamSubpageShell>

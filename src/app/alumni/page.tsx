@@ -55,23 +55,6 @@ export default function Alumni() {
         </div>
       </section>
 
-      <section className="rl-band rl-alumni-bridge">
-        <div className="rl-container rl-alumni-bridge__grid">
-          <h2 className="rl-title">Shop hours become career signal.</h2>
-          <div className="rl-alumni-bridge__proof">
-            <p>
-              Late nights on chassis, battery packs, autonomy stacks, and race
-              telemetry teach the same habits recruiters look for: own a system,
-              ship under pressure, and learn from the data.
-            </p>
-            <p>
-              That is why alumni land across hardware, software, aerospace, and
-              research. CEV is practice for the work that follows.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="rl-finish">
         <div className="rl-container rl-finish__grid">
           <div>

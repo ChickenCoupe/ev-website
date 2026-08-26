@@ -98,7 +98,7 @@ export default function TeamPage() {
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
       <div className="relative flex min-h-[420px] items-center overflow-hidden py-20 pt-28 text-white">
-        <Image src="/full-team.jpg" alt="" fill priority className="object-cover" />
+        <Image src="/full-team-cropped.jpg" alt="" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-6">
           <motion.h1

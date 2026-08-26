@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
+import Image from 'next/image'
 import { Briefcase, GraduationCap, Users, Calendar } from 'lucide-react'
 
 export default function Alumni() {
@@ -156,8 +157,10 @@ export default function Alumni() {
     <div className="min-h-screen bg-gray-900">
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-red-600 to-red-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <section className="relative flex min-h-[420px] items-center overflow-hidden py-20 pt-28 text-white">
+        <Image src="/daniel-aura.JPG" alt="Cornell Electric Vehicles alumni" fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -239,26 +242,6 @@ export default function Alumni() {
             ))}
           </div>
 
-          {/* Map Coming Soon Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-16 bg-gray-800 rounded-xl p-8 border border-gray-700 text-center"
-          >
-            <div className="bg-gray-700 rounded-lg h-64 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Interactive Map Coming Soon</h3>
-                <p className="text-gray-300">We&pos;re building an interactive map to showcase our global alumni network</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 

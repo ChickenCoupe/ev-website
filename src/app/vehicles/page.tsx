@@ -74,8 +74,10 @@ export default function Vehicles() {
     <div className="min-h-screen bg-gray-900">
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-red-600 to-red-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <section className="relative flex min-h-[420px] items-center overflow-hidden py-20 pt-28 text-white">
+        <Image src="/small-car-track.JPG" alt="Cornell Electric Vehicles car on track" fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

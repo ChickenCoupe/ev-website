@@ -35,7 +35,7 @@ const chassisTeam = [
     name: 'Jackson Skagen',
     position: 'Chassis Subteam Lead',
     major: 'MAE',
-    year: '2028',
+    year: '2029',
     image: '/team/jackson-skagen.jpg'
   },
   {

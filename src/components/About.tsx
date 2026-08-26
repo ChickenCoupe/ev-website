@@ -16,11 +16,11 @@ export default function About() {
             </p>
             <div className="rl-media rl-media--wide" style={{ marginTop: '1.75rem' }}>
               <Image
-                src="/hero-vehicle.jpg"
-                alt="Cornell Electric Vehicles team with the vehicle"
+                src="/full-team.jpg"
+                alt="Cornell Electric Vehicles team posed on campus steps"
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
           </div>

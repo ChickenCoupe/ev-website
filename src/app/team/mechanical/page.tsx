@@ -77,13 +77,6 @@ const drivetrainTeam = [
     image: '/team/emely-benavides.jpg'
   },
   {
-    name: 'Jonathan Wan',
-    position: 'Drivetrain Subteam Lead',
-    major: 'MAE',
-    year: '2028',
-    image: '/team/jonathan-wan.jpg'
-  },
-  {
     name: 'Alexis Barrow',
     position: 'Drivetrain Member',
     major: 'MAE',
@@ -122,13 +115,13 @@ const steeringTeam = [
     image: "/team/lydia-woodall.jpg"
   },
 
-  {
-    name: 'Aahil Ali',
-    position: 'Steering Member',
-    major: 'MAE',
-    year: '2027',
-    image: '/team/aahil-ali.jpg'
-  },
+  // {
+  //   name: 'Aahil Ali',
+  //   position: 'Steering Member',
+  //   major: 'MAE',
+  //   year: '2027',
+  //   image: '/team/aahil-ali.jpg'
+  // },
   {
     name: 'Olivia Mei',
     position: 'Steering Member',
@@ -173,6 +166,37 @@ const steeringTeam = [
   },
 ];
 
+const suspensionTeam = [
+  {
+    name: 'Jonathan Wan',
+    position: 'Suspension Subteam Lead',
+    major: 'MAE',
+    year: '2028',
+    image: '/team/jonathan-wan.jpg'
+  },
+  {
+    name: 'Jackson Skagen',
+    position: 'Suspension Member',
+    major: 'MAE',
+    year: '2029',
+    image: '/team/jackson-skagen.jpg'
+  },
+  {
+    name: 'Ei Thiri Kyaw',
+    position: 'Suspension Member',
+    major: 'MAE',
+    year: '2028',
+    image: '/team/ei-thiri-kyaw.jpg'
+  },
+  {
+    name: 'Hamza Waseem',
+    position: 'Suspension Member',
+    major: 'MAE',
+    year: '2029',
+    image: '/team/hamza-waseem.jpg'
+  },
+];
+
 const sortTeamMembers = <T extends { name: string; year: string; position: string }>(members: T[]) =>
   [...members].sort((a, b) => {
     const aIsLead = a.position.toLowerCase().includes('lead') ? 0 : 1;
@@ -191,6 +215,7 @@ const sortedMechanicalLeadership = sortTeamMembers(mechanicalLeadership);
 const sortedChassisTeam = sortTeamMembers(chassisTeam);
 const sortedDrivetrainTeam = sortTeamMembers(drivetrainTeam);
 const sortedSteeringTeam = sortTeamMembers(steeringTeam);
+const sortedSuspensionTeam = sortTeamMembers(suspensionTeam);
 
 // Team member card component
 const TeamMemberCard = ({ member, index }: { member: typeof mechanicalLeadership[0], index: number }) => (
@@ -435,6 +460,28 @@ export default function MechanicalPage() {
           
           <div className="flex flex-wrap justify-center gap-8">
             {sortedSteeringTeam.map((member, index) => (
+              <div key={index} className="w-full sm:w-80">
+                <TeamMemberCard member={member} index={index} />
+              </div>
+            ))}
+          </div>
+
+          {/* Suspension Subteam */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 mt-16"
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-2">Suspension Subteam</h3>
+            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+              Designs suspension and structural components for vehicle control and stability
+            </p>
+          </motion.div>
+          
+          <div className="flex flex-wrap justify-center gap-8">
+            {sortedSuspensionTeam.map((member, index) => (
               <div key={index} className="w-full sm:w-80">
                 <TeamMemberCard member={member} index={index} />
               </div>

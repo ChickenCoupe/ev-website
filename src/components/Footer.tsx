@@ -1,71 +1,135 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
-import { navLinks, socialLinks } from '@/data/site'
+import { Instagram, Linkedin, Youtube, Mail } from 'lucide-react'
 
 export default function Footer() {
-  const year = new Date().getFullYear()
-
   return (
-    <footer className="rl-footer">
-      <div className="rl-container">
-        <div className="rl-footer__grid">
-          <div className="rl-footer__brand">
-            <Image
-              src="/logo.png"
-              alt="Cornell Electric Vehicles logo"
-              width={64}
-              height={128}
-              style={{ width: 'auto', height: '3.5rem' }}
-            />
-            <div>
-              <h3>Cornell Electric Vehicles</h3>
-              <p>
-                Cornell&apos;s project team building autonomous, hyper-efficient
-                electric vehicles for Shell Eco-Marathon competition.
-              </p>
-              <div className="rl-footer__social" style={{ marginTop: '1rem' }}>
-                {socialLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    target={link.href.startsWith('mailto:') ? undefined : '_blank'}
-                    rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
+    <footer className="bg-gray-900 text-white py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
+          {/* Logo and description */}
+          <div className="md:col-span-2">
+            <div className="mb-6">
+              <Image
+                src="/fulllight.png"
+                alt="Cornell Electric Vehicles Project Team"
+                width={800}
+                height={300}
+                className="h-auto w-full max-w-xs"
+              />
+            </div>
+            <p className="text-gray-400 leading-relaxed mb-6">
+              Cornell Electric Vehicles Project Team is the foremost project team at Cornell University 
+              dedicated to building autonomous, hyper-efficient electric cars.
+            </p>
+            <div className="flex space-x-4">
+              <Link
+                href="https://www.instagram.com/cornellelectricvehicles/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 hover:bg-red-600 p-3 rounded-lg transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/cornell-electric-vehicles-project-team-241840294/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 hover:bg-red-600 p-3 rounded-lg transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://www.youtube.com/channel/UCIfPZHm8n76n-ruNO9-Xkag"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 hover:bg-red-600 p-3 rounded-lg transition-colors"
+              >
+                <Youtube className="w-5 h-5" />
+              </Link>
+              <Link
+                href="mailto:cornellev@cornell.edu"
+                className="bg-gray-800 hover:bg-red-600 p-3 rounded-lg transition-colors"
+              >
+                <Mail className="w-5 h-5" />
+              </Link>
             </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h4>Quick links</h4>
-            <div className="rl-footer__links">
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  {link.label}
-                </Link>
-              ))}
-              <Link href="/apply">Apply</Link>
+            <h4 className="text-xl font-semibold mb-6">Quick Links</h4>
+            <div className="space-y-4">
+              <Link
+                href="/team"
+                className="block text-gray-400 hover:text-white transition-colors"
+              >
+                Our Team
+              </Link>
+              <Link
+                href="/vehicles"
+                className="block text-gray-400 hover:text-white transition-colors"
+              >
+                Vehicles
+              </Link>
+              <Link
+                href="/apply"
+                className="block text-gray-400 hover:text-white transition-colors"
+              >
+                Apply
+              </Link>
+              <Link
+                href="/alumni"
+                className="block text-gray-400 hover:text-white transition-colors" 
+              >
+                Alumni
+              </Link>
+              <Link
+                href="/sponsors"
+                className="block text-gray-400 hover:text-white transition-colors" 
+              >
+               Sponsors 
+              </Link>
+
+              {/* <Link
+                href="https://www.shellecomarathon.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-gray-400 hover:text-white transition-colors"
+              >
+                Shell Eco-Marathon
+              </Link> */}
             </div>
           </div>
 
+          {/* Contact */}
           <div>
-            <h4>Contact</h4>
-            <div className="rl-footer__links">
-              <Link href="mailto:cornellev@cornell.edu">cornellev@cornell.edu</Link>
-              <span style={{ color: 'var(--cev-ink-muted)', fontSize: '0.95rem' }}>
-                Cornell University
-                <br />
+            <h4 className="text-xl font-semibold mb-6">Contact</h4>
+            <div className="space-y-4">
+              <Link
+                href="mailto:cornellev@cornell.edu"
+                className="block text-gray-400 hover:text-white transition-colors"
+              >
+                cornellev@cornell.edu
+              </Link>
+              <div className="text-gray-400">
+                Cornell University<br />
                 Ithaca, NY 14853
-              </span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="rl-footer__bottom">
-          <span>©{year} Cornell Electric Vehicles Project Team. All rights reserved.</span>
-          <span>Registered Student Organization of Cornell University</span>
+        {/* Bottom bar */}
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="text-gray-400 text-sm mb-4 md:mb-0">
+            ©2026 by Cornell Electric Vehicles (CEV) Project Team. All rights reserved.
+          </div>
+          <div className="text-gray-400 text-sm">
+            Registered Student Organization of Cornell University
+          </div>
         </div>
       </div>
     </footer>

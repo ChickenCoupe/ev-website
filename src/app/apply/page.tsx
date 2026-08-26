@@ -1,30 +1,17 @@
 import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
-import Image from 'next/image'
-import { BarChart, Code, Users, Wrench, Zap } from 'lucide-react'
-import ActionLink from '@/components/site/ActionLink'
-import RecruitingLink, {
-  RecruitingNoticeProvider,
-} from '@/components/site/RecruitingLink'
+import { Users, Code, Wrench, Zap, BarChart, Cog, Bot, Briefcase } from 'lucide-react'
+import Image from 'next/image';
 import Footer from '@/components/Footer'
-import CountdownTimer from '@/components/CountdownTimer'
-import { recruitingLinks } from '@/data/site'
 import { parseCsv } from '@/lib/csv'
 
-const PROJECT_TEAM_FORM =
-  'https://www.duffield.cornell.edu/student-project-teams/join-a-project-team/'
-
 const photoPath = (name: string) => {
-  const photoOverrides: Record<string, string> = {
+  const photos: Record<string, string> = {
     'Zachary Feldman': '/team/zach-feldman.jpg',
     'Cam Mazzacane': '/team/cam-mezzacane.jpg',
   }
-
-  return (
-    photoOverrides[name] ??
-    `/team/${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg`
-  )
+  return photos[name] ?? `/team/${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg`
 }
 
 const coffeeChatSubteam = (name: string, subteam: string) => {
@@ -37,153 +24,28 @@ const coffeeChatSubteam = (name: string, subteam: string) => {
   return subteamOverrides[name] ?? subteam
 }
 
-function CoffeeChatSubteamIcon({
-  name,
-  subteam,
-}: {
-  name: string
-  subteam: string
-}) {
+const CoffeeChatSubteamIcon = ({ name, subteam }: { name: string, subteam: string }) => {
   const assignedSubteam = coffeeChatSubteam(name, subteam)
   const icons = {
-    Mechanical: Wrench,
+    Mechanical: Cog,
     Electrical: Zap,
     Telemetry: Code,
-    Autonomy: BarChart,
-    Operations: Users,
+    Autonomy: Bot,
+    Operations: Briefcase,
   }
   const Icon = icons[assignedSubteam as keyof typeof icons] ?? Users
 
   return (
-    <Icon
-      className="rl-apply-coffee__icon"
+    <span
+      className="inline-flex shrink-0"
+      title={`${assignedSubteam} subteam`}
       aria-label={`${assignedSubteam} subteam`}
-    />
+    >
+      <Icon className="h-10 w-10 text-red-400" aria-hidden="true" />
+    </span>
   )
 }
 
-function ApplicationPhase({ phase, year }: { phase: number; year?: number }) {
-  return (
-    <section className="rl-band">
-      <div className="rl-container">
-        <div className="rl-apply-panel">
-          <h2 className="rl-title">Fall {year ?? ''} applications</h2>
-
-          {phase === 1 && (
-            <div className="rl-apply-closed">
-              <p>
-                CEV is excited to welcome a new class of team members each
-                semester. Applications are now closed. We look forward to seeing
-                you apply in the future.
-              </p>
-              <p>
-                CEV thrives thanks to electrical, mechanical, and software
-                engineers working alongside project managers, financial
-                advisors, and graphic designers. For questions, reach out to{' '}
-                <a href="mailto:cornellev@cornell.edu">cornellev@cornell.edu</a>.
-              </p>
-            </div>
-          )}
-
-          {phase === 2 && (
-            <RecruitingNoticeProvider>
-              <div className="rl-apply-open">
-                <div className="rl-actions">
-                  <RecruitingLink href={recruitingLinks.applyForm} variant="solid">
-                    FA26 application form
-                  </RecruitingLink>
-                </div>
-                <p>
-                  In the meantime, check the coffee chat information below and
-                  fill out our{' '}
-                  <RecruitingLink href={recruitingLinks.interestForm}>
-                    interest form
-                  </RecruitingLink>
-                  .
-                </p>
-                <p>
-                  For questions about the team or timelines, reach out to{' '}
-                  <a href="mailto:cornellev@cornell.edu">
-                    cornellev@cornell.edu
-                  </a>
-                  .
-                </p>
-              </div>
-            </RecruitingNoticeProvider>
-          )}
-
-          {phase === 3 && (
-            <CountdownTimer target="2026-08-17T00:00:00" />
-          )}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-const processSteps = [
-  {
-    title: 'Project Team Form',
-    body: (
-      <>
-        Fill out{' '}
-        <Link href={PROJECT_TEAM_FORM} target="_blank" rel="noopener noreferrer">
-          Cornell&apos;s Project Team Form
-        </Link>
-        . We cannot accept applications without it.
-      </>
-    ),
-  },
-  {
-    title: 'Submit Application',
-    body: 'Complete our application form with your background and interests.',
-  },
-  {
-    title: 'Interview',
-    body: "After reviewing applications, we'll contact you to schedule an interview.",
-  },
-]
-
-const subteams = [
-  {
-    href: '/team/mechanical',
-    icon: Wrench,
-    name: 'Mechanical',
-    description: '',
-  },
-  {
-    href: '/team/electrical',
-    icon: Zap,
-    name: 'Electrical',
-    description: '',
-  },
-  {
-    href: '/team/telemetry',
-    icon: Code,
-    name: 'Telemetry',
-    description: '',
-  },
-  {
-    href: '/team/autonomy',
-    icon: BarChart,
-    name: 'Autonomy',
-    description: '',
-  },
-  {
-    href: '/team/operations',
-    icon: Users,
-    name: 'Operations',
-    description: '',
-  },
-]
-
-type CoffeeChat = {
-  Name: string
-  Subteam: string
-  Role: string
-  'Google Calendar Link': string
-  Bio: string
-}
 
 export default function Apply() {
   const subteamOrder: Record<string, number> = {
@@ -194,184 +56,327 @@ export default function Apply() {
     Autonomy: 4,
     Operations: 5,
   }
-  const coffeeChats = (
-    parseCsv(
-      fs.readFileSync(path.join(process.cwd(), 'src/data/coffee-chats.csv'), 'utf8'),
-    ) as CoffeeChat[]
-  )
-    .filter((chat) => chat.Name?.trim())
+  const coffeeChats = parseCsv(fs.readFileSync(path.join(process.cwd(), 'src/data/coffee-chats.csv'), 'utf8'))
     .sort((a, b) => {
-      const subteamDifference =
-        (subteamOrder[a.Subteam] ?? 99) - (subteamOrder[b.Subteam] ?? 99)
+      const subteamDifference = (subteamOrder[a.Subteam] ?? 99) - (subteamOrder[b.Subteam] ?? 99)
       if (subteamDifference !== 0) return subteamDifference
 
-      const isPrimaryLead = (chat: CoffeeChat) => {
+      const isPrimaryLead = (chat: Record<string, string>) => {
         const role = chat.Role.toLowerCase().trim()
         const subteam = chat.Subteam.toLowerCase().trim()
         return role.includes('full team lead') || role === `${subteam} lead`
       }
-      const leadDifference =
-        Number(!isPrimaryLead(a)) - Number(!isPrimaryLead(b))
-      if (leadDifference !== 0) return leadDifference
+      const aIsLead = isPrimaryLead(a) ? 0 : 1
+      const bIsLead = isPrimaryLead(b) ? 0 : 1
+      if (aIsLead !== bIsLead) return aIsLead - bIsLead
 
-      const aLastName = a.Name.trim().split(/\s+/).at(-1) ?? ''
-      const bLastName = b.Name.trim().split(/\s+/).at(-1) ?? ''
+      const aLastName = a.Name.trim().split(/\s+/).pop() ?? ''
+      const bLastName = b.Name.trim().split(/\s+/).pop() ?? ''
       return aLastName.localeCompare(bLastName)
     })
 
+  const subteams = [
+    {
+      icon: <Wrench className="w-8 h-8" />,
+      name: "Mechanical",
+      href: "/team/mechanical",
+      description: "Engineer chassis, suspension, aerodynamics, and manufacture the vehicle"
+    },
+    {
+      icon: <Zap className="w-8 h-8" />,
+      name: "Electrical",
+      href: "/team/electrical",
+      description: "Design power systems, motor controllers, and electronic circuits"
+    },
+    {
+      icon: <Code className="w-8 h-8" />,
+      name: "Telemetry",
+      href: "/team/telemetry",
+      description: "Develop telemetry visualization and capture software"
+    },
+    {
+      icon: <BarChart className="w-8 h-8" />,
+      name: "Autonomy",
+      href: "/team/autonomy",
+      description: "Develop autonomous driving systems and vehicle control software"
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      name: "Operations",
+      href: "/team/operations",
+      description: "Manage partnerships, fundraising, marketing, and team operations"
+    }
+  ]
+
+  const timelineEvents = [
+    {
+      title: "Project Teams Fest",
+      date: "9/4 @ 4:00 PM - 6:00 PM",
+      location: "Duffield Atrium",
+      side: "left"
+    },
+    {
+      title: "Info Session #1",
+      date: "9/11 @ 5:00 PM",
+      location: "Upson 225",
+      side: "right"
+    },
+    {
+      title: "Info Session #2",
+      date: "9/22 @ 4:30 PM",
+      location: "Tang 203",
+      side: "left"
+    },
+    {
+      title: "Info Session #3",
+      date: "10/1 @ 7:00 PM",
+      location: "RPCC 205",
+      side: "right"
+    },
+    {
+      title: "Info Session #4",
+      date: "10/7 @ 7:15 PM",
+      location: "Upson 206",
+      side: "left"
+    },
+    {
+      title: "Open House",
+      date: "10/8-10/10 @ 4:00 PM - 7:00 PM",
+      location: "Upson B60",
+      side: "right"
+    },
+    {
+      title: "Freshmen/Transfers Applications Due",
+      date: "10/16 @ 11:59 PM",
+      location: null,
+      side: "left"
+    }
+  ]
+
   return (
-    <main className="rl-apply">
-      <header className="rl-mast rl-apply-mast">
+    <div className="min-h-screen bg-gray-900">
+      <section className="relative flex min-h-[420px] items-center overflow-hidden py-20 pt-28 text-white">
         <Image
           src="/comp-tech-inspection-group-pic.JPG"
           alt="Cornell Electric Vehicles team at technical inspection"
           fill
           priority
-          sizes="100vw"
-          className="rl-apply-mast__image"
+          className="object-cover"
         />
-        <div className="rl-apply-mast__overlay" aria-hidden="true" />
-        <div className="rl-container rl-apply-hero">
-          <div className="rl-apply-hero__mark">
-            <h1>Join</h1>
-            <Image
-              src="/logo.png"
-              alt="Cornell Electric Vehicles"
-              width={90}
-              height={90}
-              className="rl-apply-hero__logo"
-              priority
-            />
-          </div>
-          <p>
-            Work on the mechanical, electrical, autonomy, telemetry, or
-            operations systems that put the vehicle on track.
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <h1 className="mb-6 text-4xl font-bold md:text-5xl">Join CEV Today!</h1>
+          <p className="mx-auto max-w-4xl text-xl text-gray-100 md:text-2xl">
+            Ready to build the future of sustainable transportation? Work on the mechanical, electrical, autonomy, telemetry, or operations systems that put the vehicle on track.
           </p>
         </div>
-      </header>
+      </section>
 
-      <ApplicationPhase phase={2} year={2026} />
+      <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <div className="result-card mb-16 p-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-8">Fall 2026 Upperclassmen Applications Now Open!</h2>
+          {/* <p className="text-lg text-gray-300 mb-8 text-center">Please note that <b>applications are now <u>closed</u>.</b> We look forward to seeing you apply in the future!</p> */}
+          <Link
+            href="https://docs.google.com/forms/d/e/1FAIpQLSccbMhOsd8ubA3QOC4H1Q3ZRBalmmk0lNqcNneyT-N650SZDg/viewform?usp=sharing&ouid=102160163982044776728"
+            className="inline-block rounded-lg bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-red-500 mb-8"
+          >
+            Application Form Link
+          </Link>
+          <p className="text-lg text-gray-300">Have any questions about our team or our current endeavors? Check out our{' '}
+            <Link href="/team" className="font-semibold text-red-400 underline hover:text-red-300">different subteams</Link>,{' '}
+            <Link href="/vehicles" className="font-semibold text-red-400 underline hover:text-red-300">vehicles</Link>, or{' '}
+            <Link
+              href="#coffee-chats"
+              className="font-semibold text-red-400 underline hover:text-red-300"
+            >
+              coffee chat
+            </Link>
+            {' '}with one of our team members!
+          </p>
+        </div>
 
-      <section className="rl-band">
-        <div className="rl-container">
-          <div className="rl-apply-panel">
-            <h2 className="rl-title">Coffee chats</h2>
-            <p className="rl-apply-coffee__intro">
-              Book time with a current lead or member to learn how the team
-              works before you apply.
-            </p>
-            <div className="rl-apply-coffee">
-              {coffeeChats.map((chat) => {
-                const calendarLink = chat['Google Calendar Link']?.trim() ?? ''
-                const bio = chat.Bio?.trim() ?? ''
+        {/* Application Process */}
+        <div className="result-card p-8 mb-16">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">Application Process</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div><h3 className="text-xl font-semibold text-white mb-2">Choose Subteam(s)</h3><p className="text-gray-300">Choose which subteam(s) that you want to apply to.</p></div>
+            <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div><h3 className="text-xl font-semibold text-white mb-2">Submit Application</h3><p className="text-gray-300">Complete the online application with your background and interests.</p></div>
+            <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div><h3 className="text-xl font-semibold text-white mb-2">Technical Interview</h3><p className="text-gray-300">Showcase your technical skills, and tell us about you!</p></div>
+          </div>
+        </div>
 
-                return (
-                  <article key={chat.Name} className="rl-apply-coffee__row">
-                    <div className="rl-apply-coffee__photo">
-                      <Image
-                        src={photoPath(chat.Name)}
-                        alt={`Portrait of ${chat.Name}`}
-                        fill
-                        sizes="(min-width: 768px) 144px, 96px"
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="rl-apply-coffee__body">
-                      <div className="rl-apply-coffee__identity">
-                        <div className="rl-apply-coffee__heading">
-                          <CoffeeChatSubteamIcon
-                            name={chat.Name}
-                            subteam={chat.Subteam}
-                          />
-                          <div>
-                            <h3>{chat.Name}</h3>
-                            <p>
-                              <strong>{chat.Role}</strong>
-                              {chat.Subteam ? ` · ${chat.Subteam}` : ''}
-                            </p>
-                          </div>
-                        </div>
-                        {calendarLink ? (
-                          <a
-                            href={calendarLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="rl-apply-coffee__booking"
-                          >
-                            Book a chat
-                          </a>
-                        ) : (
-                          <span className="rl-apply-coffee__unavailable">
-                            Booking link unavailable
-                          </span>
-                        )}
+        {/* Coffee Chats */}
+        <div id="coffee-chats" className="result-card coffee-chat-section mb-16 p-8 scroll-mt-24">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">Coffee Chats</h2>
+          <div className="space-y-6">
+            {coffeeChats.map((chat) => (
+              <div key={`profile-${chat.Name}`} className="flex flex-row items-start gap-6">
+                <Image src={photoPath(chat.Name)} alt={chat.Name} width={144} height={144} className="h-36 w-36 shrink-0 rounded-lg object-cover" />
+                <div className="result-card min-w-0 flex-1 p-6">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="flex items-center gap-4">
+                      <CoffeeChatSubteamIcon name={chat.Name} subteam={chat.Subteam} />
+                      <div>
+                        <h3 className="text-xl font-bold text-white">{chat.Name}</h3>
+                        <p className="text-red-400">{chat.Role}</p>
                       </div>
-                      <p className="rl-apply-coffee__bio">
-                        {bio || 'Bio coming soon.'}
-                      </p>
                     </div>
-                  </article>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="rl-band">
-        <div className="rl-container">
-          <div className="rl-apply-panel">
-            <h2 className="rl-title">Application process</h2>
-            <div className="rl-apply-process">
-              {processSteps.map((step, index) => (
-                <div key={step.title} className="rl-apply-step">
-                  <span className="rl-apply-step__num">{index + 1}</span>
-                  <h3>{step.title}</h3>
-                  <p>{step.body}</p>
+                    {chat['Google Calendar Link'] && (
+                      <a href={chat['Google Calendar Link']} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 rounded-lg bg-red-600 px-5 py-2 font-semibold text-white hover:bg-red-500">
+                        Book
+                      </a>
+                    )}
+                  </div>
+                  <p className="mt-4 text-gray-300">{chat.Bio}</p>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+          <div className="hidden">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="text-gray-400 text-sm border-b border-gray-700">
+                  <th className="py-3 pr-4 font-medium">Name</th>
+                  <th className="py-3 pr-4 font-medium">Subteam</th>
+                  <th className="py-3 pr-4 font-medium">Role</th>
+                  <th className="py-3 pr-4 font-medium">Schedule</th>
+                  <th className="py-3 font-medium">Bio</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700">
+                {coffeeChats.map((chat) => (
+                  <tr key={chat.Name} className="align-top">
+                    <td className="py-4 pr-4 text-white font-semibold whitespace-nowrap">{chat.Name}</td>
+                    <td className="py-4 pr-4 text-gray-300 whitespace-nowrap">{chat.Subteam}</td>
+                    <td className="py-4 pr-4 text-gray-300">{chat.Role}</td>
+                    <td className="py-4 pr-4 whitespace-nowrap">
+                      {chat['Google Calendar Link'] ? (
+                        <a
+                          href={chat['Google Calendar Link']}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-red-500 hover:text-red-400 font-semibold"
+                        >
+                          Book ↗
+                        </a>
+                      ) : (
+                        <span className="text-gray-500">—</span>
+                      )}
+                    </td>
+                    <td className="py-4 text-sm text-gray-400 leading-relaxed min-w-[24rem]">{chat.Bio}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Application Process */}
+        <div className="hidden bg-gray-800 rounded-2xl p-8 mb-16 border border-gray-700">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">Application Process</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                1
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Choose Subteam</h3>
+              <p className="text-gray-300">Choose which subteam that you want to apply to.</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                2
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Submit Application</h3>
+              <p className="text-gray-300">Complete the online application with your background and interests.</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                3
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Technical Interview</h3>
+              <p className="text-gray-300">Showcase your technical skills, and tell us about you!</p>
             </div>
           </div>
         </div>
-      </section>
 
-      <section className="rl-band">
-        <div className="rl-container">
-          <h2 className="rl-title rl-apply-heading">Our subteams</h2>
-          <div className="rl-apply-subteams">
-            {subteams.map((subteam) => {
-              const Icon = subteam.icon
-              return (
-                <Link
-                  key={subteam.name}
-                  href={subteam.href}
-                  className="rl-apply-subteam"
-                >
-                  <Icon className="w-8 h-8" aria-hidden="true" />
-                  <h3>{subteam.name}</h3>
-                </Link>
-              )
-            })}
+        {/* Subteams */}
+        <div className="hidden mb-16">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">Our Subteams</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {subteams.map((subteam) => (
+              <Link key={subteam.name} href={subteam.href} className="bg-gray-800 rounded-xl p-6 hover:shadow-xl transition-shadow border border-gray-700">
+                <div className="text-red-400 mb-4">
+                  {subteam.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">{subteam.name}</h3>
+                <p className="text-gray-300">{subteam.description}</p>
+              </Link>
+            ))}
           </div>
         </div>
-      </section>
 
-      <section className="rl-finish">
-        <div className="rl-container rl-apply-cta">
-          <h2>Ready to apply?</h2>
-          <p>Applications open at the beginning of each semester.</p>
-          <div className="rl-actions">
-            <ActionLink href="mailto:cornellev@cornell.edu" variant="invert" external>
-              Contact us
-            </ActionLink>
-            <ActionLink href="/team" variant="ghost">
-              Meet the team
-            </ActionLink>
+        {/* Timeline forn when we have dates. NOTE: this is not ready yet, so we will fill this out once things are finalized. */}
+        {/* Timeline */}
+        {/* <div className="mb-16"> */}
+        {/*   <h2 className="text-3xl font-bold text-white mb-12 text-center">Important Dates</h2> */}
+        {/*   <div className="max-w-4xl mx-auto"> */}
+        {/*     <div className="relative"> */}
+              {/* Timeline line */}
+              {/* <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-gray-600"></div> */}
+
+              {/* Timeline items */}
+        {/*       <div className="space-y-12"> */}
+        {/*         {timelineEvents.map((event, index) => ( */}
+        {/*           <div key={index} className="relative flex items-center"> */}
+        {/*             {event.side === "left" ? ( */}
+        {/*               <> */}
+        {/*                 <div className="flex-1 text-right pr-8"> */}
+        {/*                   <h3 className="text-xl font-bold text-white mb-1">{event.title}</h3> */}
+        {/*                   <p className="text-gray-300 mb-1">{event.date}</p> */}
+        {/*                   {event.location && <p className="text-gray-400">{event.location}</p>} */}
+        {/*                 </div> */}
+        {/*                 <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-red-600 rounded-full border-4 border-gray-900"></div> */}
+        {/*                 <div className="flex-1 pl-8"></div> */}
+        {/*               </> */}
+        {/*             ) : ( */}
+        {/*               <> */}
+        {/*                 <div className="flex-1 pr-8"></div> */}
+        {/*                 <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-red-600 rounded-full border-4 border-gray-900"></div> */}
+        {/*                 <div className="flex-1 text-left pl-8"> */}
+        {/*                   <h3 className="text-xl font-bold text-white mb-1">{event.title}</h3> */}
+        {/*                   <p className="text-gray-300 mb-1">{event.date}</p> */}
+        {/*                   {event.location && <p className="text-gray-400">{event.location}</p>} */}
+        {/*                 </div> */}
+        {/*               </> */}
+        {/*             )} */}
+        {/*           </div> */}
+        {/*         ))} */}
+        {/*       </div> */}
+        {/*     </div> */}
+        {/*   </div> */}
+        {/* </div> */}
+
+        {/* CTA */}
+        <div className="hidden text-center bg-gray-800 rounded-2xl mb-16 p-8 border-gray-700">
+          <h2 className="text-3xl font-bold text-white mb-6">Ready to Apply?</h2>
+          <p className="text-lg text-gray-300 mb-8">Applications open at the beginning of each semester.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="mailto:cornellev@cornell.edu"
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Contact Us
+            </a>
+            <Link
+              href="/team"
+              className="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Meet the Team
+            </Link>
           </div>
         </div>
-      </section>
-
+      </div>
       <Footer />
-    </main>
+    </div>
   )
 }

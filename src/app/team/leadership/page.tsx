@@ -1,6 +1,10 @@
-import TeamSubpageShell from '@/components/site/TeamSubpageShell'
-import MemberRoster from '@/components/site/MemberRoster'
+'use client';
 
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import Footer from '@/components/Footer'
+
+// Leadership team data
 const leadershipTeam = [
   {
     name: 'Daniel Sorokin',
@@ -8,8 +12,8 @@ const leadershipTeam = [
     major: 'CS',
     year: '2027',
     image: '/team/daniel-sorokin.jpg',
-    email: 'dhs263@cornell.edu',
-    linkedin: 'https://www.linkedin.com/in/daniel-sorokin-6a391328b/',
+    email: 'dhs263@cornell.edu', 
+    linkedin: 'https://www.linkedin.com/in/daniel-sorokin-6a391328b/', 
   },
   {
     name: 'Zach Feldman',
@@ -18,7 +22,7 @@ const leadershipTeam = [
     year: '2027',
     image: '/team/zach-feldman.jpg',
     email: 'zlf3@cornell.edu',
-    linkedin: 'https://www.linkedin.com/in/zlf3/',
+    linkedin: 'https://www.linkedin.com/in/zlf3/'
   },
   {
     name: 'Ruth Taddesse',
@@ -27,7 +31,7 @@ const leadershipTeam = [
     year: '2027',
     image: '/team/ruth-taddesse.jpg',
     email: 'ryt5@cornell.edu',
-    linkedin: 'https://linkedin.com/in/ruth-taddesse',
+    linkedin: 'https://linkedin.com/in/ruth-taddesse', 
   },
   {
     name: 'Lucas Libshutz',
@@ -35,17 +39,17 @@ const leadershipTeam = [
     major: 'MAE',
     year: '2027',
     image: '/team/lucas-libshutz.jpg',
-    email: 'lsl94@cornell.edu',
-    linkedin: 'https://linkedin.com/in/lucaslibshutz',
+    email: 'lsl94@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/lucaslibshutz', // Replace with actual LinkedIn
   },
   {
-    name: 'Cam Mazzacanne',
+    name: 'Cam Mezzacane',
     position: 'Autonomy Lead',
     major: 'CS/Math',
     year: '2028',
     image: '/team/cam-mezzacane.jpg',
-    email: 'clm357@cornell.edu',
-    linkedin: 'https://linkedin.com/in/cam-mazzcanne',
+    email: 'clm357@cornell.edu', // Replace with actual email
+    linkedin: 'https://linkedin.com/in/cam-mezzacane', 
   },
   {
     name: 'Erica Jiang',
@@ -53,8 +57,8 @@ const leadershipTeam = [
     major: 'ECE',
     year: '2028',
     image: '/team/erica-jiang.jpg',
-    email: 'ej289@cornell.edu',
-    linkedin: 'https://www.linkedin.com/in/erica-jiang-321322287/',
+    email: 'ej289@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/erica-jiang-321322287/', // Replace with actual LinkedIn
   },
   {
     name: 'Kellen Yu',
@@ -62,8 +66,8 @@ const leadershipTeam = [
     major: 'ECE',
     year: '2029',
     image: '/team/kellen-yu.jpg',
-    email: 'kcy24@cornell.edu',
-    linkedin: 'https://www.linkedin.com/in/kellen-yu-ab2728318/',
+    email: 'kcy24@cornell.edu', 
+    linkedin: 'https://www.linkedin.com/in/kellen-yu-ab2728318/', 
   },
   {
     name: 'Serkan Yurday',
@@ -71,8 +75,8 @@ const leadershipTeam = [
     major: 'MAE',
     year: '2028',
     image: '/team/serkan-yurday.jpg',
-    email: 'sy794@cornell.edu',
-    linkedin: 'https://www.linkedin.com/in/serkanyurday/',
+    email: 'sy794@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/serkanyurday/', // Replace with actual LinkedIn
   },
   {
     name: 'Albert Zheng',
@@ -80,8 +84,8 @@ const leadershipTeam = [
     major: 'MAE',
     year: '2028',
     image: '/team/albert-zheng.jpg',
-    email: 'az487@cornell.edu',
-    linkedin: 'https://www.linkedin.com/in/al-zheng/',
+    email: 'az487@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/al-zheng/', // Replace with actual LinkedIn
   },
   {
     name: 'Katie Xiao',
@@ -90,7 +94,7 @@ const leadershipTeam = [
     year: '2028',
     image: '/team/katie-xiao.jpg',
     email: 'jx385@cornell.edu',
-    linkedin: 'https://www.linkedin.com/in/kayt9673/',
+    linkedin: 'https://www.linkedin.com/in/kayt9673/'
   },
   {
     name: 'Rhea Agrawal',
@@ -99,7 +103,7 @@ const leadershipTeam = [
     year: '2028',
     image: '/team/rhea-agrawal.jpg',
     email: 'ra677@cornell.edu',
-    linkedin: 'https://www.linkedin.com/in/rhea-agrawal-aab7b3328/',
+    linkedin: 'https://www.linkedin.com/in/rhea-agrawal-aab7b3328/'
   },
   {
     name: 'Lena Schapiro',
@@ -108,22 +112,164 @@ const leadershipTeam = [
     year: '2028',
     image: '/team/lena-schapiro.jpg',
     email: 'lms458@cornell.edu',
-    linkedin: 'https://www.linkedin.com/in/lena-schapiro/',
+    linkedin: 'https://www.linkedin.com/in/lena-schapiro/', // Replace with actual LinkedIn
   },
-]
+];
+
+const sortTeamMembers = <T extends { name: string; year: string }>(members: T[]) =>
+  [...members].sort((a, b) => {
+    const yearComparison = Number(a.year) - Number(b.year);
+    if (yearComparison !== 0) return yearComparison;
+
+    const aLastName = a.name.split(' ').at(-1) ?? a.name;
+    const bLastName = b.name.split(' ').at(-1) ?? b.name;
+    return aLastName.localeCompare(bLastName);
+  });
+
+const fullTeamLeads = sortTeamMembers(leadershipTeam.filter((member) => member.position === 'Full Team Lead'));
+const subteamOrder = ['Mechanical', 'Electrical', 'Telemetry', 'Autonomy', 'Operations'];
+const subteamLeads = leadershipTeam
+  .filter((member) => member.position !== 'Full Team Lead')
+  .sort((a, b) => {
+    const subteamComparison = subteamOrder.findIndex((team) => a.position.includes(team)) - subteamOrder.findIndex((team) => b.position.includes(team));
+    if (subteamComparison !== 0) return subteamComparison;
+
+    return sortTeamMembers([a, b])[0] === a ? -1 : 1;
+  });
+
+// Team member card component
+const TeamMemberCard = ({ member, index }: { member: typeof leadershipTeam[0], index: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+    className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 w-72"
+  >
+    <div className="aspect-square relative">
+      <Image
+        src={member.image}
+        alt={member.name}
+        fill
+        className="object-cover"
+      />
+    </div>
+    <div className="p-6">
+      <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
+      <p className="text-red-400 font-semibold mb-1">{member.position}</p>
+      <p className="text-gray-300">{member.major} {member.year}</p>
+    </div>
+  </motion.div>
+);
 
 export default function LeadershipPage() {
   return (
-    <TeamSubpageShell
-      title="Leadership Team"
-      body="Our executive board provides guidance, organization, and leadership across all aspects of Cornell Electric Vehicles."
-    >
-      <section className="rl-band">
-        <div className="rl-container">
-          <h2 className="rl-title">Leadership roster</h2>
-          <MemberRoster members={leadershipTeam} />
+    <div className="min-h-screen bg-gray-900">
+      <div className="relative overflow-hidden text-white">
+        <Image src="/team/groups/leads.jpg" alt="" fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-black/60" />
+        {/* Header */}
+        <div className="relative z-10 flex min-h-[420px] items-center py-20 pt-28">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl font-bold mb-6"
+            >
+              Leadership Team
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-red-100 max-w-3xl mx-auto"
+            >
+              Our executive board provides guidance, organization, and leadership across all aspects of Cornell Electric Vehicles.
+            </motion.p>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Team Members */}
+      <section className="py-16 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4">Full Team Leads</h2>
+          </motion.div>
+          
+          <div className="flex flex-wrap justify-center gap-8 mb-16">
+            {fullTeamLeads.map((member, index) => (
+              <TeamMemberCard key={member.name} member={member} index={index} />
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8"
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-2">Subteam Leads</h3>
+          </motion.div>
+
+          <div className="flex flex-wrap justify-center gap-8">
+            {subteamLeads.map((member, index) => (
+              <TeamMemberCard key={member.name} member={member} index={index + fullTeamLeads.length} />
+            ))}
+          </div>
         </div>
       </section>
-    </TeamSubpageShell>
-  )
+
+      {/* Leadership Philosophy */}
+      {/* <section className="py-16 bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <h2 className="text-3xl font-bold text-white mb-8">Our Leadership Philosophy</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">Innovation</h3>
+                <p className="text-gray-300">Fostering creative solutions and pushing the boundaries of electric vehicle technology.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">Collaboration</h3>
+                <p className="text-gray-300">Building strong partnerships across teams and with external stakeholders.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">Excellence</h3>
+                <p className="text-gray-300">Maintaining high standards in all aspects of our work and continuous improvement.</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section> */}
+      <Footer/>
+    </div>
+  );
 }

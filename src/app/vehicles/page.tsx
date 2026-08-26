@@ -5,19 +5,6 @@ import ActionLink from '@/components/site/ActionLink'
 import Footer from '@/components/Footer'
 import { proofPoints, vehicleTimeline } from '@/data/site'
 
-/*
-const vehicleImages = [
-  {
-    src: '/vehicles/uc25_1.png',
-    alt: 'Chicken Coupe - Front View',
-  },
-  {
-    src: '/vehicles/uc25_2.avif',
-    alt: 'Chicken Coupe - Side View',
-  },
-]
-*/
-
 const specs = [
   { label: 'Weight', value: '75 kg' },
   { label: 'Chassis', value: 'Carbon Fiber Monocoque' },
@@ -25,119 +12,106 @@ const specs = [
   { label: 'Motor', value: '48V BLDC' },
 ]
 
+const previousVehicles = vehicleTimeline.filter(
+  (vehicle) => vehicle.name !== 'Dodo Drifter'
+)
+
 export default function Vehicles() {
-  /*
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % vehicleImages.length)
-  }
-
-  const prevImage = () => {
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + vehicleImages.length) % vehicleImages.length
-    )
-  }
-  */
-
   return (
-    <main>
+    <main className="min-h-screen bg-gray-900 text-white">
       <PageMast
         title="Our vehicles"
         body="Explore our vehicles, past and present."
         tone="red"
       />
 
-      <section className="rl-band">
-        <div className="rl-container rl-split rl-split--top">
-          <div>
-            <h2 className="rl-title">Dodo Drifter</h2>
-            <p className="rl-copy">2026 Urban Concept</p>
+      <section className="bg-gray-900 py-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <h2 className="text-4xl font-bold tracking-[-0.03em] md:text-5xl">
+              Dodo Drifter
+            </h2>
+            <p className="mt-3 text-lg text-gray-300">2026 Urban Concept</p>
+          </div>
 
-            <div className="rl-carousel" style={{ marginTop: '1.5rem' }}>
-              <div className="rl-carousel__frame">
-                <Image
-                  src="/vehicles/uc26_1.png"
-                  alt="Dodo Drifter, Cornell Electric Vehicles' 2026 Urban Concept vehicle"
-                  fill
-                  className="object-contain"
-                  priority
-                  sizes="(min-width: 1024px) 45vw, 90vw"
-                />
-              </div>
-              {/*
-              <div className="rl-carousel__controls">
-                <button
-                  type="button"
-                  className="rl-carousel__btn"
-                  onClick={prevImage}
-                  aria-label="Previous image"
-                >
-                  Prev
-                </button>
-                <button
-                  type="button"
-                  className="rl-carousel__btn"
-                  onClick={nextImage}
-                  aria-label="Next image"
-                >
-                  Next
-                </button>
-                {vehicleImages.map((_, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    className="rl-carousel__dot"
-                    data-active={index === currentImageIndex}
-                    onClick={() => setCurrentImageIndex(index)}
-                    aria-label={`Go to image ${index + 1}`}
-                  />
+          <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+            <figure className="relative aspect-[16/10] overflow-hidden border border-red-900/70 bg-gray-950 shadow-2xl">
+              <Image
+                src="/vehicles/uc26_1.png"
+                alt="Dodo Drifter, Cornell Electric Vehicles' 2026 Urban Concept vehicle"
+                fill
+                className="object-contain p-4"
+                priority
+                sizes="(min-width: 1024px) 48vw, 92vw"
+              />
+            </figure>
+
+            <div>
+              <h3 className="text-2xl font-bold">Specifications</h3>
+              <dl className="mt-6 grid sm:grid-cols-2">
+                {specs.map((spec) => (
+                  <div
+                    key={spec.label}
+                    className="border-t border-red-900/70 py-5 sm:pr-6"
+                  >
+                    <dt className="text-xs font-semibold uppercase tracking-[0.08em] text-red-400">
+                      {spec.label}
+                    </dt>
+                    <dd className="mt-2 text-lg font-semibold text-white">
+                      {spec.value}
+                    </dd>
+                  </div>
                 ))}
-              </div>
-              */}
-            </div>
-          </div>
+              </dl>
 
-          <div>
-            <h3 className="rl-subtitle">Specifications</h3>
-            <dl className="rl-spec-grid">
-              {specs.map((spec) => (
-                <div key={spec.label} className="rl-spec">
-                  <dt>{spec.label}</dt>
-                  <dd>{spec.value}</dd>
-                </div>
-              ))}
-            </dl>
-
-            <h3 className="rl-subtitle" style={{ marginTop: '2rem' }}>
-              2026 achievements
-            </h3>
-            <div className="rl-proof">
-              {proofPoints.map((point) => (
-                <p key={point}>{point}</p>
-              ))}
+              <h3 className="mt-10 text-2xl font-bold">2026 achievements</h3>
+              <ul className="mt-5 border-b border-red-900/70">
+                {proofPoints.map((point) => (
+                  <li
+                    key={point}
+                    className="flex gap-3 border-t border-red-900/70 py-4 text-gray-300"
+                  >
+                    <span
+                      className="mt-2 h-2 w-2 shrink-0 bg-red-600"
+                      aria-hidden="true"
+                    />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="rl-band rl-band--raised">
-        <div className="rl-container">
-          <h2 className="rl-title">Previous vehicles</h2>
-          <TrackSection vehicles={vehicleTimeline} />
+      <section className="bg-gray-800 py-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-4xl font-bold tracking-[-0.03em] md:text-5xl">
+              Previous vehicles
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-gray-300">
+              Each vehicle records a different stage of the team&apos;s work in
+              efficiency, manufacturing, and electric propulsion.
+            </p>
+          </div>
+          <TrackSection vehicles={previousVehicles} />
         </div>
       </section>
 
-      <section className="rl-finish">
-        <div className="rl-container rl-finish__grid">
-          <div>
-            <h2>Build the next vehicle.</h2>
-          </div>
-          <div className="rl-proof">
-            <p>Mechanical, electrical, autonomy, data, and operations all ship to the car.</p>
+      <section className="bg-gradient-to-r from-gray-950 to-red-950 py-20">
+        <div className="mx-auto grid w-full max-w-7xl items-end gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr_auto] lg:px-8">
+          <h2 className="max-w-[12ch] text-4xl font-bold leading-[0.95] tracking-[-0.03em] md:text-5xl">
+            Build the next vehicle.
+          </h2>
+          <div className="space-y-3 text-gray-300">
+            <p>
+              Mechanical, electrical, autonomy, data, and operations all ship
+              to the car.
+            </p>
             <p>Applications open each fall cycle on the Apply page.</p>
           </div>
-          <ActionLink href="/apply" variant="invert">
+          <ActionLink href="/apply" variant="solid">
             Join our team
           </ActionLink>
         </div>

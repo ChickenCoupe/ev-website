@@ -16,7 +16,17 @@ export default function ActionLink({
   className = '',
   external = false,
 }: ActionLinkProps) {
-  const classes = `rl-action rl-action--${variant} ${className}`.trim()
+  const baseClasses =
+    'inline-flex min-h-12 items-center justify-center border px-6 py-3 text-sm font-semibold transition-[background-color,border-color,color,transform] duration-200 active:scale-[0.98] motion-reduce:transition-none'
+  const variants = {
+    solid:
+      'border-[#b31b1b] bg-[#b31b1b] text-white hover:border-[#8f1515] hover:bg-[#8f1515]',
+    invert:
+      'border-white bg-white text-gray-950 hover:border-gray-200 hover:bg-gray-200',
+    ghost:
+      'border-white/60 bg-transparent text-white hover:border-white hover:bg-white/10',
+  }
+  const classes = `${baseClasses} ${variants[variant]} ${className}`.trim()
   const isMail = href.startsWith('mailto:')
 
   if (external || isMail) {

@@ -39,7 +39,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-12 -mt-15"
+          className="mb-12 -mt-5"
         >
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Cornell&apos;s foremost project team dedicated to building autonomous, hyper-efficient electric vehicles. 

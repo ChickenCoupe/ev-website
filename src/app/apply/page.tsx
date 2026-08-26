@@ -36,11 +36,13 @@ const CoffeeChatSubteamIcon = ({ name, subteam }: { name: string, subteam: strin
   const Icon = icons[assignedSubteam as keyof typeof icons] ?? Users
 
   return (
-    <Icon
-      className="h-10 w-10 text-red-400"
+    <span
+      className="inline-flex shrink-0"
       title={`${assignedSubteam} subteam`}
       aria-label={`${assignedSubteam} subteam`}
-    />
+    >
+      <Icon className="h-10 w-10 text-red-400" aria-hidden="true" />
+    </span>
   )
 }
 

@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Oxanium } from "next/font/google";
+import "@fontsource/oxanium/400.css";
+import "@fontsource/oxanium/500.css";
+import "@fontsource/oxanium/600.css";
+import "@fontsource/oxanium/700.css";
 import "./globals.css";
 import Header from "./Header";
-
-const oxanium = Oxanium({
-  variable: "--font-oxanium",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Cornell Electric Vehicles",
@@ -31,9 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${oxanium.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         <Header />
         {children}
       </body>

@@ -14,7 +14,7 @@ const autonomyTeam = [
     position: 'Autonomy Lead',
     major: 'CS/Math',
     year: '2028',
-    image: '/team/cam-mazzacane.jpg',
+    image: '/team/cam-mezzacane.jpg',
   },
   {
     name: 'Sophia Tsang',
@@ -28,21 +28,21 @@ const autonomyTeam = [
     position: 'Controls Lead',
     major: 'ECE/CS',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/ethan-berkowitz.jpg',
   },
   {
     name: 'Jaiden Grimminck',
     position: 'Simulation Lead',
     major: 'CS',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/jaiden-grimminck.jpg',
   },
   {
     name: 'Smriti Kumar',
     position: 'Planning Lead',
     major: 'CS/ECE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/smriti-kumar.jpg',
   },
   {
     name: 'Utku Melemetci',
@@ -56,7 +56,7 @@ const autonomyTeam = [
     position: 'Autonomy Member',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/ishaan-parikh.jpg',
   },
   {
     name: 'Surya Chandaskaran',

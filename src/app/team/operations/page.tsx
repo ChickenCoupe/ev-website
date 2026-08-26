@@ -14,28 +14,28 @@ const operationsTeam = [
     position: 'Operations Member',
     major: 'ORIE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/jessie-shi.jpg',
   },
   {
     name: 'Kayra Tosun',
     position: 'Operations Member',
     major: 'ORIE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/kayra-tosun.jpg',
   },
   {
     name: 'Lauren Stanley',
     position: 'Operations Member',
     major: 'ORIE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/lauren-stanley.jpg',
   },
   {
     name: 'Mino Furtado',
     position: 'Operations Member',
     major: 'ORIE',
     year: '2027',
-    image: '/team/placeholder.svg',
+    image: '/team/minori-furtado.jpg',
   },
 ]
 

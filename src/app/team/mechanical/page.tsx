@@ -24,14 +24,14 @@ const chassisTeam = [
     position: 'Chassis Subteam Lead',
     major: 'MAE',
     year: '2027',
-    image: '/team/placeholder.svg',
+    image: '/team/joseph-dalton.jpg',
   },
   {
     name: 'Jackson Skagen',
     position: 'Chassis Subteam Lead',
     major: 'MAE',
     year: '2028',
-    image: '/team/placeholder.svg',
+    image: '/team/jackson-skagen.jpg',
   },
   {
     name: 'Yohanne Lin',
@@ -59,7 +59,7 @@ const chassisTeam = [
     position: 'Chassis Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/isabella-rodriguez.jpg',
   },
 ]
 
@@ -90,14 +90,14 @@ const drivetrainTeam = [
     position: 'Drivetrain Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/anna-shub.jpg',
   },
   {
     name: 'Ian Olenich',
     position: 'Drivetrain Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/ian-olenich.jpg',
   },
   {
     name: 'Zachary Davidson',
@@ -135,35 +135,35 @@ const steeringTeam = [
     position: 'Steering Member',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/ashley-johnny.jpg',
   },
   {
     name: 'Hamza Waseem',
     position: 'Steering Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/hamza-waseem.jpg',
   },
   {
     name: 'Magnus Simmons',
     position: 'Steering Member',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/magnus-simmons.jpg',
   },
   {
     name: 'Neha Chigurupati',
     position: 'Steering Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/neha-chigurupati.jpg',
   },
   {
     name: 'Samiksha Emmaneni',
     position: 'Steering Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/samiksha-emmaneni.jpg',
   },
 ]
 

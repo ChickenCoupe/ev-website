@@ -135,7 +135,7 @@ export const subteams: Subteam[] = [
     role: 'Turns power into predictable motion and keeps every sensor, board, and actuator talking.',
     build: 'battery pack, motor controller, wiring, safety loops',
     icon: CircuitBoard,
-    portrait: '/team/erica-jiang.png',
+    portrait: '/team/erica-jiang.jpg',
     vehicleDetail: '/vehicles/uc25_1.png',
     coordinates: { x: '76%', y: '26%' },
   },
@@ -177,15 +177,14 @@ export const subteams: Subteam[] = [
 export { proofPoints, vehicleTimeline } from '@/data/site'
 
 export const teamImages = [
-  '/team-photo.jpg',
-  '/team/alyssa-yoon.jpg',
-  '/team/sameer-mehta.jpg',
-  '/team/juan-pelaez.jpg',
+  '/full-team.jpg',
+  '/team/groups/leads.jpg',
+  '/team/daniel-sorokin.jpg',
   '/team/sophia-tsang.jpg',
-  '/team/daniela-tran.jpg',
-  '/team/kelvin-yuan.jpg',
-  '/team/rachel-arena.jpg',
-  '/team/cam-mazzacane.jpg',
+  '/team/katie-xiao.jpg',
+  '/team/serkan-yurday.jpg',
+  '/team/lena-schapiro.jpg',
+  '/team/cam-mezzacane.jpg',
 ]
 
 export type FirstLapWeek = {
@@ -241,7 +240,7 @@ export const firstLapWeeks: FirstLapWeek[] = [
     title: 'You present at design review.',
     body: 'End of semester, your subsystem goes up on the screen and alumni engineers ask why you chose what you chose. Then the car gets crated for competition in May.',
     artifact: 'You leave with: work you can defend, and a seat next year.',
-    image: '/team/erica-jiang.png',
+    image: '/team/erica-jiang.jpg',
     alt: 'A team member presenting subsystem work',
   },
 ]

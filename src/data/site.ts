@@ -97,7 +97,7 @@ export const subteamSummaries: SubteamSummary[] = [
     discipline: 'guidance and coordination',
     role: 'Our amazing leadership that helps us organize, create, build, and race our vehicles.',
     href: '/team/leadership',
-    portrait: '/team/sameer-mehta.jpg',
+    portrait: '/team/daniel-sorokin.jpg',
   },
   {
     id: 'mechanical',
@@ -113,7 +113,7 @@ export const subteamSummaries: SubteamSummary[] = [
     discipline: 'battery, controls, harnessing',
     role: 'Designs and builds the vehicle’s electrical systems, from the battery pack to the motor controller and everything in between.',
     href: '/team/electrical',
-    portrait: '/team/erica-jiang.png',
+    portrait: '/team/erica-jiang.jpg',
   },
   {
     id: 'telemetry',

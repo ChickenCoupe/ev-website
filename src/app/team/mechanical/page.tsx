@@ -197,6 +197,23 @@ const suspensionTeam = [
   },
 ];
 
+const seniorAdvisors = [
+  {
+    name: 'Christina Ge',
+    position: 'Senior Advisor',
+    major: 'MAE',
+    year: '2027',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Jordan Vogel',
+    position: 'Senior Advisor',
+    major: 'MAE',
+    year: '2027',
+    image: '/team/placeholder.svg'
+  },
+];  
+
 const sortTeamMembers = <T extends { name: string; year: string; position: string }>(members: T[]) =>
   [...members].sort((a, b) => {
     const aIsLead = a.position.toLowerCase().includes('lead') ? 0 : 1;
@@ -216,6 +233,7 @@ const sortedChassisTeam = sortTeamMembers(chassisTeam);
 const sortedDrivetrainTeam = sortTeamMembers(drivetrainTeam);
 const sortedSteeringTeam = sortTeamMembers(steeringTeam);
 const sortedSuspensionTeam = sortTeamMembers(suspensionTeam);
+const sortedSeniorAdvisors = sortTeamMembers(seniorAdvisors);
 
 // Team member card component
 const TeamMemberCard = ({ member, index }: { member: typeof mechanicalLeadership[0], index: number }) => (
@@ -482,6 +500,25 @@ export default function MechanicalPage() {
           
           <div className="flex flex-wrap justify-center gap-8">
             {sortedSuspensionTeam.map((member, index) => (
+              <div key={index} className="w-full sm:w-80">
+                <TeamMemberCard member={member} index={index} />
+              </div>
+            ))}
+          </div>
+
+          {/* Senior Advisors */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 mt-16"
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-2">Senior Advisors</h3>
+          </motion.div>
+          
+          <div className="flex flex-wrap justify-center gap-8">
+            {sortedSeniorAdvisors.map((member, index) => (
               <div key={index} className="w-full sm:w-80">
                 <TeamMemberCard member={member} index={index} />
               </div>

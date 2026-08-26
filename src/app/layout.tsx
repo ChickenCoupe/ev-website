@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   title: "Cornell Electric Vehicles",
   description: "Cornell students design, manufacture, test, and race autonomous, efficient electric vehicles for Shell Eco-Marathon.",
   icons: {
-    icon: '/cev-favicon.ico',
-    shortcut: '/cev-favicon.ico',
-    apple: '/cev-logo.png',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
 };
 

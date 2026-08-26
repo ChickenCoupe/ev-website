@@ -37,8 +37,8 @@ export default function About() {
           >
             <div className="aspect-video rounded-2xl shadow-2xl overflow-hidden">
               <Image 
-                src="/hero-vehicle.jpg" 
-                alt="Cornell Electric Vehicles team and vehicle"
+                src="/full-team.jpg"
+                alt="Cornell Electric Vehicles full team"
                 width={800}
                 height={450}
                 className="w-full h-full object-cover"

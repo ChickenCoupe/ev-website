@@ -2,12 +2,21 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 
 export default function CTA() {
   return (
-    <section className="py-20 bg-gradient-to-r from-gray-900 to-red-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <>
+      <section className="relative overflow-hidden py-20 text-white">
+      <Image
+        src="/car-and-flag.JPG"
+        alt="Cornell Electric Vehicles car at competition"
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-black/65" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,14 +57,18 @@ export default function CTA() {
             View Our Vehicles
           </Link>
         </motion.div>
+      </div>
+    </section>
 
-        {/* YouTube Video Section */}
+    {/* YouTube Video Section */}
+      <section className="bg-slate-950 py-20 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-16"
+          className=""
         >
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
@@ -74,6 +87,7 @@ export default function CTA() {
           </div>
         </motion.div>
       </div>
-    </section>
+      </section>
+    </>
   )
 }

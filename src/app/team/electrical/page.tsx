@@ -12,14 +12,14 @@ const electricalTeam = [
     position: 'Electrical Subteam Lead',
     major: 'ECE',
     year: '2028',
-    image: '/team/erica-jiang.png'
+    image: '/team/erica-jiang.jpg'
   },
   {
     name: 'Kellen Yu',
     position: 'Electrical Subteam Lead',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/kellen-yu.jpg'
   },
 
   {
@@ -34,14 +34,14 @@ const electricalTeam = [
     position: 'Electrical Member',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/micah-lai.jpg'
   },
   {
     name: 'Aleena Xiao',
     position: 'Electrical Member',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/aleena-xiao.jpg'
   },
   {
     name: 'Michael Robbins',
@@ -55,42 +55,42 @@ const electricalTeam = [
     position: 'Electrical Member',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/audrey-cheng.jpg'
   },
   {
     name: 'Joyce Lin',
     position: 'Electrical Member',
     major: 'CS/ECE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/joyce-lin.jpg'
   },
   {
     name: 'Thomas Xin',
     position: 'Electrical Member',
     major: 'CS/ECE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/thomas-xin.jpg'
   },
   {
     name: 'Aariv Mody',
     position: 'Electrical Member',
     major: 'ECE',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/aariv-mody.jpg'
   },
   {
     name: 'Kaan Akan',
     position: 'Electrical Member',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/kaan-akan.jpg'
   },
   {
     name: 'Elaine Cao',
     position: 'Electrical Member',
     major: 'ECE',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/elaine-cao.jpg'
   },
   {
     name: 'Lucia Liu',
@@ -156,54 +156,34 @@ const TeamMemberCard = ({ member, index }: { member: typeof electricalTeam[0], i
 export default function ElectricalPage() {
   return (
     <div className="min-h-screen bg-gray-900">
-      {/* Header */}
-      <section className="bg-gradient-to-r from-red-500 to-red-600 py-16 pt-24 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center justify-center mb-6"
-            viewport={{ once: true }}
-          >
-            <Zap className="w-12 h-12 mr-4" />
-            <h1 className="text-4xl md:text-5xl font-bold">Electrical Team</h1>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-red-100 max-w-3xl mx-auto"
-            viewport={{ once: true }}
-          >
-            We design and implement power systems, motor controllers, and electronic components that bring our electric vehicles to life.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-12 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">14</div>
-              <div className="text-gray-300">Team Members</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">3</div>
-              <div className="text-gray-300">Major Systems</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">400V+</div>
-              <div className="text-gray-300">System Voltage</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">24/7</div>
-              <div className="text-gray-300">Safety Monitoring</div>
-            </div>
+      <div className="relative overflow-hidden text-white">
+        <Image src="/team/groups/electrical.jpg" alt="" fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-black/60" />
+        {/* Header */}
+        <section className="relative z-10 flex min-h-[420px] items-center py-20 pt-28">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-6"
+              viewport={{ once: true }}
+            >
+              <h1 className="text-4xl md:text-5xl font-bold">Electrical Team</h1>
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-red-100 max-w-3xl mx-auto"
+              viewport={{ once: true }}
+            >
+              We design and implement power systems, motor controllers, and electronic components that bring our electric vehicles to life.
+            </motion.p>
           </div>
-        </div>
-      </section>
+        </section>
+
+      </div>
 
       {/* Responsibilities */}
       <section className="py-16 bg-gray-900">

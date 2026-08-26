@@ -43,20 +43,20 @@ const leadershipTeam = [
     linkedin: 'https://linkedin.com/in/lucaslibshutz', // Replace with actual LinkedIn
   },
   {
-    name: 'Cam Mazzacanne',
+    name: 'Cam Mezzacane',
     position: 'Autonomy Lead',
     major: 'CS/Math',
     year: '2028',
-    image: '/team/cam-mazzacane.jpg',
+    image: '/team/cam-mezzacane.jpg',
     email: 'clm357@cornell.edu', // Replace with actual email
-    linkedin: 'https://linkedin.com/in/cam-mazzcanne', 
+    linkedin: 'https://linkedin.com/in/cam-mezzacane', 
   },
   {
     name: 'Erica Jiang',
     position: 'Electrical Lead',
     major: 'ECE',
     year: '2028',
-    image: '/team/erica-jiang.png',
+    image: '/team/erica-jiang.jpg',
     email: 'ej289@cornell.edu', // Replace with actual email
     linkedin: 'https://www.linkedin.com/in/erica-jiang-321322287/', // Replace with actual LinkedIn
   },
@@ -65,7 +65,7 @@ const leadershipTeam = [
     position: 'Electrical Lead',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg',
+    image: '/team/kellen-yu.jpg',
     email: 'kcy24@cornell.edu', 
     linkedin: 'https://www.linkedin.com/in/kellen-yu-ab2728318/', 
   },
@@ -164,47 +164,32 @@ const TeamMemberCard = ({ member, index }: { member: typeof leadershipTeam[0], i
 export default function LeadershipPage() {
   return (
     <div className="min-h-screen bg-gray-900">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-red-600 to-red-700 py-16 pt-24 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-6"
-          >
-            Leadership Team
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-red-100 max-w-3xl mx-auto"
-          >
-            Our executive board provides guidance, organization, and leadership across all aspects of Cornell Electric Vehicles.
-          </motion.p>
-        </div>
-      </div>
-
-      {/* Stats */}
-      <section className="py-12 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">7</div>
-              <div className="text-gray-300">Leadership Members</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">6</div>
-              <div className="text-gray-300">Subteams Managed</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">100%</div>
-              <div className="text-gray-300">Dedicated Leaders</div>
-            </div>
+      <div className="relative overflow-hidden text-white">
+        <Image src="/team/groups/leads.jpg" alt="" fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-black/60" />
+        {/* Header */}
+        <div className="relative z-10 flex min-h-[420px] items-center py-20 pt-28">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl font-bold mb-6"
+            >
+              Leadership Team
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-red-100 max-w-3xl mx-auto"
+            >
+              Our executive board provides guidance, organization, and leadership across all aspects of Cornell Electric Vehicles.
+            </motion.p>
           </div>
         </div>
-      </section>
+
+      </div>
 
       {/* Team Members */}
       <section className="py-16 bg-gray-900">

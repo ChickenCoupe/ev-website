@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Users, Zap, Wrench, Brain, Database, Settings } from 'lucide-react';
 
@@ -94,8 +95,10 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
-      <div className="bg-gradient-to-br from-red-600 to-red-800 py-16 pt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-6">
+      <div className="relative flex min-h-[420px] items-center overflow-hidden py-20 pt-28 text-white">
+        <Image src="/full-team.jpg" alt="" fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-6">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,7 +123,7 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-red-600 mb-2">62</div>
+              <div className="text-4xl font-bold text-red-600 mb-2">85</div>
               <div className="text-gray-300">Total Members</div>
             </div>
             <div className="text-center">
@@ -128,7 +131,7 @@ export default function TeamPage() {
               <div className="text-gray-300">Specialized Teams</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-red-600 mb-2">15+</div>
+              <div className="text-4xl font-bold text-red-600 mb-2">10+</div>
               <div className="text-gray-300">Academic Majors</div>
             </div>
           </div>

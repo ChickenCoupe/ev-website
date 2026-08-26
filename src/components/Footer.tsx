@@ -11,19 +11,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Logo and description */}
           <div className="md:col-span-2">
-            <div className="mb-6 flex items-center gap-4">
-              <Image 
-                src="/logo.png" 
-                alt="Cornell Electric Vehicles Logo"
-                width={64}
-                height={128}
-                className="h-16 w-auto"
+            <div className="mb-6">
+              <Image
+                src="/fulllight.png"
+                alt="Cornell Electric Vehicles Project Team"
+                width={800}
+                height={300}
+                className="h-auto w-full max-w-xs"
               />
-              <div>
-                <h3 className="text-2xl font-bold text-red-400 mb-1">CORNELL</h3>
-                <h3 className="text-2xl font-bold text-white mb-1">ELECTRIC VEHICLES</h3>
-                <h4 className="text-lg font-medium text-gray-400">PROJECT TEAM</h4>
-              </div>
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">
               Cornell Electric Vehicles Project Team is the foremost project team at Cornell University 
@@ -130,7 +125,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            ©2025 by Cornell Electric Vehicles (CEV) Project Team. All rights reserved.
+            ©2026 by Cornell Electric Vehicles (CEV) Project Team. All rights reserved.
           </div>
           <div className="text-gray-400 text-sm">
             Registered Student Organization of Cornell University

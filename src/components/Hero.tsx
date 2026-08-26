@@ -6,14 +6,15 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-red-900 to-gray-800 text-white overflow-hidden pt-20">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="w-full h-full bg-gray-900" style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px'
-        }}></div>
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden pt-20">
+      <Image
+        src="/comp-group-pic.JPG"
+        alt="Cornell Electric Vehicles team at competition"
+        fill
+        priority
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-black/80" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
@@ -40,10 +41,6 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-12 -mt-15"
         >
-          <h2 className="text-6xl md:text-8xl font-bold mb-8">
-            <span className="block text-red-400">BUILD THE</span>
-            <span className="block text-white">FUTURE.</span>
-          </h2>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Cornell&apos;s foremost project team dedicated to building autonomous, hyper-efficient electric vehicles. 
             Operating at the pace of a startup, producing industry-grade vehicles that compete at the highest levels.

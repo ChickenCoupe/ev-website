@@ -9,6 +9,7 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [supportsBackdrop, setSupportsBackdrop] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -29,6 +30,13 @@ export default function Header() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const isActive = (href: string) => {
     if (href === '/') {
       return pathname === '/';
@@ -38,8 +46,8 @@ export default function Header() {
 
   // Use consistent dark styling to match footer
   const textColor = '#ffffff';
-  const hoverBg = 'rgba(255, 255, 255, 0.1)';
-  const activeBg = 'rgba(255, 255, 255, 0.2)';
+  const hoverBg = 'transparent';
+  const activeBg = 'transparent';
 
   // Update link colors
   useEffect(() => {
@@ -81,63 +89,37 @@ export default function Header() {
         <header 
           style={{
             position: 'fixed',
-            top: '1rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: 'fit-content',
-            maxWidth: 'calc(100vw - 1rem)',
+            top: 0,
+            left: 0,
+            transform: 'none',
+            width: '100%',
+            maxWidth: 'none',
             zIndex: 9998,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            padding: '0.5rem 1rem',
-            background: supportsBackdrop 
-              ? 'rgba(255, 255, 255, 0.25)' 
-              : 'rgba(255, 255, 255, 0.9)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
-            borderRadius: '50px',
+            justifyContent: 'space-between',
+            padding: '0.75rem 2rem',
+            background: isScrolled ? 'linear-gradient(to bottom, rgba(3, 7, 18, 0.3), rgba(3, 7, 18, 0))' : 'transparent',
+            backdropFilter: isScrolled ? 'blur(12px)' : 'none',
+            WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none',
+            border: 'none',
+            boxShadow: 'none',
+            borderRadius: 0,
+            maskImage: isScrolled ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)' : 'none',
+            WebkitMaskImage: isScrolled ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)' : 'none',
             overflow: 'visible'
           }}
         >
-          <div className="w-full flex items-center justify-center">
-            <nav className="flex items-center justify-center gap-6">
-              <Link 
-                href="/" 
-                className={`ml-3 nav-link flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300`}
-                style={{
-                  color: textColor,
-                  backgroundColor: isActive('/') ? activeBg : 'transparent',
-                  fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive('/')) {
-                    e.currentTarget.style.backgroundColor = hoverBg;
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive('/')) {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }
-                }}
-              >
-                <div className="relative flex items-center justify-center" style={{ width: '32px', height: '32px' }}>
+          <div className="w-full flex items-center justify-between">
+            <nav className="w-full flex items-center gap-6">
+              <Link href="/" className="brand-link mr-auto flex items-center justify-center" aria-label="Home">
+                <div className="relative flex items-center justify-center" style={{ width: '270px', height: '60px' }}>
                   <Image 
-                    src="/cev-logo.png"
-                    alt="Cornell Electric Vehicles Logo" 
-                    width={80} 
-                    height={36}
-                    className="object-contain"
-                    style={{ 
-                      width: 'auto', 
-                      height: '32px',
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)'
-                    }}
+                    src="/fulllight.png"
+                    alt="Cornell Electric Vehicles Project Team"
+                    width={800}
+                    height={300}
+                    className="h-16 w-auto object-contain"
                     priority
                   />
                 </div>
@@ -259,14 +241,14 @@ export default function Header() {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '0.75rem 1.5rem',
-              background: supportsBackdrop 
-                ? 'rgba(255, 255, 255, 0.25)' 
-                : 'rgba(255, 255, 255, 0.9)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
-              borderRadius: '50px'
+              background: isScrolled ? 'linear-gradient(to bottom, rgba(3, 7, 18, 0.3), rgba(3, 7, 18, 0))' : 'transparent',
+              backdropFilter: isScrolled ? 'blur(12px)' : 'none',
+              WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none',
+              border: 'none',
+              boxShadow: 'none',
+              borderRadius: '50px',
+              maskImage: isScrolled ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)' : 'none',
+              WebkitMaskImage: isScrolled ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)' : 'none'
             }}
           >
             <div className="flex items-center justify-between w-full">
@@ -276,10 +258,10 @@ export default function Header() {
               >
                 <div className="relative flex items-center" style={{ width: '80px', height: '28px' }}>
                   <Image 
-                    src="/cev-logo.png"
-                    alt="Cornell Electric Vehicles Logo" 
-                    width={80} 
-                    height={36}
+                    src="/fulllight.png"
+                    alt="Cornell Electric Vehicles Project Team"
+                    width={800}
+                    height={300}
                     className="object-contain absolute inset-0"
                     style={{ width: 'auto', height: '28px' }}
                     priority

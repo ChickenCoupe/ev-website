@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Users, Zap, Wrench, Brain, Database, Settings } from 'lucide-react';
+import Footer from '@/components/Footer';
 
 const subteams = [
   {
@@ -50,9 +51,16 @@ const subteams = [
   }
 ];
 
+const subteamPhotos: Record<string, string> = {
+  Leadership: '/team/groups/leads.jpg',
+  Mechanical: '/team/groups/mechanical.jpg',
+  Electrical: '/team/groups/electrical.jpg',
+  Telemetry: '/team/groups/telemetry.jpg',
+  Autonomy: '/team/groups/autonomy.jpg',
+  Operations: '/team/groups/operations.jpg',
+};
+
 const SubteamCard = ({ subteam, index }: { subteam: typeof subteams[0], index: number }) => {
-  const IconComponent = subteam.icon;
-  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -62,23 +70,17 @@ const SubteamCard = ({ subteam, index }: { subteam: typeof subteams[0], index: n
       className="group"
     >
       <Link href={subteam.href} className="block">
-        <div className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-700">
-          <div className={`h-2 bg-gradient-to-r ${subteam.color}`}></div>
-          <div className="p-8">
-            <div className="flex items-center mb-4">
-              <div className={`p-3 rounded-lg bg-gradient-to-r ${subteam.color} mr-4`}>
-                <IconComponent className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors">
-                  {subteam.name}
-                </h3>
-              </div>
-            </div>
-            <p className="text-gray-300 leading-relaxed mb-4">
+        <div className="group relative overflow-hidden border border-red-900/70 bg-gray-950 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-red-500 hover:shadow-2xl">
+          <div className="absolute left-0 top-0 z-20 h-1 w-full bg-red-600 transition-all group-hover:h-2"></div>
+          <Image src={subteamPhotos[subteam.name]} alt="" fill className="object-cover opacity-10" />
+          <div className="relative z-10 p-8 text-left">
+            <h3 className="mb-4 text-2xl font-bold text-white transition-colors group-hover:text-red-400">
+              {subteam.name}
+            </h3>
+            <p className="mb-6 leading-relaxed text-gray-400">
               {subteam.description}
             </p>
-            <div className="flex items-center text-red-400 font-medium group-hover:text-red-300 transition-colors">
+            <div className="learn-more flex items-center text-red-400 font-semibold transition-colors group-hover:text-red-300">
               Learn More 
               <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -160,6 +162,7 @@ export default function TeamPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

@@ -55,7 +55,7 @@ export default function Hero() {
         >
           <Link
             href="/apply"
-            className="w-full sm:w-auto text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-center min-w-[200px] border-2"
+            className="w-full sm:w-auto text-white px-8 py-4 rounded-none text-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-center min-w-[200px] border-2"
             style={{ backgroundColor: '#b31b1b', borderColor: '#b31b1b'}}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#a11717'
@@ -70,7 +70,7 @@ export default function Hero() {
           </Link>
           <Link
             href="/team"
-            className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 text-center min-w-[200px]"
+            className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-none text-lg font-semibold transition-all transform hover:scale-105 text-center min-w-[200px]"
           >
             Meet Our Team
           </Link>

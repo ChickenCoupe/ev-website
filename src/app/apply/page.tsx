@@ -173,7 +173,7 @@ export default function Apply() {
       </section>
 
       <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8 text-center">
+        <div className="result-card mb-16 p-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-8">Fall 2026 Upperclassmen Applications Now Open!</h2>
           {/* <p className="text-lg text-gray-300 mb-8 text-center">Please note that <b>applications are now <u>closed</u>.</b> We look forward to seeing you apply in the future!</p> */}
           <Link
@@ -196,7 +196,7 @@ export default function Apply() {
         </div>
 
         {/* Application Process */}
-        <div className="bg-gray-800 rounded-2xl p-8 mb-16 border border-gray-700">
+        <div className="result-card p-8 mb-16">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Application Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div><h3 className="text-xl font-semibold text-white mb-2">Choose Subteam(s)</h3><p className="text-gray-300">Choose which subteam(s) that you want to apply to.</p></div>
@@ -206,13 +206,13 @@ export default function Apply() {
         </div>
 
         {/* Coffee Chats */}
-        <div id="coffee-chats" className="mb-16 bg-gray-800 rounded-2xl border border-gray-700 p-8 scroll-mt-24">
+        <div id="coffee-chats" className="result-card coffee-chat-section mb-16 p-8 scroll-mt-24">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Coffee Chats</h2>
           <div className="space-y-6">
             {coffeeChats.map((chat) => (
               <div key={`profile-${chat.Name}`} className="flex flex-row items-start gap-6">
                 <Image src={photoPath(chat.Name)} alt={chat.Name} width={144} height={144} className="h-36 w-36 shrink-0 rounded-lg object-cover" />
-                <div className="min-w-0 flex-1 rounded-xl border border-gray-700 bg-gray-900 p-6">
+                <div className="result-card min-w-0 flex-1 p-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div className="flex items-center gap-4">
                       <CoffeeChatSubteamIcon name={chat.Name} subteam={chat.Subteam} />

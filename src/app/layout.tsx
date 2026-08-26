@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   title: "Cornell Electric Vehicles",
   description: "Cornell's foremost project team dedicated to building autonomous, hyper-efficient electric vehicles. Operating at the pace of a startup, producing industry-grade vehicles that compete at the highest levels.",
   icons: {
-    icon: '/cev-favicon.ico',
-    shortcut: '/cev-favicon.ico',
-    apple: '/cev-logo.png',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
 };
 

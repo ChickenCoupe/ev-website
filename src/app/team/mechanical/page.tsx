@@ -173,8 +173,12 @@ const steeringTeam = [
   },
 ];
 
-const sortTeamMembers = <T extends { name: string; year: string }>(members: T[]) =>
+const sortTeamMembers = <T extends { name: string; year: string; position: string }>(members: T[]) =>
   [...members].sort((a, b) => {
+    const aIsLead = a.position.toLowerCase().includes('lead') ? 0 : 1;
+    const bIsLead = b.position.toLowerCase().includes('lead') ? 0 : 1;
+    if (aIsLead !== bIsLead) return aIsLead - bIsLead;
+
     const yearComparison = Number(a.year) - Number(b.year);
     if (yearComparison !== 0) return yearComparison;
 

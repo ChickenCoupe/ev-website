@@ -27,6 +27,144 @@ h6 {
   font-family: "Oxanium", system-ui, sans-serif;
 }
 
+.nav-link {
+  position: relative;
+  border: 0 !important;
+  border-radius: 0 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 180ms ease;
+}
+
+.nav-link:not(.brand-link)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.25rem;
+  height: 2px;
+  background: #ef4444;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.nav-link:not(.brand-link):hover::before,
+.nav-link:not(.brand-link)[style*="rgba(3, 7, 18"]::before {
+  transform: scaleX(1);
+}
+
+.brand-link {
+  background: transparent !important;
+  pointer-events: auto;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.learn-more {
+  position: relative;
+  width: fit-content;
+}
+
+.learn-more::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 2px;
+  background: #ef4444;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.group:hover .learn-more::after {
+  transform: scaleX(1);
+}
+
+.brand-link:focus,
+.brand-link:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep action controls consistent with the site's boxy card language. */
+:where(button, a[class*="bg-red-"], a[class*="border-"]) {
+  border-radius: 0 !important;
+}
+
+.result-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(127, 29, 29, 0.7);
+  background-color: #030712;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.result-card:hover {
+  transform: translateY(-5px);
+  border-color: #ef4444;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.3);
+}
+
+.coffee-chat-section:hover {
+  transform: none;
+  border-color: rgba(127, 29, 29, 0.7);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.result-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: #b31b1b;
+}
+
+/* Shared visual language for content cards. */
+:where(.bg-gray-800.rounded-xl.border-gray-700, .bg-gray-800.rounded-2xl.border-gray-700, .bg-gray-900.rounded-xl.border-gray-700) {
+  position: relative;
+  overflow: hidden;
+  background-color: #030712;
+  border-color: rgba(127, 29, 29, 0.7);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+:where(.bg-gray-800.rounded-xl.border-gray-700, .bg-gray-800.rounded-2xl.border-gray-700, .bg-gray-900.rounded-xl.border-gray-700)::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: #b31b1b;
+}
+
+:where(.bg-gray-800.rounded-xl.border-gray-700, .bg-gray-800.rounded-2xl.border-gray-700, .bg-gray-900.rounded-xl.border-gray-700):hover {
+  transform: translateY(-5px);
+  border-color: #ef4444;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.3);
+}
+
+/* Carry the results-section atmosphere into full-width page sections. */
+:where(section.bg-gray-900, section.bg-gray-800) {
+  background-image: radial-gradient(circle at top, rgba(179, 27, 27, 0.18), transparent 42%);
+}
+
+:where(.min-h-screen.bg-gray-900) {
+  background-image: radial-gradient(circle at top, rgba(179, 27, 27, 0.18), transparent 42%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oxanium", system-ui, sans-serif;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

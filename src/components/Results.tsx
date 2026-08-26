@@ -10,10 +10,9 @@ const results = [
 export default function Results() {
   return (
     <section className="relative overflow-hidden bg-gray-900 py-24 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(179,27,27,0.18),transparent_42%)]" />
+      <div className="absolute inset-0 bg-[]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="mx-auto mb-16 max-w-4xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-red-400">Shell Eco-Marathon Americas</p>
           <h2 className="text-4xl font-bold md:text-5xl">2026 Results</h2>
           <p className="mt-5 text-lg leading-relaxed text-gray-300">This year, our team achieved impressive results at the Shell Eco-Marathon Americas, securing multiple awards and solidifying our status as one of the competition&apos;s leading teams.</p>
         </motion.div>

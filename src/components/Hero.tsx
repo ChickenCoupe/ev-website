@@ -1,80 +1,44 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import Link from 'next/link'
 import Image from 'next/image'
+import ActionLink from '@/components/site/ActionLink'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden pt-20">
-      <Image
-        src="/comp-group-pic.JPG"
-        alt="Cornell Electric Vehicles team at competition"
-        fill
-        priority
-        className="object-cover"
+    <section className="relative isolate flex min-h-[100dvh] items-center overflow-hidden bg-[#b31b1b] pt-[7.5rem] text-white">
+      <div
+        className="absolute inset-0 opacity-60"
+        aria-hidden="true"
+        style={{
+          background:
+            'radial-gradient(circle at 12% 18%, rgba(255,255,255,0.14), transparent 34%)',
+        }}
       />
-      <div className="absolute inset-0 bg-black/80" />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-4"
-        >
-          <div className="pt-8 mb-8">
-            <Image 
-              src="/fulllight.png"
-              alt="Cornell Electric Vehicles Project Team"
-              width={800}
-              height={300}
-              className="mx-auto w-full max-w-4xl h-auto"
-              priority
-            />
+
+      <div className="relative z-20 mx-auto w-[calc(100%_-_2rem)] max-w-[1400px]">
+        <div className="max-w-2xl">
+          <h1 className="max-w-[12ch] text-5xl font-bold leading-[0.92] tracking-[-0.04em] text-balance sm:text-6xl lg:text-[5.25rem]">
+            Cornell students build efficient electric vehicles.
+          </h1>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <ActionLink href="/apply" variant="invert">
+              Apply to CEV
+            </ActionLink>
+            <ActionLink href="/team" variant="ghost">
+              Meet the crew
+            </ActionLink>
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-12 -mt-5"
-        >
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Cornell&apos;s foremost project team dedicated to building autonomous, hyper-efficient electric vehicles. 
-            Operating at the pace of a startup, producing industry-grade vehicles that compete at the highest levels.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
-        >
-          <Link
-            href="/apply"
-            className="w-full sm:w-auto text-white px-8 py-4 rounded-none text-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-center min-w-[200px] border-2"
-            style={{ backgroundColor: '#b31b1b', borderColor: '#b31b1b'}}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#a11717'
-              e.currentTarget.style.borderColor = '#a11717'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#b31b1b'
-              e.currentTarget.style.borderColor = '#b31b1b'
-            }}
-          >
-            Apply to CEV
-          </Link>
-          <Link
-            href="/team"
-            className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-none text-lg font-semibold transition-all transform hover:scale-105 text-center min-w-[200px]"
-          >
-            Meet Our Team
-          </Link>
-        </motion.div>
+        </div>
+      </div>
+      <div className="pointer-events-none absolute -bottom-14 -right-32 z-10 w-[48rem] max-w-none select-none sm:-bottom-28 sm:-right-40 sm:w-[64rem] lg:bottom-[-10%] lg:right-[-12%] lg:w-[min(96vw,84rem)]">
+        <Image
+          src="/vehicles/car-mask.webp"
+          alt="Chicken Coupe urban concept vehicle, carbon fiber body with Shell Eco-Marathon markings"
+          width={2400}
+          height={1457}
+          priority
+          unoptimized
+          sizes="(min-width: 1024px) 82vw, 110vw"
+          className="h-auto w-full"
+        />
       </div>
     </section>
   )

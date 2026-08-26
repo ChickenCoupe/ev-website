@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Stats() {
   const stats = [
@@ -11,8 +12,15 @@ export default function Stats() {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 via-red-900 to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-20 text-white">
+      <Image
+        src="/comp-moving-car.JPG"
+        alt="Cornell Electric Vehicles car at competition"
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-black/65" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

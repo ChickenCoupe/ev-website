@@ -29,14 +29,14 @@ const chassisTeam = [
     position: 'Chassis Subteam Lead',
     major: 'MAE',
     year: '2027',
-    image:'/team/placeholder.svg'
+    image:'/team/joseph-dalton.jpg'
   },
   {
     name: 'Jackson Skagen',
     position: 'Chassis Subteam Lead',
     major: 'MAE',
     year: '2028',
-    image: '/team/placeholder.svg'
+    image: '/team/jackson-skagen.jpg'
   },
   {
     name: 'Yohanne Lin',
@@ -64,7 +64,7 @@ const chassisTeam = [
     position: 'Chassis Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/isabella-rodriguez.jpg'
   },
 ];
 
@@ -95,14 +95,14 @@ const drivetrainTeam = [
     position: 'Drivetrain Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/anna-shub.jpg'
   },
   {
     name: 'Ian Olenich',
     position: 'Drivetrain Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/ian-olenich.jpg'
   },
   {
     name: 'Zachary Davidson',
@@ -141,35 +141,35 @@ const steeringTeam = [
     position: 'Steering Member',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/ashley-johnny.jpg'
   },
   {
     name: 'Hamza Waseem',
     position: 'Steering Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/hamza-waseem.jpg'
   },
   {
     name: 'Magnus Simmons',
     position: 'Steering Member',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/magnus-simmons.jpg'
   },
   {
     name: 'Neha Chigurupati',
     position: 'Steering Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/neha-chigurupati.jpg'
   },
   {
     name: 'Samiksha Emmaneni',
     position: 'Steering Member',
     major: 'MAE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/samiksha-emmaneni.jpg'
   },
 ];
 
@@ -216,16 +216,17 @@ export default function MechanicalPage() {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
-      <div className="bg-gradient-to-r from-red-500 to-red-600 py-16 pt-24 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative flex min-h-[420px] items-center overflow-hidden py-20 pt-28 text-white">
+        <Image src="/team/groups/mechanical.jpg" alt="" fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center justify-center mb-6"
+            className="text-center mb-6"
             viewport={{ once: true }}
           >
-            <Wrench className="w-12 h-12 mr-4" />
             <h1 className="text-4xl md:text-5xl font-bold">Mechanical Team</h1>
           </motion.div>
           <motion.p

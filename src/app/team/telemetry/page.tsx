@@ -33,42 +33,42 @@ const dataTeam= [
         position: 'Telemetry Member',
         major: 'CS',
         year: '2028',
-        image: '/team/placeholder.svg'
+        image: '/team/julia-lau.jpg'
     },
     {
         name: 'Eric Shen',
         position: 'Telemetry Member',
         major: 'CS/Math',
         year: '2029',
-        image: '/team/placeholder.svg'
+        image: '/team/eric-shen.jpg'
     },
     {
         name: 'Donte Truong',
         position: 'Telemetry Member',
         major: 'CS/ECE',
         year: '2029',
-        image: '/team/placeholder.svg'
+        image: '/team/donte-truong.jpg'
     },
     {
         name: 'Adi Murgescu',
         position: 'Telemetry Member',
         major: 'CS/Math',
         year: '2029',
-        image: '/team/placeholder.svg'
+        image: '/team/adi-murgescu.jpg'
     },
     {
         name: 'Meira Chenicheri',
         position: 'Telemetry Member',
         major: 'CS',
         year: '2029',
-        image: '/team/placeholder.svg'
+        image: '/team/meira-chenicheri.jpg'
     },
     {
         name: 'Shreyaa Sanjay',
         position: 'Telemetry Member',
         major: 'CS/ECE',
         year: '2029',
-        image: '/team/placeholder.svg'
+        image: '/team/shreyaa-sanjay.jpg'
     },
 ]
 
@@ -112,15 +112,16 @@ export default function DataTeam() {
     return (
         <div className="min-h-screen bg-gray-900">
         {/* Header */}
-            <section className="bg-gradient-to-r from-red-600 to-red-700 py-16 pt-24 text-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <section className="relative flex min-h-[420px] items-center overflow-hidden py-20 pt-28 text-white">
+                <Image src="/team/groups/telemetry.jpg" alt="" fill priority className="object-cover" />
+                <div className="absolute inset-0 bg-black/60" />
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <motion.div
                         initial={{ opacity: 0, y:20 }}
                         animate={{ opacity: 1, y:0 }}
                         transition={{ duration: 0.6 }}
-                        className="flex items-center justify-center mb-6"
+                        className="text-center mb-6"
                     >
-                        <Server className="w-12 h-12 mr-4" />
                         <h1 className="text-4xl md:text-5xl font-bold">Telemetry Team</h1>
                     </motion.div>
                     <motion.p

@@ -203,14 +203,14 @@ const seniorAdvisors = [
     position: 'Senior Advisor',
     major: 'MAE',
     year: '2027',
-    image: '/team/placeholder.svg'
+    image: '/team/christina-ge.jpg'
   },
   {
     name: 'Jordan Vogel',
     position: 'Senior Advisor',
     major: 'MAE',
     year: '2027',
-    image: '/team/placeholder.svg'
+    image: '/team/jordan-vogel.jpg'
   },
 ];  
 

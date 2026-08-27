@@ -137,13 +137,6 @@ const steeringTeam = [
     image: '/team/ashley-johnny.jpg'
   },
   {
-    name: 'Hamza Waseem',
-    position: 'Steering Member',
-    major: 'MAE',
-    year: '2029',
-    image: '/team/hamza-waseem.jpg'
-  },
-  {
     name: 'Magnus Simmons',
     position: 'Steering Member',
     major: 'ECE',

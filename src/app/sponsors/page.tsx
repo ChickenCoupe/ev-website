@@ -117,49 +117,6 @@ const sponsors = [
     website: "https://www.textech.co.jp/en/"}
 ];
 
-const sponsorshipTiers = [
-  {
-    tier: "Title Sponsor",
-    color: "from-yellow-500 to-yellow-600",
-    benefits: [
-      "Prominent logo placement on vehicle",
-      "Major recognition at all events",
-      "Exclusive partnership opportunities",
-      "Direct access to team leadership"
-    ]
-  },
-  {
-    tier: "Platinum Sponsor",
-    color: "from-gray-300 to-gray-400",
-    benefits: [
-      "Large logo on vehicle and materials",
-      "Recognition at competitions",
-      "Recruitment opportunities",
-      "Technical collaboration"
-    ]
-  },
-  {
-    tier: "Gold Sponsor",
-    color: "from-yellow-400 to-yellow-500",
-    benefits: [
-      "Medium logo placement",
-      "Website recognition",
-      "Competition updates",
-      "Networking events"
-    ]
-  },
-  {
-    tier: "Silver Sponsor",
-    color: "from-gray-200 to-gray-300",
-    benefits: [
-      "Small logo placement",
-      "Social media recognition",
-      "Team updates",
-      "Annual report inclusion"
-    ]
-  }
-];
-
 const SponsorCard = ({ sponsor, index }: { sponsor: typeof sponsors[0], index: number }) => (
   <motion.div
     initial={false}

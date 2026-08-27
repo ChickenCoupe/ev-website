@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
 const stats = [
-  { value: 10, suffix: '+', label: 'majors' },
+  { value: 7, suffix: '', label: 'majors' },
   { value: 65, suffix: '+', label: 'members' },
   { value: 5, suffix: '', label: 'subteams' },
   { value: 50, suffix: '%', label: 'women' },
@@ -47,7 +47,7 @@ export default function Stats() {
 
     animationFrame = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(animationFrame)
-  }, [hasStarted, stats])
+  }, [hasStarted])
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden py-20 text-white">

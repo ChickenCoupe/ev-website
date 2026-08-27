@@ -109,51 +109,6 @@ export default function Apply() {
     }
   ]
 
-  const timelineEvents = [
-    {
-      title: "Project Teams Fest",
-      date: "9/4 @ 4:00 PM - 6:00 PM",
-      location: "Duffield Atrium",
-      side: "left"
-    },
-    {
-      title: "Info Session #1",
-      date: "9/11 @ 5:00 PM",
-      location: "Upson 225",
-      side: "right"
-    },
-    {
-      title: "Info Session #2",
-      date: "9/22 @ 4:30 PM",
-      location: "Tang 203",
-      side: "left"
-    },
-    {
-      title: "Info Session #3",
-      date: "10/1 @ 7:00 PM",
-      location: "RPCC 205",
-      side: "right"
-    },
-    {
-      title: "Info Session #4",
-      date: "10/7 @ 7:15 PM",
-      location: "Upson 206",
-      side: "left"
-    },
-    {
-      title: "Open House",
-      date: "10/8-10/10 @ 4:00 PM - 7:00 PM",
-      location: "Upson B60",
-      side: "right"
-    },
-    {
-      title: "Freshmen/Transfers Applications Due",
-      date: "10/16 @ 11:59 PM",
-      location: null,
-      side: "left"
-    }
-  ]
-
   return (
     <div className="min-h-screen bg-gray-900">
       <section className="relative flex min-h-[420px] items-center overflow-hidden py-20 pt-28 text-white">

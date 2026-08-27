@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Users, DollarSign, Megaphone, Calendar } from 'lucide-react';
+import { DollarSign, Megaphone, Calendar } from 'lucide-react';
 import Footer from '@/components/Footer'
 
 const operationsTeam = [
@@ -37,9 +37,26 @@ const operationsTeam = [
     {
         name: 'Mino Furtado',
         position: 'Operations Member',
+        major: 'E&S',
+        year: '2029',
+        image: '/team/minori-furtado.jpg'
+    },
+    {
+        name: 'Allen Lin',
+        position: 'Operations Member',
+        major: 'ORIE',
+        year: '2029',
+        image: '/team/allen-lin.jpg'
+    }
+]
+
+const seniorAdvisors = [
+    {
+        name: 'Tatum McLaughlin',
+        position: 'Senior Advisor',
         major: 'ORIE',
         year: '2027',
-        image: '/team/minori-furtado.jpg'
+        image: '/team/tatum-mclaughlin.jpg'
     }
 ]
 
@@ -201,6 +218,22 @@ export default function OperationsTeam() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                         {operationsMembers.map((member,index) => (
                             <TeamMemberCard key={member.name} member={member} index={index + operationsLeads.length} />
+                        ))}
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="mt-16 mb-8 text-center"
+                    >
+                        <h3 className="text-2xl font-bold text-white mb-2">Senior Advisors</h3>
+                    </motion.div>
+
+                    <div className="flex flex-wrap justify-center gap-8">
+                        {seniorAdvisors.map((member, index) => (
+                            <TeamMemberCard key={member.name} member={member} index={index + operationsLeads.length + operationsMembers.length} />
                         ))}
                     </div>
                 </div>

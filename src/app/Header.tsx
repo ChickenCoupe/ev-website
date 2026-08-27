@@ -8,7 +8,6 @@ import Image from "next/image";
 export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [supportsBackdrop, setSupportsBackdrop] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -20,7 +19,6 @@ export default function Header() {
     };
 
     // Check backdrop filter support
-    setSupportsBackdrop(CSS.supports('backdrop-filter', 'blur(20px)'));
 
     // Initial check
     handleResize();

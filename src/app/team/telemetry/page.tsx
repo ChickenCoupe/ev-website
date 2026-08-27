@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Icon, Server, Terminal, Timer} from 'lucide-react';
+import { Icon, Terminal, Timer} from 'lucide-react';
 import { motorRacingHelmet } from '@lucide/lab';
 import Footer from '@/components/Footer'
 

@@ -26,14 +26,14 @@ const mechanicalLeadership = [
 const chassisTeam = [
   {
     name: 'Joe Dalton',
-    position: 'Chassis Subsystem',
+    position: 'Chassis Subsystem Lead',
     major: 'MAE',
     year: '2027',
     image:'/team/joseph-dalton.jpg'
   },
   {
     name: 'Jackson Skagen',
-    position: 'Chassis Subsystem',
+    position: 'Chassis Subsystem Lead',
     major: 'MAE',
     year: '2029',
     image: '/team/jackson-skagen.jpg'
@@ -71,7 +71,7 @@ const chassisTeam = [
 const drivetrainTeam = [
   {
     name: 'Emely Benavides',
-    position: 'Drivetrain Subsystem',
+    position: 'Drivetrain Subsystem Lead',
     major: 'MAE',
     year: '2028',
     image: '/team/emely-benavides.jpg'
@@ -109,7 +109,7 @@ const drivetrainTeam = [
 const steeringTeam = [
   {
     name: "Lydia Woodall",
-    position: "Steering Subsystem",
+    position: "Steering Subsystem Lead",
     major: "MAE",
     year: "2028",
     image: "/team/lydia-woodall.jpg"
@@ -169,7 +169,7 @@ const steeringTeam = [
 const suspensionTeam = [
   {
     name: 'Jonathan Wan',
-    position: 'Suspension Subsystem',
+    position: 'Suspension Subsystem Lead',
     major: 'MAE',
     year: '2028',
     image: '/team/jonathan-wan.jpg'
@@ -376,7 +376,7 @@ export default function MechanicalPage() {
             <h2 className="text-3xl font-bold text-white mb-8">Tools & Technologies</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-2xl font-bold text-red-400 mb-2">SolidWorks</div>
+                <div className="text-2xl font-bold text-red-400 mb-2">Inventor</div>
                 <div className="text-gray-300">CAD Design</div>
               </div>
               <div className="text-center">

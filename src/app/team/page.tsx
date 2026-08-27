@@ -125,7 +125,7 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-red-600 mb-2">85</div>
+              <div className="text-4xl font-bold text-red-600 mb-2">68</div>
               <div className="text-gray-300">Total Members</div>
             </div>
             <div className="text-center">

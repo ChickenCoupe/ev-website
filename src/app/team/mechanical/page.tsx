@@ -26,14 +26,14 @@ const mechanicalLeadership = [
 const chassisTeam = [
   {
     name: 'Joe Dalton',
-    position: 'Chassis Subteam Lead',
+    position: 'Chassis Subsystem',
     major: 'MAE',
     year: '2027',
     image:'/team/joseph-dalton.jpg'
   },
   {
     name: 'Jackson Skagen',
-    position: 'Chassis Subteam Lead',
+    position: 'Chassis Subsystem',
     major: 'MAE',
     year: '2029',
     image: '/team/jackson-skagen.jpg'
@@ -71,7 +71,7 @@ const chassisTeam = [
 const drivetrainTeam = [
   {
     name: 'Emely Benavides',
-    position: 'Drivetrain Subteam Lead',
+    position: 'Drivetrain Subsystem',
     major: 'MAE',
     year: '2028',
     image: '/team/emely-benavides.jpg'
@@ -109,7 +109,7 @@ const drivetrainTeam = [
 const steeringTeam = [
   {
     name: "Lydia Woodall",
-    position: "Steering Subteam Lead",
+    position: "Steering Subsystem",
     major: "MAE",
     year: "2028",
     image: "/team/lydia-woodall.jpg"
@@ -169,7 +169,7 @@ const steeringTeam = [
 const suspensionTeam = [
   {
     name: 'Jonathan Wan',
-    position: 'Suspension Subteam Lead',
+    position: 'Suspension Subsystem',
     major: 'MAE',
     year: '2028',
     image: '/team/jonathan-wan.jpg'

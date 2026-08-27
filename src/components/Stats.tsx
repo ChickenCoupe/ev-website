@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 
 const stats = [
   { value: 10, suffix: '+', label: 'majors' },
-  { value: 85, suffix: '', label: 'members' },
+  { value: 65, suffix: '+', label: 'members' },
   { value: 5, suffix: '', label: 'subteams' },
   { value: 50, suffix: '%', label: 'women' },
 ]

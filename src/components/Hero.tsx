@@ -3,7 +3,7 @@ import ActionLink from '@/components/site/ActionLink'
 
 export default function Hero() {
   return (
-    <section className="relative isolate flex min-h-[100dvh] items-center overflow-hidden bg-[#b31b1b] pt-[7.5rem] text-white">
+    <section className="relative isolate flex min-h-[100dvh] items-center overflow-hidden bg-[#780b0b] pt-[7.5rem] text-white">
       <div
         className="absolute inset-0 opacity-60"
         aria-hidden="true"
@@ -23,7 +23,7 @@ export default function Hero() {
               Apply to CEV
             </ActionLink>
             <ActionLink href="/team" variant="ghost">
-              Meet the crew
+              Meet the Crew
             </ActionLink>
           </div>
         </div>

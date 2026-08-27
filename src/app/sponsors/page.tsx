@@ -162,7 +162,7 @@ const sponsorshipTiers = [
 
 const SponsorCard = ({ sponsor, index }: { sponsor: typeof sponsors[0], index: number }) => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
+    initial={false}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
     viewport={{ once: true }}
@@ -190,7 +190,7 @@ export default function Sponsors() {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-6"
@@ -198,7 +198,7 @@ export default function Sponsors() {
             <h1 className="text-5xl font-bold">Our Sponsors</h1>
           </motion.div>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-red-100 max-w-3xl mx-auto"
@@ -212,7 +212,7 @@ export default function Sponsors() {
       <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
@@ -238,7 +238,7 @@ export default function Sponsors() {
       {/* <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -285,7 +285,7 @@ export default function Sponsors() {
       <section className="py-16 bg-gradient-to-r from-gray-900 to-red-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}

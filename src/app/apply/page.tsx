@@ -5,6 +5,7 @@ import { Users, Code, Wrench, Zap, BarChart, Cog, Bot, Briefcase } from 'lucide-
 import Image from 'next/image';
 import Footer from '@/components/Footer'
 import { parseCsv } from '@/lib/csv'
+import Reveal from '@/components/site/Reveal'
 
 const photoPath = (name: string) => {
   const photos: Record<string, string> = {
@@ -164,16 +165,16 @@ export default function Apply() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <Reveal className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h1 className="mb-6 text-4xl font-bold md:text-5xl">Join CEV Today!</h1>
           <p className="mx-auto max-w-4xl text-xl text-gray-100 md:text-2xl">
             Ready to build the future of sustainable transportation? Work on the mechanical, electrical, autonomy, telemetry, or operations systems that put the vehicle on track.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <div className="result-card mb-16 p-8 text-center">
+        <Reveal hover className="result-card mb-16 p-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-8">Fall 2026 Upperclassmen Applications Now Open!</h2>
           {/* <p className="text-lg text-gray-300 mb-8 text-center">Please note that <b>applications are now <u>closed</u>.</b> We look forward to seeing you apply in the future!</p> */}
           <Link
@@ -193,20 +194,20 @@ export default function Apply() {
             </Link>
             {' '}with one of our team members!
           </p>
-        </div>
+        </Reveal>
 
         {/* Application Process */}
-        <div className="result-card p-8 mb-16">
+        <Reveal hover className="result-card p-8 mb-16">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Application Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div><h3 className="text-xl font-semibold text-white mb-2">Choose Subteam(s)</h3><p className="text-gray-300">Choose which subteam(s) that you want to apply to.</p></div>
             <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div><h3 className="text-xl font-semibold text-white mb-2">Submit Application</h3><p className="text-gray-300">Complete the online application with your background and interests.</p></div>
             <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div><h3 className="text-xl font-semibold text-white mb-2">Technical Interview</h3><p className="text-gray-300">Showcase your technical skills, and tell us about you!</p></div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Coffee Chats */}
-        <div id="coffee-chats" className="result-card coffee-chat-section mb-16 p-8 scroll-mt-24">
+        <Reveal hover className="result-card coffee-chat-section mb-16 p-8 scroll-mt-24">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Coffee Chats</h2>
           <div className="space-y-6">
             {coffeeChats.map((chat) => (
@@ -218,7 +219,13 @@ export default function Apply() {
                       <CoffeeChatSubteamIcon name={chat.Name} subteam={chat.Subteam} />
                       <div>
                         <h3 className="text-xl font-bold text-white">{chat.Name}</h3>
-                        <p className="text-red-400">{chat.Role}</p>
+                        <p className="text-red-400">
+                          {chat.Name === 'Jaiden Grimminck'
+                            ? 'Autonomy, Simulation Subsystem Lead'
+                            : chat.Subteam === 'Mechanical' && chat.Role.includes('Subsystem Lead')
+                              ? `Mechanical, ${chat.Role}`
+                              : chat.Role}
+                        </p>
                       </div>
                     </div>
                     {chat['Google Calendar Link'] && (
@@ -269,7 +276,7 @@ export default function Apply() {
               </tbody>
             </table>
           </div>
-        </div>
+        </Reveal>
 
         {/* Application Process */}
         <div className="hidden bg-gray-800 rounded-2xl p-8 mb-16 border border-gray-700">

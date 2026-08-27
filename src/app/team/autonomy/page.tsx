@@ -51,7 +51,7 @@ const autonomyTeam = [
   },
   {
     name: 'Utku Melemetci',
-    position: 'Autonomy Member',
+    position: 'Senior Advisor',
     major: 'CS',
     year: '2027',
     image: '/team/utku-melemetci.jpg'
@@ -72,7 +72,7 @@ const autonomyTeam = [
   },
   {
     name: 'Sidharth Rao',
-    position: 'Autonomy Advisor',
+    position: 'Senior Advisor',
     major: 'CS/ECE',
     year: '2027',
     image: '/team/sidharth-rao.jpg'
@@ -92,7 +92,8 @@ const sortTeamMembers = <T extends { name: string; year: string }>(members: T[])
 const autonomyLeads = sortTeamMembers(autonomyTeam.filter((member) => member.position.includes('Lead')));
 const autonomyRegularMembers = autonomyTeam.filter((member) => !member.position.includes('Lead') && !member.position.includes('Advisor'));
 const autonomyAdvisors = autonomyTeam.filter((member) => member.position.includes('Advisor'));
-const autonomyMembers = [...sortTeamMembers(autonomyRegularMembers), ...sortTeamMembers(autonomyAdvisors)];
+const autonomyMembers = sortTeamMembers(autonomyRegularMembers);
+const seniorAdvisors = sortTeamMembers(autonomyAdvisors);
 
 // Team member card component
 const TeamMemberCard = ({ member, index }: { member: typeof autonomyTeam[0], index: number }) => (
@@ -257,6 +258,22 @@ export default function AutonomyTeam() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {autonomyMembers.map((member, index) => (
               <TeamMemberCard key={member.name} member={member} index={index + autonomyLeads.length} />
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-16 mb-8 text-center"
+          >
+            <h3 className="text-2xl font-bold text-white mb-2">Senior Advisors</h3>
+          </motion.div>
+
+          <div className="flex flex-wrap justify-center gap-8">
+            {seniorAdvisors.map((member, index) => (
+              <TeamMemberCard key={member.name} member={member} index={index + autonomyLeads.length + autonomyMembers.length} />
             ))}
           </div>
         </div>

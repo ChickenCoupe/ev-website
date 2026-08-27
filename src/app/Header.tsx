@@ -9,7 +9,6 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [supportsBackdrop, setSupportsBackdrop] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -28,13 +27,6 @@ export default function Header() {
     
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 24);
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const isActive = (href: string) => {
@@ -99,18 +91,26 @@ export default function Header() {
             alignItems: 'center',
             justifyContent: 'space-between',
             padding: '0.75rem 2rem',
-            background: isScrolled ? 'linear-gradient(to bottom, rgba(3, 7, 18, 0.3), rgba(3, 7, 18, 0))' : 'transparent',
-            backdropFilter: isScrolled ? 'blur(12px)' : 'none',
-            WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none',
-            border: 'none',
+            background: 'transparent',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+            borderBottom: 'none',
             boxShadow: 'none',
             borderRadius: 0,
-            maskImage: isScrolled ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)' : 'none',
-            WebkitMaskImage: isScrolled ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)' : 'none',
+            maskImage: 'none',
+            WebkitMaskImage: 'none',
             overflow: 'visible'
           }}
         >
-          <div className="w-full flex items-center justify-between">
+          <div
+            className="pointer-events-none absolute inset-0 backdrop-blur-[6px]"
+            aria-hidden="true"
+            style={{
+              maskImage: 'linear-gradient(to bottom, black 0%, black 42%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 42%, transparent 100%)',
+            }}
+          />
+          <div className="relative z-10 w-full flex items-center justify-between">
             <nav className="w-full flex items-center gap-6">
               <Link href="/" className="brand-link mr-auto flex items-center justify-center" aria-label="Home">
                 <div className="relative flex items-center justify-center" style={{ width: '270px', height: '60px' }}>
@@ -241,17 +241,25 @@ export default function Header() {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '0.75rem 1.5rem',
-              background: isScrolled ? 'linear-gradient(to bottom, rgba(3, 7, 18, 0.3), rgba(3, 7, 18, 0))' : 'transparent',
-              backdropFilter: isScrolled ? 'blur(12px)' : 'none',
-              WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none',
+              background: 'transparent',
+              backdropFilter: 'none',
+              WebkitBackdropFilter: 'none',
               border: 'none',
               boxShadow: 'none',
               borderRadius: '50px',
-              maskImage: isScrolled ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)' : 'none',
-              WebkitMaskImage: isScrolled ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)' : 'none'
+              maskImage: 'none',
+              WebkitMaskImage: 'none'
             }}
           >
-            <div className="flex items-center justify-between w-full">
+            <div
+              className="pointer-events-none absolute inset-0 rounded-[50px] backdrop-blur-[6px]"
+              aria-hidden="true"
+              style={{
+                maskImage: 'linear-gradient(to bottom, black 0%, black 42%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 42%, transparent 100%)',
+              }}
+            />
+            <div className="relative z-10 flex items-center justify-between w-full">
               <Link 
                 href="/" 
                 className="flex items-center"

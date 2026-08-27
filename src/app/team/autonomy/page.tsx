@@ -31,7 +31,7 @@ const autonomyTeam = [
   {
     name: 'Ethan Berkowitz',
     position: 'Autonomy Member',
-    major: 'ECE/CS',
+    major: 'CS/ECE',
     year: '2029',
     image: '/team/ethan-berkowitz.jpg'
   },
@@ -69,6 +69,13 @@ const autonomyTeam = [
     major: 'CS/ORIE',
     year: '2029',
     image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Sameer Mehta',
+    position: 'Autonomy Member',
+    major: 'CS',
+    year: '2028',
+    image: '/team/sameer-mehta.jpg'
   },
   {
     name: 'Sidharth Rao',

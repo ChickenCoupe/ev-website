@@ -123,12 +123,25 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            ©2026 by Cornell Electric Vehicles (CEV) Project Team. All rights reserved.
+        <div className="border-t border-gray-800 pt-8 flex flex-col gap-4 md:flex-row md:items-start md:justify-between md:gap-8">
+          <div className="text-gray-400 text-sm md:shrink-0">
+            <div>©2026 by Cornell Electric Vehicles (CEV) Project Team.</div>
+            <div>All rights reserved.</div>
           </div>
-          <div className="text-gray-400 text-sm">
-            Registered Student Organization of Cornell University
+          <div className="text-gray-400 text-sm md:text-right">
+            <div>Registered Student Organization of Cornell University</div>
+            <div>
+              With a founding principle of “... any person ... any study,” Cornell is an{' '}
+              <Link
+                href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment-opportunity-statement"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white transition-colors"
+              >
+                equal opportunity employer and educator
+              </Link>
+              .
+            </div>
           </div>
         </div>
       </div>

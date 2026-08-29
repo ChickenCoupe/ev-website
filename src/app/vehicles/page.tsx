@@ -9,7 +9,7 @@ import Footer from '@/components/Footer'
 import { proofPoints, vehicleTimeline } from '@/data/site'
 
 const specs = [
-  { label: 'Weight', value: '75 kg' },
+  { label: 'Weight', value: '150 kg' },
   { label: 'Chassis', value: 'Carbon Fiber Monocoque' },
   { label: 'Battery', value: '20000 mAH 6S' },
   { label: 'Motor', value: '48V BLDC' },

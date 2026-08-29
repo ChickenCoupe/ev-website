@@ -1,51 +1,12 @@
 import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
-import { Users, Code, Wrench, Zap, BarChart, Cog, Bot, Briefcase } from 'lucide-react'
+import { Code, Wrench, Zap, BarChart, Users } from 'lucide-react'
 import Image from 'next/image';
+import CoffeeChatsCarousel from '@/components/CoffeeChatsCarousel'
 import Footer from '@/components/Footer'
 import { parseCsv } from '@/lib/csv'
 import Reveal from '@/components/site/Reveal'
-
-const photoPath = (name: string) => {
-  const photos: Record<string, string> = {
-    'Zachary Feldman': '/team/zach-feldman.jpg',
-    'Cam Mazzacane': '/team/cam-mezzacane.jpg',
-  }
-  return photos[name] ?? `/team/${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg`
-}
-
-const coffeeChatSubteam = (name: string, subteam: string) => {
-  const subteamOverrides: Record<string, string> = {
-    'Zachary Feldman': 'Mechanical',
-    'Daniel Sorokin': 'Telemetry',
-    'Ruth Taddesse': 'Telemetry',
-  }
-
-  return subteamOverrides[name] ?? subteam
-}
-
-const CoffeeChatSubteamIcon = ({ name, subteam }: { name: string, subteam: string }) => {
-  const assignedSubteam = coffeeChatSubteam(name, subteam)
-  const icons = {
-    Mechanical: Cog,
-    Electrical: Zap,
-    Telemetry: Code,
-    Autonomy: Bot,
-    Operations: Briefcase,
-  }
-  const Icon = icons[assignedSubteam as keyof typeof icons] ?? Users
-
-  return (
-    <span
-      className="inline-flex shrink-0"
-      title={`${assignedSubteam} subteam`}
-      aria-label={`${assignedSubteam} subteam`}
-    >
-      <Icon className="h-10 w-10 text-red-400" aria-hidden="true" />
-    </span>
-  )
-}
 
 
 export default function Apply() {
@@ -151,6 +112,19 @@ export default function Apply() {
           </p>
         </Reveal>
 
+        <Reveal hover className="result-card mb-16 p-8 text-center">
+          <h2 className="mb-6 text-3xl font-bold text-white">Fall 2026 Application Interest Form</h2>
+          <Link
+            href="https://docs.google.com/forms/d/1O_qhDbE15cuPkU3foFVn20y4mv15s3UCOPEVB_eSnMQ/edit"
+            className="mb-8 inline-block bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-red-500"
+          >
+            Interest Form Link
+          </Link>
+          <p className="mx-auto max-w-2xl text-lg text-gray-300">
+            Want email updates on our info sessions, application deadlines, and recruitment timeline? Fill out our interest form!
+          </p>
+        </Reveal>
+
         {/* Application Process */}
         <Reveal hover className="result-card p-8 mb-16">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Application Process</h2>
@@ -162,38 +136,9 @@ export default function Apply() {
         </Reveal>
 
         {/* Coffee Chats */}
-        <Reveal hover className="result-card coffee-chat-section mb-16 p-8 scroll-mt-24">
-          <h2 className="text-3xl font-bold text-white mb-6 text-center">Coffee Chats</h2>
-          <div className="space-y-6">
-            {coffeeChats.map((chat) => (
-              <div key={`profile-${chat.Name}`} className="flex flex-row items-start gap-6">
-                <Image src={photoPath(chat.Name)} alt={chat.Name} width={144} height={144} className="h-36 w-36 shrink-0 rounded-lg object-cover" />
-                <div className="result-card min-w-0 flex-1 p-6">
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                    <div className="flex items-center gap-4">
-                      <CoffeeChatSubteamIcon name={chat.Name} subteam={chat.Subteam} />
-                      <div>
-                        <h3 className="text-xl font-bold text-white">{chat.Name}</h3>
-                        <p className="text-red-400">
-                          {chat.Name === 'Jaiden Grimminck'
-                            ? 'Autonomy, Simulation Subsystem Lead'
-                            : chat.Subteam === 'Mechanical' && chat.Role.includes('Subsystem Lead')
-                              ? `Mechanical, ${chat.Role}`
-                              : chat.Role}
-                        </p>
-                      </div>
-                    </div>
-                    {chat['Google Calendar Link'] && (
-                      <a href={chat['Google Calendar Link']} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 rounded-lg bg-red-600 px-5 py-2 font-semibold text-white hover:bg-red-500">
-                        Book
-                      </a>
-                    )}
-                  </div>
-                  <p className="mt-4 text-gray-300">{chat.Bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <Reveal hover className="result-card coffee-chat-section mb-16 scroll-mt-24 p-4 sm:p-8">
+          <h2 className="mb-6 text-center text-2xl font-bold text-white sm:text-3xl">Coffee Chats</h2>
+          <CoffeeChatsCarousel chats={coffeeChats} />
           <div className="hidden">
             <table className="w-full text-left">
               <thead>

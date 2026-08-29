@@ -115,7 +115,7 @@ export default function Apply() {
         <Reveal hover className="result-card mb-16 p-8 text-center">
           <h2 className="mb-6 text-3xl font-bold text-white">Fall 2026 Application Interest Form</h2>
           <Link
-            href="https://docs.google.com/forms/d/1O_qhDbE15cuPkU3foFVn20y4mv15s3UCOPEVB_eSnMQ/edit"
+            href="https://forms.gle/mp8ho51x8Bp99aa4A"
             className="mb-8 inline-block bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-red-500"
           >
             Interest Form Link

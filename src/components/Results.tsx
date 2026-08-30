@@ -2,7 +2,12 @@
 
 import { motion } from 'framer-motion'
 const results = [
-  { number: '1st Place', title: 'Data & Telemetry', description: 'Recognized for our innovative data collection and optimization strategy.' },
+  {
+    number: '1st Place',
+    title: 'Data & Telemetry',
+    description: 'Recognized for our innovative data collection and optimization strategy.',
+    submissionUrl: 'https://drive.google.com/file/d/1Zrahx10YGaEdIylWsPn1mKpA16MkqxKm/view?usp=sharing',
+  },
   { number: '1.8x', title: 'Efficiency Increase', description: "The urban concept reached 36.98 mi/kWh, almost doubling the previous year's efficiency." },
   { number: '6th Place', title: 'Urban Concept', description: 'Our battery-electric city vehicle passed all inspections and completed three successful runs.' },
 ]
@@ -23,7 +28,22 @@ export default function Results() {
                 <div className="absolute left-0 top-0 h-1 w-full bg-red-600 transition-all group-hover:h-2" />
                 <div className="mb-4 text-4xl font-bold tracking-tight text-red-400 md:text-5xl">{result.number}</div>
                 <h3 className="mb-3 text-xl font-bold text-white">{result.title}</h3>
-                <p className="leading-relaxed text-gray-400">{result.description}</p>
+                <p className="leading-relaxed text-gray-400">
+                  {result.description}
+                  {result.submissionUrl && (
+                    <>
+                      {' '}
+                      <a
+                        href={result.submissionUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold underline underline-offset-4 transition-colors hover:text-gray-200"
+                      >
+                        Read our submission here!
+                      </a>
+                    </>
+                  )}
+                </p>
               </motion.article>
             )
           })}

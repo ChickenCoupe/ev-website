@@ -92,6 +92,7 @@ export default function Apply() {
       <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <Reveal hover className="result-card mb-16 p-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-8">Fall 2026 Upperclassmen Applications Now Open!</h2>
+          <p className="text-lg text-gray-300 mb-8 text-center">Applications are open until <b>Thursday, September 3rd, at 11:59pm</b>.</p>
           {/* <p className="text-lg text-gray-300 mb-8 text-center">Please note that <b>applications are now <u>closed</u>.</b> We look forward to seeing you apply in the future!</p> */}
           <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLSccbMhOsd8ubA3QOC4H1Q3ZRBalmmk0lNqcNneyT-N650SZDg/viewform?usp=sharing&ouid=102160163982044776728"
@@ -110,6 +111,8 @@ export default function Apply() {
             </Link>
             {' '}with one of our team members!
           </p>
+          <br />
+          <p className="text-lg text-gray-300 mb-8 text-center"><b>Freshmen/transfer students:</b> Applications will be available soon - fill out the interest form below to stay updated!</p>
         </Reveal>
 
         <Reveal hover className="result-card mb-16 p-8 text-center">
@@ -137,7 +140,7 @@ export default function Apply() {
 
         {/* Coffee Chats */}
         <Reveal hover className="result-card coffee-chat-section mb-16 scroll-mt-24 p-4 sm:p-8">
-          <h2 className="mb-6 text-center text-2xl font-bold text-white sm:text-3xl">Coffee Chats</h2>
+          <h2 className="mb-6 text-center text-2xl font-bold text-white sm:text-3xl" id="coffee-chats">Coffee Chats</h2>
           <CoffeeChatsCarousel chats={coffeeChats} />
           <div className="hidden">
             <table className="w-full text-left">

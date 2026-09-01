@@ -133,7 +133,7 @@ export default function TeamPage() {
               <div className="text-gray-300">Specialized Teams</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-red-600 mb-2">10+</div>
+              <div className="text-4xl font-bold text-red-600 mb-2">7</div>
               <div className="text-gray-300">Academic Majors</div>
             </div>
           </div>

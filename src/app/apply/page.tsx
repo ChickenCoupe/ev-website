@@ -91,15 +91,10 @@ export default function Apply() {
 
       <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <Reveal hover className="result-card mb-16 p-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-8">Fall 2026 Upperclassmen Applications Now Open!</h2>
-          <p className="text-lg text-gray-300 mb-8 text-center">Applications are open until <b>Thursday, September 3rd, at 11:59pm</b>.</p>
-          {/* <p className="text-lg text-gray-300 mb-8 text-center">Please note that <b>applications are now <u>closed</u>.</b> We look forward to seeing you apply in the future!</p> */}
-          <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLSccbMhOsd8ubA3QOC4H1Q3ZRBalmmk0lNqcNneyT-N650SZDg/viewform?usp=sharing&ouid=102160163982044776728"
-            className="inline-block rounded-lg bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-red-500 mb-8"
-          >
-            Application Form Link
-          </Link>
+          <h2 className="text-3xl font-bold text-white mb-8">Fall 2026 Freshmen/Transfer Applications</h2>
+          <p className="text-lg text-gray-300 mb-8 text-center">
+            Applications will be available soon - fill out the interest form below to stay updated!
+          </p>
           <p className="text-lg text-gray-300">Have any questions about our team or our current endeavors? Check out our{' '}
             <Link href="/team" className="font-semibold text-red-400 underline hover:text-red-300">different subteams</Link>,{' '}
             <Link href="/vehicles" className="font-semibold text-red-400 underline hover:text-red-300">vehicles</Link>, or{' '}
@@ -111,8 +106,6 @@ export default function Apply() {
             </Link>
             {' '}with one of our team members!
           </p>
-          <br />
-          <p className="text-lg text-gray-300 mb-8 text-center"><b>Freshmen/transfer students:</b> Applications will be available soon - fill out the interest form below to stay updated!</p>
         </Reveal>
 
         <Reveal hover className="result-card mb-16 p-8 text-center">

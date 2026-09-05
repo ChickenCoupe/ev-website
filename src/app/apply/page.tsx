@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
-import { Code, Wrench, Zap, BarChart, Users } from 'lucide-react'
+import { CalendarDays, Code, Wrench, Zap, BarChart, Users } from 'lucide-react'
 import Image from 'next/image';
 import CoffeeChatsCarousel from '@/components/CoffeeChatsCarousel'
 import Footer from '@/components/Footer'
@@ -95,9 +95,15 @@ export default function Apply() {
           <p className="text-lg text-gray-300 mb-8 text-center">
             Applications will be available soon - fill out the interest form below to stay updated!
           </p>
-          <p className="text-lg text-gray-300">Have any questions about our team or our current endeavors? Check out our{' '}
-            <Link href="/team" className="font-semibold text-red-400 underline hover:text-red-300">different subteams</Link>,{' '}
-            <Link href="/vehicles" className="font-semibold text-red-400 underline hover:text-red-300">vehicles</Link>, or{' '}
+          <p className="text-lg text-gray-300">
+            Have any questions about our team or our current endeavors? Come to one of our{' '}
+            <Link
+              href="#information-sessions"
+              className="font-semibold text-red-400 underline hover:text-red-300"
+            >
+              information sessions
+            </Link>
+            {' '}or{' '}
             <Link
               href="#coffee-chats"
               className="font-semibold text-red-400 underline hover:text-red-300"
@@ -119,6 +125,60 @@ export default function Apply() {
           <p className="mx-auto max-w-2xl text-lg text-gray-300">
             Want email updates on our info sessions, application deadlines, and recruitment timeline? Fill out our interest form!
           </p>
+        </Reveal>
+
+        <Reveal hover className="result-card mb-16 p-8">
+          <h2 className="mb-4 scroll-mt-24 text-center text-3xl font-bold text-white" id="information-sessions">Fall 2026 Information Sessions</h2>
+          <p className="mx-auto mb-10 max-w-3xl text-center text-lg text-gray-300">
+            Interested in learning more about all of our subteams and how they work together throughout the vehicle development process? Join us at one of our info sessions to hear from members across the team and ask any questions you may have!
+          </p>
+          <div className="mx-auto max-w-3xl">
+            <div className="relative space-y-10 md:space-y-12">
+              <div className="absolute bottom-8 left-1/2 top-8 hidden w-px -translate-x-1/2 bg-red-900/80 md:block" />
+
+              <div className="relative grid items-center gap-4 md:grid-cols-[1fr_auto_1fr] md:gap-6">
+                <div className="flex justify-center md:justify-end">
+                  <div className="inline-flex items-center gap-2 border border-red-800 bg-red-700 px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-white shadow-lg shadow-red-950/30">
+                    <CalendarDays className="h-4 w-4" />
+                    Thu 9/10
+                  </div>
+                </div>
+                <div className="hidden h-4 w-4 rounded-full border-4 border-gray-950 bg-red-500 shadow-[0_0_0_4px_rgba(127,29,29,0.35)] md:block" />
+                <div className="border border-red-900/70 bg-gray-950 p-5 text-center shadow-lg shadow-black/20 md:text-left">
+                  <h3 className="mb-2 text-xl font-bold text-white">Information Session 1</h3>
+                  <p className="text-base font-semibold text-red-300">Olin 255 at 5pm</p>
+                </div>
+              </div>
+
+              <div className="relative grid items-center gap-4 md:grid-cols-[1fr_auto_1fr] md:gap-6">
+                <div className="order-2 border border-red-900/70 bg-gray-950 p-5 text-center shadow-lg shadow-black/20 md:order-none md:text-right">
+                  <h3 className="mb-2 text-xl font-bold text-white">Information Session 2</h3>
+                  <p className="text-base font-semibold text-red-300">Room and Time TBD</p>
+                </div>
+                <div className="hidden h-4 w-4 rounded-full border-4 border-gray-950 bg-red-700 shadow-[0_0_0_4px_rgba(127,29,29,0.35)] md:block" />
+                <div className="order-1 flex justify-center md:order-none md:justify-start">
+                  <div className="inline-flex items-center gap-2 border border-red-800 bg-red-700 px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-white shadow-lg shadow-red-950/30">
+                    <CalendarDays className="h-4 w-4" />
+                    Date TBD
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative grid items-center gap-4 md:grid-cols-[1fr_auto_1fr] md:gap-6">
+                <div className="flex justify-center md:justify-end">
+                  <div className="inline-flex items-center gap-2 border border-red-800 bg-red-700 px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-white shadow-lg shadow-red-950/30">
+                    <CalendarDays className="h-4 w-4" />
+                    Date TBD
+                  </div>
+                </div>
+                <div className="hidden h-4 w-4 rounded-full border-4 border-gray-950 bg-red-700 shadow-[0_0_0_4px_rgba(127,29,29,0.35)] md:block" />
+                <div className="border border-red-900/70 bg-gray-950 p-5 text-center shadow-lg shadow-black/20 md:text-left">
+                  <h3 className="mb-2 text-xl font-bold text-white">Information Session 3</h3>
+                  <p className="text-base font-semibold text-red-300">Room and Time TBD</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </Reveal>
 
         {/* Application Process */}

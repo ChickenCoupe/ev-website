@@ -93,8 +93,14 @@ export default function Apply() {
         <Reveal hover className="result-card mb-16 p-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-8">Fall 2026 Freshmen/Transfer Applications</h2>
           <p className="text-lg text-gray-300 mb-8 text-center">
-            Applications will be available soon - fill out the interest form below to stay updated!
+            Applications will be available soon! Fill out our interest form to stay updated on info sessions, application deadlines, and our recruitment timeline.
           </p>
+          <Link
+            href="https://forms.gle/mp8ho51x8Bp99aa4A"
+            className="mb-8 inline-block bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-red-500"
+          >
+            Interest Form Link
+          </Link>
           <p className="text-lg text-gray-300">
             Have any questions about our team or our current endeavors? Come to one of our{' '}
             <Link
@@ -111,19 +117,6 @@ export default function Apply() {
               coffee chat
             </Link>
             {' '}with one of our team members!
-          </p>
-        </Reveal>
-
-        <Reveal hover className="result-card mb-16 p-8 text-center">
-          <h2 className="mb-6 text-3xl font-bold text-white">Fall 2026 Application Interest Form</h2>
-          <Link
-            href="https://forms.gle/mp8ho51x8Bp99aa4A"
-            className="mb-8 inline-block bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-red-500"
-          >
-            Interest Form Link
-          </Link>
-          <p className="mx-auto max-w-2xl text-lg text-gray-300">
-            Want email updates on our info sessions, application deadlines, and recruitment timeline? Fill out our interest form!
           </p>
         </Reveal>
 

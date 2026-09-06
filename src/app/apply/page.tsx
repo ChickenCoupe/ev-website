@@ -104,7 +104,7 @@ export default function Apply() {
             {' '}as well!
           </p>
           <Link
-            href="https://docs.google.com/forms/d/129TzjCE_vF2nxsen0eix9gznQUtcSaHjUDFqmO_Zdvg/edit"
+            href="https://forms.gle/X3YkB8DQgUzqcMHd6"
             className="mb-8 inline-block bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-red-500"
           >
             Application Form

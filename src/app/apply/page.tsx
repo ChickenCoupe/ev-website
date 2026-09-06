@@ -93,14 +93,32 @@ export default function Apply() {
         <Reveal hover className="result-card mb-16 p-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-8">Fall 2026 Freshmen/Transfer Applications</h2>
           <p className="text-lg text-gray-300 mb-8 text-center">
-            Applications will be available soon! Fill out our interest form to stay updated on info sessions, application deadlines, and our recruitment timeline.
+            Applications are open until <b>Thursday, October 15th, at 11:59pm</b>.
+            Make sure to fill out the{' '} 
+            <Link
+              href="https://app.smartsheet.com/b/form/019ed1ab68477bf8a753f7b1849fd1ab"
+              className="font-semibold text-red-400 underline hover:text-red-300"
+            >
+              General Project Team Application
+            </Link>
+            {' '}as well!
           </p>
           <Link
-            href="https://forms.gle/mp8ho51x8Bp99aa4A"
+            href="https://docs.google.com/forms/d/129TzjCE_vF2nxsen0eix9gznQUtcSaHjUDFqmO_Zdvg/edit"
             className="mb-8 inline-block bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-red-500"
           >
-            Interest Form Link
+            Application Form
           </Link>
+          <p className="text-lg text-gray-300 mb-8 text-center">
+            Make sure to fill out our{' '}
+            <Link
+            href="https://forms.gle/mp8ho51x8Bp99aa4A"
+            className="font-semibold text-red-400 underline hover:text-red-300"
+          >
+            interest form
+          </Link>
+          {' '}to stay updated on info sessions, application deadlines, and our recruitment timeline.
+          </p>
           <p className="text-lg text-gray-300">
             Have any questions about our team or our current endeavors? Come to one of our{' '}
             <Link

@@ -127,7 +127,7 @@ const steeringTeam = [
     position: 'Steering Member',
     major: 'MAE',
     year: '2028',
-    image:'/team/placeholder.svg'
+    image: '/team/olivia-mei.jpg'
   },
   {
     name: 'Ashley Johnny',

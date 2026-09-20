@@ -97,7 +97,7 @@ const electricalTeam = [
     position: 'Electrical Member',
     major: 'ECE',
     year: '2029',
-    image: '/team/placeholder.svg'
+    image: '/team/lucia-liu.jpg'
   },
   {
     name: 'Nora Kingwell',

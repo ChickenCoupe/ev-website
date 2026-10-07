@@ -112,9 +112,16 @@ const sponsors = [
     logo: '/sponsors/korad_logo.png',
     website: "https://www.koradtechnology.com/"
   },
-  {name: "TexTech",
+  {
+    name: "TexTech",
     logo: '/sponsors/tex-logo.png',
-    website: "https://www.textech.co.jp/en/"}
+    website: "https://www.textech.co.jp/en/"
+  },
+  {
+    name: "CCMI",
+    logo: '/sponsors/ccmi-logo.jpg',
+    website: "https://www.ccmiplastics.com/"
+  }
 ];
 
 const SponsorCard = ({ sponsor, index }: { sponsor: typeof sponsors[0], index: number }) => (

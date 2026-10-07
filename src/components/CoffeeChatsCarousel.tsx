@@ -9,7 +9,7 @@ const photoPath = (name: string) => {
   const photos: Record<string, string> = {
     'Zachary Feldman': '/team/zach-feldman.jpg',
     'Cam Mazzacane': '/team/cam-mezzacane.jpg',
-    'Lucia Liu': '/team/placeholder.svg',
+    'Lucia Liu': '/team/lucia-liu.jpg',
   }
   return photos[name] ?? `/team/${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg`
 }

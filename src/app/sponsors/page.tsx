@@ -8,54 +8,9 @@ import Link from 'next/link'
 
 const sponsors = [
   {
-    name: 'TDK',
-    logo: '/sponsors/TDK_LOGO.png',
-    website: 'https://www.tdk.com/en/index.html'
-  },
-  {
-    name: "NVIDIA",
-    logo: "/sponsors/nvidia-logo.png", // Replace with actual sponsor logo
-    website: "https://www.nvidia.com/en-us/",
-  },
-  {
-    name: "Second Order Effects",
-    logo: "/sponsors/soe-logo.webp", // Replace with actual sponsor logo
-    website: "https://soeffects.com/",
-  },
-  {
-    name: "Lutron",
-    logo: "/sponsors/lutron-logo.png", // Replace with actual sponsor logo
-    website: "https://www.lutron.com/us/en",
-  },
-  {
-    name: "Altium",
-    logo: "/sponsors/altium-logo.avif", // Replace with actual sponsor logo
-    website: "https://www.altium.com/",
-  },
-  {
-    name: "Penske",
-    logo: "/sponsors/penske-logo.svg",
-    website: "https://www.gopenske.com/",
-  },
-  {
-    name: "Elegoo",
-    logo: "/sponsors/elegoo-logo.avif",
-    website: "https://us.elegoo.com/"
-  },
-  {
-    name: "Rock West Composites",
-    logo: "/sponsors/rockwest-logo.avif",
-    website: "https://www.rockwestcomposites.com/",
-  },
-  {
-    name: "Easy Composites",
-    logo: "/sponsors/easycomp-logo.png",
-    website: "https://www.easycomposites.co.uk/"
-  },
-  {
-    name: "Rivian",
-    logo: "/sponsors/rivian-logo.avif",
-    website: "https://rivian.com/"
+    name: "Aircat",
+    logo: "/sponsors/aircat-logo.svg",
+    website: "https://aircat.com"
   },
   {
     name: "Altair",
@@ -63,9 +18,39 @@ const sponsors = [
     website: "https://altair.com/"
   },
   {
+    name: "Altium",
+    logo: "/sponsors/altium-logo.avif",
+    website: "https://www.altium.com/",
+  },
+  {
+    name: "ANSYS",
+    logo: "/sponsors/ansys-logo.svg",
+    website: "https://www.ansys.com/"
+  },
+  {
+    name: "CCMI",
+    logo: '/sponsors/ccmi-logo.jpg',
+    website: "https://www.ccmiplastics.com/"
+  },
+  {
+    name: "Celsius",
+    logo: "/sponsors/celsius-logo.avif",
+    website: "https://www.celsius.com/"
+  },
+  {
     name: "Dragon Plate",
     logo: "/sponsors/dragonplate-logo.webp",
     website: "https://dragonplate.com/"
+  },
+  {
+    name: "Easy Composites",
+    logo: "/sponsors/easycomp-logo.png",
+    website: "https://www.easycomposites.co.uk/"
+  },
+  {
+    name: "Elegoo",
+    logo: "/sponsors/elegoo-logo.avif",
+    website: "https://us.elegoo.com/"
   },
   {
     name: "FixPosition",
@@ -78,34 +63,9 @@ const sponsors = [
     website: "https://hakkousa.com/"
   },
   {
-    name: "Celsius",
-    logo: "/sponsors/celsius-logo.avif",
-    website: "https://www.celsius.com/"
-  },
-  {
-    name: "ANSYS",
-    logo: "/sponsors/ansys-logo.svg",
-    website: "https://www.ansys.com/"
-  },
-  {
-    name: "OSH Park",
-    logo: "/sponsors/oshpark-logo.avif",
-    website: "https://oshpark.com/"
-  },
-  {
     name: "JBC",
     logo: "/sponsors/jbc-logo.svg",
-    website: "https://jbctools.com"
-  },
-  {
-    name: "Aircat",
-    logo: "/sponsors/aircat-logo.svg",
-    website: "https://aircat.com"
-  },
-  {
-    name: "Kurtz Ersa",
-    logo: "/sponsors/kurtz-logo.avif",
-    website: "https://kurtzersa.com"
+    website: "https://www.jbctools.com/"
   },
   {
     name: "Korad",
@@ -113,14 +73,59 @@ const sponsors = [
     website: "https://www.koradtechnology.com/"
   },
   {
+    name: "Kurtz Ersa",
+    logo: "/sponsors/kurtz-logo.avif",
+    website: "https://kurtzersa.com"
+  },
+  {
+    name: "Lutron",
+    logo: "/sponsors/lutron-logo.png",
+    website: "https://www.lutron.com/us/en",
+  },
+  {
+    name: "NVIDIA",
+    logo: "/sponsors/nvidia-logo.png",
+    website: "https://www.nvidia.com/en-us/",
+  },
+  {
+    name: "OSH Park",
+    logo: "/sponsors/oshpark-logo.avif",
+    website: "https://oshpark.com/"
+  },
+  {
+    name: "Penske",
+    logo: "/sponsors/penske-logo.svg",
+    website: "https://www.gopenske.com/",
+  },
+  {
+    name: "Portwell",
+    logo: "/sponsors/portwell-logo.png",
+    website: "https://portwell.com/"
+  },
+  {
+    name: "Rivian",
+    logo: "/sponsors/rivian-logo.avif",
+    website: "https://rivian.com/"
+  },
+  {
+    name: "Rock West Composites",
+    logo: "/sponsors/rockwest-logo.avif",
+    website: "https://www.rockwestcomposites.com/",
+  },
+  {
+    name: "Second Order Effects",
+    logo: "/sponsors/soe-logo.webp",
+    website: "https://soeffects.com/",
+  },
+  {
+    name: 'TDK',
+    logo: '/sponsors/TDK_LOGO.png',
+    website: 'https://www.tdk.com/en/index.html'
+  },
+  {
     name: "TexTech",
     logo: '/sponsors/tex-logo.png',
     website: "https://www.textech.co.jp/en/"
-  },
-  {
-    name: "CCMI",
-    logo: '/sponsors/ccmi-logo.jpg',
-    website: "https://www.ccmiplastics.com/"
   }
 ];
 
@@ -148,7 +153,6 @@ const SponsorCard = ({ sponsor, index }: { sponsor: typeof sponsors[0], index: n
 export default function Sponsors() {
   return (
     <div className="min-h-screen bg-gray-900">
-      {/* Header */}
       <section className="relative flex min-h-[420px] items-center overflow-hidden py-20 pt-28 text-white">
         <Image src="/sunset-track.jpg" alt="Cornell Electric Vehicles at sunset on track" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-black/60" />
@@ -172,7 +176,6 @@ export default function Sponsors() {
         </div>
       </section>
 
-      {/* Current Sponsors */}
       <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -198,54 +201,7 @@ export default function Sponsors() {
         </div>
       </section>
 
-      {/* Sponsorship Tiers */}
-      {/* <section className="py-16 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={false}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Sponsorship Opportunities
-            </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Partner with us to support the next generation of electric vehicle engineers.
-            </p>
-          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {sponsorshipTiers.map((tier, index) => (
-              <motion.div
-                key={tier.tier}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gray-900 rounded-xl p-6 border border-gray-700"
-              >
-                <div className={`bg-gradient-to-r ${tier.color} rounded-lg p-4 mb-4`}>
-                  <h3 className="text-lg font-bold text-gray-900 text-center">
-                    {tier.tier}
-                  </h3>
-                </div>
-                <ul className="space-y-2">
-                  {tier.benefits.map((benefit, benefitIndex) => (
-                    <li key={benefitIndex} className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-300 text-sm">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-gray-900 to-red-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div

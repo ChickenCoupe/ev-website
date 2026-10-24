@@ -218,10 +218,10 @@ export default function Sponsors() {
               Join our mission to advance electric vehicle technology and support the next generation of engineers.
             </p>
             <a
-              href="https://drive.google.com/file/d/1Q_YE834QOpAB5jCGuT5cxrJBnuHpwlFX/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1MbrvZ2Namo5W8b3noU2IH8jTDkUkvQDJ/view?usp=sharing"
               className="border-white border-3 hover:bg-gray-700 text-white px-8 py-4 rounded-lg text-xl font-semibold transition-all transform hover:scale-105 shadow-lg inline-block mb-8"
             >
-             View our Sponsorship Packet 
+             View our 2026-2027 Sponsorship Packet 
             </a>
             <br/>
             <a

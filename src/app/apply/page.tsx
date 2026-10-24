@@ -91,53 +91,23 @@ export default function Apply() {
 
       <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <Reveal hover className="result-card mb-16 p-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-8">Fall 2026 Freshmen/Transfer Applications</h2>
+          <h2 className="text-3xl font-bold text-white mb-8">2026-2027 Applications</h2>
           <p className="text-lg text-gray-300 mb-8 text-center">
-            Applications are open until <b>Thursday, October 15th, at 11:59pm</b>.
-            Make sure to fill out the{' '} 
-            <Link
-              href="https://app.smartsheet.com/b/form/019ed1ab68477bf8a753f7b1849fd1ab"
-              className="font-semibold text-red-400 underline hover:text-red-300"
-            >
-              General Project Team Application
-            </Link>
-            {' '}as well!
+            Applications for this year <b>closed</b> on Thursday, October 15th, at 11:59pm. Thank you to all who applied!
           </p>
-          <Link
-            href="https://forms.gle/X3YkB8DQgUzqcMHd6"
-            className="mb-8 inline-block bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-red-500"
-          >
-            Application Form
-          </Link>
           <p className="text-lg text-gray-300 mb-8 text-center">
-            Make sure to fill out our{' '}
-            <Link
-            href="https://forms.gle/mp8ho51x8Bp99aa4A"
-            className="font-semibold text-red-400 underline hover:text-red-300"
-          >
-            interest form
-          </Link>
-          {' '}to stay updated on info sessions, application deadlines, and our recruitment timeline.
-          </p>
-          <p className="text-lg text-gray-300">
-            Have any questions about our team or our current endeavors? Come to one of our{' '}
-            <Link
-              href="#information-sessions"
-              className="font-semibold text-red-400 underline hover:text-red-300"
-            >
-              information sessions
-            </Link>
-            {' '}or{' '}
+            Please check back in Fall 2027 when applications reopen - in the meantime, feel free to reach out or schedule a{' '}
             <Link
               href="#coffee-chats"
               className="font-semibold text-red-400 underline hover:text-red-300"
             >
               coffee chat
             </Link>
-            {' '}with one of our team members!
+            {' '}if you have any questions!
           </p>
         </Reveal>
 
+        {/* -- RECRUITING SCHEDULE: bring back in FA26 --
         <Reveal hover className="result-card mb-16 p-8">
           <h2 className="mb-4 scroll-mt-24 text-center text-3xl font-bold text-white" id="information-sessions">Fall 2026 Recruiting Schedule</h2>
           <p className="mx-auto mb-10 max-w-3xl text-center text-lg text-gray-300">
@@ -213,6 +183,7 @@ export default function Apply() {
             </div>
           </div>
         </Reveal>
+        */}
 
         {/* Application Process */}
         <Reveal hover className="result-card p-8 mb-16">
@@ -220,7 +191,7 @@ export default function Apply() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div><h3 className="text-xl font-semibold text-white mb-2">Choose Subteam(s)</h3><p className="text-gray-300">Choose which subteam(s) that you want to apply to.</p></div>
             <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div><h3 className="text-xl font-semibold text-white mb-2">Submit Application</h3><p className="text-gray-300">Complete the online application with your background and interests.</p></div>
-            <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div><h3 className="text-xl font-semibold text-white mb-2">Technical Interview</h3><p className="text-gray-300">Showcase your technical skills, and tell us about you!</p></div>
+            <div className="text-center"><div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div><h3 className="text-xl font-semibold text-white mb-2">Technical Interview</h3><p className="text-gray-300">Showcase your technical skills and tell us about you!</p></div>
           </div>
         </Reveal>
 

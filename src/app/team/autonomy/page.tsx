@@ -91,6 +91,13 @@ const autonomyTeam = [
     year: '2027',
     image: '/team/sidharth-rao.jpg'
   },
+  {
+    name: "Lucas Libshutz",
+    position: "Senior Advisor",
+    major: "MAE",
+    year: "2027",
+    image: "/team/lucas-libshutz.jpg"
+  }
 ]
 
 const sortTeamMembers = <T extends { name: string; year: string }>(members: T[]) =>

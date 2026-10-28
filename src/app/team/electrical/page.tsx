@@ -9,14 +9,14 @@ import Footer from '@/components/Footer'
 const electricalTeam = [
   {
     name: 'Erica Jiang',
-    position: 'Electrical Subteam Lead',
+    position: 'Electrical Lead',
     major: 'ECE',
     year: '2028',
     image: '/team/erica-jiang.jpg'
   },
   {
     name: 'Kellen Yu',
-    position: 'Electrical Subteam Lead',
+    position: 'Electrical Lead',
     major: 'ECE',
     year: '2029',
     image: '/team/kellen-yu.jpg'

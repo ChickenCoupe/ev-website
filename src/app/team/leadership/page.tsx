@@ -34,15 +34,6 @@ const leadershipTeam = [
     linkedin: 'https://linkedin.com/in/ruth-taddesse', 
   },
   {
-    name: 'Lucas Libshutz',
-    position: 'Autonomy Lead',
-    major: 'MAE',
-    year: '2027',
-    image: '/team/lucas-libshutz.jpg',
-    email: 'lsl94@cornell.edu', // Replace with actual email
-    linkedin: 'https://linkedin.com/in/lucaslibshutz', // Replace with actual LinkedIn
-  },
-  {
     name: 'Cam Mezzacane',
     position: 'Autonomy Lead',
     major: 'CS/Math',
@@ -50,6 +41,15 @@ const leadershipTeam = [
     image: '/team/cam-mezzacane.jpg',
     email: 'clm357@cornell.edu', // Replace with actual email
     linkedin: 'https://linkedin.com/in/cam-mezzacane', 
+  },
+  {
+    name: 'Jaiden Grimminck',
+    position: 'Autonomy Lead',
+    major: 'CS',
+    year: '2029',
+    image: '/team/jaiden-grimminck.jpg',
+    email: 'jg2575@cornell.edu', // Replace with actual email
+    linkedin: 'https://www.linkedin.com/in/jaidengrimminck/', 
   },
   {
     name: 'Erica Jiang',

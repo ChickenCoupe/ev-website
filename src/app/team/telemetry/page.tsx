@@ -9,14 +9,14 @@ import Footer from '@/components/Footer'
 const dataTeam= [
     {
       name: 'Rhea Agrawal',
-      position: 'Telemetry Subteam Lead',
+      position: 'Telemetry Lead',
       major: 'CS',
       year: '2028',
       image: '/team/rhea-agrawal.jpg'
     },
     {
       name: 'Katie Xiao',
-      position: 'Telemetry Subteam Lead',
+      position: 'Telemetry Lead',
       major: 'CS/Stats',
       year: '2028',
       image: '/team/katie-xiao.jpg'

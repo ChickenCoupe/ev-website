@@ -47,6 +47,20 @@ const operationsTeam = [
         major: 'ORIE',
         year: '2029',
         image: '/team/allen-lin.jpg'
+    },
+    {
+        name: 'Nick Hasting',
+        position: 'Operations Member',
+        major: 'Applied Economics and Management',
+        year: '2029',
+        image: '/team/nick-hasting.jpeg'
+    },
+    {
+        name: 'Dean Kim',
+        position: 'Operations Member',
+        major: 'E&S',
+        year: '2029',
+        image: '/team/placeholder.svg'
     }
 ]
 

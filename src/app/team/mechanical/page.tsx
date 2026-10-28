@@ -66,6 +66,27 @@ const chassisTeam = [
     year: '2029',
     image: '/team/isabella-rodriguez.jpg'
   },
+  {
+    name: 'Owen Baumann',
+    position: 'Chassis Member',
+    major: 'MAE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Griffin Cords',
+    position: 'Chassis Member',
+    major: 'MAE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  },
+  {
+    name: 'Mouhammad Dia',
+    position: 'Chassis Member',
+    major: 'MAE',
+    year: '2028',
+    image: '/team/placeholder.svg'
+  },
 ];
 
 const drivetrainTeam = [
@@ -128,13 +149,6 @@ const steeringTeam = [
     major: 'MAE',
     year: '2028',
     image: '/team/olivia-mei.jpg'
-  },
-  {
-    name: 'Ashley Johnny',
-    position: 'Steering Member',
-    major: 'ECE',
-    year: '2029',
-    image: '/team/ashley-johnny.jpg'
   },
   {
     name: 'Magnus Simmons',

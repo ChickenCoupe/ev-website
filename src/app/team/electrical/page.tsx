@@ -113,6 +113,13 @@ const electricalTeam = [
     year: '2029',
     image: '/team/placeholder.svg'
   },
+  {
+    name: 'Evan Ng',
+    position: 'Electrical Member',
+    major: 'ECE',
+    year: '2029',
+    image: '/team/placeholder.svg'
+  }
 ]
 
 const sortTeamMembers = <T extends { name: string; year: string }>(members: T[]) =>

@@ -8,18 +8,18 @@ import Footer from '@/components/Footer'
 // Autonomy team data
 const autonomyTeam = [
   {
-    name: 'Lucas Libshutz',
-    position: 'Autonomy Lead',
-    major: 'MAE',
-    year: '2027',
-    image: '/team/lucas-libshutz.jpg'
-  },
-  {
     name: 'Cam Mezzacane',
     position: 'Autonomy Lead',
     major: 'CS/Math',
     year: '2028',
     image: '/team/cam-mezzacane.jpg'
+  },
+  {
+    name: 'Jaiden Grimminck',
+    position: 'Autonomy Lead',
+    major: 'CS',
+    year: '2029',
+    image: '/team/jaiden-grimminck.jpg'
   },
   {
     name: 'Sophia Tsang',
@@ -34,13 +34,6 @@ const autonomyTeam = [
     major: 'CS/ECE',
     year: '2029',
     image: '/team/ethan-berkowitz.jpg'
-  },
-  {
-    name: 'Jaiden Grimminck',
-    position: 'Autonomy Member',
-    major: 'CS',
-    year: '2029',
-    image: '/team/jaiden-grimminck.jpg'
   },
   {
     name: 'Smriti Kumar',
@@ -76,6 +69,20 @@ const autonomyTeam = [
     major: 'CS',
     year: '2028',
     image: '/team/sameer-mehta.jpg'
+  },
+  {
+    name: 'Andre Kostenko',
+    position: 'Autonomy Member',
+    major: 'CS',
+    year: '2029',
+    image: '/team/andre-kostenko.jpg'
+  },
+  {
+    name: 'Patrick Yang',
+    position: 'Autonomy Member',
+    major: 'CS',
+    year: '2028',
+    image: '/team/placeholder.svg'
   },
   {
     name: 'Sidharth Rao',

@@ -93,11 +93,6 @@ const sponsors = [
     website: "https://oshpark.com/"
   },
   {
-    name: "Penske",
-    logo: "/sponsors/penske-logo.svg",
-    website: "https://www.gopenske.com/",
-  },
-  {
     name: "Portwell",
     logo: "/sponsors/portwell-logo.png",
     website: "https://portwell.com/"

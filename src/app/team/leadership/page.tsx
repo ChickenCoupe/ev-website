@@ -34,7 +34,7 @@ const leadershipTeam = [
     linkedin: 'https://linkedin.com/in/ruth-taddesse', 
   },
   {
-    name: 'Cam Mezzacane',
+    name: 'Cam Mazzacane',
     position: 'Autonomy Lead',
     major: 'CS/Math',
     year: '2028',

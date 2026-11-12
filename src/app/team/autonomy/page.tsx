@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 // Autonomy team data
 const autonomyTeam = [
   {
-    name: 'Cam Mezzacane',
+    name: 'Cam Mazzacane',
     position: 'Autonomy Lead',
     major: 'CS/Math',
     year: '2028',
